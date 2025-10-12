@@ -3,40 +3,12 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import PlaceHolderImages from "@/lib/placeholder-images.json";
+import { getServices, Service } from "@/lib/services";
 import { ArrowRight, CheckCircle, Mail, Phone, Scale, Users, FileText, Landmark, Megaphone, GraduationCap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getInsights, type Insight } from "@/lib/insights";
-
-const featuredSolutions = [
-    {
-        title: "Capital Raising & Blended Finance",
-        description: "Unlock capital and structure for impact across markets and mandates.",
-        href: "/services#capital-raising"
-    },
-    {
-        title: "Trade & Investment Structuring",
-        description: "Enter markets confidently with strategic positioning and compliance.",
-        href: "/services#trade-investment"
-    },
-    {
-        title: "Corporate Structuring & Tax Strategy",
-        description: "Structure to scale, govern to endure, and optimize for generations.",
-        href: "/services#enterprise-architecture"
-    },
-    {
-        title: "IP Commercialization & Talent Strategy",
-        description: "Protect your ideas, monetize your identity, and scale your influence.",
-        href: "/services#ip-commercialization"
-    },
-    {
-        title: "Regulatory Affairs & Public Policy",
-        description: "Engage power, navigate policy, and shape the future of your industry.",
-        href: "/services#public-affairs"
-    },
-]
 
 const whatWeSolve = [
     "Capital and investment readiness for high-growth ventures",
@@ -57,21 +29,26 @@ const caseStudyHighlights = [
 
 export default function Home() {
   const [insights, setInsights] = useState<Insight[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      async function fetchInsights() {
+      async function fetchData() {
           setLoading(true);
           try {
-            const fetchedInsights = await getInsights();
+            const [fetchedInsights, fetchedServices] = await Promise.all([
+                getInsights(),
+                getServices()
+            ]);
             setInsights(fetchedInsights);
+            setServices(fetchedServices.slice(0,5));
           } catch (error) {
-              console.error("Failed to fetch insights:", error);
+              console.error("Failed to fetch data:", error);
           } finally {
             setLoading(false);
           }
       }
-      fetchInsights();
+      fetchData();
   }, []);
 
   return (
@@ -110,8 +87,8 @@ export default function Home() {
                     <div className="flex items-start gap-4">
                         <Megaphone className="size-8 text-primary-foreground" />
                         <div>
-                            <CardTitle>Credence Engage</CardTitle>
-                            <CardDescription className="text-primary-foreground/80">Events and influence platforms</CardDescription>
+                             <CardTitle>Credence Engage</CardTitle>
+                             <CardDescription className="text-primary-foreground/80">Events and influence platforms</CardDescription>
                         </div>
                     </div>
                 </CardHeader>
@@ -217,7 +194,7 @@ export default function Home() {
       <section>
           <h2 className="text-3xl font-bold text-center">Featured Solutions</h2>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredSolutions.map((solution) => (
+              {services.map((solution) => (
                   <Card key={solution.title}>
                       <CardHeader>
                           <CardTitle>{solution.title}</CardTitle>
@@ -225,7 +202,7 @@ export default function Home() {
                       <CardContent>
                           <p className="text-muted-foreground mb-4">{solution.description}</p>
                           <Button asChild variant="link" className="p-0">
-                            <Link href={solution.href}>Learn More <ArrowRight className="ml-2 size-4" /></Link>
+                            <Link href={`/services/${solution.slug}`}>Learn More <ArrowRight className="ml-2 size-4" /></Link>
                           </Button>
                       </CardContent>
                   </Card>
@@ -345,5 +322,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
