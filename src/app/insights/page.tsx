@@ -6,8 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { BarChart, Scale, FileText, Building, Globe, Landmark } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { getInsights, type Insight } from "@/lib/insights";
+import { cn } from "@/lib/utils";
 
 const categories = [
     { icon: <BarChart />, title: "Capital, Investment & Blended Finance", description: "Funding trends, investor mandates, and catalytic finance models." },
@@ -21,6 +22,7 @@ const categories = [
 export default function InsightsPage() {
     const [insights, setInsights] = useState<Insight[]>([]);
     const [loading, setLoading] = useState(true);
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
     useEffect(() => {
         async function fetchInsights() {
@@ -37,6 +39,21 @@ export default function InsightsPage() {
         fetchInsights();
     }, []);
 
+    const filteredInsights = useMemo(() => {
+        if (!selectedCategory) {
+            return insights;
+        }
+        return insights.filter(insight => insight.category === selectedCategory);
+    }, [insights, selectedCategory]);
+
+    const handleCategoryClick = (categoryTitle: string) => {
+        if (selectedCategory === categoryTitle) {
+            setSelectedCategory(null); // Deselect if clicked again
+        } else {
+            setSelectedCategory(categoryTitle);
+        }
+    };
+
     return (
         <div className="py-16 lg:py-24 space-y-24 mx-auto lg:w-85">
             <div className="text-center">
@@ -49,7 +66,14 @@ export default function InsightsPage() {
                  <h2 className="text-3xl font-bold text-center mb-10">Content Categories</h2>
                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                      {categories.map(category => (
-                         <Card key={category.title}>
+                         <Card 
+                            key={category.title}
+                            className={cn(
+                                "cursor-pointer transition-all",
+                                selectedCategory === category.title ? "border-primary ring-2 ring-primary" : "hover:shadow-md"
+                            )}
+                            onClick={() => handleCategoryClick(category.title)}
+                         >
                              <CardHeader className="flex-row gap-4 items-center">
                                 <div className="text-primary">{category.icon}</div>
                                 <CardTitle>{category.title}</CardTitle>
@@ -67,8 +91,8 @@ export default function InsightsPage() {
                 <div className="mt-10 grid gap-6">
                     {loading ? (
                         <p className="text-center">Loading insights...</p>
-                    ) : insights.length > 0 ? (
-                        insights.map((insight) => (
+                    ) : filteredInsights.length > 0 ? (
+                        filteredInsights.map((insight) => (
                         <div key={insight.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 border rounded-lg">
                             <div>
                             <h3 className="font-semibold text-lg">{insight.title}</h3>
@@ -80,7 +104,7 @@ export default function InsightsPage() {
                         </div>
                         ))
                     ) : (
-                        <p className="text-center text-muted-foreground">No insights published yet.</p>
+                        <p className="text-center text-muted-foreground">No insights found for this category.</p>
                     )}
                   </div>
             </section>
