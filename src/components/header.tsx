@@ -21,7 +21,7 @@ import React from "react";
 import Marquee from "./marquee";
 import { ArrowRight } from "lucide-react";
 import { type Insight } from "@/lib/insights";
-import { Service, getServices } from "@/lib/services";
+import { Service, getServices } from "@/lib/services.tsx";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -127,8 +127,7 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
                       </NavigationMenuContent>
                     </>
                   ) : (
-                    <Link href={link.href} passHref legacyBehavior>
-                      <NavigationMenuLink
+                    <NavigationMenuLink asChild
                         className={cn(
                           navigationMenuTriggerStyle(),
                           "hover:underline hover:decoration-primary hover:underline-offset-4 hover:decoration-2",
@@ -136,9 +135,8 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
                         )}
                         active={pathname === link.href}
                       >
-                        {link.label}
-                      </NavigationMenuLink>
-                    </Link>
+                        <Link href={link.href}>{link.label}</Link>
+                    </NavigationMenuLink>
                   )}
                 </NavigationMenuItem>
               ))}
