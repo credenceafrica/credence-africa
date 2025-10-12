@@ -72,7 +72,7 @@ export default function InsightsPage() {
                         <div key={insight.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 border rounded-lg">
                             <div>
                             <h3 className="font-semibold text-lg">{insight.title}</h3>
-                            <p className="text-sm text-muted-foreground mt-1">{insight.date}</p>
+                            <p className="text-sm text-muted-foreground mt-1">{insight.date} | {insight.category}</p>
                             </div>
                             <Button asChild variant="link" className="mt-2 sm:mt-0">
                             <Link href={`/insights/${insight.slug}`}>Read More</Link>
