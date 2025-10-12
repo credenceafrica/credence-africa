@@ -21,11 +21,12 @@ import React from "react";
 import Marquee from "./marquee";
 import { ArrowRight } from "lucide-react";
 import { type Insight } from "@/lib/insights";
+import { Service, getServices } from "@/lib/services";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Services", isServices: true },
   { href: "/sectors", label: "Sectors", isSectors: true },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/insights", label: "Insights" },
@@ -47,7 +48,7 @@ const sectorLinks = [
 ];
 
 
-export function Header({insights}: {insights: Insight[]}) {
+export function Header({insights, services}: {insights: Insight[], services: Service[]}) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isAdminPage = pathname.startsWith('/admin');
@@ -106,6 +107,25 @@ export function Header({insights}: {insights: Insight[]}) {
                         </div>
                       </NavigationMenuContent>
                     </>
+                  ) : link.isServices ? (
+                     <>
+                      <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(),"hover:underline hover:decoration-primary hover:underline-offset-4 hover:decoration-2","data-[active]:underline data-[active]:decoration-primary data-[active]:underline-offset-4 data-[active]:decoration-2 bg-white hover:bg-white")}>
+                         <Link href={link.href} className={cn(pathname.startsWith("/services") ? 'underline decoration-primary underline-offset-4 decoration-2' : '')}>Services</Link>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                          {services.map((service) => (
+                            <ListItem
+                              key={service.title}
+                              title={service.title}
+                              href={`/services/${service.slug}`}
+                            >
+                              {service.description}
+                            </ListItem>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </>
                   ) : (
                     <Link href={link.href} passHref legacyBehavior>
                       <NavigationMenuLink
@@ -162,3 +182,31 @@ export function Header({insights}: {insights: Insight[]}) {
     </>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
+
+    
