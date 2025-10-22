@@ -82,63 +82,69 @@ export default function Home() {
 
       {/* Engage and Institute Section */}
         <section className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-primary text-primary-foreground h-full transition-shadow hover:shadow-lg flex flex-col">
-                <CardHeader>
-                    <div className="flex items-start gap-4">
-                        <Megaphone className="size-8 text-primary-foreground" />
-                        <div>
-                             <CardTitle>Credence Engage</CardTitle>
-                             <CardDescription className="text-primary-foreground/80">Events and influence platforms</CardDescription>
+            <Link href="https://engage.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
+                <Card className="bg-primary text-primary-foreground h-full transition-shadow hover:shadow-lg flex flex-col w-full">
+                    <CardHeader>
+                        <div className="flex items-start gap-4">
+                            <Megaphone className="size-8 text-primary-foreground" />
+                            <div>
+                                <CardTitle>Credence Engage</CardTitle>
+                                <CardDescription className="text-primary-foreground/80">Events and influence platforms</CardDescription>
+                            </div>
                         </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <p className="text-primary-foreground/90">Credence Engage builds platforms of visibility, influence, and access that translate institutional goals into strategic relationships and market leadership.</p>
+                    </CardContent>
+                    <div className="p-6 pt-0">
+                        <Button asChild variant="secondary">
+                            <span className="flex items-center">Visit Platform <ArrowRight className="ml-2" /></span>
+                        </Button>
                     </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <p className="text-primary-foreground/90">Credence Engage builds platforms of visibility, influence, and access that translate institutional goals into strategic relationships and market leadership.</p>
-                </CardContent>
-                <div className="p-6 pt-0">
-                    <Button asChild variant="secondary">
-                        <Link href="https://engage.credence.africa" target="_blank" rel="noopener noreferrer">Visit Platform <ArrowRight className="ml-2" /></Link>
-                    </Button>
-                </div>
-            </Card>
-             <Card className="border-primary border-2 h-full transition-shadow hover:shadow-lg flex flex-col">
-                <CardHeader>
-                    <div className="flex items-start gap-4">
-                        <GraduationCap className="size-8 text-primary" />
-                        <div>
-                            <CardTitle>Credence Institute</CardTitle>
-                            <CardDescription>Learning and leadership</CardDescription>
+                </Card>
+            </Link>
+             <Link href="https://institute.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
+                <Card className="border-primary border-2 h-full transition-shadow hover:shadow-lg flex flex-col w-full">
+                    <CardHeader>
+                        <div className="flex items-start gap-4">
+                            <GraduationCap className="size-8 text-primary" />
+                            <div>
+                                <CardTitle>Credence Institute</CardTitle>
+                                <CardDescription>Learning and leadership</CardDescription>
+                            </div>
                         </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <p className="text-muted-foreground">Credence Institute delivers capacity and leadership programs that move knowledge into practice, preparing Africa’s professionals and institutions for high-performance governance and economic transformation.</p>
+                    </CardContent>
+                    <div className="p-6 pt-0">
+                        <Button asChild variant="outline">
+                             <span className="flex items-center">Visit Platform <ArrowRight className="ml-2" /></span>
+                        </Button>
                     </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <p className="text-muted-foreground">Credence Institute delivers capacity and leadership programs that move knowledge into practice, preparing Africa’s professionals and institutions for high-performance governance and economic transformation.</p>
-                </CardContent>
-                 <div className="p-6 pt-0">
-                    <Button asChild variant="outline">
-                        <Link href="https://institute.credence.africa" target="_blank" rel="noopener noreferrer">Visit Platform <ArrowRight className="ml-2" /></Link>
-                    </Button>
-                </div>
-            </Card>
-            <Card className="border-border h-full transition-shadow hover:shadow-lg flex flex-col">
-                <CardHeader>
-                    <div className="flex items-start gap-4">
-                        <Newspaper className="size-8 text-primary" />
-                        <div>
-                            <CardTitle>Credible Perspectives</CardTitle>
-                            <CardDescription>Media and insights</CardDescription>
+                </Card>
+            </Link>
+            <Link href="http://perspectives.credence.africa/" target="_blank" rel="noopener noreferrer" className="flex">
+                <Card className="border-border h-full transition-shadow hover:shadow-lg flex flex-col w-full">
+                    <CardHeader>
+                        <div className="flex items-start gap-4">
+                            <Newspaper className="size-8 text-primary" />
+                            <div>
+                                <CardTitle>Credible Perspectives</CardTitle>
+                                <CardDescription>Media and insights</CardDescription>
+                            </div>
                         </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <p className="text-muted-foreground">The thought leadership platform of the Credence ecosystem, amplifying insight and analysis that shape Africa’s public dialogue, policy reform, and institutional accountability.</p>
+                    </CardContent>
+                    <div className="p-6 pt-0">
+                        <Button asChild variant="outline">
+                            <span className="flex items-center">Explore Insights <ArrowRight className="ml-2" /></span>
+                        </Button>
                     </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <p className="text-muted-foreground">The thought leadership, media, and publication platform of the Credence ecosystem. It amplifies insight, analysis, and longform commentary that shape Africa’s public dialogue, policy reform, and institutional accountability.</p>
-                </CardContent>
-                <div className="p-6 pt-0">
-                    <Button asChild variant="outline">
-                        <Link href="/insights">Explore Insights <ArrowRight className="ml-2" /></Link>
-                    </Button>
-                </div>
-            </Card>
+                </Card>
+            </Link>
         </section>
       
       {/* Who We Are */}
