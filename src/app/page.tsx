@@ -3,8 +3,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { getServices, Service } from "@/lib/services";
-import { ArrowRight, CheckCircle, Mail, Phone, Scale, Users, FileText, Landmark, Megaphone, GraduationCap } from "lucide-react";
+import { getServices, Service } from "@/lib/services.tsx";
+import { ArrowRight, CheckCircle, Mail, Phone, Scale, Users, FileText, Landmark, Megaphone, GraduationCap, Newspaper } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* Engage and Institute Section */}
-        <section className="grid md:grid-cols-2 gap-8">
+        <section className="grid md:grid-cols-3 gap-8">
             <Card className="bg-primary text-primary-foreground h-full transition-shadow hover:shadow-lg flex flex-col">
                 <CardHeader>
                     <div className="flex items-start gap-4">
@@ -117,6 +117,25 @@ export default function Home() {
                  <div className="p-6 pt-0">
                     <Button asChild variant="outline">
                         <Link href="https://institute.credence.africa" target="_blank" rel="noopener noreferrer">Visit Platform <ArrowRight className="ml-2" /></Link>
+                    </Button>
+                </div>
+            </Card>
+            <Card className="border-border h-full transition-shadow hover:shadow-lg flex flex-col">
+                <CardHeader>
+                    <div className="flex items-start gap-4">
+                        <Newspaper className="size-8 text-primary" />
+                        <div>
+                            <CardTitle>Credible Perspectives</CardTitle>
+                            <CardDescription>Media and insights</CardDescription>
+                        </div>
+                    </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                    <p className="text-muted-foreground">The thought leadership, media, and publication platform of the Credence ecosystem. It amplifies insight, analysis, and longform commentary that shape Africa’s public dialogue, policy reform, and institutional accountability.</p>
+                </CardContent>
+                <div className="p-6 pt-0">
+                    <Button asChild variant="outline">
+                        <Link href="/insights">Explore Insights <ArrowRight className="ml-2" /></Link>
                     </Button>
                 </div>
             </Card>
