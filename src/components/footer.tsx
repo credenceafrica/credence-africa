@@ -4,8 +4,13 @@
 import Link from "next/link";
 import { Logo } from "./logo";
 import { Button } from "./ui/button";
+import { usePathname } from 'next/navigation';
 
-export function Footer({ isAdminPage }: { isAdminPage: boolean }) {
+export function Footer() {
+
+  const pathname = usePathname();
+  const isAdminPage = pathname.startsWith('/admin');
+
   if (isAdminPage) {
     return null;
   }
