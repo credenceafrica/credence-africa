@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -17,7 +16,7 @@ import { Bus, Church, Handshake, HeartPulse, Leaf, Briefcase, Laptop, Menu, Mic,
 import { Logo } from "./logo";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Marquee from "./marquee";
 import { ArrowRight } from "lucide-react";
 import type { Insight } from "@/lib/insights";
@@ -53,13 +52,19 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isAdminPage = pathname.startsWith('/admin');
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   if (isAdminPage) {
     return null;
   }
 
   return (
     <>
-    {insights && insights.length > 0 && (
+    {isMounted && insights && insights.length > 0 && (
       <div className="bg-primary text-primary-foreground">
         <Marquee pauseOnHover>
           {insights.map((insight) => (
