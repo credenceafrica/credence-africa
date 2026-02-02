@@ -1,4 +1,5 @@
 
+import { cache } from "react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { firestore } from "@/firebase";
 
@@ -141,7 +142,7 @@ function slugify(text: string) {
       .replace(/[^\w-]+/g, '');
 }
 
-export async function getInsights(): Promise<Insight[]> {
+export const getInsights = cache(async (): Promise<Insight[]> => {
     try {
         const insightsCollection = collection(firestore, 'insights');
         const insightsQuery = query(insightsCollection, orderBy('createdAt', 'desc'));
@@ -195,7 +196,7 @@ export async function getInsights(): Promise<Insight[]> {
         // Fallback to static insights if Firestore fails
         return staticInsights;
     }
-}
+});
 
 export async function getInsight(slug: string): Promise<Insight | undefined> {
     const allInsights = await getInsights();
