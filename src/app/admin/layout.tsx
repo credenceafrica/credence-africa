@@ -58,7 +58,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                     <div className="flex flex-col items-center gap-2">
                          <Logo className="h-16 w-auto" />
                          <div className="text-center group-data-[collapsible=icon]:hidden">
-                            <p className="text-lg font-semibold text-primary-foreground">Hi, Credence</p>
+                            <p className="text-lg font-semibold text-primary">Hi, Credence</p>
                         </div>
                     </div>
                 </SidebarHeader>
