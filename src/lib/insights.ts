@@ -1,6 +1,6 @@
 
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
-import { db } from "./firebase";
+import { firestore } from "@/firebase";
 
 export interface Insight {
     id: string;
@@ -143,7 +143,7 @@ function slugify(text: string) {
 
 export async function getInsights(): Promise<Insight[]> {
     try {
-        const insightsCollection = collection(db, 'insights');
+        const insightsCollection = collection(firestore, 'insights');
         const insightsQuery = query(insightsCollection, orderBy('createdAt', 'desc'));
         const snapshot = await getDocs(insightsQuery);
     

@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { collection, getDocs, deleteDoc, doc, DocumentData, orderBy, query } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { firestore } from '@/firebase';
 import {
   Table,
   TableBody,
@@ -36,7 +36,7 @@ export default function ManageConsultationsPage() {
 
   const fetchRequests = async () => {
     setLoading(true);
-    const q = query(collection(db, 'consultations'), orderBy('createdAt', 'desc'));
+    const q = query(collection(firestore, 'consultations'), orderBy('createdAt', 'desc'));
     const querySnapshot = await getDocs(q);
     const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setRequests(requestsData);
@@ -55,7 +55,7 @@ export default function ManageConsultationsPage() {
   const handleConfirmDelete = async () => {
     if (!requestToDelete) return;
     try {
-      await deleteDoc(doc(db, 'consultations', requestToDelete));
+      await deleteDoc(doc(firestore, 'consultations', requestToDelete));
       toast({
         title: 'Success',
         description: 'Request deleted successfully.',

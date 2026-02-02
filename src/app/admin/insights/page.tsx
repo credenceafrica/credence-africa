@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { collection, getDocs, deleteDoc, doc, DocumentData } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { firestore } from '@/firebase';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -40,7 +40,7 @@ export default function ManageInsightsPage() {
 
   const fetchInsights = async () => {
     setLoading(true);
-    const querySnapshot = await getDocs(collection(db, 'insights'));
+    const querySnapshot = await getDocs(collection(firestore, 'insights'));
     const insightsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setInsights(insightsData);
     setLoading(false);
@@ -54,7 +54,7 @@ export default function ManageInsightsPage() {
   const handleConfirmDelete = async () => {
     if (!insightToDelete) return;
     try {
-      await deleteDoc(doc(db, 'insights', insightToDelete));
+      await deleteDoc(doc(firestore, 'insights', insightToDelete));
       toast({
         title: 'Success',
         description: 'Insight deleted successfully.',

@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { collection, getDocs, deleteDoc, doc, DocumentData, orderBy, query } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { firestore } from '@/firebase';
 import {
   Table,
   TableBody,
@@ -36,7 +36,7 @@ export default function ManageCaseStudyRequestsPage() {
 
   const fetchRequests = async () => {
     setLoading(true);
-    const q = query(collection(db, 'caseStudyAccessRequests'), orderBy('createdAt', 'desc'));
+    const q = query(collection(firestore, 'caseStudyAccessRequests'), orderBy('createdAt', 'desc'));
     const querySnapshot = await getDocs(q);
     const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setRequests(requestsData);
@@ -55,7 +55,7 @@ export default function ManageCaseStudyRequestsPage() {
   const handleConfirmDelete = async () => {
     if (!requestToDelete) return;
     try {
-      await deleteDoc(doc(db, 'caseStudyAccessRequests', requestToDelete));
+      await deleteDoc(doc(firestore, 'caseStudyAccessRequests', requestToDelete));
       toast({
         title: 'Success',
         description: 'Request deleted successfully.',
@@ -142,4 +142,3 @@ export default function ManageCaseStudyRequestsPage() {
     </div>
   );
 }
-

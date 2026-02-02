@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { firestore } from '@/firebase';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -57,7 +57,7 @@ export default function EditInsightPage() {
   useEffect(() => {
     if (!id) return;
     const fetchInsight = async () => {
-      const docRef = doc(db, 'insights', id);
+      const docRef = doc(firestore, 'insights', id);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -99,7 +99,7 @@ export default function EditInsightPage() {
   const onSubmit = async (data: InsightFormValues) => {
     setLoading(true);
     try {
-      const docRef = doc(db, 'insights', id);
+      const docRef = doc(firestore, 'insights', id);
       await updateDoc(docRef, {
         title: data.title,
         content: data.content,

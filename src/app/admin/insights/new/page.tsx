@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db, auth } from '@/lib/firebase';
+import { firestore, auth } from '@/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -77,7 +77,7 @@ export default function NewInsightPage() {
 
     setLoading(true);
     try {
-      await addDoc(collection(db, 'insights'), {
+      await addDoc(collection(firestore, 'insights'), {
         title: data.title,
         content: data.content,
         category: data.category,

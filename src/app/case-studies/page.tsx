@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { firestore } from "@/firebase";
 import { useToast } from "@/hooks/use-toast";
 
 const featuredStudies = [
@@ -54,7 +54,7 @@ export default function CaseStudiesPage() {
     const onSubmit = async (data: FormValues) => {
         setLoading(true);
         try {
-            await addDoc(collection(db, 'caseStudyAccessRequests'), {
+            await addDoc(collection(firestore, 'caseStudyAccessRequests'), {
                 ...data,
                 createdAt: serverTimestamp(),
             });

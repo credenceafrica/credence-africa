@@ -4,7 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { auth, db } from '@/lib/firebase';
+import { auth, firestore } from '@/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
@@ -23,13 +23,13 @@ export default function AdminDashboard() {
       router.push('/admin/login');
     } else if (user) {
       const fetchData = async () => {
-        const insightsSnapshot = await getDocs(collection(db, "insights"));
+        const insightsSnapshot = await getDocs(collection(firestore, "insights"));
         setInsightCount(insightsSnapshot.size);
         
-        const consultationsSnapshot = await getDocs(collection(db, "consultations"));
+        const consultationsSnapshot = await getDocs(collection(firestore, "consultations"));
         setConsultationCount(consultationsSnapshot.size);
 
-        const caseStudyRequestsSnapshot = await getDocs(collection(db, "caseStudyAccessRequests"));
+        const caseStudyRequestsSnapshot = await getDocs(collection(firestore, "caseStudyAccessRequests"));
         setCaseStudyRequestCount(caseStudyRequestsSnapshot.size);
       };
       fetchData();
