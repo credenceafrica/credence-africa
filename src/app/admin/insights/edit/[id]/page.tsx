@@ -11,9 +11,9 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
+import { LexicalEditor } from '@/components/lexical-editor';
 
 const insightSchema = z.object({
   title: z.string().min(1, 'Title is required'),
@@ -80,7 +80,7 @@ export default function EditInsightPage() {
       }
     };
     fetchInsight();
-  }, [id, form, router, toast]);
+  }, [id, router, toast, form]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -150,11 +150,7 @@ export default function EditInsightPage() {
               <FormItem>
                 <FormLabel>Content</FormLabel>
                 <FormControl>
-                  <Textarea
-                    placeholder="Write your insight content here..."
-                    className="min-h-[300px]"
-                    {...field}
-                  />
+                  <LexicalEditor onChange={field.onChange} initialValue={field.value} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
