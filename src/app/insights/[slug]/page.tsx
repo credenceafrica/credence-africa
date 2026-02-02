@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, Eye, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { firestore } from "@/firebase";
-import { collection, addDoc, query, where, onSnapshot, doc, updateDoc, increment, serverTimestamp, orderBy } from "firebase/firestore";
+import { collection, addDoc, query, where, onSnapshot, doc, updateDoc, increment, serverTimestamp } from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -72,9 +72,14 @@ export default function InsightPage() {
   useEffect(() => {
     if (!insight) return;
 
-    const commentsQuery = query(collection(firestore, `insights/${insight.id}/comments`), where("approved", "==", true), orderBy("createdAt", "desc"));
+    const commentsQuery = query(collection(firestore, `insights/${insight.id}/comments`), where("approved", "==", true));
     const unsubscribe = onSnapshot(commentsQuery, (snapshot) => {
       const newComments: Comment[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Comment));
+      newComments.sort((a, b) => {
+        const timeA = a.createdAt ? a.createdAt.toMillis() : 0;
+        const timeB = b.createdAt ? b.createdAt.toMillis() : 0;
+        return timeB - timeA;
+      });
       setComments(newComments);
     }, (error) => {
         console.error("Error fetching comments: ", error);
