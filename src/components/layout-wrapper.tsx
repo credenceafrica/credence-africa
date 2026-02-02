@@ -30,9 +30,7 @@ export function LayoutWrapper({
         </Suspense>
         {children}
       </main>
-      <Suspense>
-        {footer}
-      </Suspense>
+      {footer}
     </div>
   );
 }

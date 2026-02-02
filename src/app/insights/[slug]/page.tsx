@@ -4,6 +4,7 @@ import { getInsight, getInsights, type Insight } from "@/lib/insights";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 interface InsightPageProps {
   params: {
@@ -63,21 +64,22 @@ export default async function InsightPage({ params }: InsightPageProps) {
         )}
 
         <div
-          className="prose lg:prose-xl max-w-none mx-auto whitespace-pre-wrap"
+          className="prose lg:prose-xl max-w-none mx-auto"
           dangerouslySetInnerHTML={{ __html: insight.content }}
         />
       </div>
 
       {otherInsights.length > 0 && (
         <aside className="mt-16 pt-12 border-t">
-          <h2 className="text-3xl font-bold text-center mb-10">Interesting</h2>
-          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-bold text-center mb-10">Other Recent Insights</h2>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
             {otherInsights.map((otherInsight) => (
-              <div key={otherInsight.id} className="flex flex-col">
-                <h3 className="font-semibold text-lg">{otherInsight.title}</h3>
+              <div key={otherInsight.id} className="flex flex-col border rounded-lg p-6">
+                <p className="text-sm text-muted-foreground">{otherInsight.category}</p>
+                <h3 className="font-semibold text-lg mt-2 flex-grow">{otherInsight.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{otherInsight.date}</p>
-                <Button asChild variant="link" className="p-0 mt-auto self-start">
-                    <Link href={`/insights/${otherInsight.slug}`}>Read More</Link>
+                <Button asChild variant="link" className="p-0 mt-4 self-start">
+                    <Link href={`/insights/${otherInsight.slug}`}>Read More <ArrowRight className="ml-2 size-4" /></Link>
                 </Button>
               </div>
             ))}

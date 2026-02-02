@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { LayoutWrapper } from "@/components/layout-wrapper";
+import { ScrollToTop } from "@/components/scroll-to-top";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
@@ -34,10 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${outfit.variable} font-sans antialiased bg-background text-foreground`}
-        suppressHydrationWarning
       >
         <LayoutWrapper
           header={<SiteHeader />}
@@ -46,6 +46,9 @@ export default function RootLayout({
           {children}
         </LayoutWrapper>
         <Toaster />
+        <Suspense>
+          <ScrollToTop />
+        </Suspense>
       </body>
     </html>
   );
