@@ -47,6 +47,7 @@ export default function ManageCommentsPage() {
       }));
       setComments(commentsData);
     } catch (err: any) {
+      console.error(err?.message);
       toast({
         variant: 'destructive',
         title: 'Error loading comments',
