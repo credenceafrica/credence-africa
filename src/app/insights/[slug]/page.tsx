@@ -1,7 +1,7 @@
 
 "use client";
 
-import { notFound } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import { getInsight, type Insight } from "@/lib/insights";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,12 +14,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-interface InsightPageProps {
-  params: {
-    slug: string;
-  };
-}
-
 interface Comment {
     id: string;
     author: string;
@@ -28,7 +22,10 @@ interface Comment {
 }
 
 
-export default function InsightPage({ params }: InsightPageProps) {
+export default function InsightPage() {
+  const params = useParams();
+  const slug = typeof params.slug === 'string' ? params.slug : '';
+
   const [insight, setInsight] = useState<Insight | null>(null);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -40,13 +37,13 @@ export default function InsightPage({ params }: InsightPageProps) {
   const { toast } = useToast();
 
   useEffect(() => {
-    if (!params.slug) {
+    if (!slug) {
       setLoading(false);
       return;
     }
     
     async function fetchInsight() {
-      const insightData = await getInsight(params.slug);
+      const insightData = await getInsight(slug);
       if (insightData) {
         setInsight(insightData);
         setLikes(insightData.likes || 0);
@@ -66,11 +63,11 @@ export default function InsightPage({ params }: InsightPageProps) {
 
     // Check if user has already liked this post
     const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
-    if (likedPosts.includes(params.slug)) {
+    if (likedPosts.includes(slug)) {
         setHasLiked(true);
     }
 
-  }, [params.slug]);
+  }, [slug]);
 
   useEffect(() => {
     if (!insight) return;
