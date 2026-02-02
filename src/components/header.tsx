@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -17,8 +18,6 @@ import { Logo } from "./logo";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import React, { useState, useEffect } from "react";
-import Marquee from "./marquee";
-import { ArrowRight } from "lucide-react";
 import type { Insight } from "@/lib/insights";
 import type { Service } from "@/lib/services.tsx";
 
@@ -52,30 +51,11 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isAdminPage = pathname.startsWith('/admin');
 
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   if (isAdminPage) {
     return null;
   }
 
   return (
-    <>
-    {isMounted && insights && insights.length > 0 && (
-      <div className="bg-primary text-primary-foreground">
-        <Marquee pauseOnHover>
-          {insights.map((insight) => (
-            <Link key={insight.id} href={`/insights/${insight.slug}`} className="flex items-center gap-4 text-sm font-medium whitespace-nowrap mx-4">
-              <span>{insight.title}</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          ))}
-        </Marquee>
-      </div>
-    )}
     <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
@@ -182,7 +162,6 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
         </div>
       </div>
     </header>
-    </>
   );
 }
 
@@ -211,5 +190,3 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = "ListItem"
-
-    
