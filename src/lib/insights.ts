@@ -150,7 +150,7 @@ export const getInsights = cache(async (): Promise<Insight[]> => {
     
         const firestoreInsights: Insight[] = snapshot.docs.map(doc => {
             const data = doc.data();
-            const slug = slugify(data.title);
+            const slug = data.slug || slugify(data.title);
             
             let image = `https://picsum.photos/seed/${slug}/1200/630`;
             if (data.featuredImage) {

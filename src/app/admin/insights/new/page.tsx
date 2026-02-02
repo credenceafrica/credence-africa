@@ -36,6 +36,14 @@ const insightCategories = [
     "Market Entry & Sector Intelligence",
 ]
 
+const slugify = (text: string) => {
+  if (!text) return '';
+  return text
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
+};
+
 export default function NewInsightPage() {
   const [user] = useAuthState(auth);
   const [loading, setLoading] = useState(false);
@@ -77,8 +85,10 @@ export default function NewInsightPage() {
 
     setLoading(true);
     try {
+      const slug = slugify(data.title);
       await addDoc(collection(firestore, 'insights'), {
         title: data.title,
+        slug: slug,
         content: data.content,
         category: data.category,
         tags: data.tags?.split(',').map(tag => tag.trim()).filter(tag => tag) || [],

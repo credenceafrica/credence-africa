@@ -33,7 +33,15 @@ const insightCategories = [
     "IP, Brand & Digital Asset Strategy",
     "Corporate Structuring, Tax & Expansion",
     "Market Entry & Sector Intelligence",
-]
+];
+
+const slugify = (text: string) => {
+    if (!text) return '';
+    return text
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+};
 
 export default function EditInsightPage() {
   const [loading, setLoading] = useState(false);
@@ -100,8 +108,10 @@ export default function EditInsightPage() {
     setLoading(true);
     try {
       const docRef = doc(firestore, 'insights', id);
+      const slug = slugify(data.title);
       await updateDoc(docRef, {
         title: data.title,
+        slug: slug,
         content: data.content,
         category: data.category,
         tags: data.tags?.split(',').map(tag => tag.trim()).filter(tag => tag) || [],
