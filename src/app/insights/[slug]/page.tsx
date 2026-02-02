@@ -14,14 +14,6 @@ interface InsightPageProps {
 
 export const dynamic = 'force-dynamic';
 
-// This function generates the static pages at build time
-export async function generateStaticParams() {
-    const insights = await getInsights();
-    return insights.map((insight) => ({
-      slug: insight.slug,
-    }));
-}
-
 export async function generateMetadata({ params }: InsightPageProps) {
     const insight = await getInsight(params.slug);
     if (!insight) {

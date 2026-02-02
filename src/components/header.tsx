@@ -20,8 +20,8 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import Marquee from "./marquee";
 import { ArrowRight } from "lucide-react";
-import { type Insight } from "@/lib/insights";
-import { Service, getServices } from "@/lib/services.tsx";
+import type { Insight } from "@/lib/insights";
+import type { Service } from "@/lib/services.tsx";
 
 const navLinks = [
   { href: "/", label: "Home" },
