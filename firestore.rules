@@ -1,3 +1,4 @@
+
 rules_version = '2';
 
 service cloud.firestore {
@@ -6,6 +7,18 @@ service cloud.firestore {
     match /insights/{insightId} {
       allow read: if true;
       allow create, update, delete: if request.auth != null;
+    }
+
+    // Allow authenticated users to manage consultation requests
+    match /consultations/{consultationId} {
+      allow read, delete: if request.auth != null;
+      allow create: if true;
+    }
+
+    // Allow authenticated users to manage case study access requests
+    match /caseStudyAccessRequests/{requestId} {
+      allow read, delete: if request.auth != null;
+      allow create: if true;
     }
   }
 }

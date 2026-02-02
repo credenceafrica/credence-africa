@@ -36,11 +36,20 @@ export default function ManageConsultationsPage() {
 
   const fetchRequests = async () => {
     setLoading(true);
-    const q = query(collection(firestore, 'consultations'), orderBy('createdAt', 'desc'));
-    const querySnapshot = await getDocs(q);
-    const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setRequests(requestsData);
-    setLoading(false);
+    try {
+        const q = query(collection(firestore, 'consultations'), orderBy('createdAt', 'desc'));
+        const querySnapshot = await getDocs(q);
+        const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setRequests(requestsData);
+    } catch (err: any) {
+        toast({
+            variant: 'destructive',
+            title: 'Error loading requests',
+            description: err.message || 'Could not fetch consultation requests.',
+        });
+    } finally {
+        setLoading(false);
+    }
   };
 
   useEffect(() => {

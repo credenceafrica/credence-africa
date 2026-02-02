@@ -36,11 +36,20 @@ export default function ManageCaseStudyRequestsPage() {
 
   const fetchRequests = async () => {
     setLoading(true);
-    const q = query(collection(firestore, 'caseStudyAccessRequests'), orderBy('createdAt', 'desc'));
-    const querySnapshot = await getDocs(q);
-    const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setRequests(requestsData);
-    setLoading(false);
+    try {
+      const q = query(collection(firestore, 'caseStudyAccessRequests'), orderBy('createdAt', 'desc'));
+      const querySnapshot = await getDocs(q);
+      const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setRequests(requestsData);
+    } catch (err: any) {
+      toast({
+        variant: 'destructive',
+        title: 'Error loading requests',
+        description: err.message || 'Could not fetch case study access requests.',
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
