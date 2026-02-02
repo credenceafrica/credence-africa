@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarProvider } from '@/components/ui/sidebar';
 import { Home, Newspaper, MessagesSquare, FileText } from 'lucide-react';
+import { Logo } from '@/components/logo';
 
 const navItems = [
     { href: '/admin', label: 'Dashboard', icon: <Home /> },
@@ -54,8 +55,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <div className="min-h-screen flex">
             <Sidebar side="left" collapsible="icon">
                 <SidebarHeader>
-                    <div className="flex items-center justify-between">
-                         <h1 className="text-xl font-bold text-primary-foreground group-data-[collapsible=icon]:hidden">Admin</h1>
+                    <div className="flex flex-col items-center gap-2">
+                         <Logo className="h-16 w-auto" />
+                         <div className="text-center group-data-[collapsible=icon]:hidden">
+                            <p className="text-lg font-semibold text-primary-foreground">Hi, Credence</p>
+                        </div>
                     </div>
                 </SidebarHeader>
                 <SidebarContent>
