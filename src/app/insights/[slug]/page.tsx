@@ -28,13 +28,13 @@ export async function generateMetadata({ params }: InsightPageProps) {
   }
 
 export default async function InsightPage({ params }: InsightPageProps) {
-  const allInsights = await getInsights();
-  const insight = allInsights.find((i) => i.slug === params.slug);
+  const insight = await getInsight(params.slug);
 
   if (!insight) {
     notFound();
   }
 
+  const allInsights = await getInsights();
   const otherInsights = allInsights.filter(i => i.id !== insight.id).slice(0, 3);
 
   return (
