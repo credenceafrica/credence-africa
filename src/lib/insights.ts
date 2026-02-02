@@ -147,11 +147,7 @@ export async function getInsights(): Promise<Insight[]> {
         const insightsQuery = query(insightsCollection, orderBy('createdAt', 'desc'));
         const snapshot = await getDocs(insightsQuery);
     
-        if (snapshot.empty) {
-            return staticInsights;
-        }
-
-        const insights: Insight[] = snapshot.docs.map(doc => {
+        const firestoreInsights: Insight[] = snapshot.docs.map(doc => {
             const data = doc.data();
             const slug = slugify(data.title);
             
@@ -181,14 +177,19 @@ export async function getInsights(): Promise<Insight[]> {
                 category: data.category,
             };
         });
+        
+        // Combine static and firestore insights, with firestore taking precedence.
+        const combinedInsights = [...firestoreInsights];
+        const firestoreSlugs = new Set(firestoreInsights.map(i => i.slug));
 
-        // If there are no dynamic insights, return the static ones.
-        // Otherwise, return the dynamic ones.
-        if (insights.length === 0) {
-            return staticInsights;
-        }
-      
-        return insights;
+        staticInsights.forEach(staticInsight => {
+            if (!firestoreSlugs.has(staticInsight.slug)) {
+                combinedInsights.push(staticInsight);
+            }
+        });
+        
+        return combinedInsights;
+
     } catch (error) {
         console.error("Error fetching insights from Firestore:", error);
         // Fallback to static insights if Firestore fails
