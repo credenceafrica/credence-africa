@@ -74,14 +74,14 @@ export const getInsights = cache(async (): Promise<Insight[]> => {
 
 export const getInsight = cache(async (slug: string): Promise<Insight | undefined> => {
     try {
+        if (!slug) {
+            return undefined;
+        }
         const insightsCollection = collection(firestore, 'insights');
         const q = query(insightsCollection, where("slug", "==", slug), limit(1));
         const snapshot = await getDocs(q);
 
         if (snapshot.empty) {
-            // try to update view count anyway
-            const docRef = doc(firestore, "insights", snapshot.docs[0].id);
-            await updateDoc(docRef, { views: increment(1) });
             return undefined;
         }
 

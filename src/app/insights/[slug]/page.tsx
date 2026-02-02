@@ -35,19 +35,30 @@ export default function InsightPage({ params }: InsightPageProps) {
   const [newComment, setNewComment] = useState("");
   const [commentAuthor, setCommentAuthor] = useState("");
   const [likes, setLikes] = useState(0);
+  const [views, setViews] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
+    if (!params.slug) {
+      setLoading(false);
+      return;
+    }
+    
     async function fetchInsight() {
       const insightData = await getInsight(params.slug);
       if (insightData) {
         setInsight(insightData);
-        setLikes(insightData.likes);
+        setLikes(insightData.likes || 0);
+        setViews((insightData.views || 0) + 1); // Optimistic update
         
-        // Increment view count
-        const insightRef = doc(firestore, "insights", insightData.id);
-        await updateDoc(insightRef, { views: increment(1) });
+        // Increment view count in firestore
+        try {
+            const insightRef = doc(firestore, "insights", insightData.id);
+            await updateDoc(insightRef, { views: increment(1) });
+        } catch (e) {
+            console.error("Failed to increment view count", e);
+        }
       }
       setLoading(false);
     }
@@ -68,33 +79,53 @@ export default function InsightPage({ params }: InsightPageProps) {
     const unsubscribe = onSnapshot(commentsQuery, (snapshot) => {
       const newComments: Comment[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Comment));
       setComments(newComments);
+    }, (error) => {
+        console.error("Error fetching comments: ", error);
+        toast({
+            variant: "destructive",
+            title: "Error",
+            description: "Could not fetch comments.",
+        });
     });
 
     return () => unsubscribe();
-  }, [insight]);
+  }, [insight, toast]);
 
 
   const handleLike = async () => {
     if (!insight) return;
     const insightRef = doc(firestore, "insights", insight.id);
-    const newLikes = hasLiked ? likes - 1 : likes + 1;
     const incrementValue = hasLiked ? -1 : 1;
 
-    await updateDoc(insightRef, { likes: increment(incrementValue) });
-    setLikes(newLikes);
+    // Optimistic UI update
+    setLikes(likes + incrementValue);
     setHasLiked(!hasLiked);
 
-    // Store liked status in local storage
-    const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
-    if (hasLiked) {
-        const index = likedPosts.indexOf(insight.slug);
-        if (index > -1) {
-            likedPosts.splice(index, 1);
+    try {
+        await updateDoc(insightRef, { likes: increment(incrementValue) });
+
+        // Store liked status in local storage
+        const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
+        if (hasLiked) { // Note: this is the state before update
+            const index = likedPosts.indexOf(insight.slug);
+            if (index > -1) {
+                likedPosts.splice(index, 1);
+            }
+        } else {
+            likedPosts.push(insight.slug);
         }
-    } else {
-        likedPosts.push(insight.slug);
+        localStorage.setItem('likedInsights', JSON.stringify(likedPosts));
+    } catch (e) {
+        console.error("Failed to update likes", e);
+        // Revert optimistic update on error
+        setLikes(likes - incrementValue);
+        setHasLiked(!hasLiked);
+        toast({
+            variant: "destructive",
+            title: "Error",
+            description: "Could not update like count.",
+        });
     }
-    localStorage.setItem('likedInsights', JSON.stringify(likedPosts));
   };
 
   const handleCommentSubmit = async (e: React.FormEvent) => {
@@ -133,7 +164,7 @@ export default function InsightPage({ params }: InsightPageProps) {
   if (!insight) {
     notFound();
   }
-
+  
   return (
     <article className="py-12 lg:py-16">
       <div className="max-w-4xl mx-auto">
@@ -141,7 +172,7 @@ export default function InsightPage({ params }: InsightPageProps) {
           <p className="text-sm text-muted-foreground">{insight.date} | {insight.category} | By {insight.author}</p>
           <h1 className="text-4xl font-bold mt-2">{insight.title}</h1>
            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mt-4">
-                <span className="flex items-center gap-1"><Eye className="size-4" /> {insight.views + 1} views</span>
+                <span className="flex items-center gap-1"><Eye className="size-4" /> {views} views</span>
                 <span className="flex items-center gap-1"><Heart className="size-4" /> {likes} likes</span>
                 <span className="flex items-center gap-1"><MessageSquare className="size-4" /> {comments.length} comments</span>
                 <span>{insight.wordCount} words</span>
