@@ -35,8 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${outfit.variable} font-sans antialiased bg-background text-foreground`}
       >
         <LayoutWrapper
