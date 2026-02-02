@@ -62,7 +62,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                     <SidebarMenu>
                         {navItems.map((item) => (
                             <SidebarMenuItem key={item.href}>
-                                <Link href={item.href} legacyBehavior passHref>
+                                <Link href={item.href}>
                                     <SidebarMenuButton tooltip={item.label} isActive={pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))}>
                                         {item.icon}
                                         <span>{item.label}</span>
