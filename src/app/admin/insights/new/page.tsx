@@ -4,7 +4,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { firestore, auth } from '@/firebase';
+import { firestore, auth, storage } from '@/firebase';
+import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -75,6 +76,13 @@ export default function NewInsightPage() {
 
     setLoading(true);
     try {
+      let imageUrl: string | null = null;
+      if (data.featuredImage) {
+        const imageRef = ref(storage, `insights/${Date.now()}_${data.title.replace(/\s+/g, '_')}`);
+        const snapshot = await uploadString(imageRef, data.featuredImage, 'data_url');
+        imageUrl = await getDownloadURL(snapshot.ref);
+      }
+
       const slug = slugify(data.title);
       const wordCount = data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
       await addDoc(collection(firestore, 'insights'), {
@@ -87,7 +95,7 @@ export default function NewInsightPage() {
         authorId: user.uid,
         createdAt: serverTimestamp(),
         published: true,
-        featuredImage: data.featuredImage || null,
+        featuredImage: imageUrl,
         views: 0,
         likes: 0,
         wordCount: wordCount,

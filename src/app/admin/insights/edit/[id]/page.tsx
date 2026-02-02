@@ -4,7 +4,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
-import { firestore } from '@/firebase';
+import { firestore, storage } from '@/firebase';
+import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -97,6 +98,15 @@ export default function EditInsightPage() {
   const onSubmit = async (data: InsightFormValues) => {
     setLoading(true);
     try {
+      let imageUrl = data.featuredImage;
+
+      // Check if a new image was uploaded (it will be a data URL string)
+      if (imageUrl && typeof imageUrl === 'string' && imageUrl.startsWith('data:image')) {
+        const imageRef = ref(storage, `insights/${Date.now()}_${id}`);
+        const snapshot = await uploadString(imageRef, imageUrl, 'data_url');
+        imageUrl = await getDownloadURL(snapshot.ref);
+      }
+      
       const docRef = doc(firestore, 'insights', id);
       const slug = slugify(data.title);
       const wordCount = data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
@@ -106,7 +116,7 @@ export default function EditInsightPage() {
         content: data.content,
         category: data.category,
         tags: data.tags?.split(',').map(tag => tag.trim()).filter(tag => tag) || [],
-        featuredImage: data.featuredImage || null,
+        featuredImage: imageUrl || null,
         wordCount: wordCount,
         updatedAt: serverTimestamp(),
       });
