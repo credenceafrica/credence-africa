@@ -4,7 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { BarChart, Scale, FileText, Building, Globe, Landmark } from "lucide-react";
+import { BarChart, Scale, FileText, Building, Globe, Landmark, Heart, Eye } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useMemo } from "react";
 import { getInsights, type Insight } from "@/lib/insights";
@@ -62,7 +62,35 @@ export default function InsightsPage() {
                 <p className="mt-4 max-w-4xl mx-auto">Credence Insights delivers expert briefings, regulatory intelligence, capital market updates, and sector-specific analysis for Africa-focused businesses, investors, and innovators.</p>
             </div>
 
-            <section id="content-categories">
+            <section id="recent-insights">
+                <h2 className="text-3xl font-bold text-center mb-10">Recent Insights</h2>
+                <div className="mt-10 grid gap-8">
+                    {loading ? (
+                        <p className="text-center">Loading insights...</p>
+                    ) : filteredInsights.length > 0 ? (
+                        filteredInsights.map((insight) => (
+                        <div key={insight.id} className="border rounded-lg p-6 flex flex-col">
+                            <div>
+                            <h3 className="font-semibold text-lg">{insight.title}</h3>
+                            <p className="text-sm text-muted-foreground mt-1">{insight.date} | {insight.category}</p>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
+                                <span className="flex items-center gap-1"><Eye className="size-4" /> {insight.views} views</span>
+                                <span className="flex items-center gap-1"><Heart className="size-4" /> {insight.likes} likes</span>
+                                <span>{insight.wordCount} words</span>
+                            </div>
+                            </div>
+                            <Button asChild variant="link" className="mt-2 self-start px-0">
+                            <Link href={`/insights/${insight.slug}`}>Read More</Link>
+                            </Button>
+                        </div>
+                        ))
+                    ) : (
+                        <p className="text-center text-muted-foreground">No insights found for this category.</p>
+                    )}
+                  </div>
+            </section>
+
+             <section id="content-categories">
                  <h2 className="text-3xl font-bold text-center mb-10">Content Categories</h2>
                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                      {categories.map(category => (
@@ -86,29 +114,6 @@ export default function InsightsPage() {
                  </div>
             </section>
             
-            <section id="recent-insights">
-                <h2 className="text-3xl font-bold text-center mb-10">Recent Insights</h2>
-                <div className="mt-10 grid gap-6">
-                    {loading ? (
-                        <p className="text-center">Loading insights...</p>
-                    ) : filteredInsights.length > 0 ? (
-                        filteredInsights.map((insight) => (
-                        <div key={insight.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 border rounded-lg">
-                            <div>
-                            <h3 className="font-semibold text-lg">{insight.title}</h3>
-                            <p className="text-sm text-muted-foreground mt-1">{insight.date} | {insight.category}</p>
-                            </div>
-                            <Button asChild variant="link" className="mt-2 sm:mt-0">
-                            <Link href={`/insights/${insight.slug}`}>Read More</Link>
-                            </Button>
-                        </div>
-                        ))
-                    ) : (
-                        <p className="text-center text-muted-foreground">No insights found for this category.</p>
-                    )}
-                  </div>
-            </section>
-
             <section id="subscribe" className="bg-secondary py-16">
                 <div className="container mx-auto text-center">
                     <h2 className="text-3xl font-bold">Subscribe to the Credence Insights Briefing</h2>

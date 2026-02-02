@@ -76,6 +76,7 @@ export default function NewInsightPage() {
     setLoading(true);
     try {
       const slug = slugify(data.title);
+      const wordCount = data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
       await addDoc(collection(firestore, 'insights'), {
         title: data.title,
         slug: slug,
@@ -87,6 +88,9 @@ export default function NewInsightPage() {
         createdAt: serverTimestamp(),
         published: true,
         featuredImage: data.featuredImage || null,
+        views: 0,
+        likes: 0,
+        wordCount: wordCount,
       });
       toast({
         title: "Success",

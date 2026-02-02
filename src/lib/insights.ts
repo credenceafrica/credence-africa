@@ -1,6 +1,6 @@
 
 import { cache } from "react";
-import { collection, getDocs, orderBy, query, where, limit } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where, limit, updateDoc, doc, increment } from "firebase/firestore";
 import { firestore } from "@/firebase";
 
 export interface Insight {
@@ -12,6 +12,9 @@ export interface Insight {
     image: string | null;
     content: string;
     category: string;
+    views: number;
+    likes: number;
+    wordCount: number;
 }
 
 function slugify(text: string) {
@@ -36,6 +39,7 @@ export const getInsights = cache(async (): Promise<Insight[]> => {
             if (data.featuredImage) {
                 image = data.featuredImage;
             }
+            const wordCount = data.content ? data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length : 0;
 
             return {
                 id: doc.id,
@@ -54,6 +58,9 @@ export const getInsights = cache(async (): Promise<Insight[]> => {
                 }),
                 image: image,
                 category: data.category,
+                views: data.views || 0,
+                likes: data.likes || 0,
+                wordCount: wordCount,
             };
         });
         
@@ -72,20 +79,24 @@ export const getInsight = cache(async (slug: string): Promise<Insight | undefine
         const snapshot = await getDocs(q);
 
         if (snapshot.empty) {
+            // try to update view count anyway
+            const docRef = doc(firestore, "insights", snapshot.docs[0].id);
+            await updateDoc(docRef, { views: increment(1) });
             return undefined;
         }
 
-        const doc = snapshot.docs[0];
-        const data = doc.data();
+        const docSnap = snapshot.docs[0];
+        const data = docSnap.data();
         
         const insightSlug = data.slug || slugify(data.title);
         let image = `https://picsum.photos/seed/${insightSlug}/1200/630`;
         if (data.featuredImage) {
             image = data.featuredImage;
         }
+        const wordCount = data.content ? data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length : 0;
 
         return {
-            id: doc.id,
+            id: docSnap.id,
             slug: insightSlug,
             title: data.title,
             content: data.content,
@@ -101,6 +112,9 @@ export const getInsight = cache(async (slug: string): Promise<Insight | undefine
             }),
             image: image,
             category: data.category,
+            views: data.views || 0,
+            likes: data.likes || 0,
+            wordCount: wordCount,
         };
     } catch (error) {
         console.error(`Error fetching single insight with slug "${slug}" from Firestore:`, error);

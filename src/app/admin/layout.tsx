@@ -7,13 +7,14 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, type ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Home, Newspaper, MessagesSquare, FileText } from 'lucide-react';
+import { Home, Newspaper, MessagesSquare, FileText, List } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 
 const navItems = [
     { href: '/admin', label: 'Dashboard', icon: <Home className="size-4" /> },
     { href: '/admin/insights', label: 'Insights', icon: <Newspaper className="size-4" /> },
+    { href: '/admin/comments', label: 'Comments', icon: <List className="size-4" /> },
     { href: '/admin/consultations', label: 'Consultations', icon: <MessagesSquare className="size-4" /> },
     { href: '/admin/case-study-requests', label: 'Case Study Requests', icon: <FileText className="size-4" /> },
 ];

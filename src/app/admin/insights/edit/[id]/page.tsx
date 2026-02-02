@@ -99,6 +99,7 @@ export default function EditInsightPage() {
     try {
       const docRef = doc(firestore, 'insights', id);
       const slug = slugify(data.title);
+      const wordCount = data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
       await updateDoc(docRef, {
         title: data.title,
         slug: slug,
@@ -106,6 +107,7 @@ export default function EditInsightPage() {
         category: data.category,
         tags: data.tags?.split(',').map(tag => tag.trim()).filter(tag => tag) || [],
         featuredImage: data.featuredImage || null,
+        wordCount: wordCount,
         updatedAt: serverTimestamp(),
       });
       toast({
