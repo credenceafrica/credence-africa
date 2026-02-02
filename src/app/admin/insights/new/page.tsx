@@ -15,7 +15,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const insightSchema = z.object({
   title: z.string().min(1, 'Title is required'),
@@ -26,15 +25,6 @@ const insightSchema = z.object({
 });
 
 type InsightFormValues = z.infer<typeof insightSchema>;
-
-const insightCategories = [
-    "Capital, Investment & Blended Finance",
-    "Regulatory, Compliance & Licensing",
-    "Policy, Public Affairs & Government Strategy",
-    "IP, Brand & Digital Asset Strategy",
-    "Corporate Structuring, Tax & Expansion",
-    "Market Entry & Sector Intelligence",
-]
 
 const slugify = (text: string) => {
   if (!text) return '';
@@ -157,18 +147,9 @@ export default function NewInsightPage() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Category</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select a category" />
-                        </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                        {insightCategories.map(category => (
-                             <SelectItem key={category} value={category}>{category}</SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                <FormControl>
+                  <Input placeholder="e.g., Capital & Investment" {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
