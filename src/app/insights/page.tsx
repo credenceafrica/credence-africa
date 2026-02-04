@@ -71,7 +71,9 @@ export default function InsightsPage() {
                         filteredInsights.map((insight) => (
                         <div key={insight.id} className="border rounded-lg p-6 flex flex-col">
                             <div>
-                            <h3 className="font-semibold text-lg">{insight.title}</h3>
+                            <Link href={`/insights/${insight.slug}`}>
+                                <h3 className="font-semibold text-lg hover:text-primary hover:underline">{insight.title}</h3>
+                            </Link>
                             <p className="text-sm text-muted-foreground mt-1">{insight.date} | {insight.category}</p>
                             <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
                                 <span className="flex items-center gap-1"><Eye className="size-4" /> {insight.views} views</span>

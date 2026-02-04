@@ -250,7 +250,9 @@ export default function Home() {
                 insights.slice(0, 5).map((insight) => (
                 <div key={insight.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 border rounded-lg">
                     <div>
-                    <h3 className="font-semibold text-lg">{insight.title}</h3>
+                    <Link href={`/insights/${insight.slug}`}>
+                        <h3 className="font-semibold text-lg hover:text-primary hover:underline">{insight.title}</h3>
+                    </Link>
                     <p className="text-sm text-muted-foreground mt-1">{insight.date}</p>
                     </div>
                     <Button asChild variant="link" className="mt-2 sm:mt-0">

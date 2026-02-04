@@ -193,7 +193,7 @@ export default function InsightPage() {
       <div className="max-w-4xl mx-auto">
         <header className="mb-8 text-center">
           <p className="text-sm text-muted-foreground">{insight.date} | {insight.category} | By {insight.author}</p>
-          <h1 className="text-4xl font-bold mt-2">{insight.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mt-2">{insight.title}</h1>
            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mt-4">
                 <span className="flex items-center gap-1"><Eye className="size-4" /> {views} views</span>
                 <span className="flex items-center gap-1"><Heart className="size-4" /> {likes} likes</span>
@@ -296,5 +296,4 @@ export default function InsightPage() {
 
     </article>
   );
-
-    
+}
