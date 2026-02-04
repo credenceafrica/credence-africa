@@ -5,10 +5,10 @@ import { useParams } from "next/navigation";
 import { getInsight, type Insight } from "@/lib/insights";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Heart, Eye, MessageSquare, Share } from "lucide-react";
+import { Heart, Eye, MessageSquare, Share, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
 import { firestore } from "@/firebase";
-import { collection, addDoc, query, where, onSnapshot, doc, updateDoc, increment, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, query, where, onSnapshot, doc, updateDoc, increment, serverTimestamp, orderBy } from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -231,26 +231,26 @@ export default function InsightPage() {
                         Share
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-48">
-                    <div className="grid gap-2">
-                        <div className="space-y-2 text-center">
-                            <h4 className="font-medium leading-none">Share Insight</h4>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <Button variant="outline" asChild>
-                                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer">
-                                    Twitter
-                                </a>
-                            </Button>
-                            <Button variant="outline" asChild>
-                                 <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer">
-                                    LinkedIn
-                                </a>
-                            </Button>
-                            <Button variant="outline" onClick={handleCopyLink}>
-                                Copy Link
-                            </Button>
-                        </div>
+                <PopoverContent className="w-auto p-2">
+                    <div className="flex gap-1">
+                        <Button variant="outline" size="icon" asChild>
+                            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                            </a>
+                        </Button>
+                        <Button variant="outline" size="icon" asChild>
+                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 0 1 2.063-2.065 2.064 2.064 0 0 1 2.063 2.065c0 1.14-.925 2.065-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                            </a>
+                        </Button>
+                        <Button variant="outline" size="icon" asChild>
+                            <a href={`https://wa.me/?text=${encodeURIComponent(insight.title + " " + currentUrl)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
+                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current"><title>WhatsApp</title><path d="M12.061 0C5.425 0 0 5.373 0 12.001c0 2.101.548 4.103 1.547 5.861L0 24l6.335-1.524a11.93 11.93 0 0 0 5.726 1.525C18.698 24.001 24.12 18.628 24.12 12.001S18.697 0 12.061 0zm.001 2.16c5.434 0 9.855 4.382 9.855 9.841 0 5.458-4.42 9.84-9.855 9.84a9.78 9.78 0 0 1-4.987-1.38l-.357-.21-3.704.895.91-3.585-.232-.37C2.694 15.617 2.16 13.845 2.16 12.002c0-5.458 4.42-9.84 9.9-9.84zm4.566 12.285c-.249-.124-1.474-.727-1.703-.808-.229-.081-.396-.124-.562.124-.167.248-.644.808-.79.973-.145.166-.29.186-.539.062-.249-.124-.925-.34-1.92-1.18-.775-.653-1.29-1.46-1.444-1.708-.155-.248-.016-.38.11-.504.111-.11.249-.289.373-.434.125-.145.167-.248.249-.414.083-.167.042-.31-.021-.434-.063-.124-.562-1.353-.77-1.852-.2-.49-.405-.424-.562-.432-.146-.008-.313-.008-.479-.008a.956.956 0 0 0-.687.31c-.229.289-.875.851-.875 2.071 0 1.22.896 2.399 1.01 2.565.115.166 1.745 2.64 4.23 3.72.58.257 1.043.411 1.4.527.538.172.955.147 1.306.09.395-.064 1.22-.5 1.391-.973.172-.473.172-.875.125-1.04-.047-.165-.171-.248-.42-.372z"/></svg>
+                            </a>
+                        </Button>
+                        <Button variant="outline" size="icon" onClick={handleCopyLink}>
+                            <Copy className="h-4 w-4" />
+                        </Button>
                     </div>
                 </PopoverContent>
             </Popover>
@@ -296,4 +296,5 @@ export default function InsightPage() {
 
     </article>
   );
-}
+
+    
