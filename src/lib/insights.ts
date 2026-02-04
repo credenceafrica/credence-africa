@@ -26,6 +26,10 @@ function slugify(text: string) {
 }
 
 export const getInsights = cache(async (): Promise<Insight[]> => {
+    if (!firestore) {
+        console.warn("Firestore is not initialized. Skipping fetching insights. This may be expected during the build process if environment variables are not set.");
+        return [];
+    }
     try {
         const insightsCollection = collection(firestore, 'insights');
         const insightsQuery = query(insightsCollection, orderBy("createdAt", "desc"));
@@ -73,6 +77,10 @@ export const getInsights = cache(async (): Promise<Insight[]> => {
 });
 
 export const getInsight = cache(async (slug: string): Promise<Insight | undefined> => {
+    if (!firestore) {
+        console.warn("Firestore is not initialized. Skipping fetching insight. This may be expected during the build process if environment variables are not set.");
+        return undefined;
+    }
     try {
         if (!slug) {
             return undefined;
