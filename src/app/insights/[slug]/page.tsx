@@ -1,18 +1,18 @@
 
 "use client";
 
-import { useParams, notFound } from "next/navigation";
+import { useParams } from "next/navigation";
 import { getInsight, type Insight } from "@/lib/insights";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Eye, MessageSquare } from "lucide-react";
+import { Heart, Eye, MessageSquare, Share } from "lucide-react";
 import { useEffect, useState } from "react";
 import { firestore } from "@/firebase";
 import { collection, addDoc, query, where, onSnapshot, doc, updateDoc, increment, serverTimestamp } from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface Comment {
     id: string;
@@ -35,6 +35,13 @@ export default function InsightPage() {
   const [views, setViews] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
   const { toast } = useToast();
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrentUrl(window.location.href);
+    }
+  }, []);
 
   useEffect(() => {
     if (!slug) {
@@ -47,21 +54,20 @@ export default function InsightPage() {
       if (insightData) {
         setInsight(insightData);
         setLikes(insightData.likes || 0);
-        setViews((insightData.views || 0) + 1); // Optimistic update
         
-        // Increment view count in firestore
         try {
             const insightRef = doc(firestore, "insights", insightData.id);
             await updateDoc(insightRef, { views: increment(1) });
+            setViews((insightData.views || 0) + 1);
         } catch (e) {
             console.error("Failed to increment view count", e);
+            setViews(insightData.views || 0);
         }
       }
       setLoading(false);
     }
     fetchInsight();
 
-    // Check if user has already liked this post
     const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
     if (likedPosts.includes(slug)) {
         setHasLiked(true);
@@ -75,11 +81,7 @@ export default function InsightPage() {
     const commentsQuery = query(collection(firestore, `insights/${insight.id}/comments`), where("approved", "==", true));
     const unsubscribe = onSnapshot(commentsQuery, (snapshot) => {
       const newComments: Comment[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Comment));
-      newComments.sort((a, b) => {
-        const timeA = a.createdAt ? a.createdAt.toMillis() : 0;
-        const timeB = b.createdAt ? b.createdAt.toMillis() : 0;
-        return timeB - timeA;
-      });
+      newComments.sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0));
       setComments(newComments);
     }, (error) => {
         console.error("Error fetching comments: ", error);
@@ -95,33 +97,45 @@ export default function InsightPage() {
 
 
   const handleLike = async () => {
-    if (!insight) return;
-    const insightRef = doc(firestore, "insights", insight.id);
-    const incrementValue = hasLiked ? -1 : 1;
+    if (!insight || !slug) return;
+    
+    const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
+    const isAlreadyLiked = likedPosts.includes(slug);
+    const incrementValue = isAlreadyLiked ? -1 : 1;
 
-    // Optimistic UI update
     setLikes(likes + incrementValue);
-    setHasLiked(!hasLiked);
+    setHasLiked(!isAlreadyLiked);
+    
+    if (isAlreadyLiked) {
+        const index = likedPosts.indexOf(slug);
+        if (index > -1) {
+            likedPosts.splice(index, 1);
+        }
+    } else {
+        likedPosts.push(slug);
+    }
+    localStorage.setItem('likedInsights', JSON.stringify(likedPosts));
+
 
     try {
+        const insightRef = doc(firestore, "insights", insight.id);
         await updateDoc(insightRef, { likes: increment(incrementValue) });
-
-        // Store liked status in local storage
-        const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
-        if (hasLiked) { // Note: this is the state before update
-            const index = likedPosts.indexOf(insight.slug);
-            if (index > -1) {
-                likedPosts.splice(index, 1);
-            }
-        } else {
-            likedPosts.push(insight.slug);
-        }
-        localStorage.setItem('likedInsights', JSON.stringify(likedPosts));
     } catch (e) {
         console.error("Failed to update likes", e);
-        // Revert optimistic update on error
         setLikes(likes - incrementValue);
-        setHasLiked(!hasLiked);
+        setHasLiked(isAlreadyLiked);
+        
+        const revertedLikedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
+        if(isAlreadyLiked) {
+          revertedLikedPosts.push(slug);
+        } else {
+          const index = revertedLikedPosts.indexOf(slug);
+          if (index > -1) {
+            revertedLikedPosts.splice(index, 1);
+          }
+        }
+        localStorage.setItem('likedInsights', JSON.stringify(revertedLikedPosts));
+
         toast({
             variant: "destructive",
             title: "Error",
@@ -139,7 +153,7 @@ export default function InsightPage() {
             author: commentAuthor.trim() || 'Anonymous',
             text: newComment.trim(),
             createdAt: serverTimestamp(),
-            approved: false, // Comments need approval
+            approved: false,
             insightTitle: insight.title,
             insightSlug: insight.slug,
         });
@@ -158,13 +172,20 @@ export default function InsightPage() {
     }
   };
 
+    const handleCopyLink = () => {
+        navigator.clipboard.writeText(currentUrl);
+        toast({
+            title: "Link Copied!",
+            description: "The insight URL has been copied to your clipboard.",
+        });
+    };
 
   if (loading) {
     return <div className="text-center py-24">Loading insight...</div>;
   }
 
   if (!insight) {
-    notFound();
+    return <div className="text-center py-24">Insight not found.</div>;
   }
   
   return (
@@ -198,11 +219,41 @@ export default function InsightPage() {
           dangerouslySetInnerHTML={{ __html: insight.content }}
         />
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex justify-center gap-4">
             <Button onClick={handleLike} variant={hasLiked ? "secondary" : "outline"}>
                 <Heart className={`mr-2 h-5 w-5 ${hasLiked ? 'text-red-500 fill-current' : ''}`} />
                 {hasLiked ? 'Unlike' : 'Like'} ({likes})
             </Button>
+            <Popover>
+                <PopoverTrigger asChild>
+                    <Button variant="outline">
+                        <Share className="mr-2 h-5 w-5" />
+                        Share
+                    </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-48">
+                    <div className="grid gap-2">
+                        <div className="space-y-2 text-center">
+                            <h4 className="font-medium leading-none">Share Insight</h4>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <Button variant="outline" asChild>
+                                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer">
+                                    Twitter
+                                </a>
+                            </Button>
+                            <Button variant="outline" asChild>
+                                 <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer">
+                                    LinkedIn
+                                </a>
+                            </Button>
+                            <Button variant="outline" onClick={handleCopyLink}>
+                                Copy Link
+                            </Button>
+                        </div>
+                    </div>
+                </PopoverContent>
+            </Popover>
         </div>
       </div>
       
