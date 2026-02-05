@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { getInsight } from '@/lib/insights';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const slug = params.slug;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
   const insight = await getInsight(slug);
 
   if (!insight) {
