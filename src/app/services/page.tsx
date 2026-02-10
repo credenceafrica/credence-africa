@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { getServices } from "@/lib/services";
+import { getServices } from "@/lib/services.tsx";
 import Link from "next/link";
 
 export default async function ServicesPage() {
@@ -25,7 +25,7 @@ export default async function ServicesPage() {
               <p className="text-muted-foreground text-center md:text-left">{service.description}</p>
               <div className="flex justify-center md:justify-start">
                   <Button asChild className="mt-4">
-                    <Link href={`/services#${service.id}`}>Learn More</Link>
+                    <Link href={`/services/${service.slug}`}>Learn More</Link>
                   </Button>
               </div>
             </div>

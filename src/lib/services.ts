@@ -92,3 +92,8 @@ const servicesWithSlugs: Service[] = services.map(service => ({
 export async function getServices(): Promise<Service[]> {
     return Promise.resolve(servicesWithSlugs);
 }
+
+export async function getService(slug: string): Promise<Service | undefined> {
+    const service = servicesWithSlugs.find(s => s.slug === slug);
+    return Promise.resolve(service);
+}

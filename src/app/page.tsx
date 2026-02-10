@@ -227,7 +227,7 @@ export default function Home() {
                       <CardContent>
                           <p className="text-muted-foreground mb-4">{solution.description}</p>
                           <Button asChild variant="link" className="p-0">
-                            <Link href={`/services#${solution.id}`}>Learn More <ArrowRight className="ml-2 size-4" /></Link>
+                            <Link href={`/services/${solution.slug}`}>Learn More <ArrowRight className="ml-2 size-4" /></Link>
                           </Button>
                       </CardContent>
                   </Card>
