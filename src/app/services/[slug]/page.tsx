@@ -1,5 +1,5 @@
 
-import { getService, getServices } from "@/lib/services.tsx";
+import { getService, getServices } from "@/lib/services";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { notFound } from "next/navigation";

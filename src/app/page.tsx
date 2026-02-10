@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { getServices, Service } from "@/lib/services.tsx";
+import { getServices, Service } from "@/lib/services";
 import { ArrowRight, CheckCircle, Mail, Phone, Scale, Users, FileText, Landmark, Megaphone, GraduationCap, Newspaper } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { getServices } from "@/lib/services.tsx";
+import { getServices } from "@/lib/services";
 import Link from "next/link";
 
 export default async function ServicesPage() {

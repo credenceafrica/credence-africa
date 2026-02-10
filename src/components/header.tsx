@@ -19,7 +19,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import React, { useState, useEffect } from "react";
 import type { Insight } from "@/lib/insights";
-import type { Service } from "@/lib/services.tsx";
+import type { Service } from "@/lib/services";
 
 const navLinks = [
   { href: "/", label: "Home" },

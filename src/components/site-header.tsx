@@ -1,6 +1,6 @@
 
 import { getInsights } from '@/lib/insights';
-import { getServices } from '@/lib/services.tsx';
+import { getServices } from '@/lib/services';
 import { Header } from './header';
 
 // Revalidate every hour
