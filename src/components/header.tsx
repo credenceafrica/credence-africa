@@ -103,7 +103,7 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
                             <ListItem
                               key={service.title}
                               title={service.title}
-                              href={`/services/${service.slug}`}
+                              href={`/services#${service.id}`}
                             >
                               {service.description}
                             </ListItem>
