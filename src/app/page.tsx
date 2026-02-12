@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { getServices, Service } from "@/lib/services";
+import { getServices, Service } from "@/lib/services.tsx";
 import { ArrowRight, CheckCircle, Mail, Phone, Scale, Users, FileText, Landmark, Megaphone, GraduationCap, Newspaper } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,7 +52,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col space-y-24 py-16 lg:py-24 mx-auto lg:w-85">
+    <div className="flex flex-col space-y-24 py-16 lg:py-24 mx-auto lg:w-90">
       {/* Hero Section */}
       <section className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 text-center md:text-left">
