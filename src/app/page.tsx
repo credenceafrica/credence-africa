@@ -81,20 +81,20 @@ export default function Home() {
       </section>
 
       {/* Engage and Institute Section */}
-        <section className="grid md:grid-cols-3 gap-8">
-            <Link href="https://engage.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
+        <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Link href="https://advisory.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
                 <Card className="bg-primary text-primary-foreground h-full transition-shadow hover:shadow-lg flex flex-col w-full">
                     <CardHeader>
                         <div className="flex items-start gap-4">
-                            <Megaphone className="size-8 text-primary-foreground" />
+                            <Users className="size-8 text-primary-foreground" />
                             <div>
-                                <CardTitle>Credence Engage</CardTitle>
-                                <CardDescription className="text-primary-foreground/80">Events and influence platforms</CardDescription>
+                                <CardTitle>Credence Advisory</CardTitle>
+                                <CardDescription className="text-primary-foreground/80">Strategic Advisory for Africa’s Next Growth Frontier</CardDescription>
                             </div>
                         </div>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                        <p className="text-primary-foreground/90">Credence Engage builds platforms of visibility, influence, and access that translate institutional goals into strategic relationships and market leadership.</p>
+                        <p className="text-primary-foreground/90">Smart insights. Practical execution. Structures that scale in complexity and across borders.</p>
                     </CardContent>
                     <div className="p-6 pt-0">
                         <Button asChild variant="secondary">
@@ -103,8 +103,29 @@ export default function Home() {
                     </div>
                 </Card>
             </Link>
-             <Link href="https://institute.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
+            <Link href="https://engage.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
                 <Card className="border-primary border-2 h-full transition-shadow hover:shadow-lg flex flex-col w-full">
+                    <CardHeader>
+                        <div className="flex items-start gap-4">
+                            <Megaphone className="size-8 text-primary" />
+                            <div>
+                                <CardTitle>Credence Engage</CardTitle>
+                                <CardDescription>Events and influence platforms</CardDescription>
+                            </div>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <p className="text-muted-foreground">Credence Engage builds platforms of visibility, influence, and access that translate institutional goals into strategic relationships and market leadership.</p>
+                    </CardContent>
+                    <div className="p-6 pt-0">
+                        <Button asChild variant="outline">
+                            <span className="flex items-center">Visit Platform <ArrowRight className="ml-2" /></span>
+                        </Button>
+                    </div>
+                </Card>
+            </Link>
+             <Link href="https://institute.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
+                <Card className="border-border h-full transition-shadow hover:shadow-lg flex flex-col w-full">
                     <CardHeader>
                         <div className="flex items-start gap-4">
                             <GraduationCap className="size-8 text-primary" />
