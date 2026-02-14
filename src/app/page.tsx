@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* Engage and Institute Section */}
-        <section className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <section className="grid sm:grid-cols-2 gap-8">
             <Link href="https://advisory.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
                 <Card className="bg-primary text-primary-foreground h-full transition-shadow hover:shadow-lg flex flex-col w-full">
                     <CardHeader>
@@ -151,7 +151,7 @@ export default function Home() {
                         <div className="flex items-start gap-4">
                             <Newspaper className="size-8 text-primary" />
                             <div>
-                                <CardTitle>Credible Perspectives</CardTitle>
+                                <CardTitle>Credence-Credible Perspectives</CardTitle>
                                 <CardDescription>Media and insights</CardDescription>
                             </div>
                         </div>
