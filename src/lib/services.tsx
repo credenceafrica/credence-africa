@@ -1,99 +1,60 @@
 
-import { BarChart, Building, FileText, Globe, Scale } from "lucide-react";
+import { Users, Megaphone, GraduationCap, Newspaper } from "lucide-react";
 
 export interface Service {
     id: string;
     slug: string;
+    href: string;
     icon: React.ReactNode;
     title: string;
     description: string;
     details: string[];
 }
 
-const services: Omit<Service, 'slug'>[] = [
+const services: Service[] = [
   {
-    id: "capital-raising",
-    icon: <BarChart className="size-10 text-primary" />,
-    title: "Capital Raising & Blended Finance",
-    description: "Unlock capital and structure for impact across markets. We design investment-ready pipelines, mobilize blended finance, and connect clients with DFIs, private equity, banks, and philanthropic funders.",
-    details: [
-      "Capital stack structuring & investment readiness",
-      "Blended finance strategy & donor capital positioning",
-      "Financial modeling & investor documentation",
-      "Capital access facilitation & deal advisory",
-    ]
+    id: "advisory",
+    slug: "advisory",
+    href: "https://advisory.credence.africa",
+    icon: <Users className="size-8 text-primary" />,
+    title: "Advisory | Credence Advisory",
+    description: "Strategic Advisory for Africa’s Next Growth Frontier.",
+    details: []
   },
   {
-    id: "public-affairs",
-    icon: <Scale className="size-10 text-primary" />,
-    title: "Public Affairs & Advocacy",
-    description: "Shape policy, structure influence, and strengthen institutions. We provide regulatory navigation, compliance strategy, government relations, and advocacy campaigns.",
-    details: [
-      "Regulatory navigation & compliance strategy",
-      "Government relations & institutional engagement",
-      "Public policy consulting & legislative development",
-      "Advocacy campaigns & influence strategy",
-    ]
+    id: "events",
+    slug: "events",
+    href: "https://engage.credence.africa",
+    icon: <Megaphone className="size-8 text-primary" />,
+    title: "Events | Credence Engage",
+    description: "Events and influence platforms that build relationships and market leadership.",
+    details: []
   },
   {
-    id: "trade-investment",
-    icon: <Globe className="size-10 text-primary" />,
-    title: "Trade & Investment Structuring",
-    description: "Enter markets confidently with strategic positioning and compliance. We support cross-border structuring, investment facilitation, and trade ecosystem alignment.",
-    details: [
-      "Market entry & localization strategy",
-      "Licensing, permitting, & regulatory navigation",
-      "Market intelligence & investment scanning",
-      "Trade, incentives, & policy facilitation",
-      "Diaspora market re-entry structuring",
-    ]
+    id: "training",
+    slug: "training",
+    href: "https://institute.credence.africa",
+    icon: <GraduationCap className="size-8 text-primary" />,
+    title: "Training | Credence Institute",
+    description: "Learning and leadership programs for high-performance governance.",
+    details: []
   },
   {
-    id: "enterprise-architecture",
-    icon: <Building className="size-10 text-primary" />,
-    title: "Enterprise Architecture & Transformation Strategy",
-    description: "Design institutions, engineer growth, and structure impact. We build legal, financial, and governance frameworks for startups, cooperatives, and mission-driven organizations.",
-    details: [
-      "Strategic structuring & investment readiness",
-      "Mission-aligned structuring for faith-based & public benefit institutions",
-      "Legacy & intergenerational transition planning",
-      "Institutional turnaround & governance redesign",
-      "Program design & scalable delivery models",
-    ]
-  },
-  {
-    id: "ip-commercialization",
-    icon: <FileText className="size-10 text-primary" />,
-    title: "IP Commercialization, Brand & Talent Strategy",
-    description: "Protect ideas, monetize identity, and scale influence. We help creators and enterprises structure IP portfolios, negotiate deals, and build revenue-generating models.",
-    details: [
-      "IP strategy, protection, & ownership structuring",
-      "Licensing, franchising, & revenue modeling",
-      "Talent & influencer deal structuring",
-      "Digital monetization strategy",
-      "IP-based wealth structuring & estate planning",
-    ]
+    id: "research-insights",
+    slug: "research-insights",
+    href: "http://perspectives.credence.africa/",
+    icon: <Newspaper className="size-8 text-primary" />,
+    title: "Research & Insights | Credence-Credible Perspectives",
+    description: "Media and insights shaping Africa’s public dialogue and policy reform.",
+    details: []
   },
 ];
 
-function slugify(text: string) {
-    if (!text) return '';
-    return text
-      .toLowerCase()
-      .replace(/ /g, '-')
-      .replace(/[^\w-]+/g, '');
-}
-
-const servicesWithSlugs: Service[] = services.map(service => ({
-    ...service,
-    slug: slugify(service.title),
-}));
-
 export async function getServices(): Promise<Service[]> {
-    return Promise.resolve(servicesWithSlugs);
+    return Promise.resolve(services);
 }
 
 export async function getService(slug: string): Promise<Service | undefined> {
-    const service = servicesWithSlugs.find(s => s.slug === slug);
-    return Promise.resolve(service);
+    // This data structure no longer supports individual service pages.
+    return Promise.resolve(undefined);
 }

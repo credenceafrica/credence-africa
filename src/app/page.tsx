@@ -41,7 +41,7 @@ export default function Home() {
                 getServices()
             ]);
             setInsights(fetchedInsights);
-            setServices(fetchedServices.slice(0,5));
+            setServices(fetchedServices);
           } catch (error) {
               console.error("Failed to fetch data:", error);
           } finally {
@@ -238,8 +238,8 @@ export default function Home() {
 
       {/* Featured Solutions */}
       <section>
-          <h2 className="text-3xl font-bold text-center">Featured Solutions</h2>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-bold text-center">Our Platforms</h2>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
               {services.map((solution) => (
                   <Card key={solution.title}>
                       <CardHeader>
@@ -248,7 +248,7 @@ export default function Home() {
                       <CardContent>
                           <p className="text-muted-foreground mb-4">{solution.description}</p>
                           <Button asChild variant="link" className="p-0">
-                            <Link href={`/services/${solution.slug}`}>Learn More <ArrowRight className="ml-2 size-4" /></Link>
+                            <Link href={solution.href} target="_blank" rel="noopener noreferrer">Learn More <ArrowRight className="ml-2 size-4" /></Link>
                           </Button>
                       </CardContent>
                   </Card>
@@ -256,7 +256,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <Button asChild size="lg">
-                <Link href="/services">See All Services</Link>
+                <Link href="/services">See All Platforms</Link>
             </Button>
           </div>
       </section>

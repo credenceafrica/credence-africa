@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
-import { Bus, Church, Handshake, HeartPulse, Leaf, Briefcase, Laptop, Menu, Mic, School, Users, Building, Plane } from "lucide-react";
+import { Bus, Church, Handshake, HeartPulse, Leaf, Briefcase, Laptop, Menu, Mic, School, Users, Building, Plane, Megaphone, GraduationCap, Newspaper } from "lucide-react";
 import { Logo } from "./logo";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -103,7 +103,9 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
                             <ListItem
                               key={service.title}
                               title={service.title}
-                              href={`/services/${service.slug}`}
+                              href={service.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
                             >
                               {service.description}
                             </ListItem>
