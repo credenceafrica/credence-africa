@@ -2,7 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { getServices } from "@/lib/services";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export default async function ServicesPage() {
   const services = await getServices();
@@ -18,17 +19,22 @@ export default async function ServicesPage() {
       <div className="mt-16 grid sm:grid-cols-2 gap-8">
         {services.map(service => (
             <Card key={service.id} className="flex flex-col hover:shadow-lg transition-shadow">
-                <Link href={service.href} target="_blank" rel="noopener noreferrer" className="flex flex-col flex-grow p-6">
+                <div className="flex flex-col flex-grow p-6">
                     <div className="flex-grow">
                       <div className="flex items-start gap-4">
                           <div className="text-primary mt-1">{service.icon}</div>
                           <div>
                               <h2 className="text-2xl font-semibold">{service.title}</h2>
-                              <p className="text-muted-foreground mt-2">{service.description}</p>
+                              <p className="text-muted-foreground mt-2">{service.longDescription}</p>
                           </div>
                       </div>
                     </div>
-                </Link>
+                     <Button asChild variant="link" className="p-0 mt-4 self-start">
+                        <Link href={service.href} target="_blank" rel="noopener noreferrer">
+                            {service.buttonText} <ArrowRight className="ml-2 size-4" />
+                        </Link>
+                    </Button>
+                </div>
             </Card>
         ))}
       </div>
