@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -26,8 +25,7 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services", isServices: true },
   { href: "/sectors", label: "Sectors", isSectors: true },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/insights", label: "Insights" },
+  { href: "http://perspectives.credence.africa/", label: "Insights & Case Studies" },
 ];
 
 const sectorLinks = [

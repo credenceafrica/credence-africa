@@ -287,7 +287,7 @@ export default function Home() {
             </div>
           <div className="text-center mt-12">
             <Button asChild variant="outline">
-                <Link href="/insights">Read All Insights</Link>
+                <Link href="http://perspectives.credence.africa/">Explore More Insights</Link>
             </Button>
           </div>
       </section>
@@ -308,7 +308,7 @@ export default function Home() {
                     ))}
                 </div>
                 <Button asChild className="mt-8">
-                    <Link href="/case-studies">View Case Studies</Link>
+                    <Link href="http://perspectives.credence.africa/">Explore More Case Studies</Link>
                 </Button>
             </div>
             <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
