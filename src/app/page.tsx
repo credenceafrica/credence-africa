@@ -20,13 +20,6 @@ const whatWeSolve = [
     "Succession, legacy, and trust planning for entrepreneurs and families",
 ]
 
-const caseStudyHighlights = [
-    { icon: <Users className="size-6 text-primary" />, text: "Scaling operations for high-growth ventures." },
-    { icon: <Scale className="size-6 text-primary" />, text: "Attracting catalytic funding for social enterprises." },
-    { icon: <FileText className="size-6 text-primary" />, text: "Unlocking compliance bottlenecks for fintech innovators." },
-    { icon: <Landmark className="size-6 text-primary" />, text: "Influencing regulation for development partners." },
-]
-
 export default function Home() {
   const [insights, setInsights] = useState<Insight[]>([]);
   const [services, setServices] = useState<Service[]>([]);
@@ -151,7 +144,7 @@ export default function Home() {
                         <div className="flex items-start gap-4">
                             <Newspaper className="size-8 text-primary" />
                             <div>
-                                <CardTitle>Credible Perspectives</CardTitle>
+                                <CardTitle>Credence-Credible Perspectives</CardTitle>
                                 <CardDescription>Research, Media, and Thought Leadership</CardDescription>
                             </div>
                         </div>
@@ -235,67 +228,6 @@ export default function Home() {
             ))}
         </div>
       </section>
-
-      {/* Recent Insights */}
-      <section>
-        <h2 className="text-3xl font-bold text-center">Recent Insights</h2>
-        <div className="mt-12 grid gap-6">
-            {loading ? (
-                <p className="text-center">Loading insights...</p>
-            ) : insights.length > 0 ? (
-                insights.slice(0, 5).map((insight) => (
-                <div key={insight.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 border rounded-lg">
-                    <div>
-                    <Link href={`/insights/${insight.slug}`}>
-                        <h3 className="font-semibold text-lg hover:text-primary hover:underline">{insight.title}</h3>
-                    </Link>
-                    <p className="text-sm text-muted-foreground mt-1">{insight.date}</p>
-                    </div>
-                    <Button asChild variant="link" className="mt-2 sm:mt-0">
-                    <Link href={`/insights/${insight.slug}`}>Read More</Link>
-                    </Button>
-                </div>
-                ))
-            ) : (
-                <p className="text-center text-muted-foreground">No insights published yet.</p>
-            )}
-            </div>
-          <div className="text-center mt-12">
-            <Button asChild variant="outline">
-                <Link href="http://perspectives.credence.africa/">Explore More Insights</Link>
-            </Button>
-          </div>
-      </section>
-
-      {/* Case Studies */}
-        <section className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 className="text-3xl font-bold">Case Studies</h2>
-                <p className="mt-4 text-muted-foreground">
-                    See how we’ve helped clients scale operations, attract catalytic funding, unlock compliance bottlenecks, and influence regulation across Africa.
-                </p>
-                <div className="mt-6 space-y-4">
-                    {caseStudyHighlights.map((highlight) => (
-                        <div key={highlight.text} className="flex items-start gap-4">
-                            {highlight.icon}
-                            <p className="pt-0.5">{highlight.text}</p>
-                        </div>
-                    ))}
-                </div>
-                <Button asChild className="mt-8">
-                    <Link href="http://perspectives.credence.africa/">Explore More Case Studies</Link>
-                </Button>
-            </div>
-            <div className="relative h-64 md:h-96 rounded-lg overflow-hidden">
-                <Image
-                    src="/credcase.webp"
-                    alt="Team in a meeting"
-                    fill
-                    className="object-cover"
-                    data-ai-hint="business meeting"
-                />
-            </div>
-        </section>
       
       {/* Trust & Impact */}
       <section className="text-center">
