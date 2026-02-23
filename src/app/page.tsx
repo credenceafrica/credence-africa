@@ -1,14 +1,12 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getServices, Service } from "@/lib/services.tsx";
-import { ArrowRight, CheckCircle, Mail, Phone, Scale, Users, FileText, Landmark, Megaphone, GraduationCap, Newspaper } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, Phone, Users, Megaphone, GraduationCap, Newspaper, Calendar, BookOpen, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getInsights, type Insight } from "@/lib/insights";
 
 const whatWeSolve = [
     "Capital and investment readiness for high-growth ventures",
@@ -21,7 +19,6 @@ const whatWeSolve = [
 ]
 
 export default function Home() {
-  const [insights, setInsights] = useState<Insight[]>([]);
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -29,11 +26,7 @@ export default function Home() {
       async function fetchData() {
           setLoading(true);
           try {
-            const [fetchedInsights, fetchedServices] = await Promise.all([
-                getInsights(),
-                getServices()
-            ]);
-            setInsights(fetchedInsights);
+            const fetchedServices = await getServices();
             setServices(fetchedServices);
           } catch (error) {
               console.error("Failed to fetch data:", error);
@@ -75,90 +68,40 @@ export default function Home() {
 
       {/* Platforms Section */}
         <section className="grid sm:grid-cols-2 gap-8">
-            <Link href="https://advisory.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
-                <Card className="bg-primary text-primary-foreground h-full transition-shadow hover:shadow-lg flex flex-col w-full">
-                    <CardHeader>
-                        <div className="flex items-start gap-4">
-                            <Users className="size-8 text-primary-foreground" />
-                            <div>
-                                <CardTitle>Credence Advisory</CardTitle>
-                                <CardDescription className="text-primary-foreground/80">Strategic Advisory for Africa’s Next Growth Frontier</CardDescription>
+            {services.map((service) => (
+                <Link key={service.id} href={service.href} target="_blank" rel="noopener noreferrer" className="flex">
+                    <Card className={cn(
+                        "h-full transition-all hover:shadow-lg flex flex-col w-full border-2",
+                        service.id === 'advisory' ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary"
+                    )}>
+                        <CardHeader>
+                            <div className="flex items-start gap-4">
+                                <div className={cn("size-8", service.id === 'advisory' ? "text-primary-foreground" : "text-primary")}>
+                                    {service.icon}
+                                </div>
+                                <div>
+                                    <CardTitle>{service.title}</CardTitle>
+                                    <CardDescription className={service.id === 'advisory' ? "text-primary-foreground/80" : ""}>
+                                        {service.description}
+                                    </CardDescription>
+                                </div>
                             </div>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                            <p className={service.id === 'advisory' ? "text-primary-foreground/90" : "text-muted-foreground"}>
+                                {service.longDescription}
+                            </p>
+                        </CardContent>
+                        <div className="p-6 pt-0">
+                            <Button asChild variant={service.id === 'advisory' ? "secondary" : "outline"}>
+                                <span className="flex items-center">
+                                    {service.buttonText} <ArrowRight className="ml-2" />
+                                </span>
+                            </Button>
                         </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <p className="text-primary-foreground/90">Credence Advisory partners with investors, institutions, and enterprises to design and execute strategies that perform under complexity. We move beyond advice to deliver governance aligned strategy, capital structuring, and cross border execution built for scale, resilience, and long term value creation.</p>
-                    </CardContent>
-                    <div className="p-6 pt-0">
-                        <Button asChild variant="secondary">
-                            <span className="flex items-center">Engage Advisory <ArrowRight className="ml-2" /></span>
-                        </Button>
-                    </div>
-                </Card>
-            </Link>
-            <Link href="https://institute.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
-                <Card className="border-primary border-2 h-full transition-shadow hover:shadow-lg flex flex-col w-full">
-                    <CardHeader>
-                        <div className="flex items-start gap-4">
-                            <GraduationCap className="size-8 text-primary" />
-                            <div>
-                                <CardTitle>Credence Institute</CardTitle>
-                                <CardDescription>Learning, Training, and Professional Advancement</CardDescription>
-                            </div>
-                        </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">Credence Institute delivers professional and executive programs that translate learning into applied capability. Our work strengthens decision quality, institutional capacity, and governance maturity for professionals and organizations shaping Africa’s economic and public systems.</p>
-                    </CardContent>
-                    <div className="p-6 pt-0">
-                        <Button asChild variant="outline">
-                             <span className="flex items-center">Explore Programs <ArrowRight className="ml-2" /></span>
-                        </Button>
-                    </div>
-                </Card>
-            </Link>
-             <Link href="https://engage.credence.africa" target="_blank" rel="noopener noreferrer" className="flex">
-                <Card className="border-border h-full transition-shadow hover:shadow-lg flex flex-col w-full">
-                    <CardHeader>
-                        <div className="flex items-start gap-4">
-                            <Megaphone className="size-8 text-primary" />
-                            <div>
-                                <CardTitle>Credence Engage</CardTitle>
-                                <CardDescription>Events and Strategic Convenings</CardDescription>
-                            </div>
-                        </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">Credence Engage designs and delivers high impact events that transform expertise into influence. By integrating technology, sector knowledge, and strategic curation, our platforms move beyond attendance to enable insight exchange, relationship formation, and decision making at scale, generating measurable institutional and commercial outcomes.</p>
-                    </CardContent>
-                    <div className="p-6 pt-0">
-                        <Button asChild variant="outline">
-                            <span className="flex items-center">Explore Events <ArrowRight className="ml-2" /></span>
-                        </Button>
-                    </div>
-                </Card>
-            </Link>
-            <Link href="http://perspectives.credence.africa/" target="_blank" rel="noopener noreferrer" className="flex">
-                <Card className="border-border h-full transition-shadow hover:shadow-lg flex flex-col w-full">
-                    <CardHeader>
-                        <div className="flex items-start gap-4">
-                            <Newspaper className="size-8 text-primary" />
-                            <div>
-                                <CardTitle>Credence-Credible Perspectives</CardTitle>
-                                <CardDescription>Research, Media, and Thought Leadership</CardDescription>
-                            </div>
-                        </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">Credible Perspectives is the research grounded media and publication arm of the Credence ecosystem. It operates as a research led executive platform delivering original analysis, expert commentary, publications, and podcasts that inform senior decision makers and shape strategy, governance, and capital allocation across Africa.</p>
-                    </CardContent>
-                    <div className="p-6 pt-0">
-                        <Button asChild variant="outline">
-                            <span className="flex items-center">Explore Insights <ArrowRight className="ml-2" /></span>
-                        </Button>
-                    </div>
-                </Card>
-            </Link>
+                    </Card>
+                </Link>
+            ))}
         </section>
       
       {/* Who We Are */}
@@ -228,10 +171,163 @@ export default function Home() {
             ))}
         </div>
       </section>
+
+      {/* Upcoming Events Section */}
+      <section className="space-y-12">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+            <div className="space-y-2">
+                <h2 className="text-3xl font-bold">Upcoming Events</h2>
+                <p className="text-muted-foreground max-w-2xl">Strategic convenings that transform expertise into influence. Join us at our next high-impact event.</p>
+            </div>
+            <Button asChild variant="outline">
+                <Link href="https://engage.credence.africa/" target="_blank">
+                    View All Events <ExternalLink className="ml-2 size-4" />
+                </Link>
+            </Button>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <Calendar className="size-4" /> 
+                        <span>Coming Soon</span>
+                    </div>
+                    <CardTitle className="text-xl">Strategic Leadership Forum</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Design and delivery of institutional strategies in complex African markets.</p>
+                </CardContent>
+            </Card>
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <Calendar className="size-4" /> 
+                        <span>Quarterly</span>
+                    </div>
+                    <CardTitle className="text-xl">Capital Markets Briefing</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Analysis of capital flows, investor mandates, and blended finance models.</p>
+                </CardContent>
+            </Card>
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <Calendar className="size-4" /> 
+                        <span>Networking</span>
+                    </div>
+                    <CardTitle className="text-xl">The Credence Convening</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Bringing together decision-makers to enable relationship formation and insight exchange.</p>
+                </CardContent>
+            </Card>
+        </div>
+      </section>
+
+      {/* Featured Courses Section */}
+      <section className="space-y-12">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+            <div className="space-y-2">
+                <h2 className="text-3xl font-bold">Featured Courses</h2>
+                <p className="text-muted-foreground max-w-2xl">Professional and executive programs that translate learning into applied capability.</p>
+            </div>
+            <Button asChild variant="outline">
+                <Link href="https://institute.credence.africa/" target="_blank">
+                    Explore Programs <ExternalLink className="ml-2 size-4" />
+                </Link>
+            </Button>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <BookOpen className="size-4" /> 
+                        <span>Executive Program</span>
+                    </div>
+                    <CardTitle className="text-xl">Governance &amp; Decision Quality</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Strengthening institutional capacity and governance maturity for senior leaders.</p>
+                </CardContent>
+            </Card>
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <BookOpen className="size-4" /> 
+                        <span>Professional Track</span>
+                    </div>
+                    <CardTitle className="text-xl">African Market Strategy</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Practical frameworks for executing growth across African jurisdictions.</p>
+                </CardContent>
+            </Card>
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <BookOpen className="size-4" /> 
+                        <span>Certificate</span>
+                    </div>
+                    <CardTitle className="text-xl">Compliance &amp; Risk Mgmt</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Navigating multi-agency compliance and cross-border regulatory risk.</p>
+                </CardContent>
+            </Card>
+        </div>
+      </section>
+
+      {/* Recent Publications Section */}
+      <section className="space-y-12">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+            <div className="space-y-2">
+                <h2 className="text-3xl font-bold">Recent Publications</h2>
+                <p className="text-muted-foreground max-w-2xl">Original analysis and research-grounded commentary shaping strategy across Africa.</p>
+            </div>
+            <Button asChild variant="outline">
+                <Link href="https://perspectives.credence.africa/insights" target="_blank">
+                    View Insights <ExternalLink className="ml-2 size-4" />
+                </Link>
+            </Button>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <Newspaper className="size-4" /> 
+                        <span>Strategic Briefing</span>
+                    </div>
+                    <CardTitle className="text-xl">The Blended Finance Playbook for Social Ventures</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Exploring how social enterprises can leverage catalytic capital for sustainable scale.</p>
+                    <Button asChild variant="link" className="px-0 mt-4">
+                         <Link href="https://perspectives.credence.africa/insights" target="_blank">Read Analysis <ArrowRight className="ml-2 size-4" /></Link>
+                    </Button>
+                </CardContent>
+            </Card>
+            <Card className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                        <Newspaper className="size-4" /> 
+                        <span>Regulatory Intelligence</span>
+                    </div>
+                    <CardTitle className="text-xl">AfCFTA &amp; The Digital Economy: Navigating New Trade Rules</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">A comprehensive look at emerging trade protocols and their impact on digital entrepreneurs.</p>
+                    <Button asChild variant="link" className="px-0 mt-4">
+                         <Link href="https://perspectives.credence.africa/insights" target="_blank">Read Analysis <ArrowRight className="ml-2 size-4" /></Link>
+                    </Button>
+                </CardContent>
+            </Card>
+        </div>
+      </section>
       
       {/* Trust & Impact */}
       <section className="text-center">
-        <h2 className="text-3xl font-bold">Trust & Impact</h2>
+        <h2 className="text-3xl font-bold">Trust &amp; Impact</h2>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-muted-foreground">
             <p><strong>10+ years</strong> shaping enterprises, cooperatives, and institutions</p>
             <p><strong>50+ clients</strong> and partners across government, finance, and civil society</p>
@@ -277,3 +373,5 @@ export default function Home() {
     </div>
   );
 }
+
+import { cn } from "@/lib/utils";
