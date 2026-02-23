@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -30,7 +31,7 @@ export function Footer() {
               <li><Link href="/about" className="text-muted-foreground hover:text-primary hover:underline">About Us</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary hover:underline">Services</Link></li>
               <li><Link href="/sectors" className="text-muted-foreground hover:text-primary hover:underline">Sectors</Link></li>
-              <li><Link href="http://perspectives.credence.africa/" className="text-muted-foreground hover:text-primary hover:underline">Insights</Link></li>
+              <li><Link href="https://perspectives.credence.africa/insights" className="text-muted-foreground hover:text-primary hover:underline">Insights</Link></li>
               <li><Link href="/consult" className="text-muted-foreground hover:text-primary hover:underline">Book a Consultation</Link></li>
             </ul>
           </div>
