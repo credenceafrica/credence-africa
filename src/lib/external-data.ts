@@ -1,4 +1,3 @@
-
 /**
  * @fileOverview Library for fetching live data from external Credence platforms.
  */
@@ -112,24 +111,24 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
         return [
             { 
                 id: '1', 
-                title: "The Blended Finance Playbook for Social Ventures", 
+                title: "Why Timing Is the Most Underrated Variable in Blended Finance", 
                 type: "Strategic Briefing", 
-                description: "Exploring how social enterprises can leverage catalytic capital for sustainable scale.", 
-                url: "https://perspectives.credence.africa/insights/blended-finance-playbook" 
+                description: "There is a version of blended finance that sounds very appealing in every pitch deck: grants absorb early losses, concessional loans reduce the cost of capital and commercial investors follow once risk is acceptably low and then there is...", 
+                url: "https://perspectives.credence.africa/insights/why-timing-is-the-most-underrated-variable" 
             },
             { 
                 id: '2', 
-                title: "AfCFTA & The Digital Economy: Navigating New Trade Rules", 
+                title: "The African Capital Concentration vs. Gap Reality", 
                 type: "Regulatory Intelligence", 
-                description: "A comprehensive look at emerging trade protocols and their impact on digital entrepreneurs.", 
-                url: "https://perspectives.credence.africa/insights/afcfta-digital-economy" 
+                description: "African startups raised $3.1 billion in 2025 up from $2.2 billion recorded in 2024. Kenya overtook Nigeria as Africa's top investment destination. Debt financing now represents 45% of total funding, up from 25% two years ago. Investors a...", 
+                url: "https://perspectives.credence.africa/insights/african-capital-concentration-vs-gap-reality" 
             },
             { 
                 id: '3', 
-                title: "Fintech Licensing in Kenya: A Multi-Agency Compliance Guide", 
+                title: "Understanding Why African Ventures Face Funding Challenges", 
                 type: "Policy Brief", 
-                description: "Navigating the regulatory landscape for digital financial services in East Africa.", 
-                url: "https://perspectives.credence.africa/insights/fintech-licensing-kenya" 
+                description: "The African startup ecosystem has shown resilience. Although funding declined to $2.2 billion in 2024, the ecosystem is showing growth. In 2025, funding went up to approximately $3.1 billion showing investor confidence despite African ve...", 
+                url: "https://perspectives.credence.africa/insights/understanding-why-african-ventures-face-funding-challenges" 
             }
         ];
     }
