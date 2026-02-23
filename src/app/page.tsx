@@ -36,7 +36,6 @@ export default function Home() {
             const fetchedServices = await getServices();
             setServices(fetchedServices);
 
-            // Fetch live data from internal proxy API
             const response = await fetch('/api/live-data');
             const liveData = await response.json();
             
@@ -65,20 +64,20 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button asChild size="lg">
-              <Link href="/services">Explore Services</Link>
+              <Link href="/services">Explore Platforms</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
               <Link href="/consult">Book a Consultation</Link>
             </Button>
           </div>
         </div>
-        <div className="relative h-64 md:h-[28rem] rounded-lg overflow-hidden shadow-lg">
+        <div className="relative h-64 md:h-[28rem] rounded-lg overflow-hidden shadow-lg border">
             <Image 
                 src={PlaceholderImages.hero}
-                alt="Growth Frontier"
+                alt="Strategic Growth"
                 fill
                 className="object-cover"
-                data-ai-hint="abstract growth"
+                priority
             />
         </div>
       </section>
@@ -141,39 +140,6 @@ export default function Home() {
                 <p className="mt-2 text-muted-foreground">Delivering actionable strategies that withstand scrutiny in high-complexity environments.</p>
             </div>
         </div>
-        <div className="mt-8 flex justify-center gap-4">
-            <Button asChild variant="outline">
-                <Link href="/about">Our Full Story</Link>
-            </Button>
-            <Button asChild>
-                <Link href="/about#team">Meet the Team</Link>
-            </Button>
-        </div>
-      </section>
-
-      {/* Quote & Stats */}
-      <section className="bg-secondary py-20 text-center">
-          <div className="container mx-auto">
-            <p className="text-2xl font-medium max-w-4xl mx-auto">&quot;We combine deep local understanding with global-standard execution to help clients navigate Africa&apos;s opportunity zones — where risk meets scale.&quot;</p>
-            <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                    <p className="text-4xl font-bold text-primary">10+</p>
-                    <p className="mt-2 text-muted-foreground">Years of Experience</p>
-                </div>
-                 <div>
-                    <p className="text-4xl font-bold text-primary">50+</p>
-                    <p className="mt-2 text-muted-foreground">Clients Served</p>
-                </div>
-                 <div>
-                    <p className="text-4xl font-bold text-primary">8</p>
-                    <p className="mt-2 text-muted-foreground">African Markets</p>
-                </div>
-                 <div>
-                    <p className="text-4xl font-bold text-primary">$25M+</p>
-                    <p className="mt-2 text-muted-foreground">Capital Facilitated</p>
-                </div>
-            </div>
-          </div>
       </section>
 
       {/* What We Solve */}
@@ -194,7 +160,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-end gap-4">
             <div className="space-y-2">
                 <h2 className="text-3xl font-bold">Upcoming Events</h2>
-                <p className="text-muted-foreground max-w-2xl">Strategic convenings that transform expertise into influence. Join us at our next high-impact event.</p>
+                <p className="text-muted-foreground max-w-2xl">Strategic convenings that transform expertise into influence.</p>
             </div>
             <Button asChild variant="outline">
                 <Link href="https://engage.credence.africa/" target="_blank">
@@ -219,7 +185,6 @@ export default function Home() {
                     </Card>
                 </Link>
             ))}
-            {loading && !events.length && <p className="text-muted-foreground italic">Fetching latest events...</p>}
         </div>
       </section>
 
@@ -228,7 +193,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-end gap-4">
             <div className="space-y-2">
                 <h2 className="text-3xl font-bold">Featured Courses</h2>
-                <p className="text-muted-foreground max-w-2xl">Professional and executive programs that translate learning into applied capability.</p>
+                <p className="text-muted-foreground max-w-2xl">Professional and executive programs for institutional capacity building.</p>
             </div>
             <Button asChild variant="outline">
                 <Link href="https://institute.credence.africa/" target="_blank">
@@ -253,7 +218,6 @@ export default function Home() {
                     </Card>
                 </Link>
             ))}
-            {loading && !courses.length && <p className="text-muted-foreground italic">Fetching latest courses...</p>}
         </div>
       </section>
 
@@ -266,7 +230,7 @@ export default function Home() {
             </div>
             <Button asChild variant="outline">
                 <Link href="https://perspectives.credence.africa/insights" target="_blank">
-                    View Insights <ExternalLink className="ml-2 size-4" />
+                    View All Insights <ExternalLink className="ml-2 size-4" />
                 </Link>
             </Button>
         </div>
@@ -282,7 +246,7 @@ export default function Home() {
                             <CardTitle className="text-xl group-hover:text-primary transition-colors">{pub.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-muted-foreground text-sm">{pub.description}</p>
+                            <p className="text-muted-foreground text-sm line-clamp-3">{pub.description}</p>
                             <div className="mt-4 text-primary font-medium flex items-center group-hover:underline">
                                 Read Analysis <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                             </div>
@@ -290,45 +254,17 @@ export default function Home() {
                     </Card>
                 </Link>
             ))}
-            {loading && !publications.length && <p className="text-muted-foreground italic col-span-3">Fetching latest publications...</p>}
         </div>
       </section>
       
-      {/* Trust & Impact */}
-      <section className="text-center">
-        <h2 className="text-3xl font-bold">Trust &amp; Impact</h2>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-muted-foreground">
-            <p><strong>10+ years</strong> shaping enterprises, cooperatives, and institutions</p>
-            <p><strong>50+ clients</strong> and partners across government, finance, and civil society</p>
-            <p><strong>8 African markets</strong> actively engaged</p>
-            <p><strong>$25M+ capital</strong> facilitated for enterprises and social ventures</p>
-        </div>
-        <p className="mt-12 text-muted-foreground">
-            <strong>Trusted by:</strong> Growth-stage startups, cooperative unions, fintech innovators, development partners, and public agencies.
-        </p>
-        <div className="mt-8">
-            <Button asChild variant="outline">
-                <Link href="/about#partners">Meet Our Partners</Link>
-            </Button>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="bg-primary text-primary-foreground py-20 text-center rounded-lg">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold">Let’s Shape Africa’s Growth Frontier Together</h2>
           <p className="mt-4 max-w-3xl mx-auto">
             Whether you are raising capital, structuring across borders, or navigating regulatory reform — Credence Africa is your trusted execution partner.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-lg">
-             <a href="mailto:connect@credence.africa" className="flex items-center gap-2 hover:underline">
-                <Mail /> <span>connect@credence.africa</span>
-            </a>
-            <a href="tel:+254719468240" className="flex items-center gap-2 hover:underline">
-                <Phone /> <span>+254 719 468 240</span>
-            </a>
-          </div>
-          <div className="mt-10 flex justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
              <Button asChild size="lg" variant="secondary">
               <Link href="/consult">Book a Strategy Call</Link>
             </Button>

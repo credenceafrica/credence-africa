@@ -1,5 +1,5 @@
 {
-  "hero": "https://picsum.photos/seed/hero/1920/1080",
+  "hero": "/hero.jpg",
   "about": "https://picsum.photos/seed/about/800/600",
   "team1": "https://picsum.photos/seed/team1/400/400",
   "team2": "https://picsum.photos/seed/team2/400/400",
