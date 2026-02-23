@@ -35,7 +35,11 @@ export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
             headers: { 'Accept': 'application/json' }
         });
         if (!res.ok) throw new Error('External API unreachable');
-        return await res.json();
+        const data = await res.json();
+        return data.map((item: any) => ({
+            ...item,
+            url: item.url.startsWith('http') ? item.url : `https://engage.credence.africa${item.url}`
+        }));
     } catch (e) {
         return [
             { 
@@ -70,7 +74,11 @@ export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
             headers: { 'Accept': 'application/json' }
         });
         if (!res.ok) throw new Error('External API unreachable');
-        return await res.json();
+        const data = await res.json();
+        return data.map((item: any) => ({
+            ...item,
+            url: item.url.startsWith('http') ? item.url : `https://institute.credence.africa${item.url}`
+        }));
     } catch (e) {
         return [
             { 
@@ -106,15 +114,18 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
         });
         if (!res.ok) throw new Error('External API unreachable');
         const data = await res.json();
-        return data.slice(0, 3); // Always feature the first three
+        return data.slice(0, 3).map((item: any) => ({
+            ...item,
+            url: item.url.startsWith('http') ? item.url : `https://perspectives.credence.africa/insights/${item.id || item.slug}`
+        }));
     } catch (e) {
         return [
             { 
-                id: '1', 
+                id: '7041CC9RVzLexpj6tNQB', 
                 title: "Why Timing Is the Most Underrated Variable in Blended Finance", 
                 type: "Strategic Briefing", 
                 description: "There is a version of blended finance that sounds very appealing in every pitch deck: grants absorb early losses, concessional loans reduce the cost of capital and commercial investors follow once risk is acceptably low and then there is...", 
-                url: "https://perspectives.credence.africa/insights/why-timing-is-the-most-underrated-variable" 
+                url: "https://perspectives.credence.africa/insights/7041CC9RVzLexpj6tNQB" 
             },
             { 
                 id: '2', 
