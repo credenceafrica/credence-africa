@@ -48,10 +48,40 @@ const sectorLinks = [
 export function Header({insights, services}: {insights: Insight[], services: Service[]}) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const isAdminPage = pathname.startsWith('/admin');
 
   if (isAdminPage) {
     return null;
+  }
+
+  // To prevent hydration mismatch, we render a simplified static version of the header
+  // until the client-side JavaScript (and Radix ID generation) is ready.
+  if (!mounted) {
+    return (
+      <header className="sticky top-0 z-50 w-full border-b bg-white">
+        <div className="container flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+            <Logo className="h-[70px] w-auto"/>
+          </Link>
+          <div className="hidden lg:flex items-center gap-2">
+            <Button asChild>
+              <Link href="/consult">Book a Consultation</Link>
+            </Button>
+          </div>
+          <div className="lg:hidden">
+             <Button variant="outline" size="icon">
+              <Menu className="h-6 w-6" />
+            </Button>
+          </div>
+        </div>
+      </header>
+    );
   }
 
   return (
@@ -147,7 +177,7 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               </SheetHeader>
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                {[...navLinks.filter(l => !l.isSectors), {href: "/sectors", label: "Sectors"}, { href: "/consult", label: "Book a Consultation" }].map((link) => (
+                {[...navLinks.filter(l => !l.isSectors && !l.isServices), {href: "/services", label: "Services"}, {href: "/sectors", label: "Sectors"}, { href: "/consult", label: "Book a Consultation" }].map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
