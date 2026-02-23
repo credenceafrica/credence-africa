@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,8 @@ import { ArrowRight, CheckCircle, Mail, Phone, Users, Megaphone, GraduationCap, 
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { ExternalEvent, ExternalCourse, ExternalPublication } from "@/lib/external-data";
 
 const whatWeSolve = [
     "Capital and investment readiness for high-growth ventures",
@@ -20,6 +23,9 @@ const whatWeSolve = [
 
 export default function Home() {
   const [services, setServices] = useState<Service[]>([]);
+  const [events, setEvents] = useState<ExternalEvent[]>([]);
+  const [courses, setCourses] = useState<ExternalCourse[]>([]);
+  const [publications, setPublications] = useState<ExternalPublication[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,6 +34,16 @@ export default function Home() {
           try {
             const fetchedServices = await getServices();
             setServices(fetchedServices);
+
+            // Fetch live data from internal proxy API
+            const response = await fetch('/api/live-data');
+            const liveData = await response.json();
+            
+            if (liveData) {
+                setEvents(liveData.events || []);
+                setCourses(liveData.courses || []);
+                setPublications(liveData.publications || []);
+            }
           } catch (error) {
               console.error("Failed to fetch data:", error);
           } finally {
@@ -186,42 +202,23 @@ export default function Home() {
             </Button>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <Calendar className="size-4" /> 
-                        <span>Coming Soon</span>
-                    </div>
-                    <CardTitle className="text-xl">Strategic Leadership Forum</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Design and delivery of institutional strategies in complex African markets.</p>
-                </CardContent>
-            </Card>
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <Calendar className="size-4" /> 
-                        <span>Quarterly</span>
-                    </div>
-                    <CardTitle className="text-xl">Capital Markets Briefing</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Analysis of capital flows, investor mandates, and blended finance models.</p>
-                </CardContent>
-            </Card>
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <Calendar className="size-4" /> 
-                        <span>Networking</span>
-                    </div>
-                    <CardTitle className="text-xl">The Credence Convening</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Bringing together decision-makers to enable relationship formation and insight exchange.</p>
-                </CardContent>
-            </Card>
+            {events.map((event) => (
+                <Link key={event.id} href={event.url} target="_blank" className="block group">
+                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
+                        <CardHeader>
+                            <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                                <Calendar className="size-4" /> 
+                                <span>{event.date}</span>
+                            </div>
+                            <CardTitle className="text-xl group-hover:text-primary transition-colors">{event.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground text-sm">{event.description}</p>
+                        </CardContent>
+                    </Card>
+                </Link>
+            ))}
+            {loading && !events.length && <p className="text-muted-foreground italic">Fetching latest events...</p>}
         </div>
       </section>
 
@@ -239,42 +236,23 @@ export default function Home() {
             </Button>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <BookOpen className="size-4" /> 
-                        <span>Executive Program</span>
-                    </div>
-                    <CardTitle className="text-xl">Governance &amp; Decision Quality</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Strengthening institutional capacity and governance maturity for senior leaders.</p>
-                </CardContent>
-            </Card>
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <BookOpen className="size-4" /> 
-                        <span>Professional Track</span>
-                    </div>
-                    <CardTitle className="text-xl">African Market Strategy</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Practical frameworks for executing growth across African jurisdictions.</p>
-                </CardContent>
-            </Card>
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <BookOpen className="size-4" /> 
-                        <span>Certificate</span>
-                    </div>
-                    <CardTitle className="text-xl">Compliance &amp; Risk Mgmt</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Navigating multi-agency compliance and cross-border regulatory risk.</p>
-                </CardContent>
-            </Card>
+            {courses.map((course) => (
+                <Link key={course.id} href={course.url} target="_blank" className="block group">
+                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
+                        <CardHeader>
+                            <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                                <BookOpen className="size-4" /> 
+                                <span>{course.tag}</span>
+                            </div>
+                            <CardTitle className="text-xl group-hover:text-primary transition-colors">{course.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground text-sm">{course.description}</p>
+                        </CardContent>
+                    </Card>
+                </Link>
+            ))}
+            {loading && !courses.length && <p className="text-muted-foreground italic">Fetching latest courses...</p>}
         </div>
       </section>
 
@@ -292,36 +270,26 @@ export default function Home() {
             </Button>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <Newspaper className="size-4" /> 
-                        <span>Strategic Briefing</span>
-                    </div>
-                    <CardTitle className="text-xl">The Blended Finance Playbook for Social Ventures</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Exploring how social enterprises can leverage catalytic capital for sustainable scale.</p>
-                    <Button asChild variant="link" className="px-0 mt-4">
-                         <Link href="https://perspectives.credence.africa/insights" target="_blank">Read Analysis <ArrowRight className="ml-2 size-4" /></Link>
-                    </Button>
-                </CardContent>
-            </Card>
-            <Card className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
-                        <Newspaper className="size-4" /> 
-                        <span>Regulatory Intelligence</span>
-                    </div>
-                    <CardTitle className="text-xl">AfCFTA &amp; The Digital Economy: Navigating New Trade Rules</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">A comprehensive look at emerging trade protocols and their impact on digital entrepreneurs.</p>
-                    <Button asChild variant="link" className="px-0 mt-4">
-                         <Link href="https://perspectives.credence.africa/insights" target="_blank">Read Analysis <ArrowRight className="ml-2 size-4" /></Link>
-                    </Button>
-                </CardContent>
-            </Card>
+            {publications.map((pub) => (
+                <Link key={pub.id} href={pub.url} target="_blank" className="block group">
+                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
+                        <CardHeader>
+                            <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
+                                <Newspaper className="size-4" /> 
+                                <span>{pub.type}</span>
+                            </div>
+                            <CardTitle className="text-xl group-hover:text-primary transition-colors">{pub.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground text-sm">{pub.description}</p>
+                            <div className="mt-4 text-primary font-medium flex items-center group-hover:underline">
+                                Read Analysis <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
+            ))}
+            {loading && !publications.length && <p className="text-muted-foreground italic col-span-2">Fetching latest publications...</p>}
         </div>
       </section>
       
@@ -373,5 +341,3 @@ export default function Home() {
     </div>
   );
 }
-
-import { cn } from "@/lib/utils";
