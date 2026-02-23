@@ -115,7 +115,7 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
         if (!res.ok) throw new Error('External API unreachable');
         const data = await res.json();
         
-        // Ensure all URLs point to the /insights/[id] pattern
+        // Ensure all URLs point to the /insights/[id] pattern strictly using the ID
         return data.slice(0, 3).map((item: any) => ({
             ...item,
             url: `https://perspectives.credence.africa/insights/${item.id}`
@@ -126,21 +126,21 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
                 id: '7041CC9RVzLexpj6tNQB', 
                 title: "Why Timing Is the Most Underrated Variable in Blended Finance", 
                 type: "Strategic Briefing", 
-                description: "There is a version of blended finance that sounds very appealing in every pitch deck: grants absorb early losses, concessional loans reduce the cost of capital and commercial investors follow once risk is acceptably low and then there is...", 
+                description: "There is a version of blended finance that sounds very appealing in every pitch deck: grants absorb early losses, concessional loans reduce the cost of capital and commercial investors follow once risk is acceptably low...", 
                 url: "https://perspectives.credence.africa/insights/7041CC9RVzLexpj6tNQB" 
             },
             { 
                 id: 'african-capital-concentration-vs-gap-reality', 
                 title: "The African Capital Concentration vs. Gap Reality", 
                 type: "Regulatory Intelligence", 
-                description: "African startups raised $3.1 billion in 2025 up from $2.2 billion recorded in 2024. Kenya overtook Nigeria as Africa's top investment destination. Debt financing now represents 45% of total funding, up from 25% two years ago. Investors a...", 
+                description: "African startups raised $3.1 billion in 2025 up from $2.2 billion recorded in 2024. Kenya overtook Nigeria as Africa's top investment destination. Debt financing now represents 45% of total funding...", 
                 url: "https://perspectives.credence.africa/insights/african-capital-concentration-vs-gap-reality" 
             },
             { 
                 id: 'understanding-why-african-ventures-face-funding-challenges', 
                 title: "Understanding Why African Ventures Face Funding Challenges", 
                 type: "Policy Brief", 
-                description: "The African startup ecosystem has shown resilience. Although funding declined to $2.2 billion in 2024, the ecosystem is showing growth. In 2025, funding went up to approximately $3.1 billion showing investor confidence despite African ve...", 
+                description: "The African startup ecosystem has shown resilience. Although funding declined to $2.2 billion in 2024, the ecosystem is showing growth. In 2025, funding went up to approximately $3.1 billion...", 
                 url: "https://perspectives.credence.africa/insights/understanding-why-african-ventures-face-funding-challenges" 
             }
         ];
