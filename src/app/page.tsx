@@ -73,7 +73,7 @@ export default function Home() {
         </div>
         <div className="relative h-64 md:h-[28rem] rounded-lg overflow-hidden shadow-lg">
             <Image 
-                src="/hero.jpg"
+                src="https://picsum.photos/seed/hero/1200/800"
                 alt="Growth Frontier"
                 fill
                 className="object-cover"
@@ -202,7 +202,7 @@ export default function Home() {
             </Button>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-            {events.map((event) => (
+            {events.slice(0, 3).map((event) => (
                 <Link key={event.id} href={event.url} target="_blank" className="block group">
                     <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
                         <CardHeader>
@@ -236,7 +236,7 @@ export default function Home() {
             </Button>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-            {courses.map((course) => (
+            {courses.slice(0, 3).map((course) => (
                 <Link key={course.id} href={course.url} target="_blank" className="block group">
                     <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
                         <CardHeader>
@@ -269,8 +269,8 @@ export default function Home() {
                 </Link>
             </Button>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-            {publications.map((pub) => (
+        <div className="grid md:grid-cols-3 gap-8">
+            {publications.slice(0, 3).map((pub) => (
                 <Link key={pub.id} href={pub.url} target="_blank" className="block group">
                     <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
                         <CardHeader>
@@ -289,7 +289,7 @@ export default function Home() {
                     </Card>
                 </Link>
             ))}
-            {loading && !publications.length && <p className="text-muted-foreground italic col-span-2">Fetching latest publications...</p>}
+            {loading && !publications.length && <p className="text-muted-foreground italic col-span-3">Fetching latest publications...</p>}
         </div>
       </section>
       

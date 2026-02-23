@@ -31,7 +31,6 @@ const REVALIDATE_TIME = 3600; // 1 hour
 
 export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
     try {
-        // Attempt to fetch from the live API endpoint on the engage platform
         const res = await fetch('https://engage.credence.africa/api/events', { 
             next: { revalidate: REVALIDATE_TIME },
             headers: { 'Accept': 'application/json' }
@@ -39,7 +38,6 @@ export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
         if (!res.ok) throw new Error('External API unreachable');
         return await res.json();
     } catch (e) {
-        // Return the latest known structure with specific fallback URLs if live fetch fails
         return [
             { 
                 id: '1', 
@@ -108,7 +106,8 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
             headers: { 'Accept': 'application/json' }
         });
         if (!res.ok) throw new Error('External API unreachable');
-        return await res.json();
+        const data = await res.json();
+        return data.slice(0, 3); // Always feature the first three
     } catch (e) {
         return [
             { 
@@ -124,6 +123,13 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
                 type: "Regulatory Intelligence", 
                 description: "A comprehensive look at emerging trade protocols and their impact on digital entrepreneurs.", 
                 url: "https://perspectives.credence.africa/insights/afcfta-digital-economy" 
+            },
+            { 
+                id: '3', 
+                title: "Fintech Licensing in Kenya: A Multi-Agency Compliance Guide", 
+                type: "Policy Brief", 
+                description: "Navigating the regulatory landscape for digital financial services in East Africa.", 
+                url: "https://perspectives.credence.africa/insights/fintech-licensing-kenya" 
             }
         ];
     }
