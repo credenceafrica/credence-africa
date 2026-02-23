@@ -4,12 +4,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getServices, Service } from "@/lib/services.tsx";
-import { ArrowRight, CheckCircle, Mail, Phone, Users, Megaphone, GraduationCap, Newspaper, Calendar, BookOpen, ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, Phone, Calendar, BookOpen, Newspaper, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ExternalEvent, ExternalCourse, ExternalPublication } from "@/lib/external-data";
+import PlaceholderImages from "@/lib/placeholder-images.json";
 
 const whatWeSolve = [
     "Capital and investment readiness for high-growth ventures",
@@ -73,7 +74,7 @@ export default function Home() {
         </div>
         <div className="relative h-64 md:h-[28rem] rounded-lg overflow-hidden shadow-lg">
             <Image 
-                src="https://picsum.photos/seed/hero/1200/800"
+                src={PlaceholderImages.hero}
                 alt="Growth Frontier"
                 fill
                 className="object-cover"
