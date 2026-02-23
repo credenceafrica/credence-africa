@@ -114,9 +114,11 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
         });
         if (!res.ok) throw new Error('External API unreachable');
         const data = await res.json();
+        
+        // Ensure all URLs point to the /insights/[id] pattern
         return data.slice(0, 3).map((item: any) => ({
             ...item,
-            url: item.url.startsWith('http') ? item.url : `https://perspectives.credence.africa/insights/${item.id || item.slug}`
+            url: `https://perspectives.credence.africa/insights/${item.id}`
         }));
     } catch (e) {
         return [
@@ -128,14 +130,14 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
                 url: "https://perspectives.credence.africa/insights/7041CC9RVzLexpj6tNQB" 
             },
             { 
-                id: '2', 
+                id: 'african-capital-concentration-vs-gap-reality', 
                 title: "The African Capital Concentration vs. Gap Reality", 
                 type: "Regulatory Intelligence", 
                 description: "African startups raised $3.1 billion in 2025 up from $2.2 billion recorded in 2024. Kenya overtook Nigeria as Africa's top investment destination. Debt financing now represents 45% of total funding, up from 25% two years ago. Investors a...", 
                 url: "https://perspectives.credence.africa/insights/african-capital-concentration-vs-gap-reality" 
             },
             { 
-                id: '3', 
+                id: 'understanding-why-african-ventures-face-funding-challenges', 
                 title: "Understanding Why African Ventures Face Funding Challenges", 
                 type: "Policy Brief", 
                 description: "The African startup ecosystem has shown resilience. Although funding declined to $2.2 billion in 2024, the ecosystem is showing growth. In 2025, funding went up to approximately $3.1 billion showing investor confidence despite African ve...", 
