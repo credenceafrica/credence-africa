@@ -48,7 +48,7 @@ const services: Service[] = [
     slug: "perspectives",
     href: "https://perspectives.credence.africa/insights",
     icon: <Newspaper className="size-8 text-primary" />,
-    title: "Research & Insights | Credence - Credible Perspectives",
+    title: "Credence - Credible Perspectives",
     description: "Research, Media, and Thought Leadership",
     longDescription: "Credible Perspectives is the research grounded media and publication arm of the Credence ecosystem. It operates as a research led executive platform delivering original analysis, expert commentary, publications, and podcasts that inform senior decision makers and shape strategy, governance, and capital allocation across Africa.",
     buttonText: "Explore Insights"
