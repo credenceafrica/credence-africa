@@ -44,17 +44,19 @@ const REVALIDATE_TIME = 3600; // 1 hour
 export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
     try {
         const eventsRef = collection(engageDb, 'users', 'Mg3sDYJiOvb4FN1Woqk8yehdB703', 'events');
-        // Query for published events
+        
+        // Query for published events ordered by start date
         const q = query(
             eventsRef, 
             where('status', '==', 'published'),
             orderBy('startDate', 'asc'), 
-            limit(6)
+            limit(3)
         );
         
         const snapshot = await getDocs(q);
         
         if (snapshot.empty) {
+            console.log("No published events found in Engage Firestore.");
             return getFallbackEvents();
         }
 
@@ -108,7 +110,7 @@ export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
         });
         if (!res.ok) throw new Error('External API unreachable');
         const data = await res.json();
-        return data.map((item: any) => ({
+        return data.slice(0, 3).map((item: any) => ({
             ...item,
             url: item.url.startsWith('http') ? item.url : `https://institute.credence.africa${item.url}`
         }));
