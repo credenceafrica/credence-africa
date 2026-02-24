@@ -1,6 +1,9 @@
 /**
  * @fileOverview Library for fetching live data from external Credence platforms.
  */
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getFirestore, collection, getDocs, query, where, orderBy, limit } from "firebase/firestore";
+import { engageFirebaseConfig } from "@/firebase/config";
 
 export interface ExternalEvent {
     id: string;
@@ -26,45 +29,75 @@ export interface ExternalPublication {
     url: string;
 }
 
+// Initialize Engage Firebase instance for live event fetching
+const engageApp = !getApps().find(app => app.name === 'engage')
+    ? initializeApp(engageFirebaseConfig, 'engage')
+    : getApp('engage');
+const engageDb = getFirestore(engageApp);
+
 const REVALIDATE_TIME = 3600; // 1 hour
 
+/**
+ * Fetches live events from the Engage Firestore database.
+ * Path: users/Mg3sDYJiOvb4FN1Woqk8yehdB703/events
+ */
 export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
     try {
-        const res = await fetch('https://engage.credence.africa/api/events', { 
-            next: { revalidate: REVALIDATE_TIME },
-            headers: { 'Accept': 'application/json' }
+        const eventsRef = collection(engageDb, 'users', 'Mg3sDYJiOvb4FN1Woqk8yehdB703', 'events');
+        // Query for published events
+        const q = query(
+            eventsRef, 
+            where('status', '==', 'published'),
+            orderBy('startDate', 'asc'), 
+            limit(6)
+        );
+        
+        const snapshot = await getDocs(q);
+        
+        if (snapshot.empty) {
+            return getFallbackEvents();
+        }
+
+        return snapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: doc.id,
+                title: data.name || 'Untitled Event',
+                date: data.startDate || 'Date TBA',
+                description: data.description || '',
+                url: `https://engage.credence.africa/events/${doc.id}`
+            };
         });
-        if (!res.ok) throw new Error('External API unreachable');
-        const data = await res.json();
-        return data.map((item: any) => ({
-            ...item,
-            url: item.url.startsWith('http') ? item.url : `https://engage.credence.africa${item.url}`
-        }));
     } catch (e) {
-        return [
-            { 
-                id: '1', 
-                title: "Strategic Leadership Forum", 
-                date: "Coming Soon", 
-                description: "Design and delivery of institutional strategies in complex African markets.", 
-                url: "https://engage.credence.africa/events/strategic-leadership-forum" 
-            },
-            { 
-                id: '2', 
-                title: "Capital Markets Briefing", 
-                date: "Quarterly", 
-                description: "Analysis of capital flows, investor mandates, and blended finance models.", 
-                url: "https://engage.credence.africa/events/capital-markets-briefing" 
-            },
-            { 
-                id: '3', 
-                title: "The Credence Convening", 
-                date: "Networking", 
-                description: "Bringing together decision-makers to enable relationship formation and insight exchange.", 
-                url: "https://engage.credence.africa/events/credence-convening" 
-            }
-        ];
+        console.error("Error fetching Engage events from Firestore:", e);
+        return getFallbackEvents();
     }
+}
+
+function getFallbackEvents(): ExternalEvent[] {
+    return [
+        { 
+            id: '1', 
+            title: "Strategic Leadership Forum", 
+            date: "Coming Soon", 
+            description: "Design and delivery of institutional strategies in complex African markets.", 
+            url: "https://engage.credence.africa/events/strategic-leadership-forum" 
+        },
+        { 
+            id: '2', 
+            title: "Capital Markets Briefing", 
+            date: "Quarterly", 
+            description: "Analysis of capital flows, investor mandates, and blended finance models.", 
+            url: "https://engage.credence.africa/events/capital-markets-briefing" 
+        },
+        { 
+            id: '3', 
+            title: "The Credence Convening", 
+            date: "Networking", 
+            description: "Bringing together decision-makers to enable relationship formation and insight exchange.", 
+            url: "https://engage.credence.africa/events/credence-convening" 
+        }
+    ];
 }
 
 export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
@@ -115,7 +148,6 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
         if (!res.ok) throw new Error('External API unreachable');
         const data = await res.json();
         
-        // Ensure all URLs point to the /insights/[id] pattern strictly using the ID
         return data.slice(0, 3).map((item: any) => ({
             ...item,
             url: `https://perspectives.credence.africa/insights/${item.id}`
