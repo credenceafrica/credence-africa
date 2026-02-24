@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { ExternalEvent, ExternalCourse, ExternalPublication } from "@/lib/external-data";
+import { ExternalEvent, ExternalCourse, ExternalPublication, getUpcomingEvents, getFeaturedCourses, getRecentPublications } from "@/lib/external-data";
 import PlaceholderImages from "@/lib/placeholder-images.json";
 
 const whatWeSolve = [
@@ -35,15 +35,14 @@ export default function Home() {
           try {
             const fetchedServices = await getServices();
             setServices(fetchedServices);
-
-            const response = await fetch('/api/live-data');
-            const liveData = await response.json();
-            
-            if (liveData) {
-                setEvents(liveData.events || []);
-                setCourses(liveData.courses || []);
-                setPublications(liveData.publications || []);
-            }
+            const [ev, cor, pub] = await Promise.all([
+                getUpcomingEvents(),
+                getFeaturedCourses(),
+                getRecentPublications()
+            ]);
+            setEvents(ev)
+            setCourses(cor)
+            setPublications(pub)
           } catch (error) {
               console.error("Failed to fetch data:", error);
           } finally {
@@ -180,7 +179,7 @@ export default function Home() {
                             <CardTitle className="text-xl group-hover:text-primary transition-colors">{event.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-muted-foreground text-sm">{event.description}</p>
+                            <p className="text-muted-foreground text-sm line-clamp-3">{event.description}</p>
                         </CardContent>
                     </Card>
                 </Link>
@@ -246,7 +245,7 @@ export default function Home() {
                             <CardTitle className="text-xl group-hover:text-primary transition-colors">{pub.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-muted-foreground text-sm line-clamp-3">{pub.description}</p>
+                            <p className="text-muted-foreground text-sm line-clamp-3" dangerouslySetInnerHTML={{ __html: pub.description }} />
                             <div className="mt-4 text-primary font-medium flex items-center group-hover:underline">
                                 Read Analysis <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                             </div>
