@@ -1,4 +1,3 @@
-
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore, collection, getDocs, query, where, orderBy, limit } from "firebase/firestore";
 import { engageFirebaseConfig, perspectiveFirebaseConfig, instituteFirebaseConfig } from "@/firebase/config";
@@ -9,6 +8,7 @@ export interface ExternalEvent {
     date: string;
     description: string;
     url: string;
+    image?: string;
 }
 
 export interface ExternalCourse {
@@ -17,6 +17,7 @@ export interface ExternalCourse {
     tag: string;
     description: string;
     url: string;
+    image?: string;
 }
 
 export interface ExternalPublication {
@@ -25,6 +26,7 @@ export interface ExternalPublication {
     type: string;
     description: string;
     url: string;
+    image?: string;
 }
 
 // Initialize individual Firebase instances for each platform to fetch live data
@@ -74,7 +76,8 @@ export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
                 title: data.name || 'Untitled Event',
                 date: data.startDate || 'Date TBA',
                 description: data.description || '',
-                url: `https://engage.credence.africa/events/${doc.id}`
+                url: `https://engage.credence.africa/events/${doc.id}`,
+                image: data.thumbnail
             };
         });
     } catch (e) {
@@ -101,7 +104,8 @@ export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
                 title: docData.name,
                 description: docData.description,
                 tag: docData.category || 'Program',
-                url: `https://institute.credence.africa/programs/${doc.id}`
+                url: `https://institute.credence.africa/programs/${doc.id}`,
+                image: docData.image || docData.thumbnail || docData.imageUrl
             }
         });
     } catch (e) {
@@ -129,7 +133,8 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
                 title: docData.title,
                 type: docData.type || 'Insight',
                 description: docData.content || '',
-                url: `https://perspectives.credence.africa/insights/${doc.id}`
+                url: `https://perspectives.credence.africa/insights/${doc.id}`,
+                image: docData.featuredImage
             }
         });
     } catch (e) {
@@ -141,24 +146,87 @@ export async function getRecentPublications(): Promise<ExternalPublication[]> {
 // Fallback data for robust UI
 function getFallbackEvents(): ExternalEvent[] {
     return [
-        { id: "1", title: "Africa Strategy Summit 2024", date: "May 15, 2024", description: "Convening leaders to shape the future of African enterprise and policy.", url: "https://engage.credence.africa" },
-        { id: "2", title: "Venture Capital Intensive", date: "June 10, 2024", description: "Deep dive into investment readiness and capital structuring for growth.", url: "https://engage.credence.africa" },
-        { id: "3", title: "Public Affairs Roundtable", date: "July 22, 2024", description: "Navigating regulatory intelligence and government relations.", url: "https://engage.credence.africa" }
+        { 
+            id: "1", 
+            title: "Africa Strategy Summit 2024", 
+            date: "May 15, 2024", 
+            description: "Convening leaders to shape the future of African enterprise and policy.", 
+            url: "https://engage.credence.africa",
+            image: "https://picsum.photos/seed/event1/800/450"
+        },
+        { 
+            id: "2", 
+            title: "Venture Capital Intensive", 
+            date: "June 10, 2024", 
+            description: "Deep dive into investment readiness and capital structuring for growth.", 
+            url: "https://engage.credence.africa",
+            image: "https://picsum.photos/seed/event2/800/450"
+        },
+        { 
+            id: "3", 
+            title: "Public Affairs Roundtable", 
+            date: "July 22, 2024", 
+            description: "Navigating regulatory intelligence and government relations.", 
+            url: "https://engage.credence.africa",
+            image: "https://picsum.photos/seed/event3/800/450"
+        }
     ];
 }
 
 function getFallbackCourses(): ExternalCourse[] {
     return [
-        { id: "1", title: "Strategic Governance for Boards", tag: "Executive Education", description: "Strengthening decision quality and institutional capacity.", url: "https://institute.credence.africa" },
-        { id: "2", title: "Blended Finance Masterclass", tag: "Finance", description: "Advanced strategies for catalytic capital and impact investment.", url: "https://institute.credence.africa" },
-        { id: "3", title: "Regulatory Compliance in Africa", tag: "Legal", description: "Mastering multi-agency compliance in complex jurisdictions.", url: "https://institute.credence.africa" }
+        { 
+            id: "1", 
+            title: "Strategic Governance for Boards", 
+            tag: "Executive Education", 
+            description: "Strengthening decision quality and institutional capacity.", 
+            url: "https://institute.credence.africa",
+            image: "https://picsum.photos/seed/course1/800/450"
+        },
+        { 
+            id: "2", 
+            title: "Blended Finance Masterclass", 
+            tag: "Finance", 
+            description: "Advanced strategies for catalytic capital and impact investment.", 
+            url: "https://institute.credence.africa",
+            image: "https://picsum.photos/seed/course2/800/450"
+        },
+        { 
+            id: "3", 
+            title: "Regulatory Compliance in Africa", 
+            tag: "Legal", 
+            description: "Mastering multi-agency compliance in complex jurisdictions.", 
+            url: "https://institute.credence.africa",
+            image: "https://picsum.photos/seed/course3/800/450"
+        }
     ];
 }
 
 function getFallbackPublications(): ExternalPublication[] {
     return [
-        { id: "7041CC9RVzLexpj6tNQB", title: "Why Timing Is the Most Underrated Variable in Blended Finance", type: "Strategic Briefing", description: "An analysis of entry and exit timing in catalytic finance models.", url: "https://perspectives.credence.africa/insights/7041CC9RVzLexpj6tNQB" },
-        { id: "african-capital-concentration-vs-gap-reality", title: "The African Capital Concentration vs. Gap Reality", type: "Regulatory Intelligence", description: "Unpacking the mismatch between available capital and enterprise needs.", url: "https://perspectives.credence.africa/insights/african-capital-concentration-vs-gap-reality" },
-        { id: "understanding-why-african-ventures-face-funding-challenges", title: "Understanding Why African Ventures Face Funding Challenges", type: "Policy Brief", description: "A research-led look at the structural barriers to scaling ventures.", url: "https://perspectives.credence.africa/insights/understanding-why-african-ventures-face-funding-challenges" }
+        { 
+            id: "7041CC9RVzLexpj6tNQB", 
+            title: "Why Timing Is the Most Underrated Variable in Blended Finance", 
+            type: "Strategic Briefing", 
+            description: "An analysis of entry and exit timing in catalytic finance models.", 
+            url: "https://perspectives.credence.africa/insights/7041CC9RVzLexpj6tNQB",
+            image: "https://picsum.photos/seed/pub1/800/450"
+        },
+        { 
+            id: "african-capital-concentration-vs-gap-reality", 
+            title: "The African Capital Concentration vs. Gap Reality", 
+            type: "Regulatory Intelligence", 
+            description: "Unpacking the mismatch between available capital and enterprise needs.", 
+            url: "https://perspectives.credence.africa/insights/african-capital-concentration-vs-gap-reality",
+            image: "https://picsum.photos/seed/pub2/800/450"
+        },
+        { 
+            id: "understanding-why-african-ventures-face-funding-challenges", 
+            title: "Understanding Why African Ventures Face Funding Challenges", 
+            type: "Policy Brief", 
+            description: "A research-led look at the structural barriers to scaling ventures.", 
+            url: "https://perspectives.credence.africa/insights/understanding-why-african-ventures-face-funding-challenges",
+            image: "https://picsum.photos/seed/pub3/800/450"
+        }
     ];
 }

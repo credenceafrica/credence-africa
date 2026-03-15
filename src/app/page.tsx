@@ -1,10 +1,9 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getServices, Service } from "@/lib/services.tsx";
-import { ArrowRight, CheckCircle, Mail, Phone, Calendar, BookOpen, Newspaper, ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle, Calendar, BookOpen, Newspaper, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -170,7 +169,18 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
             {events.slice(0, 3).map((event) => (
                 <Link key={event.id} href={event.url} target="_blank" className="block group">
-                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
+                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary overflow-hidden">
+                        {event.image && (
+                            <div className="relative aspect-video w-full">
+                                <Image 
+                                    src={event.image}
+                                    alt={event.title}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint="event cover"
+                                />
+                            </div>
+                        )}
                         <CardHeader>
                             <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
                                 <Calendar className="size-4" /> 
@@ -203,7 +213,18 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
             {courses.slice(0, 3).map((course) => (
                 <Link key={course.id} href={course.url} target="_blank" className="block group">
-                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
+                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary overflow-hidden">
+                        {course.image && (
+                            <div className="relative aspect-video w-full">
+                                <Image 
+                                    src={course.image}
+                                    alt={course.title}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint="course thumbnail"
+                                />
+                            </div>
+                        )}
                         <CardHeader>
                             <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
                                 <BookOpen className="size-4" /> 
@@ -228,7 +249,7 @@ export default function Home() {
                 <p className="text-muted-foreground max-w-2xl">Original analysis and research-grounded commentary shaping strategy across Africa.</p>
             </div>
             <Button asChild variant="outline">
-                <Link href="https://perspectives.credence.africa/insights" target="_blank">
+                <Link href="https://perspectives.credence.africa/" target="_blank">
                     View All Insights <ExternalLink className="ml-2 size-4" />
                 </Link>
             </Button>
@@ -236,7 +257,18 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
             {publications.slice(0, 3).map((pub) => (
                 <Link key={pub.id} href={pub.url} target="_blank" className="block group">
-                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary">
+                    <Card className="hover:shadow-md transition-shadow h-full border-border group-hover:border-primary overflow-hidden">
+                        {pub.image && (
+                            <div className="relative aspect-video w-full">
+                                <Image 
+                                    src={pub.image}
+                                    alt={pub.title}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint="publication cover"
+                                />
+                            </div>
+                        )}
                         <CardHeader>
                             <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-2">
                                 <Newspaper className="size-4" /> 
