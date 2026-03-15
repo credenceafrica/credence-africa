@@ -26,6 +26,7 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services", isServices: true },
   { href: "/sectors", label: "Sectors", isSectors: true },
+  { href: "https://engage.credence.africa", label: "Events" },
   { href: "https://perspectives.credence.africa", label: "Insights" },
 ];
 
