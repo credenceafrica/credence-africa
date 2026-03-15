@@ -46,7 +46,7 @@ const services: Service[] = [
   {
     id: "perspectives",
     slug: "perspectives",
-    href: "https://perspectives.credence.africa/insights",
+    href: "https://perspectives.credence.africa",
     icon: <Newspaper className="size-8 text-primary" />,
     title: "Credence - Credible Perspectives",
     description: "Research, Media, and Thought Leadership",

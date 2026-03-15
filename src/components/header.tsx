@@ -26,7 +26,7 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services", isServices: true },
   { href: "/sectors", label: "Sectors", isSectors: true },
-  { href: "https://perspectives.credence.africa/insights", label: "Insights" },
+  { href: "https://perspectives.credence.africa", label: "Insights" },
 ];
 
 const sectorLinks = [
@@ -60,8 +60,6 @@ export function Header({insights, services}: {insights: Insight[], services: Ser
     return null;
   }
 
-  // To prevent hydration mismatch, we render a simplified static version of the header
-  // until the client-side JavaScript (and Radix ID generation) is ready.
   if (!mounted) {
     return (
       <header className="sticky top-0 z-50 w-full border-b bg-white">
