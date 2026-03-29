@@ -1,0 +1,222 @@
+
+"use client";
+
+import { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
+import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { firestore, storage } from '@/firebase';
+import { ref, uploadString, getDownloadURL } from 'firebase/storage';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useToast } from '@/hooks/use-toast';
+import Image from 'next/image';
+import { LexicalEditor } from '@/components/lexical-editor';
+
+const insightSchema = z.object({
+  title: z.string().min(1, 'Title is required'),
+  content: z.string().min(1, 'Content is required'),
+  category: z.string().min(1, 'Category is required'),
+  tags: z.string().optional(),
+  featuredImage: z.any().optional(),
+});
+
+type InsightFormValues = z.infer<typeof insightSchema>;
+
+const slugify = (text: string) => {
+    if (!text) return '';
+    return text
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+};
+
+export default function EditInsightPage() {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const params = useParams();
+  const { toast } = useToast();
+  const id = params.id as string;
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const form = useForm<InsightFormValues>({
+    resolver: zodResolver(insightSchema),
+    defaultValues: {
+      title: '',
+      content: '',
+      category: '',
+      tags: '',
+      featuredImage: null,
+    },
+  });
+
+  useEffect(() => {
+    if (!id) return;
+    const fetchInsight = async () => {
+      const docRef = doc(firestore, 'insights', id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        form.reset({
+          title: data.title,
+          content: data.content,
+          category: data.category,
+          tags: (data.tags || []).join(', '),
+        });
+        if (data.featuredImage) {
+          setImagePreview(data.featuredImage);
+          form.setValue('featuredImage', data.featuredImage);
+        }
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: 'Insight not found.',
+        });
+        router.push('/admin/insights');
+      }
+    };
+    fetchInsight();
+  }, [id, router, toast, form]);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+        form.setValue('featuredImage', reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const onSubmit = async (data: InsightFormValues) => {
+    setLoading(true);
+    try {
+      let imageUrl = data.featuredImage;
+
+      // Check if a new image was uploaded (it will be a data URL string)
+      if (imageUrl && typeof imageUrl === 'string' && imageUrl.startsWith('data:image')) {
+        const imageRef = ref(storage, `insights/${Date.now()}_${id}`);
+        const snapshot = await uploadString(imageRef, imageUrl, 'data_url');
+        imageUrl = await getDownloadURL(snapshot.ref);
+      }
+      
+      const docRef = doc(firestore, 'insights', id);
+      const slug = slugify(data.title);
+      const wordCount = data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
+      await updateDoc(docRef, {
+        title: data.title,
+        slug: slug,
+        content: data.content,
+        category: data.category,
+        tags: data.tags?.split(',').map(tag => tag.trim()).filter(tag => tag) || [],
+        featuredImage: imageUrl || null,
+        wordCount: wordCount,
+        updatedAt: serverTimestamp(),
+      });
+      toast({
+        title: 'Success',
+        description: 'Insight updated successfully.',
+      });
+      router.push('/admin/insights');
+    } catch (err: any) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: err.message,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-8">Edit Insight</h1>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <Input placeholder="Insight Title" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Content</FormLabel>
+                <FormControl>
+                  <LexicalEditor onChange={field.onChange} initialValue={field.value} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="category"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Category</FormLabel>
+                <FormControl>
+                  <Input placeholder="e.g., Capital & Investment" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="tags"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Tags (comma-separated sector names)</FormLabel>
+                <FormControl>
+                  <Input placeholder="e.g., Agriculture & Food, SMEs & Startups" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormItem>
+            <FormLabel>Featured Image</FormLabel>
+            <FormControl>
+              <Input type="file" accept="image/*" onChange={handleImageChange} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+
+          {imagePreview && (
+            <div className="mt-4">
+              <p>Image Preview:</p>
+              <Image src={imagePreview} alt="Image preview" width={200} height={100} className="rounded-lg object-cover" />
+            </div>
+          )}
+
+          <Button type="submit" disabled={loading}>
+            {loading ? 'Updating...' : 'Update Insight'}
+          </Button>
+        </form>
+      </Form>
+    </div>
+  );
+}

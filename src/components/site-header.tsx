@@ -1,0 +1,17 @@
+import { getInsights } from '@/lib/insights';
+import { getServices } from '@/lib/services';
+import { Header } from './header';
+
+// Revalidate every hour
+export const revalidate = 3600;
+
+export async function SiteHeader() {
+  const insights = await getInsights();
+  const services = await getServices();
+  
+  return (
+    <div className="flex flex-col w-full z-50 sticky top-0">
+      <Header insights={insights} services={services} />
+    </div>
+  );
+}
