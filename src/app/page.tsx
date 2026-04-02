@@ -87,7 +87,7 @@ export default function Home() {
               Building The Institutions That Build Africa
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light max-w-2xl">
-              Gracen Wealth helps clients transform income, assets, and opportunities into structured long term wealth.
+              Smart insights. Practical execution. Structure that scales in complexity and across borders.
             </p>
             <div className="flex flex-wrap items-center gap-8 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-8 text-lg font-medium">

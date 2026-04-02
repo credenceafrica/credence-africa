@@ -17,13 +17,13 @@ export const perspectiveFirebaseConfig = {
 };
 
 export const engageFirebaseConfig = {
-  "projectId": "studio-4205466033-6c19c",
-  "appId": "1:201473261803:web:16cc8b58f506438f3abeae",
-  "apiKey": "AIzaSyCGMO0o20PkALxM70m_ryeTeYpsAYtH-MI",
-  "authDomain": "studio-4205466033-6c19c.firebaseapp.com",
-  "storageBucket": "studio-4205466033-6c19c.firebasestorage.app",
-  "measurementId": "",
-  "messagingSenderId": "201473261803"
+  projectId: "studio-4205466033-6c19c",
+  appId: "1:201473261803:web:16cc8b58f506438f3abeae",
+  apiKey: "AIzaSyCGMO0o20PkALxM70m_ryeTeYpsAYtH-MI",
+  authDomain: "studio-4205466033-6c19c.firebaseapp.com",
+  storageBucket: "studio-4205466033-6c19c.firebasestorage.app",
+  measurementId: "",
+  messagingSenderId: "201473261803"
 };
 
 export const instituteFirebaseConfig = {
