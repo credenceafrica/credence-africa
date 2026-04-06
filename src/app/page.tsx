@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh-96px)] min-h-[600px] flex flex-col overflow-hidden bg-black">
+      <section className="relative h-[calc(100vh-96px)] min-h-[600px] flex flex-col justify-center overflow-hidden bg-black">
         <Image 
           src="/hero.jpg"
           alt="Building the Institutions That Build Africa"
@@ -93,7 +93,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/80 z-[1]" />
         
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-end pb-24">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-center">
           <div className="max-w-4xl space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal text-white leading-tight">
               Building the Institutions That Build Africa
@@ -390,7 +390,7 @@ export default function Home() {
         {/* Final CTA */}
         <section className="bg-primary text-primary-foreground py-20 text-center rounded-none shadow-2xl">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-tight max-w-5xl mx-auto">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-normal leading-tight max-w-5xl mx-auto">
               Credence Africa delivers capital raising, market entry, public affairs, executive education, strategic convenings, events, intelligence, and networks across Africa’s growth markets.
             </h2>
             <div className="mt-12 flex flex-wrap justify-center gap-6">
