@@ -87,10 +87,10 @@ export default function Home() {
               Building the Institutions That Build Africa
             </h1>
             <div className="space-y-4">
-              <p className="text-lg md:text-xl text-primary font-bold uppercase tracking-wider">
+              <p className="text-lg md:text-xl text-primary font-bold tracking-wider">
                 Capital. Policy. Markets. Executed Across Africa Human Capability. Institutional Capacity. Market Intelligence
               </p>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+              <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
                 Credence Africa is a pan African institution building enterprise enabling capital deployment, policy alignment, market entry, institutional capability, strategic convening, intelligence, and ecosystem engagement across Africa. We bring together advisory, executive education, convenings, audience engagement, proprietary events, thought leadership, and networks into one integrated execution system for institutions shaping growth across the continent.
               </p>
             </div>
