@@ -124,7 +124,7 @@ export default function EngagePage() {
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
               Lead, Connect & Influence in Africa.
             </h1>
             <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed max-w-2xl">
@@ -151,7 +151,7 @@ export default function EngagePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mb-16">
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Cred360 Influence Model</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">A Full-Cycle System for Visibility</h3>
+            <h3 className="text-3xl md:text-4xl font-normal mb-6">A Full-Cycle System for Visibility</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Our model ensures you build a lasting presence, not just one-day impressions. We manage the entire strategic lifecycle of your influence.
             </p>
@@ -161,7 +161,7 @@ export default function EngagePage() {
             {modelPhases.map((phase) => (
               <Card key={phase.title} className="bg-white border-none shadow-sm rounded-none p-8 space-y-6 hover:shadow-md transition-all duration-300">
                 <div className="space-y-2">
-                  <h4 className="font-bold text-xl text-primary">{phase.title}</h4>
+                  <h4 className="font-normal text-xl text-primary">{phase.title}</h4>
                   <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{phase.subtitle}</p>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{phase.description}</p>
@@ -188,7 +188,7 @@ export default function EngagePage() {
                 <div className="mx-auto w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
                   {item.icon}
                 </div>
-                <h4 className="font-bold text-lg">{item.title}</h4>
+                <h4 className="font-normal text-lg">{item.title}</h4>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
             ))}
@@ -201,7 +201,7 @@ export default function EngagePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">Influence.<br />Not Just Impressions.</h2>
+              <h2 className="text-3xl md:text-4xl font-normal leading-tight">Influence.<br />Not Just Impressions.</h2>
               <div className="relative p-8 bg-white border-l-4 border-primary">
                 <p className="text-xl italic font-light leading-relaxed text-foreground/80">
                   "We don't play to the crowd—we build the room. And we make sure you belong in it."
@@ -223,7 +223,7 @@ export default function EngagePage() {
                 <div key={benefit.title} className="flex gap-6 p-6 border group hover:border-primary transition-colors">
                   <div className="text-primary shrink-0">{benefit.icon}</div>
                   <div className="space-y-1">
-                    <h4 className="font-bold text-lg">{benefit.title}</h4>
+                    <h4 className="font-normal text-lg">{benefit.title}</h4>
                     <p className="text-sm text-muted-foreground">{benefit.desc}</p>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ export default function EngagePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Partnerships</h2>
-            <h3 className="text-3xl md:text-4xl font-bold">Sponsorship & Strategic Partnerships</h3>
+            <h3 className="text-3xl md:text-4xl font-normal">Sponsorship & Strategic Partnerships</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Convert visibility into influence by partnering with Africa's premier strategic events platform. Our partnerships are designed for strategic alignment, not just impressions.
             </p>
@@ -248,7 +248,7 @@ export default function EngagePage() {
             {partnershipTiers.map((tier) => (
               <Card key={tier.title} className="flex flex-col rounded-none border-2 hover:border-primary transition-colors group">
                 <div className="p-8 space-y-6 flex-grow">
-                  <h4 className="text-xl font-bold leading-tight">{tier.title}</h4>
+                  <h4 className="text-xl font-normal leading-tight">{tier.title}</h4>
                   <p className="text-sm text-muted-foreground">
                     {tier.description}
                   </p>
@@ -278,7 +278,7 @@ export default function EngagePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Contact Us Today</h2>
-              <h3 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h3 className="text-4xl md:text-5xl font-normal leading-tight">
                 Let’s Build Strategic<br />Influence Together.
               </h3>
               <p className="text-lg text-white/70 leading-relaxed">

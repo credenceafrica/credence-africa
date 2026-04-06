@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Download } from "lucide-react";
@@ -19,7 +20,7 @@ export default function AboutUsPage() {
     <div className="py-16 lg:py-24 space-y-24 mx-auto lg:w-85">
       {/* Hero Section */}
       <section className="text-center">
-        <h1 className="text-4xl font-bold">Blending Precision with Perspective.</h1>
+        <h1 className="text-4xl font-normal">Blending Precision with Perspective.</h1>
         <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Navigating Complexity with Strategy.</p>
         <p className="mt-6 max-w-4xl mx-auto">We deliver strategy that reflects the real-world dynamics of doing business in Africa, combining deep local understanding with global-standard execution.</p>
       </section>
@@ -27,37 +28,37 @@ export default function AboutUsPage() {
       {/* Mission & Vision */}
       <section className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-3xl font-bold">Our Mission</h2>
+          <h2 className="text-3xl font-normal">Our Mission</h2>
           <p className="mt-4 text-muted-foreground">Equip African enterprises and institutions with actionable, context-aligned advisory for capital access, strategic structuring, and resilience.</p>
         </div>
         <div>
-          <h2 className="text-3xl font-bold">Our Vision</h2>
+          <h2 className="text-3xl font-normal">Our Vision</h2>
           <p className="mt-4 text-muted-foreground">Become the continent’s most trusted partner in structuring sustainable growth.</p>
         </div>
       </section>
 
       {/* The Credence Africa Model */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-10">The Credence Africa Model</h2>
+        <h2 className="text-3xl font-normal text-center mb-10">The Credence Africa Model</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card>
-                <CardHeader><CardTitle>1. Execution-Ready Advisory</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="font-normal">1. Execution-Ready Advisory</CardTitle></CardHeader>
                 <CardContent>Blueprints for immediate, risk-managed implementation.</CardContent>
             </Card>
             <Card>
-                <CardHeader><CardTitle>2. Context-Driven Structuring</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="font-normal">2. Context-Driven Structuring</CardTitle></CardHeader>
                 <CardContent>Strategies aligned with local law, policy, and markets.</CardContent>
             </Card>
             <Card>
-                <CardHeader><CardTitle>3. Cross-Functional Expertise</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="font-normal">3. Cross-Functional Expertise</CardTitle></CardHeader>
                 <CardContent>Integrating finance, law, policy, and innovation.</CardContent>
             </Card>
              <Card>
-                <CardHeader><CardTitle>4. Influence + Compliance</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="font-normal">4. Influence + Compliance</CardTitle></CardHeader>
                 <CardContent>Shaping rules while ensuring compliance.</CardContent>
             </Card>
              <Card>
-                <CardHeader><CardTitle>5. Growth with Integrity</CardTitle></CardHeader>
+                <CardHeader><CardTitle className="font-normal">5. Growth with Integrity</CardTitle></CardHeader>
                 <CardContent>Sustainable, scalable, and strategically sound solutions.</CardContent>
             </Card>
         </div>
@@ -65,7 +66,7 @@ export default function AboutUsPage() {
 
       {/* Who We Work With */}
       <section id="partners" className="scroll-mt-20">
-        <h2 className="text-3xl font-bold text-center mb-10">Who We Work With</h2>
+        <h2 className="text-3xl font-normal text-center mb-10">Who We Work With</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {partners.map(partner => (
                 <div key={partner} className="flex items-start gap-4">
@@ -78,7 +79,7 @@ export default function AboutUsPage() {
       
       {/* Download Profile */}
       <section className="text-center bg-secondary py-16">
-        <h2 className="text-3xl font-bold">Download Our Company Profile</h2>
+        <h2 className="text-3xl font-normal">Download Our Company Profile</h2>
         <p className="mt-4 text-muted-foreground">Get a comprehensive overview of our services, impact, and approach.</p>
         <Button asChild size="lg" className="mt-8">
           <Link href="#">

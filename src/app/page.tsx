@@ -82,11 +82,11 @@ export default function Home() {
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-end pb-24">
           <div className="max-w-4xl space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal text-white leading-tight">
               Building the Institutions That Build Africa
             </h1>
             <div className="space-y-4">
-              <p className="text-lg md:text-xl text-primary font-bold tracking-wider">
+              <p className="text-lg md:text-xl text-primary font-normal tracking-wider">
                 Capital. Policy. Markets. Executed Across Africa Human Capability. Institutional Capacity. Market Intelligence
               </p>
               <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
@@ -122,7 +122,7 @@ export default function Home() {
             >
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-bold text-foreground">
+                  <h3 className="text-xl font-normal text-foreground">
                     {service.title}
                   </h3>
                   <ArrowUpRight className="size-4 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -145,7 +145,7 @@ export default function Home() {
         {/* What Credence Africa Does */}
         <section id="what-we-do" className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">What Credence Africa Does</h2>
+            <h2 className="text-3xl md:text-4xl font-normal text-foreground">What Credence Africa Does</h2>
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-light">
               Credence Africa helps institutions move from strategy to execution across the areas that most often determine growth in African markets. These include capital, policy, market access, leadership capability, stakeholder alignment, commercial activation, and institutional visibility. Our work is designed for organizations that need clearer execution, stronger coordination, and more credible pathways to scale.
             </p>
@@ -157,7 +157,7 @@ export default function Home() {
                     <div className="text-primary group-hover:scale-110 transition-transform duration-300">
                         {service.icon}
                     </div>
-                    <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="font-normal text-xl text-foreground group-hover:text-primary transition-colors">
                         {service.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed text-sm">
@@ -176,7 +176,7 @@ export default function Home() {
         {/* Who We Work With */}
         <section className="bg-primary/5 p-10 md:p-16 border-l-8 border-primary">
           <div className="max-w-5xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Who We Work With</h2>
+            <h2 className="text-3xl md:text-4xl font-normal text-foreground">Who We Work With</h2>
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
               Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms, and cross border investors seeking stronger execution across Africa’s growth markets.
             </p>
@@ -186,7 +186,7 @@ export default function Home() {
         {/* What We Solve */}
         <section className="bg-muted/20 p-10 md:p-16 rounded-none">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-16 text-center md:text-left">What We Solve</h2>
+            <h2 className="text-3xl md:text-4xl font-normal text-foreground mb-16 text-center md:text-left">What We Solve</h2>
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
                 {whatWeSolve.map((item, index) => (
                     <div key={item} className="flex items-start gap-6 group">
@@ -204,7 +204,7 @@ export default function Home() {
         <section className="space-y-12">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
               <div className="space-y-3">
-                  <h2 className="text-2xl md:text-3xl font-bold">Upcoming Events</h2>
+                  <h2 className="text-2xl md:text-3xl font-normal">Upcoming Events</h2>
                   <p className="text-muted-foreground text-base max-w-2xl">Strategic convenings that transform expertise into influence.</p>
               </div>
               <Button asChild variant="outline" className="rounded-none h-10 px-6 text-sm font-semibold">
@@ -233,7 +233,7 @@ export default function Home() {
                               <div className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">
                                   Strategic Convening
                               </div>
-                              <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors truncate">
+                              <h3 className="text-xl font-normal leading-tight group-hover:text-primary transition-colors truncate">
                                   {toTitleCase(event.title)}
                               </h3>
                               <div className="flex items-center text-xs text-muted-foreground gap-4 pt-2">
@@ -260,7 +260,7 @@ export default function Home() {
         <section className="space-y-12">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
               <div className="space-y-3">
-                  <h2 className="text-2xl md:text-3xl font-bold">Featured Courses</h2>
+                  <h2 className="text-2xl md:text-3xl font-normal">Featured Courses</h2>
                   <p className="text-muted-foreground text-base max-w-2xl">Professional and executive programs for institutional capacity building.</p>
               </div>
               <Button asChild variant="outline" className="rounded-none h-10 px-6 text-sm font-semibold">
@@ -278,7 +278,7 @@ export default function Home() {
                                   <BookOpen className="size-3" /> 
                                   <span>{course.tag}</span>
                               </div>
-                              <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors truncate">
+                              <h3 className="text-xl font-normal leading-tight group-hover:text-primary transition-colors truncate">
                                   {toTitleCase(course.title)}
                               </h3>
                               <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
@@ -300,7 +300,7 @@ export default function Home() {
         <section className="space-y-12">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
               <div className="space-y-3">
-                  <h2 className="text-2xl md:text-3xl font-bold">Recent Publications</h2>
+                  <h2 className="text-2xl md:text-3xl font-normal">Recent Publications</h2>
                   <p className="text-muted-foreground text-base max-w-2xl">Original analysis and research-grounded commentary shaping strategy across Africa.</p>
               </div>
               <Button asChild variant="outline" className="rounded-none h-10 px-6 text-sm font-semibold">
@@ -318,7 +318,7 @@ export default function Home() {
                                   <Newspaper className="size-3" /> 
                                   <span>{pub.type}</span>
                               </div>
-                              <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors truncate">
+                              <h3 className="text-xl font-normal leading-tight group-hover:text-primary transition-colors truncate">
                                   {toTitleCase(pub.title)}
                               </h3>
                               <div className="text-muted-foreground text-sm line-clamp-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: pub.description }} />
@@ -337,7 +337,7 @@ export default function Home() {
         {/* Final CTA */}
         <section className="bg-primary text-primary-foreground py-20 text-center rounded-none shadow-2xl">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Let’s Shape Africa’s Growth Frontier Together</h2>
+            <h2 className="text-3xl md:text-4xl font-normal">Let’s Shape Africa’s Growth Frontier Together</h2>
             <p className="mt-8 max-w-3xl mx-auto text-lg opacity-90 font-light leading-relaxed">
               Whether you are raising capital, structuring across borders, or navigating regulatory reform — Credence Africa is your trusted execution partner.
             </p>

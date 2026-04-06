@@ -23,7 +23,7 @@ export default function SectorsPage() {
     return (
         <div className="py-16 lg:py-24 mx-auto lg:w-85">
             <div className="text-center">
-                <h1 className="text-4xl font-bold">Sectors We Serve</h1>
+                <h1 className="text-4xl font-normal">Sectors We Serve</h1>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">At Credence Africa, our work spans multiple sectors where social enterprise, policy reform, and capital access intersect.</p>
                 <p className="mt-4 max-w-4xl mx-auto">Each intervention builds resilient institutions, drives inclusive growth, and creates measurable impact.</p>
             </div>
@@ -33,7 +33,7 @@ export default function SectorsPage() {
                     <Card key={sector.name} id={sector.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')} className="flex flex-col">
                         <CardHeader className="flex-row items-center gap-4 space-y-0">
                             <div className="text-primary">{sector.icon}</div>
-                            <CardTitle>{sector.name}</CardTitle>
+                            <CardTitle className="font-normal">{sector.name}</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
                             <p className="text-muted-foreground flex-grow">{sector.description}</p>
@@ -47,22 +47,22 @@ export default function SectorsPage() {
 
             <section className="mt-24 bg-secondary py-16 text-center">
                 <div className="container mx-auto">
-                    <h2 className="text-3xl font-bold">Why Partner with Credence Africa?</h2>
+                    <h2 className="text-3xl font-normal">Why Partner with Credence Africa?</h2>
                     <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>
-                            <h3 className="font-semibold text-lg">Expert-Led Insights</h3>
+                            <h3 className="font-normal text-lg">Expert-Led Insights</h3>
                             <p className="text-muted-foreground mt-2">Work with seasoned industry experts, legal professionals, and policymakers.</p>
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Tailored Solutions</h3>
+                            <h3 className="font-normal text-lg">Tailored Solutions</h3>
                             <p className="text-muted-foreground mt-2">Customized interventions addressing unique sectoral challenges.</p>
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Innovative Approaches</h3>
+                            <h3 className="font-normal text-lg">Innovative Approaches</h3>
                             <p className="text-muted-foreground mt-2">Africa-centric strategies blending global best practices.</p>
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Measurable Impact</h3>
+                            <h3 className="font-normal text-lg">Measurable Impact</h3>
                             <p className="text-muted-foreground mt-2">Outcomes that drive growth, resilience, and transformation.</p>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ export default function SectorsPage() {
             </section>
             
             <section className="mt-24 text-center">
-                 <h2 className="text-3xl font-bold">Let’s Shape the Future Together</h2>
+                 <h2 className="text-3xl font-normal">Let’s Shape the Future Together</h2>
                  <div className="mt-6 flex justify-center items-center gap-6">
                     <p>📧 connect@credence.africa</p>
                     <p>☎️ +254 719 468 240</p>

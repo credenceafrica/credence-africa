@@ -67,7 +67,7 @@ export default function AdvisoryPage() {
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
               Strategic Advisory For Africa’s Next Growth Frontier.
             </h1>
             <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed max-w-2xl">
@@ -94,7 +94,7 @@ export default function AdvisoryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mb-16">
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Who We Are</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">The Growth Partner</h3>
+            <h3 className="text-3xl md:text-4xl font-normal mb-6">The Growth Partner</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Credence Africa is a pan-African strategic advisory and social enterprise platform operating at the intersection of capital, governance, compliance, and public affairs. We help businesses, governments, nonprofits, and financial institutions navigate Africa’s opportunity zones where risk meets scale.
             </p>
@@ -103,7 +103,7 @@ export default function AdvisoryPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pillars.map((pillar) => (
               <Card key={pillar.title} className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300">
-                <h4 className="font-bold text-xl text-primary">{pillar.title}</h4>
+                <h4 className="font-normal text-xl text-primary">{pillar.title}</h4>
                 <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
               </Card>
             ))}
@@ -116,7 +116,7 @@ export default function AdvisoryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold">What We Provide</h2>
+              <h2 className="text-3xl md:text-4xl font-normal">What We Provide</h2>
               <div className="relative p-8 bg-white border-l-4 border-primary">
                 <p className="text-xl italic font-light leading-relaxed text-foreground/80">
                   "We combine deep local understanding with global-standard execution to help clients navigate Africa's opportunity zones — where risk meets scale."
@@ -127,7 +127,7 @@ export default function AdvisoryPage() {
 
             <div className="space-y-12">
               <div>
-                <h3 className="text-2xl font-bold mb-8">What We Solve</h3>
+                <h3 className="text-2xl font-normal mb-8">What We Solve</h3>
                 <div className="grid gap-6">
                   {solutions.map((item, index) => (
                     <div key={item} className="flex items-start gap-4 group">
@@ -149,7 +149,7 @@ export default function AdvisoryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Expertise</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">Featured Solutions</h3>
+            <h3 className="text-3xl md:text-4xl font-normal mb-4">Featured Solutions</h3>
             <p className="text-muted-foreground">Strategic. Sector-Driven. Built for Execution.</p>
           </div>
 
@@ -160,7 +160,7 @@ export default function AdvisoryPage() {
                   <div className="group-hover:scale-110 transition-transform duration-300">
                     {solution.icon}
                   </div>
-                  <h4 className="text-xl font-bold leading-tight">{solution.title}</h4>
+                  <h4 className="text-xl font-normal leading-tight">{solution.title}</h4>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {solution.description}
                   </p>
@@ -188,7 +188,7 @@ export default function AdvisoryPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Contact</h2>
-              <h3 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h3 className="text-4xl md:text-5xl font-normal leading-tight">
                 Let’s Shape Africa’s<br />Growth Frontier<br />Together.
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
