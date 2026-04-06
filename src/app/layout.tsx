@@ -12,10 +12,10 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Credence Africa | Strategic Advisory for Africa's Next Growth Frontier",
+    default: "Credence Africa | Capital Raising, Trade & Growth, Public Affairs, Executive Education, Events, Intelligence & Networks",
     template: `%s | Credence Africa`,
   },
-  description: "Smart insights. Practical execution. Structures that scale in complexity and across borders. We are a pan-African strategic advisory firm.",
+  description: "Credence Africa is a pan African institution building enterprise helping institutions raise capital, enter markets, navigate public affairs, build capability, convene stakeholders, access intelligence, and strengthen strategic networks across Africa’s growth markets.",
   keywords: [
     "Strategic Advisory Africa",
     "Capital Raising Africa",
