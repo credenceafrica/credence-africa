@@ -73,7 +73,7 @@ export default function Home() {
       <section className="relative h-[calc(100vh-96px)] min-h-[600px] flex flex-col overflow-hidden bg-black">
         <Image 
           src="/hero.jpg"
-          alt="Building The Institutions That Build Africa"
+          alt="Building the Institutions That Build Africa"
           fill
           className="object-cover"
           priority
@@ -82,22 +82,27 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/80 z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-end pb-24">
-          <div className="max-w-4xl space-y-8">
+          <div className="max-w-4xl space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white leading-tight">
-              Building The Institutions That Build Africa
+              Building the Institutions That Build Africa
             </h1>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light max-w-2xl">
-              Smart insights. Practical execution. Structure that scales in complexity and across borders.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg md:text-xl text-primary font-bold uppercase tracking-wider">
+                Capital. Policy. Markets. Executed Across Africa Human Capability. Institutional Capacity. Market Intelligence
+              </p>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                Credence Africa is a pan African institution building enterprise enabling capital deployment, policy alignment, market entry, institutional capability, strategic convening, intelligence, and ecosystem engagement across Africa. We bring together advisory, executive education, convenings, audience engagement, proprietary events, thought leadership, and networks into one integrated execution system for institutions shaping growth across the continent.
+              </p>
+            </div>
             <div className="flex flex-wrap items-center gap-8 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-8 text-lg font-medium">
                 <Link href="/consult">
-                  Book A Strategy Call <ArrowUpRight className="ml-2 size-5" />
+                  Book a Consultation <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/20 rounded-none px-4 border-none text-lg font-medium">
-                <Link href="#who-we-are" className="flex items-center">
-                  Our Mission <ArrowUpRight className="ml-2 size-5" />
+                <Link href="#platforms" className="flex items-center">
+                  Explore Our Work <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
             </div>
