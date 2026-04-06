@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -69,7 +68,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - 100vh inclusive of header */}
+      {/* Hero Section */}
       <section className="relative h-[calc(100vh-96px)] min-h-[600px] flex flex-col overflow-hidden bg-black">
         <Image 
           src="/hero.jpg"
@@ -78,7 +77,6 @@ export default function Home() {
           className="object-cover"
           priority
         />
-        {/* Cinematic Dark Overlay */}
         <div className="absolute inset-0 bg-black/80 z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-end pb-24">
@@ -110,10 +108,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Integrated Platforms Bar */}
+      {/* Integrated Platforms Bar - Top 4 Quick Links */}
       <div id="platforms" className="relative z-20 w-full bg-white border-t-4 border-primary shadow-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border">
-          {services.map((service) => (
+          {services.slice(0, 4).map((service) => (
             <Link 
               key={service.id} 
               href={service.href} 
@@ -143,28 +141,34 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-24">
-        {/* Who We Are */}
-        <section id="who-we-are" className="max-w-6xl mx-auto space-y-16">
+        {/* What Credence Africa Does */}
+        <section id="what-we-do" className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Who We Are</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">What Credence Africa Does</h2>
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-light">
-              Credence Africa is a pan-African strategic advisory and social enterprise platform operating at the intersection of capital, governance, compliance, and public affairs. We help businesses, governments, nonprofits, and financial institutions navigate Africa’s opportunity zones where risk meets scale.
+              Credence Africa helps institutions move from strategy to execution across the areas that most often determine growth in African markets. These include capital, policy, market access, leadership capability, stakeholder alignment, commercial activation, and institutional visibility. Our work is designed for organizations that need clearer execution, stronger coordination, and more credible pathways to scale.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300">
-                  <h3 className="font-bold text-xl text-primary">Pan-African Perspective</h3>
-                  <p className="text-muted-foreground leading-relaxed">Operating across multiple jurisdictions at the nexus of capital, compliance, governance, and policy.</p>
-              </Card>
-              <Card className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300">
-                  <h3 className="font-bold text-xl text-primary">Growth Catalysts</h3>
-                  <p className="text-muted-foreground leading-relaxed">Unlocking capital, structuring entities, navigating regulation, and scaling impact.</p>
-              </Card>
-              <Card className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300">
-                  <h3 className="font-bold text-xl text-primary">Execution Partners</h3>
-                  <p className="text-muted-foreground leading-relaxed">Delivering actionable strategies that withstand scrutiny in high-complexity environments.</p>
-              </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service) => (
+                <Card key={service.id} className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300 border-l-4 border-l-transparent hover:border-l-primary group">
+                    <div className="text-primary group-hover:scale-110 transition-transform duration-300">
+                        {service.icon}
+                    </div>
+                    <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                        {service.longDescription}
+                    </p>
+                    <div className="pt-4 mt-auto">
+                        <Link href={service.href} className="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1 hover:underline">
+                            {service.buttonText} <ArrowUpRight className="size-3" />
+                        </Link>
+                    </div>
+                </Card>
+              ))}
           </div>
         </section>
 
