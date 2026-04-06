@@ -21,6 +21,29 @@ const whatWeSolve = [
     "Succession, legacy, and trust planning for entrepreneurs and families",
 ]
 
+const valueCreation = [
+    {
+        title: "1. Insight and Direction",
+        description: "We help institutions understand markets, policy shifts, stakeholder environments, and strategic opportunities through intelligence, research, and executive insight."
+    },
+    {
+        title: "2. Advisory and Structuring",
+        description: "We help institutions define capital pathways, market entry strategies, regulatory positioning, and growth frameworks that can move into implementation."
+    },
+    {
+        title: "3. Capability and Leadership",
+        description: "We strengthen the human and institutional capacity required to govern, execute, and scale across complex environments."
+    },
+    {
+        title: "4. Convening and Engagement",
+        description: "We create environments that align stakeholders, activate audiences, build influence, and generate commercial momentum."
+    },
+    {
+        title: "5. Relationships and Continuity",
+        description: "We sustain access, community, and long term ecosystem position through networks, recurring engagement, and connected institutional relationships."
+    }
+];
+
 const toTitleCase = (str: string) => {
   if (!str) return "";
   return str.toLowerCase().split(' ').map(word => {
@@ -181,6 +204,45 @@ export default function Home() {
               Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms, and cross border investors seeking stronger execution across Africa’s growth markets.
             </p>
           </div>
+        </section>
+
+        {/* Why Credence Africa */}
+        <section className="max-w-7xl mx-auto space-y-12">
+            <div className="grid lg:grid-cols-2 gap-16">
+                <div className="space-y-6">
+                    <h2 className="text-3xl md:text-4xl font-normal text-foreground">Why Credence Africa</h2>
+                    <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-light">
+                        Institutions choose Credence Africa because execution in African markets is interconnected. Capital influences expansion. Policy influences market access. Capability influences delivery. Convenings influence relationships, visibility, and commercial momentum. Intelligence influences decision quality. Networks influence continuity and long term positioning.
+                    </p>
+                </div>
+                <div className="flex items-center">
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light border-l-4 border-primary pl-8">
+                        Credence Africa brings these dimensions together through one integrated execution system. We help institutions move from insight to action, from participation to partnership, and from strategic intent to measurable outcomes. Our work is built for complex environments, policy shaped sectors, capital intensive mandates, and institutions that value coherence, credibility, and execution discipline.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        {/* How Credence Africa Creates Value */}
+        <section className="bg-white py-24">
+            <div className="max-w-7xl mx-auto space-y-16">
+                <div className="text-center space-y-4">
+                    <h2 className="text-3xl md:text-4xl font-normal text-foreground">How Credence Africa Creates Value</h2>
+                    <p className="text-muted-foreground text-lg">Integrated strategies for institutional growth.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    {valueCreation.map((item) => (
+                        <div key={item.title} className="space-y-4 p-8 border hover:border-primary transition-colors group">
+                            <h3 className="text-xl font-normal text-foreground group-hover:text-primary transition-colors">
+                                {item.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                {item.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </section>
 
         {/* What We Solve */}
