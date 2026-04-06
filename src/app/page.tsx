@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -152,7 +153,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
-                <Card key={service.id} className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300 border-l-4 border-l-transparent hover:border-l-primary group">
+                <Card key={service.id} className="bg-white border-none shadow-sm rounded-none p-8 space-y-4 hover:shadow-md transition-all duration-300 border-l-4 border-l-transparent hover:border-l-primary group h-full flex flex-col">
                     <div className="text-primary group-hover:scale-110 transition-transform duration-300">
                         {service.icon}
                     </div>
@@ -169,6 +170,16 @@ export default function Home() {
                     </div>
                 </Card>
               ))}
+          </div>
+        </section>
+
+        {/* Who We Work With */}
+        <section className="bg-primary/5 p-10 md:p-16 border-l-8 border-primary">
+          <div className="max-w-5xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Who We Work With</h2>
+            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
+              Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms, and cross border investors seeking stronger execution across Africa’s growth markets.
+            </p>
           </div>
         </section>
 
@@ -204,7 +215,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {events.slice(0, 3).map((event) => (
-                  <Link key={event.id} href={event.url} target="_blank" className="group block">
+                  <Link key={event.id} href={`https://engage.credence.africa/events/Mg3sDYJiOvb4FN1Woqk8yehdB703/${event.id}`} target="_blank" className="group block h-full">
                       <div className="relative overflow-hidden bg-white border border-border group-hover:border-primary transition-all duration-300 rounded-none shadow-sm flex flex-col h-full">
                           <div className="aspect-[16/10] relative overflow-hidden bg-muted">
                               <Image 
@@ -260,7 +271,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {courses.slice(0, 3).map((course) => (
-                  <Link key={course.id} href={course.url} target="_blank" className="group block">
+                  <Link key={course.id} href={course.url} target="_blank" className="group block h-full">
                       <div className="relative overflow-hidden bg-white border border-border group-hover:border-primary transition-all duration-300 rounded-none shadow-sm flex flex-col h-full">
                           <div className="p-6 space-y-4 flex-grow flex flex-col">
                               <div className="flex items-center gap-2 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
@@ -300,7 +311,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {publications.slice(0, 3).map((pub) => (
-                  <Link key={pub.id} href={pub.url} target="_blank" className="group block">
+                  <Link key={pub.id} href={pub.url} target="_blank" className="group block h-full">
                       <div className="relative overflow-hidden bg-white border border-border group-hover:border-primary transition-all duration-300 rounded-none shadow-sm flex flex-col h-full">
                           <div className="p-6 space-y-4 flex-grow flex flex-col">
                               <div className="flex items-center gap-2 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
