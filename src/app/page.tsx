@@ -11,16 +11,6 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ExternalEvent, ExternalCourse, ExternalPublication, getUpcomingEvents, getFeaturedCourses, getRecentPublications } from "@/lib/external-data";
 
-const whatWeSolve = [
-    "Capital and investment readiness for high-growth ventures",
-    "Regulatory licensing and multi-agency compliance strategy",
-    "Market entry across East Africa and diaspora re-entry structuring",
-    "Cross-border tax and entity structuring",
-    "Government relations, public policy tracking, and advocacy",
-    "Monetization of IP, content, brand, and digital assets",
-    "Succession, legacy, and trust planning for entrepreneurs and families",
-]
-
 const valueCreation = [
     {
         title: "1. Insight and Direction",
@@ -245,19 +235,20 @@ export default function Home() {
             </div>
         </section>
 
-        {/* What We Solve */}
+        {/* Partner with Credence Africa */}
         <section className="bg-muted/20 p-10 md:p-16 rounded-none">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-normal text-foreground mb-16 text-center md:text-left">What We Solve</h2>
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
-                {whatWeSolve.map((item, index) => (
-                    <div key={item} className="flex items-start gap-6 group">
-                        <div className="text-primary font-bold text-2xl opacity-40 group-hover:opacity-100 transition-opacity tabular-nums shrink-0">
-                          {(index + 1).toString().padStart(2, '0')}
-                        </div>
-                        <p className="text-foreground/90 text-lg leading-snug">{item}</p>
-                    </div>
-                ))}
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-normal text-foreground">Partner with Credence Africa</h2>
+            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-light max-w-4xl mx-auto">
+              If your institution is raising capital, entering markets, shaping policy, building leadership capability, convening stakeholders, producing intelligence, or strengthening ecosystem position, Credence Africa provides the strategic integration and execution support to move that mandate forward.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 pt-4">
+               <Button asChild size="lg" className="rounded-none px-10 text-base font-bold">
+                <Link href="/consult">Book a Consultation</Link>
+              </Button>
+               <Button asChild size="lg" variant="outline" className="rounded-none px-10 text-base font-bold bg-white">
+                <Link href="/consult">Explore Our Work</Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -399,10 +390,9 @@ export default function Home() {
         {/* Final CTA */}
         <section className="bg-primary text-primary-foreground py-20 text-center rounded-none shadow-2xl">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-normal">Let’s Shape Africa’s Growth Frontier Together</h2>
-            <p className="mt-8 max-w-3xl mx-auto text-lg opacity-90 font-light leading-relaxed">
-              Whether you are raising capital, structuring across borders, or navigating regulatory reform — Credence Africa is your trusted execution partner.
-            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-tight max-w-5xl mx-auto">
+              Credence Africa delivers capital raising, market entry, public affairs, executive education, strategic convenings, events, intelligence, and networks across Africa’s growth markets.
+            </h2>
             <div className="mt-12 flex flex-wrap justify-center gap-6">
                <Button asChild size="lg" variant="secondary" className="rounded-none px-10 text-base font-bold">
                 <Link href="/consult">Book A Strategy Call</Link>
