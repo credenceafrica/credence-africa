@@ -190,7 +190,7 @@ export default function Home() {
         <section className="bg-primary/5 p-10 md:p-16 border-l-8 border-primary">
           <div className="max-w-5xl mx-auto space-y-6">
             <h2 className="text-3xl md:text-4xl font-normal text-foreground">Who We Work With</h2>
-            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-light">
               Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms, and cross border investors seeking stronger execution across Africa’s growth markets.
             </p>
           </div>
