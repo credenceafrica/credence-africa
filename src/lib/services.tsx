@@ -56,7 +56,7 @@ const services: Service[] = [
   {
     id: "convene",
     slug: "convene",
-    href: "https://engage.credence.africa",
+    href: "/services/convene",
     icon: <Share2 className="size-8" />,
     title: "Credence Convene",
     description: "Aligning institutions and strategic priorities.",
