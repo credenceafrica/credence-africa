@@ -161,7 +161,8 @@ const faqs = [
   { q: "Do you support blended finance and development finance mandates?", a: "Yes. Credence Africa supports blended finance design, DFI positioning, donor aligned funding strategies, risk allocation frameworks, and structures that combine grants, concessional capital, debt, and equity." },
   { q: "Can you support grant funding and donor readiness?", a: "Yes. We support donor mapping, proposal systems, funding pipeline development, compliance preparation, grant positioning, blended finance integration, and reporting structures." },
   { q: "Do you support project finance and infrastructure mandates?", a: "Yes. We support bankability, feasibility aligned financial modeling, capital structuring, investor and lender targeting, transaction readiness, and financial close support for bankable projects." },
-  { q: "Can you support institutions after capital has been raised?", a: "Yes. We support post investment reporting, governance, donor compliance, stakeholder communication, follow on funding readiness, and investor relations." }
+  { q: "Can you support institutions after capital has been raised?", a: "Yes. We support post investment reporting, governance, donor compliance, stakeholder communication, follow on funding readiness, and investor relations." },
+  { q: "Do you work only with startups?", a: "No. This service supports growth stage businesses, established enterprises, social enterprises, cooperatives, project sponsors, funds, and other institutions with capital mandates." }
 ];
 
 export default function CapitalRaisingPage() {
