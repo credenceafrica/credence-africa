@@ -76,7 +76,7 @@ const services: Service[] = [
   {
     id: "events",
     slug: "events",
-    href: "https://engage.credence.africa",
+    href: "/services/events",
     icon: <Calendar className="size-8" />,
     title: "Credence Events",
     description: "Flagship convenings where capital and policy converge.",
