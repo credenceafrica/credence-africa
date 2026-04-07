@@ -302,6 +302,11 @@ export default function CapitalRaisingPage() {
               </Card>
             ))}
           </div>
+          <div className="mt-16 text-center">
+            <Button asChild size="lg" className="rounded-none px-10 font-bold">
+              <Link href="/consult">Book a Capital Strategy Consultation</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
