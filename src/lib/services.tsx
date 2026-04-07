@@ -15,7 +15,7 @@ const services: Service[] = [
   {
     id: "capital",
     slug: "capital-raising",
-    href: "/services/advisory",
+    href: "/services/capital-raising",
     icon: <Coins className="size-8" />,
     title: "Capital Raising & Investment Structuring",
     description: "Structuring for impact and scale.",
