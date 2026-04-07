@@ -36,7 +36,7 @@ const services: Service[] = [
   {
     id: "public-affairs",
     slug: "public-affairs",
-    href: "/services/advisory",
+    href: "/services/public-affairs",
     icon: <Landmark className="size-8" />,
     title: "Public Affairs & Policy Advisory",
     description: "Navigating regulatory intelligence and influence.",

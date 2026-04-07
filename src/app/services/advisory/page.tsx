@@ -68,7 +68,7 @@ export default function AdvisoryPage() {
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl space-y-8">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
-              Strategic Advisory For Africa’s Next Growth Frontier.
+              Public Affairs and Regulatory Strategy in Africa
             </h1>
             <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed max-w-2xl">
               Smart insights. Practical execution. Structures that scale in complexity and across borders.
