@@ -1,111 +1,15 @@
 
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  Megaphone, 
-  Phone, 
-  Mail, 
-  TrendingUp, 
-  ShieldCheck, 
-  Target, 
-  Zap, 
-  Users, 
-  BarChart, 
-  Link as LinkIcon,
-  ArrowUpRight 
-} from "lucide-react";
+import { CheckCircle2, ArrowRight, ArrowUpRight, Zap, Target, BarChart } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from 'next';
 
-const modelPhases = [
-  {
-    title: "1. Pre-Event Positioning",
-    subtitle: "📣 Build Visibility Before You Step on Stage",
-    description: "Build brand visibility, establish credibility, and spark anticipation before the event even begins.",
-    activities: [
-      "Co-branded thought leadership (articles, op-eds, interviews)",
-      "Targeted influencer engagement",
-      "Custom invitations & guest curation",
-      "Stakeholder briefings",
-      "Multi-channel campaign build-up"
-    ]
-  },
-  {
-    title: "2. Live Event Visibility",
-    subtitle: "🎤 Maximize Impact During the Moment",
-    description: "Maximize your impact and engagement in real-time, capturing leads and making key connections.",
-    activities: [
-      "Featured speaking roles or panel curation",
-      "Branded on-site activations (lounges, booths, showcases)",
-      "Facilitated introductions to key decision-makers",
-      "High-trust networking experiences",
-      "Lead capture & interactive engagement tools",
-      "VIP access to curated policy circles"
-    ]
-  },
-  {
-    title: "3. Post-Event Momentum",
-    subtitle: "♻️ Extend Influence Long After the Event Ends",
-    description: "Sustain influence, deepen trust, and convert awareness into lasting brand authority.",
-    activities: [
-      "Branded recap videos & highlight reels",
-      "Follow-up webinars & masterclasses",
-      "Media placements & thought leadership spotlights",
-      "Lead intel engagement & analytics reports",
-      "Evergreen content repackaged for campaigns"
-    ]
-  }
-];
-
-const whyWorks = [
-  { title: "Strategic", description: "Every phase drives measurable engagement.", icon: <Target className="size-6" /> },
-  { title: "Continuous", description: "Builds lasting presence, not one-day impressions.", icon: <TrendingUp className="size-6" /> },
-  { title: "Insightful", description: "Real-time reporting, lead tracking, content ROI.", icon: <BarChart className="size-6" /> },
-  { title: "Tailored", description: "Customized by sector, audience, and campaign goal.", icon: <ShieldCheck className="size-6" /> }
-];
-
-const partnershipTiers = [
-  {
-    title: "Strategic Partner",
-    description: "Co-create and lead a flagship platform with comprehensive, year-round visibility.",
-    features: [
-      "Keynote & Agenda-Setting Role",
-      "Lead Partner Branding Across Assets",
-      "Curated 1-on-1 Introductions",
-      "Custom Content Creation (Reports, Videos)",
-      "Lead Generation & Analytics Dashboard",
-      "VIP Access to Exclusive Networking"
-    ]
-  },
-  {
-    title: "Influence Partner",
-    description: "Shape the conversation with targeted visibility and strategic positioning.",
-    features: [
-      "Panel Speaking or Moderation Opportunity",
-      "Prominent Branding on Event Materials",
-      "Access to VIP Networking Sessions",
-      "Content Co-Creation & Feature",
-      "Lead Capture & Contact Sharing",
-      "Social Media & Press Release Feature"
-    ]
-  },
-  {
-    title: "Visibility Partner",
-    description: "Establish essential brand presence at key audience touchpoints.",
-    features: [
-      "Brand Visibility on Website & Materials",
-      "Exhibition Space / Digital Booth",
-      "General Networking Access",
-      "Logo Placement in Communications",
-      "Social Media Mentions",
-      "Access to Post-Event Summary"
-    ]
-  }
-];
+export const metadata: Metadata = {
+  title: 'Market Activation and Event Management Kenya | Product Launches, Trade Expos, Brand Activations',
+  description: 'Market activation and event management services in Kenya for product launches, trade expos, brand activations, deal rooms, and audience engagement platforms designed for customer acquisition and commercial growth.',
+};
 
 export default function EngagePage() {
   return (
@@ -113,118 +17,173 @@ export default function EngagePage() {
       {/* Hero Section */}
       <section className="relative min-h-[600px] h-[calc(100vh-96px)] flex flex-col justify-center overflow-hidden bg-black text-white">
         <Image 
-          src="/engage.webp"
-          alt="Lead, Connect & Influence"
+          src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop"
+          alt="Market Activation Kenya"
           fill
-          className="object-cover"
+          className="object-cover opacity-60"
           priority
         />
-        {/* Cinematic Dark Overlay - Darkened for high text visibility */}
-        <div className="absolute inset-0 bg-black/80 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
-              Lead, Connect & Influence in Africa.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
+              Market Activation and Audience Engagement Events in Kenya for Brands, Corporates, and Institutions
             </h1>
-            <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed max-w-2xl">
-              We help brands shape conversations, influence decisions, and drive measurable impact across Africa’s most dynamic sectors.
-            </p>
-            <div className="flex flex-wrap items-center gap-8 pt-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-8 text-lg font-medium">
-                <Link href="/consult">
-                  Partner With Us <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/20 rounded-none px-4 border-none text-lg font-medium">
-                <Link href="https://engage.credence.africa/" target="_blank" className="flex items-center">
-                  View Events <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Influence Model - Core Phases */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mb-16">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Cred360 Influence Model</h2>
-            <h3 className="text-3xl md:text-4xl font-normal mb-6">A Full-Cycle System for Visibility</h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our model ensures you build a lasting presence, not just one-day impressions. We manage the entire strategic lifecycle of your influence.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {modelPhases.map((phase) => (
-              <Card key={phase.title} className="bg-white border-none shadow-sm rounded-none p-8 space-y-6 hover:shadow-md transition-all duration-300">
-                <div className="space-y-2">
-                  <h4 className="font-normal text-xl text-primary">{phase.title}</h4>
-                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{phase.subtitle}</p>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{phase.description}</p>
-                <ul className="space-y-3 pt-4 border-t">
-                  {phase.activities.map(activity => (
-                    <li key={activity} className="flex items-start gap-3 text-sm">
-                      <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                      <span>{activity}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Cred360 Works */}
-      <section className="py-20 bg-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyWorks.map((item) => (
-              <div key={item.title} className="text-center space-y-4">
-                <div className="mx-auto w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
-                  {item.icon}
-                </div>
-                <h4 className="font-normal text-lg">{item.title}</h4>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Influence. Not Just Impressions. */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal leading-tight">Influence.<br />Not Just Impressions.</h2>
-              <div className="relative p-8 bg-white border-l-4 border-primary">
-                <p className="text-xl italic font-light leading-relaxed text-foreground/80">
-                  "We don't play to the crowd—we build the room. And we make sure you belong in it."
-                </p>
-                <p className="mt-4 font-bold text-primary">— Credence Engage Strategy</p>
-              </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                When you work with Credence Engage, you're not just booking an event—you're entering a high-trust platform built for visibility that matters and access that converts.
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-normal text-primary">CREDENCE ENGAGE™</h2>
+              <p className="text-xl font-light text-white/90">
+                Market Activation and Event Management in Kenya for Product Launches, Trade Expos, and Brand Engagement
+              </p>
+              <p className="text-base text-white/70 max-w-2xl font-light leading-relaxed">
+                CREDENCE ENGAGE™ designs and delivers market facing events in Kenya structured for customer acquisition, product adoption, stakeholder engagement, and commercial growth. Each engagement is built as a conversion platform where brands, institutions, and partners engage directly with defined audiences across physical, hybrid, and digital environments.
               </p>
             </div>
+            <div className="flex flex-wrap items-center gap-6 pt-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 py-7 text-lg font-normal">
+                <Link href="/consult">
+                  Plan Your Activation <ArrowUpRight className="ml-2 size-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/20 rounded-none px-8 py-7 text-lg font-normal bg-transparent">
+                <Link href="/consult">
+                  Launch Your Campaign
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Services Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mb-16 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-normal">Market Activation Event Management Services in Kenya</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              CREDENCE ENGAGE™ structures events as audience driven platforms segmented by purchasing power, decision authority, and participation intent. This ensures each event is aligned to clear commercial outcomes including acquisition, engagement, conversion, and retention.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="rounded-none border-none shadow-sm hover:shadow-md transition-shadow">
+              <CardHeader className="p-8 pb-4 text-center md:text-left">
+                <Target className="size-8 text-primary mb-4 mx-auto md:mx-0" />
+                <CardTitle className="text-2xl font-normal">Event Strategy and Audience Design</CardTitle>
+              </CardHeader>
+              <CardContent className="p-8 pt-0 text-center md:text-left">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We define audience segments, engagement pathways, and participation models that align event structure with commercial objectives and target market behavior.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="rounded-none border-none shadow-sm hover:shadow-md transition-shadow">
+              <CardHeader className="p-8 pb-4 text-center md:text-left">
+                <Zap className="size-8 text-primary mb-4 mx-auto md:mx-0" />
+                <CardTitle className="text-2xl font-normal">Brand Positioning and Experiential Activation</CardTitle>
+              </CardHeader>
+              <CardContent className="p-8 pt-0 text-center md:text-left">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We design environments where brands are experienced through interaction, demonstration, and direct engagement rather than passive visibility.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="rounded-none border-none shadow-sm hover:shadow-md transition-shadow">
+              <CardHeader className="p-8 pb-4 text-center md:text-left">
+                <BarChart className="size-8 text-primary mb-4 mx-auto md:mx-0" />
+                <CardTitle className="text-2xl font-normal">Commercial Integration and Marketplace Design</CardTitle>
+              </CardHeader>
+              <CardContent className="p-8 pt-0 text-center md:text-left">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We structure events to integrate sponsors, exhibitors, and partners into active commercial environments that support transactions and deal flow.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Launches */}
+      <section className="py-24 bg-muted/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-4xl font-normal">Product Launches and Brand Activation Events in Kenya</h2>
+              <p className="text-lg text-muted-foreground font-light leading-relaxed">
+                Product launches and brand activations require controlled environments where messaging, experience, and audience engagement translate into adoption and market traction.
+              </p>
+              <div className="space-y-10">
+                <div className="space-y-2 border-l-2 border-primary pl-6">
+                  <h3 className="text-xl font-normal">Product Launch Events and Market Entry Campaigns</h3>
+                  <p className="text-sm text-muted-foreground">Launch platforms designed to introduce products, position brands, and drive early adoption across target audiences.</p>
+                </div>
+                <div className="space-y-2 border-l-2 border-primary pl-6">
+                  <h3 className="text-xl font-normal">Experiential Brand Activation and Customer Engagement</h3>
+                  <p className="text-sm text-muted-foreground">Interactive environments where customers engage directly with products, services, and brand narratives.</p>
+                </div>
+                <div className="space-y-2 border-l-2 border-primary pl-6">
+                  <h3 className="text-xl font-normal">Product Demonstrations and Showcase Platforms</h3>
+                  <p className="text-sm text-muted-foreground">Structured demonstration formats that support understanding, interest, and conversion.</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative aspect-[4/5] bg-muted overflow-hidden">
+               <Image 
+                src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?q=80&w=2070&auto=format&fit=crop"
+                alt="Product Launch Event"
+                fill
+                className="object-cover"
+               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trade Expos */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 space-y-4 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-normal">Trade Expos and Marketplace Event Platforms in Kenya</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Trade expos and marketplace platforms create structured environments for visibility, pipeline development, and commercial engagement between businesses, buyers, investors, and partners.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Exhibitions and Trade Show Platforms", desc: "Design and execution of expos that enable brands to showcase offerings and engage directly with target markets." },
+              { title: "Marketplaces and Buyer Seller Engagement Platforms", desc: "Curated environments where businesses connect with buyers, distributors, partners, and investors." },
+              { title: "Deal Rooms and Transaction Environments", desc: "Facilitated spaces designed to support negotiations, partnerships, and commercial transactions during and after the event." }
+            ].map((item) => (
+              <div key={item.title} className="p-10 border border-muted-foreground/20 hover:border-primary transition-all space-y-4 group">
+                <h3 className="text-xl font-normal group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Acquisition */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-4xl font-normal">Customer Acquisition and Market Engagement Events in Kenya</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                Events are structured to move audiences from awareness to participation through direct engagement, targeted messaging, and structured interaction.
+              </p>
+            </div>
             <div className="grid gap-8">
               {[
-                { title: "Direct Access to Power Circles", desc: "Policy shapers, investors, regulators, and market leaders.", icon: <Users className="size-6" /> },
-                { title: "Visibility That Lasts", desc: "Across platforms, timelines, and curated ecosystems.", icon: <Zap className="size-6" /> },
-                { title: "Events Engineered for Strategy", desc: "Built for outcome and alignment, not spectacle.", icon: <ShieldCheck className="size-6" /> },
-                { title: "ROI You Can Measure", desc: "Lead capture, content assets, and brand lift metrics.", icon: <BarChart className="size-6" /> }
-              ].map((benefit) => (
-                <div key={benefit.title} className="flex gap-6 p-6 border group hover:border-primary transition-colors">
-                  <div className="text-primary shrink-0">{benefit.icon}</div>
-                  <div className="space-y-1">
-                    <h4 className="font-normal text-lg">{benefit.title}</h4>
-                    <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                { title: "Audience Acquisition and Lead Generation Events", desc: "Platforms designed to attract, qualify, and convert high intent audiences into customers, users, or participants." },
+                { title: "Community and Ecosystem Engagement Platforms", desc: "Events that connect brands and institutions with communities, networks, and ecosystem participants to build long term engagement." },
+                { title: "Regulatory and Stakeholder Engagement Platforms", desc: "Market facing environments where institutions engage regulators, partners, and stakeholders within commercial and compliance contexts." }
+              ].map(item => (
+                <div key={item.title} className="flex gap-6 p-8 bg-white border border-transparent hover:border-primary transition-all group shadow-sm">
+                  <div className="text-primary mt-1 shrink-0"><CheckCircle2 className="size-6 opacity-40 group-hover:opacity-100 transition-opacity" /></div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-normal">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -233,77 +192,150 @@ export default function EngagePage() {
         </div>
       </section>
 
-      {/* Partnership Tiers */}
-      <section className="py-24 bg-muted/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Partnerships</h2>
-            <h3 className="text-3xl md:text-4xl font-normal">Sponsorship & Strategic Partnerships</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Convert visibility into influence by partnering with Africa's premier strategic events platform. Our partnerships are designed for strategic alignment, not just impressions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {partnershipTiers.map((tier) => (
-              <Card key={tier.title} className="flex flex-col rounded-none border-2 hover:border-primary transition-colors group">
-                <div className="p-8 space-y-6 flex-grow">
-                  <h4 className="text-xl font-normal leading-tight">{tier.title}</h4>
-                  <p className="text-sm text-muted-foreground">
-                    {tier.description}
-                  </p>
-                  <ul className="space-y-4 pt-6 border-t">
-                    {tier.features.map(feature => (
-                      <li key={feature} className="flex items-start gap-3 text-sm">
-                        <ArrowRight className="size-4 text-primary mt-0.5 shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+      {/* End to End Execution */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-normal mb-16">End to End Market Activation and Event Execution in Kenya</h2>
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            <div className="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-muted-foreground/20 -z-10" />
+            {[
+              { title: "Pre Event Strategy and Campaign Development", desc: "Event positioning, audience targeting, partnership structuring, and campaign design aligned to market objectives." },
+              { title: "Live Event Execution and Audience Engagement", desc: "Delivery across onsite activations, exhibitions, demonstrations, and engagement platforms that drive interaction and participation." },
+              { title: "Post Event Conversion and Data Utilization", desc: "Lead capture, audience analytics, follow up systems, and conversion strategies that extend value beyond the event." }
+            ].map((step, idx) => (
+              <div key={step.title} className="space-y-6">
+                <div className="size-12 rounded-none bg-primary text-white flex items-center justify-center mx-auto text-xl font-normal">
+                  {idx + 1}
                 </div>
-                <div className="p-8 pt-0 mt-auto">
-                  <Button asChild className="w-full rounded-none font-bold">
-                    <Link href="/consult">Become a {tier.title.split(' ')[0]} Partner</Link>
-                  </Button>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-normal">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground font-light leading-relaxed">{step.desc}</p>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Revenue Driven Models */}
       <section className="py-24 bg-black text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Contact Us Today</h2>
-              <h3 className="text-4xl md:text-5xl font-normal leading-tight">
-                Let’s Build Strategic<br />Influence Together.
-              </h3>
-              <p className="text-lg text-white/70 leading-relaxed">
-                Shape Conversations. Own the Room. Lead the Narrative. Let's design a strategic visibility and influence plan that aligns your mission with Africa's most catalytic opportunities.
+              <h2 className="text-3xl md:text-4xl font-normal">Revenue Driven Event Models and Commercial Structuring</h2>
+              <p className="text-lg text-white/70 font-light leading-relaxed">
+                CREDENCE ENGAGE™ events are built around participation economics and campaign based monetization. Each event is structured to generate revenue, support brand objectives, and create commercial value across stakeholders.
               </p>
             </div>
+            <div className="bg-white/5 p-10 md:p-16 border border-white/10 rounded-none">
+              <h3 className="text-primary uppercase tracking-[0.2em] text-[10px] font-bold mb-10">Revenue Streams</h3>
+              <ul className="grid gap-5">
+                {[
+                  "Event design and execution fees for brands and corporates",
+                  "Campaign retainers for ongoing engagement programs",
+                  "Ticketing and paid audience access where applicable",
+                  "Exhibition and marketplace participation fees",
+                  "Deal room participation and transaction facilitation",
+                  "Data and lead generation monetization",
+                  "Conversion into advisory, capital, and trade facilitation mandates"
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-4 text-sm text-white/80 font-light">
+                    <ArrowRight className="size-4 text-primary mt-0.5 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <Card className="p-8 md:p-12 shadow-xl rounded-none border-none bg-white text-black">
-              <div className="space-y-8 text-center lg:text-left">
-                <div className="space-y-6">
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-center lg:justify-start gap-4 text-xl">
-                    <a href="mailto:connect@credence.africa" className="flex items-center justify-center lg:justify-start gap-4 hover:text-primary transition-colors">
-                      <Mail className="size-6 text-primary" /> connect@credence.africa
-                    </a>
-                    <span className="hidden lg:inline text-muted-foreground/30">|</span>
-                    <a href="tel:+254719468240" className="flex items-center justify-center lg:justify-start gap-4 hover:text-primary transition-colors">
-                      <Phone className="size-6 text-primary" /> +254 719 468 240
-                    </a>
+      {/* Who We Work With */}
+      <section className="py-24 bg-background border-b">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center space-y-4 mb-16">
+            <h2 className="text-3xl md:text-4xl font-normal">Who We Work With</h2>
+            <p className="text-muted-foreground font-light">CREDENCE ENGAGE™ supports organizations that require direct market access, customer engagement, and commercial activation.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+            {[
+              "Corporates and enterprise brands",
+              "Growth stage and scaling businesses",
+              "Financial institutions and investment platforms",
+              "Development partners and ecosystem programs",
+              "Trade bodies and industry associations",
+              "Startups launching products or entering markets",
+              "Platforms driving adoption, usage, or behavioral change"
+            ].map(item => (
+              <div key={item} className="px-8 py-4 bg-muted/20 border border-muted-foreground/10 text-sm font-light hover:border-primary transition-colors cursor-default">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Brands Choose */}
+      <section className="py-24 bg-muted/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8 text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl font-normal">Why Brands Choose CREDENCE ENGAGE™</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                CREDENCE ENGAGE™ is designed for execution environments where visibility must translate into engagement and engagement into outcomes. The approach integrates audience design, experiential activation, and commercial structuring into a single delivery model.
+              </p>
+            </div>
+            <div className="space-y-8">
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary text-center lg:text-left">Key Strengths</h3>
+              <div className="grid gap-4">
+                {[
+                  { title: "Audience first event architecture", desc: "Based on participation intent." },
+                  { title: "Integration of brand experience", desc: "With commercial outcomes." },
+                  { title: "Strong execution", desc: "Across activations, expos, and marketplaces." },
+                  { title: "Structured lead capture", desc: "And audience analytics systems." },
+                  { title: "Conversion focused design", desc: "Linking events to revenue and growth." }
+                ].map(item => (
+                  <div key={item.title} className="p-8 bg-white border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow space-y-1">
+                    <h4 className="text-base font-normal">{item.title}</h4>
+                    <p className="text-xs text-muted-foreground font-light">{item.desc}</p>
                   </div>
-                </div>
-                <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-white rounded-none py-8 text-lg font-bold">
-                  <Link href="/consult">Start a Conversation</Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Conversion Section */}
+      <section className="py-24 bg-primary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8 text-center lg:text-left">
+              <h2 className="text-3xl md:text-5xl font-normal leading-tight">
+                Plan a Market Activation, Product Launch, or Trade Event in Kenya
+              </h2>
+              <p className="text-xl text-white/80 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                If your organization is planning a product launch, trade expo, brand activation, deal room, marketplace platform, or customer acquisition event in Kenya, CREDENCE ENGAGE™ provides the strategy, audience design, and execution required to deliver measurable commercial outcomes.
+              </p>
+            </div>
+            <div className="bg-white p-10 md:p-16 space-y-10 shadow-2xl text-black rounded-none">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-normal">Start Your Activation Plan</h3>
+                <p className="text-muted-foreground text-sm font-light">A senior advisor will contact you within 24 hours to discuss your specific campaign objectives.</p>
+              </div>
+              <div className="flex flex-col gap-4">
+                <Button asChild size="lg" className="w-full rounded-none py-10 text-lg font-normal bg-primary hover:bg-primary/90 text-white">
+                  <Link href="/consult">Plan Your Activation</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="w-full rounded-none py-10 text-lg font-normal border-primary text-primary hover:bg-primary/10">
+                  <Link href="/consult">Discuss Your Campaign</Link>
                 </Button>
               </div>
-            </Card>
+              <div className="pt-8 border-t space-y-3 text-center text-xs">
+                <p className="font-bold uppercase tracking-widest text-[10px] text-muted-foreground">Direct Contact</p>
+                <p className="text-sm font-light">connect@credence.africa | +254 719 468 240</p>
+                <p className="text-muted-foreground">Applewood Adams, Ngong Road, Nairobi, Kenya</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
