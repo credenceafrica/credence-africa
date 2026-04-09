@@ -12,11 +12,11 @@ import {
 import { 
   ArrowRight, 
   CheckCircle2, 
-  HandCoins, 
-  Building2, 
   ArrowUpRight,
   TrendingUp,
-  Users
+  HandCoins,
+  Users,
+  Building2
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -110,8 +110,8 @@ const faqs = [
 export default function CapitalRaisingPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Full Background Image with Content Box Overlay */}
-      <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://picsum.photos/seed/capital1/1200/1200"
@@ -122,39 +122,39 @@ export default function CapitalRaisingPage() {
           />
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
-          <div className="bg-white p-8 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-l-8 border-primary space-y-10">
-            <h1 className="text-foreground leading-tight">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 md:py-24">
+          <div className="bg-white p-6 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-l-8 border-primary space-y-8 md:space-y-10">
+            <h1 className="text-foreground leading-tight text-3xl md:text-4xl lg:text-[2.5rem]">
               Capital Raising and Investment Structuring
             </h1>
             
-            <div className="grid md:grid-cols-2 gap-8 text-foreground/80">
-              <div className="space-y-3">
-                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-foreground/80">
+              <div className="space-y-2 md:space-y-3">
+                <p className="text-[10px] md:text-sm text-primary font-bold tracking-widest uppercase">
                   Institutional Capital
                 </p>
-                <p className="text-base leading-relaxed font-light">
+                <p className="text-sm md:text-base leading-relaxed font-light">
                   Raise capital with stronger structure, clearer positioning, and greater investor confidence across African markets.
                 </p>
               </div>
-              <div className="space-y-3 lg:border-l lg:pl-8">
-                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+              <div className="space-y-2 md:space-y-3 md:border-l md:pl-8">
+                <p className="text-[10px] md:text-sm text-primary font-bold tracking-widest uppercase">
                   Strategic Ready
                 </p>
-                <p className="text-base leading-relaxed font-light">
+                <p className="text-sm md:text-base leading-relaxed font-light">
                   From investor readiness and financial structuring to transaction support and post-investment performance.
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 md:gap-6 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
-                <Link href="/consult">
+                <Link href="/consult" className="justify-center">
                   Book a Consultation <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
-                <Link href="/consult">
+                <Link href="/consult" className="justify-center">
                   Discuss Your Mandate
                 </Link>
               </Button>
@@ -164,17 +164,17 @@ export default function CapitalRaisingPage() {
       </section>
 
       {/* Target Audience */}
-      <section className="py-24 bg-muted/10">
+      <section className="py-16 md:py-24 bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-normal text-foreground">Built for Growth Institutions</h2>
-            <p className="text-muted-foreground text-lg">Supporting businesses, projects, and funds seeking capital.</p>
+          <div className="max-w-4xl mx-auto text-center space-y-4 mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Built for Growth Institutions</h2>
+            <p className="text-muted-foreground text-sm md:text-lg">Supporting businesses, projects, and funds seeking capital.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {targetAudience.map((item, index) => (
               <div key={index} className="flex gap-4 p-6 bg-white border hover:border-primary transition-colors group">
                 <CheckCircle2 className="size-5 text-primary shrink-0 mt-1" />
-                <p className="text-sm leading-relaxed text-foreground/90 font-light">{item}</p>
+                <p className="text-xs md:text-sm leading-relaxed text-foreground/90 font-light">{item}</p>
               </div>
             ))}
           </div>
@@ -182,20 +182,20 @@ export default function CapitalRaisingPage() {
       </section>
 
       {/* Advisory Services */}
-      <section className="py-24 bg-background">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center text-foreground">Core Advisory Services</h2>
-          <div className="grid lg:grid-cols-2 gap-8">
+          <h2 className="text-2xl md:text-4xl font-normal mb-12 md:mb-16 text-center text-foreground">Core Advisory Services</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {advisoryServices.map((service) => (
               <Card key={service.title} className="rounded-none border-none shadow-sm h-full flex flex-col">
-                <CardHeader className="p-8 pb-4">
-                  <CardTitle className="text-2xl font-normal text-primary">{service.title}</CardTitle>
-                  <p className="text-muted-foreground text-sm mt-2">{service.desc}</p>
+                <CardHeader className="p-6 md:p-8 pb-4">
+                  <CardTitle className="text-xl md:text-2xl font-normal text-primary">{service.title}</CardTitle>
+                  <p className="text-muted-foreground text-xs md:text-sm mt-2">{service.desc}</p>
                 </CardHeader>
-                <CardContent className="p-8 pt-4 flex-grow">
+                <CardContent className="p-6 md:p-8 pt-4 flex-grow">
                   <ul className="space-y-3">
                     {service.items.map((item, idx) => (
-                      <li key={idx} className="flex gap-3 text-sm border-b border-border/50 pb-2">
+                      <li key={idx} className="flex gap-3 text-xs md:text-sm border-b border-border/50 pb-2">
                         <ArrowRight className="size-4 text-primary shrink-0 mt-0.5" />
                         <span className="font-light">{item}</span>
                       </li>
@@ -205,8 +205,8 @@ export default function CapitalRaisingPage() {
               </Card>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <Button asChild size="lg" className="rounded-none px-10 font-bold h-14">
+          <div className="mt-12 md:mt-16 text-center px-4">
+            <Button asChild size="lg" className="rounded-none px-10 font-bold h-14 w-full sm:w-auto">
               <Link href="/consult">Book a Capital Strategy Consultation</Link>
             </Button>
           </div>
@@ -214,14 +214,14 @@ export default function CapitalRaisingPage() {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-background border-t">
+      <section className="py-16 md:py-24 bg-background border-t">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-normal mb-12 text-center text-foreground">Capital Raising FAQs</h2>
+          <h2 className="text-2xl md:text-4xl font-normal mb-10 md:mb-12 text-center text-foreground">Capital Raising FAQs</h2>
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, idx) => (
               <AccordionItem key={idx} value={`item-${idx}`} className="border-b last:border-0">
-                <AccordionTrigger className="text-left font-normal text-lg py-6">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base pb-6 leading-relaxed font-light">
+                <AccordionTrigger className="text-left font-normal text-base md:text-lg py-6">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base pb-6 leading-relaxed font-light">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

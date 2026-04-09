@@ -12,6 +12,12 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Menu, Phone, ChevronRight } from "lucide-react";
 import { Logo } from "./logo";
 import { usePathname } from "next/navigation";
@@ -196,30 +202,101 @@ export function Header({ insights, services }: { insights: Insight[], services: 
         <div className="lg:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="bg-transparent">
+              <Button variant="outline" size="icon" className="bg-transparent border-none">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
+            <SheetContent side="right" className="w-[300px] overflow-y-auto">
               <SheetHeader>
-                <SheetTitle className="text-left">Navigation</SheetTitle>
+                <SheetTitle className="text-left">Menu</SheetTitle>
               </SheetHeader>
-              <nav className="grid gap-6 text-base font-medium mt-8">
-                <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>Who We Are</Link>
-                <Link href="/services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</Link>
-                <Link href="/sectors" onClick={() => setIsMobileMenuOpen(false)}>Sectors</Link>
-                <Link href="https://engage.credence.africa" target="_blank">Events</Link>
-                <Link href="https://perspectives.credence.africa" target="_blank">Insights</Link>
-                <hr />
-                <Link
-                  href="/consult"
-                  className="flex items-center gap-2 text-primary font-bold"
+              <div className="mt-8 flex flex-col gap-2">
+                <Link 
+                  href="/about" 
+                  className="text-lg font-medium py-2 border-b"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Book a Consultation <Phone className="size-4" />
+                  Who We Are
                 </Link>
-              </nav>
+                
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="services" className="border-b">
+                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Our Services</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col gap-2 pl-4 pt-2">
+                        {services.map((service) => (
+                          <Link
+                            key={service.id}
+                            href={service.href}
+                            className="text-sm py-1.5 text-muted-foreground hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {service.title}
+                          </Link>
+                        ))}
+                        <Link 
+                          href="/services" 
+                          className="text-sm font-bold text-primary py-1.5"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          View All Services
+                        </Link>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="sectors" className="border-b">
+                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Sectors</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="grid grid-cols-1 gap-2 pl-4 pt-2">
+                        {sectors.map((sector) => (
+                          <Link
+                            key={sector.href}
+                            href={sector.href}
+                            className="text-sm py-1.5 text-muted-foreground hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {sector.name}
+                          </Link>
+                        ))}
+                        <Link 
+                          href="/sectors" 
+                          className="text-sm font-bold text-primary py-1.5"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          All Sectors
+                        </Link>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                <Link 
+                  href="https://engage.credence.africa" 
+                  target="_blank"
+                  className="text-lg font-medium py-2 border-b"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Events
+                </Link>
+                <Link 
+                  href="https://perspectives.credence.africa" 
+                  target="_blank"
+                  className="text-lg font-medium py-2 border-b"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Insights
+                </Link>
+                
+                <div className="mt-6">
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-none py-6 text-lg font-bold">
+                    <Link href="/consult" onClick={() => setIsMobileMenuOpen(false)}>
+                      Book a Consultation
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
