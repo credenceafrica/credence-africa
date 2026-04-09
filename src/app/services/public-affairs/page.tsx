@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const targetAudience = [
   "Regulated businesses managing licensing, compliance exposure, and multi-agency interfaces",
@@ -443,11 +444,11 @@ export default function PublicAffairsPage() {
                       </div>
                       <div className="space-y-3">
                           <h3 className="text-primary font-bold uppercase text-xs tracking-widest">Decision Clarity</h3>
-                          <p className="text-sm text-white/60">Move policy discussion out of the abstract and into execution.</p>
+                          <p className="text-sm text-white/60">Move policy discussion out of the abstract and into decision making.</p>
                       </div>
                       <div className="space-y-3">
                           <h3 className="text-primary font-bold uppercase text-xs tracking-widest">Internal Readiness</h3>
-                          <p className="text-sm text-white/60">Build organizational capacity before reform affects operations.</p>
+                          <p className="text-sm text-white/60">Build organizational capacity before reform begins to affect operations.</p>
                       </div>
                   </div>
                   <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-10 h-14 font-normal mt-8">
