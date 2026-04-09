@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -179,18 +178,30 @@ export default function PublicAffairsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
+          <div className="max-w-5xl space-y-8">
+            <h1 className="leading-tight">
               Public Affairs and Regulatory Strategy in Africa
             </h1>
-            <div className="space-y-4">
-              <p className="text-xl md:text-2xl font-light text-white/90">
-                Navigate regulation, policy, and institutional complexity with strategic clarity.
-              </p>
-              <p className="text-base text-white/70 max-w-2xl font-light leading-relaxed">
-                Credence Africa helps institutions engage government, manage regulatory exposure, secure approvals, shape policy positioning, and respond to emerging reform across African markets.
-              </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-white/90 font-light">
+              <div className="space-y-4">
+                <p className="text-xl md:text-2xl text-primary font-normal">
+                  Institutional Clarity
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Navigate regulation, policy, and institutional complexity with strategic clarity. We help institutions engage government and manage regulatory exposure.
+                </p>
+              </div>
+              <div className="space-y-4 border-l border-white/20 pl-8">
+                <p className="text-xl md:text-2xl text-primary font-normal">
+                  Strategic Influence
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Supporting executive teams, investors, and market entrants to respond to emerging reform where public sector engagement influences long-term outcomes.
+                </p>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 py-7 text-lg font-normal">
                 <Link href="/consult">

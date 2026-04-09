@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -94,18 +93,30 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/80 z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-center">
-          <div className="max-w-4xl space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal text-white leading-tight">
+          <div className="max-w-5xl space-y-8">
+            <h1 className="text-white leading-tight">
               Building the Institutions That Build Africa
             </h1>
-            <div className="space-y-4">
-              <p className="text-lg md:text-xl text-primary font-normal tracking-wider">
-                Capital. Policy. Markets. Executed Across Africa Human Capability. Institutional Capacity. Market Intelligence
-              </p>
-              <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-                Credence Africa is a pan African institution building enterprise enabling capital deployment, policy alignment, market entry, institutional capability, strategic convening, intelligence, and ecosystem engagement across Africa. We bring together advisory, executive education, convenings, audience engagement, proprietary events, thought leadership, and networks into one integrated execution system for institutions shaping growth across the continent.
-              </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-white/90 font-light">
+              <div className="space-y-4">
+                <p className="text-lg md:text-xl text-primary font-normal tracking-wider uppercase">
+                  Execution Systems
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Credence Africa is a pan-African institution building enterprise enabling capital deployment, policy alignment, market entry, and market intelligence across Africa's growth markets.
+                </p>
+              </div>
+              <div className="space-y-4 border-l border-white/20 pl-8">
+                <p className="text-lg md:text-xl text-primary font-normal tracking-wider uppercase">
+                  Integrated Support
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  We integrate advisory, executive education, convenings, and networks into one execution system for institutions shaping growth across the continent.
+                </p>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-center gap-8 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-8 text-lg font-medium">
                 <Link href="/consult">
@@ -190,7 +201,7 @@ export default function Home() {
         <section className="bg-primary/5 p-10 md:p-16 border-l-8 border-primary">
           <div className="max-w-5xl mx-auto space-y-6">
             <h2 className="text-3xl md:text-4xl font-normal text-foreground">Who We Work With</h2>
-            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-light">
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light">
               Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms, and cross border investors seeking stronger execution across Africa’s growth markets.
             </p>
           </div>
@@ -390,7 +401,7 @@ export default function Home() {
         {/* Final CTA */}
         <section className="bg-primary text-primary-foreground py-20 text-center rounded-none shadow-2xl">
           <div className="container mx-auto px-4">
-            <h2 className="text-lg md:text-xl lg:text-2xl font-normal leading-tight max-w-5xl mx-auto">
+            <h2 className="text-base md:text-lg lg:text-xl font-normal leading-tight max-w-5xl mx-auto">
               Credence Africa delivers capital raising, market entry, public affairs, executive education, strategic convenings, events, intelligence, and networks across Africa’s growth markets.
             </h2>
             <div className="mt-12 flex flex-wrap justify-center gap-6">

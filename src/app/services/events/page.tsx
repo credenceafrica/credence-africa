@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -116,24 +115,36 @@ export default function EventsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
+          <div className="max-w-5xl space-y-8">
+            <h1 className="leading-tight">
               Credence Events™
             </h1>
-            <div className="space-y-4">
-              <p className="text-xl md:text-2xl font-light text-primary">
-                Events in Kenya for Capital, Policy, Markets, and Strategic Partnerships
-              </p>
-              <p className="text-base md:text-lg text-white/80 max-w-3xl font-light leading-relaxed">
-                Credence Events™ is a portfolio of proprietary events designed to convene investors, institutions, policymakers, sector leaders, founders, development actors, and commercial partners in structured environments engineered for outcomes.
-              </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-white/90 font-light">
+              <div className="space-y-4">
+                <p className="text-xl md:text-2xl text-primary font-normal">
+                  Strategic Convergence
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Flagship convenings where capital and policy converge. We own and design conferences, summits, and expos engineered for outcomes.
+                </p>
+              </div>
+              <div className="space-y-4 border-l border-white/20 pl-8">
+                <p className="text-xl md:text-2xl text-primary font-normal">
+                  Market Infrastructure
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Providing the environment for capital allocation, policy direction, and commercial opportunity to accelerate transaction and ecosystem value.
+                </p>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <Button asChild size="lg" className="rounded-none px-8 py-7">
                 <Link href="#portfolio">View Portfolio</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/20 rounded-none px-8 py-7 bg-transparent">
-                <Link href="#engage">Sponsor or Exhibit</Link>
+                <Link href="#partnerships">Sponsor or Exhibit</Link>
               </Button>
             </div>
           </div>

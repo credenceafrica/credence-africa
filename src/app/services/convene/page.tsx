@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -41,19 +40,26 @@ export default function ConvenePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
+          <div className="max-w-5xl space-y-8">
+            <h1 className="leading-tight">
               Corporate Event Management Services in Kenya
             </h1>
-            <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-primary">CREDENCE CONVENE™</h2>
-              <p className="text-xl font-light text-white/90">
-                Corporate AGMs, Conferences, Investor Briefings, and Policy Forums
-              </p>
-              <p className="text-base text-white/70 max-w-2xl font-light leading-relaxed">
-                CREDENCE CONVENE™ designs and delivers corporate and institutional events in Kenya structured for executive communication, stakeholder alignment, governance credibility, and measurable outcomes. Each engagement is built as a decision environment where participation, messaging, and execution support institutional priorities beyond the event itself.
-              </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-white/90 font-light">
+              <div className="space-y-4">
+                <h2 className="text-xl md:text-2xl font-normal text-primary">CREDENCE CONVENE™</h2>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Design and delivery of institutional events structured for executive communication, stakeholder alignment, and governance credibility.
+                </p>
+              </div>
+              <div className="space-y-4 border-l border-white/20 pl-8">
+                <p className="text-xl md:text-2xl font-normal text-primary">Decision Environments</p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  We build forums where participation and messaging support institutional priorities beyond the event itself, from AGMs to Policy Forums.
+                </p>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 py-7 text-lg font-normal">
                 <Link href="/consult">

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -180,18 +179,30 @@ export default function CapitalRaisingPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
+          <div className="max-w-5xl space-y-8">
+            <h1 className="leading-tight">
               Capital Raising and Investment Structuring in Africa
             </h1>
-            <div className="space-y-4">
-              <p className="text-xl md:text-2xl font-light text-white/90">
-                Raise capital with stronger structure, clearer positioning, and greater investor confidence.
-              </p>
-              <p className="text-base text-white/70 max-w-2xl font-light">
-                Credence Africa helps businesses, project sponsors, cooperatives, social enterprises, funds, and growth focused institutions prepare for capital, structure investment opportunities, engage the right capital providers, and move transactions forward across African markets.
-              </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-white/90 font-light">
+              <div className="space-y-4">
+                <p className="text-xl md:text-2xl text-primary font-normal">
+                  Strategic Readiness
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Raise capital with stronger structure, clearer positioning, and greater investor confidence. We help institutions prepare for capital and structure investment opportunities.
+                </p>
+              </div>
+              <div className="space-y-4 border-l border-white/20 pl-8">
+                <p className="text-xl md:text-2xl text-primary font-normal">
+                  End-to-End Execution
+                </p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Supporting the full capital pathway from investor readiness and blended finance design through to donor-aligned funding and post-investment performance.
+                </p>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 py-7 text-lg font-normal">
                 <Link href="/consult">

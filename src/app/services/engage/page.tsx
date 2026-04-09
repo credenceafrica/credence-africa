@@ -1,15 +1,10 @@
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, ArrowRight, ArrowUpRight, Zap, Target, BarChart } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Market Activation and Event Management Kenya | Product Launches, Trade Expos, Brand Activations',
-  description: 'Market activation and event management services in Kenya for product launches, trade expos, brand activations, deal rooms, and audience engagement platforms designed for customer acquisition and commercial growth.',
-};
 
 export default function EngagePage() {
   return (
@@ -26,19 +21,26 @@ export default function EngagePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-[1]" />
         
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
-              Market Activation and Audience Engagement Events in Kenya for Brands, Corporates, and Institutions
+          <div className="max-w-5xl space-y-8">
+            <h1 className="leading-tight">
+              Market Activation and Audience Engagement Events in Kenya
             </h1>
-            <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-primary">CREDENCE ENGAGE™</h2>
-              <p className="text-xl font-light text-white/90">
-                Market Activation and Event Management in Kenya for Product Launches, Trade Expos, and Brand Engagement
-              </p>
-              <p className="text-base text-white/70 max-w-2xl font-light leading-relaxed">
-                CREDENCE ENGAGE™ designs and delivers market facing events in Kenya structured for customer acquisition, product adoption, stakeholder engagement, and commercial growth. Each engagement is built as a conversion platform where brands, institutions, and partners engage directly with defined audiences across physical, hybrid, and digital environments.
-              </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-white/90 font-light">
+              <div className="space-y-4">
+                <h2 className="text-xl md:text-2xl font-normal text-primary">CREDENCE ENGAGE™</h2>
+                <p className="text-base md:text-lg leading-relaxed">
+                  Market facing events structured for customer acquisition, product adoption, and commercial growth across African markets.
+                </p>
+              </div>
+              <div className="space-y-4 border-l border-white/20 pl-8">
+                <p className="text-xl md:text-2xl font-normal text-primary">Conversion Platforms</p>
+                <p className="text-base md:text-lg leading-relaxed">
+                  We create environments that move audiences from awareness to participation through product launches, trade expos, and brand engagement.
+                </p>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 py-7 text-lg font-normal">
                 <Link href="/consult">
