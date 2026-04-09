@@ -2,8 +2,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, CheckCircle2, Coins, Globe, Megaphone, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { ArrowRight, Coins, Globe, Megaphone, Phone, Mail, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -35,17 +35,17 @@ const solutions = [
 const featuredSolutions = [
   {
     title: "Capital Raising & Investment Structuring",
-    description: "Unlock capital and structure for impact across markets. We design investment-ready pipelines, mobilize blended finance, and connect clients with DFIs, private equity, banks, and philanthropic funders.",
+    description: "Unlock capital and structure for impact across markets. We design investment-ready pipelines and mobilize blended finance.",
     icon: <Coins className="size-8 text-primary" />
   },
   {
     title: "Public Affairs & Policy Advocacy",
-    description: "Shape policy, structure influence, and strengthen institutions. We provide regulatory navigation, compliance strategy, government relations, and advocacy campaigns.",
+    description: "Shape policy, structure influence, and strengthen institutions. We provide regulatory navigation and advocacy campaigns.",
     icon: <Megaphone className="size-8 text-primary" />
   },
   {
     title: "Trade & Market Entry Facilitation",
-    description: "Enter markets confidently with strategic positioning and compliance. We support cross-border structuring, investment facilitation, and trade ecosystem alignment.",
+    description: "Enter markets confidently with strategic positioning. We support cross-border structuring and trade alignment.",
     icon: <Globe className="size-8 text-primary" />
   }
 ];
@@ -53,46 +53,56 @@ const featuredSolutions = [
 export default function AdvisoryPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Split Layout with White Background */}
-      <section className="bg-white border-b">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center py-12 lg:py-24">
-            <div className="space-y-10 order-2 lg:order-1">
-              <h1 className="text-foreground leading-tight">
-                Public Affairs and Regulatory Strategy in Africa
-              </h1>
-              
-              <div className="space-y-4 max-w-2xl">
+      {/* Hero Section - Full Background Image with Content Box Overlay */}
+      <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
+        {/* Full-width Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/advisory.jpg"
+            alt="Strategic Advisory"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        
+        {/* Content Box Overlay */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
+          <div className="bg-white p-8 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-l-8 border-primary space-y-10">
+            <h1 className="text-foreground leading-tight">
+              Trade and Growth Advisory in Africa
+            </h1>
+            
+            <div className="grid md:grid-cols-2 gap-8 text-foreground/80">
+              <div className="space-y-3">
                 <p className="text-sm text-primary font-bold tracking-widest uppercase">
-                  Strategic Advisory
+                  Strategic Positioning
                 </p>
-                <p className="text-xl font-light text-muted-foreground leading-relaxed">
-                  Smart insights. Practical execution. Structures that scale in complexity and across borders.
+                <p className="text-base leading-relaxed font-light">
+                  We provide the strategic blueprints for businesses to scale across Africa's growth markets, navigating cross-border trade and AfCFTA alignment.
                 </p>
               </div>
-
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
-                  <Link href="/consult">
-                    Book a Consultation <ArrowUpRight className="ml-2 size-5" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-transparent">
-                  <Link href="/consult">
-                    Let's Talk
-                  </Link>
-                </Button>
+              <div className="space-y-3 lg:border-l lg:pl-8">
+                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+                  Growth Catalysts
+                </p>
+                <p className="text-base leading-relaxed font-light">
+                  Unlocking capital, structuring entities, and navigating complex jurisdictional entry for sustainable expansion.
+                </p>
               </div>
             </div>
 
-            <div className="relative aspect-[16/10] lg:aspect-square overflow-hidden order-1 lg:order-2">
-              <Image 
-                src="/advisory.jpg"
-                alt="Strategic Advisory"
-                fill
-                className="object-cover"
-                priority
-              />
+            <div className="flex flex-wrap items-center gap-6 pt-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
+                <Link href="/consult">
+                  Book a Consultation <ArrowUpRight className="ml-2 size-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
+                <Link href="/consult">
+                  Discuss Your Growth
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -105,7 +115,7 @@ export default function AdvisoryPage() {
             <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Who We Are</h2>
             <h3 className="text-3xl md:text-4xl font-normal mb-6">The Growth Partner</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Credence Africa is a pan-African strategic advisory and social enterprise platform operating at the intersection of capital, governance, compliance, and public affairs. We help businesses, governments, nonprofits, and financial institutions navigate Africa’s opportunity zones where risk meets scale.
+              Credence Africa is a pan-African strategic advisory platform operating at the intersection of capital, governance, compliance, and public affairs.
             </p>
           </div>
 
@@ -128,7 +138,7 @@ export default function AdvisoryPage() {
               <h2 className="text-3xl md:text-4xl font-normal text-foreground">What We Provide</h2>
               <div className="relative p-8 bg-white border-l-4 border-primary">
                 <p className="text-xl italic font-light leading-relaxed text-foreground/80">
-                  "We combine deep local understanding with global-standard execution to help clients navigate Africa's opportunity zones — where risk meets scale."
+                  "We combine deep local understanding with global-standard execution to help clients navigate Africa's opportunity zones."
                 </p>
                 <p className="mt-4 font-bold text-primary">— Credence Advisory Strategy</p>
               </div>
@@ -181,12 +191,6 @@ export default function AdvisoryPage() {
                 </div>
               </Card>
             ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <Button asChild variant="outline" size="lg" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white h-14 px-10">
-              <Link href="/services">See All Services</Link>
-            </Button>
           </div>
         </div>
       </section>

@@ -2,13 +2,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { getServices, Service } from "@/lib/services.tsx";
-import { ArrowRight, Calendar, BookOpen, Newspaper, ExternalLink, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 import { ExternalEvent, ExternalCourse, ExternalPublication, getUpcomingEvents, getFeaturedCourses, getRecentPublications } from "@/lib/external-data";
 
 const valueCreation = [
@@ -82,70 +81,68 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Split Layout with White Background */}
-      <section className="bg-white border-b">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center py-12 lg:py-24">
-            <div className="space-y-10 order-2 lg:order-1">
-              <h1 className="text-foreground leading-tight">
-                Building the Institutions That Build Africa
-              </h1>
-              
-              <div className="grid md:grid-cols-2 gap-8 text-foreground/80">
-                <div className="space-y-3">
-                  <p className="text-sm text-primary font-bold tracking-widest uppercase">
-                    Execution Systems
-                  </p>
-                  <p className="text-base leading-relaxed font-light">
-                    Credence Africa is a pan-African institution building enterprise enabling capital deployment, policy alignment, market entry, and intelligence across growth markets.
-                  </p>
-                </div>
-                <div className="space-y-3 lg:border-l lg:pl-8">
-                  <p className="text-sm text-primary font-bold tracking-widest uppercase">
-                    Integrated Support
-                  </p>
-                  <p className="text-base leading-relaxed font-light">
-                    We integrate advisory, executive education, convenings, and networks into one execution system for institutions shaping growth.
-                  </p>
-                </div>
+      {/* Hero Section - Full Background Image with Content Box Overlay */}
+      <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
+        {/* Full-width Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/hero.jpg"
+            alt="Building the Institutions That Build Africa"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        
+        {/* Content Box Overlay */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
+          <div className="bg-white p-8 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-l-8 border-primary space-y-10">
+            <h1 className="text-foreground leading-tight">
+              Building the Institutions That Build Africa
+            </h1>
+            
+            <div className="grid md:grid-cols-2 gap-8 text-foreground/80">
+              <div className="space-y-3">
+                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+                  Execution Systems
+                </p>
+                <p className="text-base leading-relaxed font-light">
+                  Credence Africa is a pan-African institution building enterprise enabling capital deployment, policy alignment, market entry, and intelligence across growth markets.
+                </p>
               </div>
-
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
-                  <Link href="/consult">
-                    Book a Consultation <ArrowUpRight className="ml-2 size-5" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-transparent">
-                  <Link href="#platforms">
-                    Explore Our Work
-                  </Link>
-                </Button>
+              <div className="space-y-3 lg:border-l lg:pl-8">
+                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+                  Integrated Support
+                </p>
+                <p className="text-base leading-relaxed font-light">
+                  We integrate advisory, executive education, convenings, and networks into one execution system for institutions shaping growth.
+                </p>
               </div>
             </div>
 
-            <div className="relative aspect-[16/10] lg:aspect-square overflow-hidden order-1 lg:order-2">
-              <Image 
-                src="/hero.jpg"
-                alt="Building the Institutions That Build Africa"
-                fill
-                className="object-cover"
-                priority
-              />
+            <div className="flex flex-wrap items-center gap-6 pt-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
+                <Link href="/consult">
+                  Book a Consultation <ArrowUpRight className="ml-2 size-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
+                <Link href="#platforms">
+                  Explore Our Work
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Integrated Platforms Bar - Top 4 Quick Links */}
+      {/* Integrated Platforms Bar */}
       <div id="platforms" className="relative z-20 w-full bg-white border-b shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border">
           {services.slice(0, 4).map((service) => (
             <Link 
               key={service.id} 
               href={service.href} 
-              target={service.href.startsWith('http') ? "_blank" : undefined}
-              rel={service.href.startsWith('http') ? "noopener noreferrer" : undefined}
               className="p-8 flex flex-col justify-between hover:bg-accent/30 transition-colors group h-full bg-white"
             >
               <div className="space-y-4">
@@ -175,7 +172,7 @@ export default function Home() {
           <div className="text-center space-y-6 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-normal text-foreground">What Credence Africa Does</h2>
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-light">
-              Credence Africa helps institutions move from strategy to execution across the areas that most often determine growth in African markets. These include capital, policy, market access, leadership capability, stakeholder alignment, commercial activation, and institutional visibility.
+              Credence Africa helps institutions move from strategy to execution across the areas that most often determine growth in African markets.
             </p>
           </div>
 
@@ -205,7 +202,7 @@ export default function Home() {
         <section className="bg-primary/5 p-10 md:p-16 border-l-8 border-primary">
           <div className="max-w-5xl mx-auto space-y-6">
             <h2 className="text-3xl md:text-4xl font-normal text-foreground">Who We Work With</h2>
-            <p className="text-sm md:text-base text-foreground/80 leading-relaxed font-light">
+            <p className="text-sm text-foreground/80 leading-relaxed font-light">
               Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms, and cross border investors seeking stronger execution across Africa’s growth markets.
             </p>
           </div>
@@ -217,12 +214,12 @@ export default function Home() {
                 <div className="space-y-6">
                     <h2 className="text-3xl md:text-4xl font-normal text-foreground">Why Credence Africa</h2>
                     <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-light">
-                        Institutions choose Credence Africa because execution in African markets is interconnected. Capital influences expansion. Policy influences market access. Capability influences delivery. Convenings influence relationships, visibility, and commercial momentum. Intelligence influences decision quality. Networks influence continuity and long term positioning.
+                        Institutions choose Credence Africa because execution in African markets is interconnected.
                     </p>
                 </div>
                 <div className="flex items-center">
                     <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light border-l-4 border-primary pl-8">
-                        Credence Africa brings these dimensions together through one integrated execution system. We help institutions move from insight to action, from participation to partnership, and from strategic intent to measurable outcomes. Our work is built for complex environments, policy shaped sectors, capital intensive mandates, and institutions that value coherence, credibility, and execution discipline.
+                        Credence Africa brings these dimensions together through one integrated execution system. We help institutions move from insight to action, from participation to partnership, and from strategic intent to measurable outcomes.
                     </p>
                 </div>
             </div>
@@ -254,7 +251,7 @@ export default function Home() {
         <section className="bg-muted/20 p-10 md:p-16 rounded-none">
           <div className="max-w-5xl mx-auto text-center space-y-8">
             <h2 className="text-3xl md:text-4xl font-normal text-foreground">Partner with Credence Africa</h2>
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-light max-w-4xl mx-auto">
+            <p className="text-lg text-foreground/90 leading-relaxed font-light max-w-4xl mx-auto">
               If your institution is raising capital, entering markets, shaping policy, building leadership capability, convening stakeholders, producing intelligence, or strengthening ecosystem position, Credence Africa provides the strategic integration and execution support to move that mandate forward.
             </p>
             <div className="flex flex-wrap justify-center gap-6 pt-4">
@@ -268,144 +265,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Upcoming Events Section */}
-        <section className="space-y-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-              <div className="space-y-3">
-                  <h2 className="text-2xl md:text-3xl font-normal">Upcoming Events</h2>
-                  <p className="text-muted-foreground text-base max-w-2xl">Strategic convenings that transform expertise into influence.</p>
-              </div>
-              <Button asChild variant="outline" className="rounded-none h-10 px-6 text-sm font-semibold border-primary text-primary">
-                  <Link href="https://engage.credence.africa/" target="_blank">
-                      View All Events <ExternalLink className="ml-2 size-4" />
-                  </Link>
-              </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {events.slice(0, 3).map((event) => (
-                  <Link key={event.id} href={`https://engage.credence.africa/events/Mg3sDYJiOvb4FN1Woqk8yehdB703/${event.id}`} target="_blank" className="group block h-full">
-                      <div className="relative overflow-hidden bg-white border border-border group-hover:border-primary transition-all duration-300 rounded-none shadow-sm flex flex-col h-full">
-                          <div className="aspect-[16/10] relative overflow-hidden bg-muted">
-                              <Image 
-                                  src={event.image || "https://picsum.photos/seed/event/800/500"}
-                                  alt={event.title}
-                                  fill
-                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                  data-ai-hint="event cover"
-                              />
-                              <div className="absolute top-0 right-0 bg-primary text-white px-4 py-2 font-bold text-[10px] uppercase tracking-widest">
-                                  {formatEventDate(event.date)}
-                              </div>
-                          </div>
-                          <div className="p-6 space-y-4 flex-grow flex flex-col">
-                              <div className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">
-                                  Strategic Convening
-                              </div>
-                              <h3 className="text-xl font-normal leading-tight group-hover:text-primary transition-colors truncate">
-                                  {toTitleCase(event.title)}
-                              </h3>
-                              <div className="flex items-center text-xs text-muted-foreground gap-4 pt-2">
-                                  <div className="flex items-center gap-1.5">
-                                      <Calendar className="size-3 text-primary" />
-                                      <span>{event.date}</span>
-                                  </div>
-                                  <span className="opacity-30">|</span>
-                                  <span>Africa Strategy Hub</span>
-                              </div>
-                          </div>
-                          <div className="p-6 pt-0 mt-auto border-t border-border/50 bg-muted/5">
-                              <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-primary pt-4 group-hover:underline">
-                                  Get Tickets <ArrowUpRight className="size-4" />
-                              </div>
-                          </div>
-                      </div>
-                  </Link>
-              ))}
-          </div>
-        </section>
-
-        {/* Featured Courses Section */}
-        <section className="space-y-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-              <div className="space-y-3">
-                  <h2 className="text-2xl md:text-3xl font-normal">Featured Courses</h2>
-                  <p className="text-muted-foreground text-base max-w-2xl">Professional and executive programs for institutional capacity building.</p>
-              </div>
-              <Button asChild variant="outline" className="rounded-none h-10 px-6 text-sm font-semibold border-primary text-primary">
-                  <Link href="https://institute.credence.africa/" target="_blank">
-                      Explore Programs <ExternalLink className="ml-2 size-4" />
-                  </Link>
-              </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {courses.slice(0, 3).map((course) => (
-                  <Link key={course.id} href={course.url} target="_blank" className="group block h-full">
-                      <div className="relative overflow-hidden bg-white border border-border group-hover:border-primary transition-all duration-300 rounded-none shadow-sm flex flex-col h-full">
-                          <div className="p-6 space-y-4 flex-grow flex flex-col">
-                              <div className="flex items-center gap-2 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
-                                  <BookOpen className="size-3" /> 
-                                  <span>{course.tag}</span>
-                              </div>
-                              <h3 className="text-xl font-normal leading-tight group-hover:text-primary transition-colors truncate">
-                                  {toTitleCase(course.title)}
-                              </h3>
-                              <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
-                                  {course.description}
-                              </p>
-                          </div>
-                          <div className="p-6 pt-0 mt-auto border-t border-border/50 bg-muted/5">
-                              <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-primary pt-4 group-hover:underline">
-                                  View Program <ArrowRight className="size-4" />
-                              </div>
-                          </div>
-                      </div>
-                  </Link>
-              ))}
-          </div>
-        </section>
-
-        {/* Recent Publications Section */}
-        <section className="space-y-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-              <div className="space-y-3">
-                  <h2 className="text-2xl md:text-3xl font-normal">Recent Publications</h2>
-                  <p className="text-muted-foreground text-base max-w-2xl">Original analysis and research-grounded commentary shaping strategy across Africa.</p>
-              </div>
-              <Button asChild variant="outline" className="rounded-none h-10 px-6 text-sm font-semibold border-primary text-primary">
-                  <Link href="https://perspectives.credence.africa/" target="_blank">
-                      View All Insights <ExternalLink className="ml-2 size-4" />
-                  </Link>
-              </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {publications.slice(0, 3).map((pub) => (
-                  <Link key={pub.id} href={pub.url} target="_blank" className="group block h-full">
-                      <div className="relative overflow-hidden bg-white border border-border group-hover:border-primary transition-all duration-300 rounded-none shadow-sm flex flex-col h-full">
-                          <div className="p-6 space-y-4 flex-grow flex flex-col">
-                              <div className="flex items-center gap-2 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
-                                  <Newspaper className="size-3" /> 
-                                  <span>{pub.type}</span>
-                              </div>
-                              <h3 className="text-xl font-normal leading-tight group-hover:text-primary transition-colors truncate">
-                                  {toTitleCase(pub.title)}
-                              </h3>
-                              <div className="text-muted-foreground text-sm line-clamp-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: pub.description }} />
-                          </div>
-                          <div className="p-6 pt-0 mt-auto border-t border-border/50 bg-muted/5">
-                              <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-primary pt-4 group-hover:underline">
-                                  Read Analysis <ArrowRight className="size-4" />
-                              </div>
-                          </div>
-                      </div>
-                  </Link>
-              ))}
-          </div>
-        </section>
-        
         {/* Final CTA */}
-        <section className="bg-primary text-primary-foreground py-20 text-center rounded-none shadow-2xl">
-          <div className="container mx-auto px-4">
-            <h2 className="text-sm md:text-base lg:text-lg font-normal leading-tight max-w-5xl mx-auto uppercase tracking-widest opacity-90">
+        <section className="bg-primary text-primary-foreground py-20 text-center rounded-none shadow-2xl px-4">
+          <div className="container mx-auto">
+            <h2 className="text-sm md:text-base font-normal leading-tight max-w-5xl mx-auto uppercase tracking-widest opacity-90">
               Credence Africa delivers capital raising, market entry, public affairs, executive education, strategic convenings, events, intelligence, and networks across Africa’s growth markets.
             </h2>
             <div className="mt-12 flex flex-wrap justify-center gap-6">
