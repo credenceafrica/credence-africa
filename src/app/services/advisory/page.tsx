@@ -53,37 +53,46 @@ const featuredSolutions = [
 export default function AdvisoryPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative min-h-[600px] h-[calc(100vh-96px)] flex flex-col justify-center overflow-hidden bg-black text-white">
-        <Image 
-          src="/advisory.jpg"
-          alt="Strategic Advisory"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Cinematic Dark Overlay - Darkened for high text visibility */}
-        <div className="absolute inset-0 bg-black/80 z-[1]" />
-        
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight">
-              Public Affairs and Regulatory Strategy in Africa
-            </h1>
-            <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed max-w-2xl">
-              Smart insights. Practical execution. Structures that scale in complexity and across borders.
-            </p>
-            <div className="flex flex-wrap items-center gap-8 pt-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-8 text-lg font-medium">
-                <Link href="/consult">
-                  Book a Consultation <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/20 rounded-none px-4 border-none text-lg font-medium">
-                <Link href="/consult" className="flex items-center">
-                  Let's Talk <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
+      {/* Hero Section - Split Layout with White Background */}
+      <section className="bg-white border-b">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center py-12 lg:py-24">
+            <div className="space-y-10 order-2 lg:order-1">
+              <h1 className="text-foreground leading-tight">
+                Public Affairs and Regulatory Strategy in Africa
+              </h1>
+              
+              <div className="space-y-4 max-w-2xl">
+                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+                  Strategic Advisory
+                </p>
+                <p className="text-xl font-light text-muted-foreground leading-relaxed">
+                  Smart insights. Practical execution. Structures that scale in complexity and across borders.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-6 pt-4">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
+                  <Link href="/consult">
+                    Book a Consultation <ArrowUpRight className="ml-2 size-5" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-transparent">
+                  <Link href="/consult">
+                    Let's Talk
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative aspect-[16/10] lg:aspect-square overflow-hidden order-1 lg:order-2">
+              <Image 
+                src="/advisory.jpg"
+                alt="Strategic Advisory"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -116,7 +125,7 @@ export default function AdvisoryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal">What We Provide</h2>
+              <h2 className="text-3xl md:text-4xl font-normal text-foreground">What We Provide</h2>
               <div className="relative p-8 bg-white border-l-4 border-primary">
                 <p className="text-xl italic font-light leading-relaxed text-foreground/80">
                   "We combine deep local understanding with global-standard execution to help clients navigate Africa's opportunity zones — where risk meets scale."
@@ -127,7 +136,7 @@ export default function AdvisoryPage() {
 
             <div className="space-y-12">
               <div>
-                <h3 className="text-2xl font-normal mb-8">What We Solve</h3>
+                <h3 className="text-2xl font-normal mb-8 text-foreground">What We Solve</h3>
                 <div className="grid gap-6">
                   {solutions.map((item, index) => (
                     <div key={item} className="flex items-start gap-4 group">
@@ -160,7 +169,7 @@ export default function AdvisoryPage() {
                   <div className="group-hover:scale-110 transition-transform duration-300">
                     {solution.icon}
                   </div>
-                  <h4 className="text-xl font-normal leading-tight">{solution.title}</h4>
+                  <h4 className="text-xl font-normal leading-tight text-foreground">{solution.title}</h4>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {solution.description}
                   </p>
@@ -175,7 +184,7 @@ export default function AdvisoryPage() {
           </div>
 
           <div className="mt-16 text-center">
-            <Button asChild variant="outline" size="lg" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white">
+            <Button asChild variant="outline" size="lg" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white h-14 px-10">
               <Link href="/services">See All Services</Link>
             </Button>
           </div>
@@ -188,10 +197,10 @@ export default function AdvisoryPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Contact</h2>
-              <h3 className="text-4xl md:text-5xl font-normal leading-tight">
+              <h3 className="text-4xl md:text-5xl font-normal leading-tight text-foreground">
                 Let’s Shape Africa’s<br />Growth Frontier<br />Together.
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed font-light">
                 Whether you are raising capital, structuring across borders, or navigating regulatory reform — Credence Africa is your trusted execution partner.
               </p>
             </div>
@@ -199,14 +208,14 @@ export default function AdvisoryPage() {
             <Card className="p-8 md:p-12 shadow-xl rounded-none border-none">
               <div className="space-y-8">
                 <div className="space-y-6">
-                  <a href="mailto:connect@credence.africa" className="flex items-center gap-4 text-xl hover:text-primary transition-colors">
+                  <a href="mailto:connect@credence.africa" className="flex items-center gap-4 text-xl hover:text-primary transition-colors text-foreground">
                     <Mail className="size-6 text-primary" /> connect@credence.africa
                   </a>
-                  <a href="tel:+254719468240" className="flex items-center gap-4 text-xl hover:text-primary transition-colors">
+                  <a href="tel:+254719468240" className="flex items-center gap-4 text-xl hover:text-primary transition-colors text-foreground">
                     <Phone className="size-6 text-primary" /> +254 719 468 240
                   </a>
                 </div>
-                <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-white rounded-none py-8 text-lg font-bold">
+                <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-white rounded-none py-8 h-16 text-lg font-bold">
                   <Link href="/consult">Book a Consultation</Link>
                 </Button>
               </div>
