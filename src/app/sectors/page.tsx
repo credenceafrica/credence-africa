@@ -71,11 +71,11 @@ export default function SectorsPage() {
             
             <section className="mt-24 text-center">
                  <h2 className="text-3xl font-normal">Let’s Shape the Future Together</h2>
-                 <div className="mt-6 flex justify-center items-center gap-6">
-                    <p>📧 connect@credence.africa</p>
-                    <p>☎️ +254 719 468 240</p>
+                 <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="mailto:connect@credence.africa" className="text-lg hover:text-primary transition-colors">📧 connect@credence.africa</a>
+                    <a href="tel:+254719468240" className="text-lg hover:text-primary transition-colors">☎️ +254 719 468 240</a>
                  </div>
-                 <Button asChild size="lg" className="mt-8">
+                 <Button asChild size="lg" className="mt-8 rounded-none px-10">
                     <Link href="/consult">Book a Strategy Call</Link>
                  </Button>
             </section>

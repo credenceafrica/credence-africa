@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ArrowUpRight, Landmark, Users, Share2, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Landmark, Users, Share2, ExternalLink, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -29,8 +29,8 @@ export default function ConvenePage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Full Background Image with Content Box Overlay */}
-      <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop"
@@ -41,39 +41,39 @@ export default function ConvenePage() {
           />
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
-          <div className="bg-white p-8 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-l-8 border-primary space-y-10">
-            <h1 className="text-foreground leading-tight">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 md:py-24">
+          <div className="bg-white p-6 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-l-8 border-primary space-y-8 md:space-y-10">
+            <h1 className="text-foreground leading-tight text-3xl md:text-4xl lg:text-[2.5rem]">
               Corporate Event Management in Kenya
             </h1>
             
-            <div className="grid md:grid-cols-2 gap-8 text-foreground/80">
-              <div className="space-y-3">
-                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-foreground/80">
+              <div className="space-y-2 md:space-y-3">
+                <p className="text-[10px] md:text-sm text-primary font-bold tracking-widest uppercase">
                   CREDENCE CONVENE™
                 </p>
-                <p className="text-base leading-relaxed font-light">
+                <p className="text-sm md:text-base leading-relaxed font-light">
                   Institutional events structured for executive communication, stakeholder alignment, and governance credibility.
                 </p>
               </div>
-              <div className="space-y-3 lg:border-l lg:pl-8">
-                <p className="text-sm text-primary font-bold tracking-widest uppercase">
+              <div className="space-y-2 md:space-y-3 md:border-l md:pl-8">
+                <p className="text-[10px] md:text-sm text-primary font-bold tracking-widest uppercase">
                   Decision Environments
                 </p>
-                <p className="text-base leading-relaxed font-light">
+                <p className="text-sm md:text-base leading-relaxed font-light">
                   We build forums where participation and messaging support institutional priorities beyond the event.
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 md:gap-6 pt-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-medium">
-                <Link href="/consult">
+                <Link href="/consult" className="justify-center">
                   Plan Your Event <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
-                <Link href="/consult">
+                <Link href="/consult" className="justify-center">
                   Discuss Your Event
                 </Link>
               </Button>
@@ -82,7 +82,7 @@ export default function ConvenePage() {
         </div>
       </section>
 
-      {/* Strategic Event Planning */}
+      {/* Content Sections */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mb-16 space-y-6">
@@ -173,6 +173,27 @@ export default function ConvenePage() {
               No live events scheduled at this moment.
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-normal">Partner with CREDENCE CONVENE™</h2>
+            <p className="text-lg text-muted-foreground font-light">Let’s discuss your next corporate AGM, conference, or institutional convening.</p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
+              <a href="mailto:connect@credence.africa" className="flex items-center gap-3 text-xl hover:text-primary transition-colors">
+                <Mail className="size-6 text-primary" /> connect@credence.africa
+              </a>
+              <a href="tel:+254719468240" className="flex items-center gap-3 text-xl hover:text-primary transition-colors">
+                <Phone className="size-6 text-primary" /> +254 719 468 240
+              </a>
+            </div>
+            <Button asChild size="lg" className="rounded-none px-12 h-16 font-bold text-lg mt-4">
+              <Link href="/consult">Book a Consultation</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

@@ -15,7 +15,9 @@ import {
   Sparkles, 
   TrendingUp,
   Globe,
-  Share2
+  Share2,
+  Mail,
+  Phone
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -266,58 +268,20 @@ export default function NetworksPage() {
         </div>
       </section>
 
-      {/* Integration & Community */}
-      <section className="py-16 md:py-24 bg-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <h2 className="text-2xl md:text-3xl font-normal">Event & Networking Platforms</h2>
-              <div className="grid gap-6">
-                {[
-                  { title: "Executive Forums", desc: "Curated networking sessions and leadership dialogues." },
-                  { title: "Sector Roundtables", desc: "Closed sessions focused on specific market and policy issues." },
-                  { title: "Deal Rooms", desc: "Structured formats driving collaboration and transaction facilitation." },
-                  { title: "Flagship Summits", desc: "Annual convenings across our proprietary event portfolio." }
-                ].map((item) => (
-                  <div key={item.title} className="space-y-1">
-                    <h4 className="font-bold text-sm text-primary">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground font-light">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-8">
-              <h2 className="text-2xl md:text-3xl font-normal">Integrated Ecosystem</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed font-light">
-                Members are connected to a broader system that ensures relationships translate into measurable outcomes.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: <Globe className="size-5" />, label: "Intelligence" },
-                  { icon: <Share2 className="size-5" />, label: "Advisory" },
-                  { icon: <Users className="size-5" />, label: "Convenings" },
-                  { icon: <TrendingUp className="size-5" />, label: "Capital" }
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 p-4 bg-white border shadow-sm">
-                    <div className="text-primary">{item.icon}</div>
-                    <span className="text-xs font-bold uppercase tracking-widest">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="bg-primary text-primary-foreground py-16 md:py-24 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-normal mb-8 max-w-4xl mx-auto">
             Join Africa’s Leading Professional Networks and Business Communities
           </h2>
-          <p className="text-base md:text-xl font-light opacity-90 mb-12 max-w-2xl mx-auto">
-            Access membership, partnerships, and strategic networks that drive growth and opportunity across Africa.
-          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-12">
+            <a href="mailto:connect@credence.africa" className="flex items-center gap-3 text-xl hover:text-white transition-colors">
+              <Mail className="size-6" /> connect@credence.africa
+            </a>
+            <a href="tel:+254719468240" className="flex items-center gap-3 text-xl hover:text-white transition-colors">
+              <Phone className="size-6" /> +254 719 468 240
+            </a>
+          </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
             <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-primary hover:bg-white/90">
               <Link href="/consult">Apply for Membership</Link>
