@@ -56,13 +56,13 @@ export default function Home() {
     <div className="flex flex-col overflow-x-hidden">
       {/* Hero Section - Full Background Image with Content Box Overlay */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
-        {/* Full-width Background Image */}
+        {/* Full-width Background Image - Flipped Horizontally */}
         <div className="absolute inset-0 z-0">
           <Image 
             src="/hero.jpg"
             alt="Building the Institutions That Build Africa"
             fill
-            className="object-cover"
+            className="object-cover -scale-x-100"
             priority
           />
         </div>
@@ -239,11 +239,14 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-primary text-primary-foreground py-16 md:py-20 text-center rounded-none shadow-2xl px-4">
+        <section className="bg-primary text-primary-foreground py-16 md:py-24 text-center rounded-none shadow-2xl px-4">
           <div className="container mx-auto">
-            <h2 className="text-xs md:text-base font-normal leading-relaxed max-w-5xl mx-auto uppercase tracking-widest opacity-90">
+            <h2 className="text-xl md:text-3xl font-normal leading-relaxed max-w-5xl mx-auto opacity-95">
               Credence Africa delivers capital raising, market entry, public affairs, executive education, strategic convenings, events, intelligence, and networks across Africa’s growth markets.
             </h2>
+            <p className="mt-6 text-base md:text-lg opacity-80 max-w-3xl mx-auto font-light leading-relaxed">
+              If you want a sharper next step, I would turn this into a homepage wireframe with section by section design instructions and CTA hierarchy.
+            </p>
             <div className="mt-10 md:mt-12 flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-primary hover:bg-white/90 border-none">
                 <Link href="/consult" className="justify-center">Book A Strategy Call</Link>
