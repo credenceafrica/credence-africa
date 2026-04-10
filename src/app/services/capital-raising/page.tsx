@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -188,7 +187,7 @@ export default function CapitalRaisingPage() {
                   Book a Capital Strategy Consultation <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
+              <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
                 <Link href="/consult" className="justify-center">
                   Discuss a Capital Raising Mandate
                 </Link>
@@ -209,7 +208,7 @@ export default function CapitalRaisingPage() {
                 <p>Capital raising shapes growth, timing, governance, investor confidence, and long term strategic flexibility. Institutions seeking capital need more than presentation materials.</p>
                 <p>They need a capital pathway aligned to business model, growth stage, funding objective, risk profile, and transaction readiness.</p>
               </div>
-              <Button asChild variant="outline" className="rounded-none border-primary text-primary h-12 px-8">
+              <Button asChild variant="outline" className="rounded-none border-2 border-primary text-primary h-12 px-8">
                 <Link href="/consult">Speak to the Team</Link>
               </Button>
             </div>
@@ -332,7 +331,7 @@ export default function CapitalRaisingPage() {
                       <p className="text-sm font-light">{product.bestFor}</p>
                     </div>
                   </div>
-                  <Button asChild variant="outline" className="w-full mt-8 rounded-none border-primary text-primary hover:bg-primary hover:text-white">
+                  <Button asChild variant="outline" className="w-full mt-8 rounded-none border-2 border-primary text-primary hover:bg-primary hover:text-white">
                     <Link href="/consult">{product.cta}</Link>
                   </Button>
                 </CardContent>
@@ -384,12 +383,12 @@ export default function CapitalRaisingPage() {
                 "Growth capital raises", "Regional expansion scale-up", "Debt and structured finance", 
                 "Project finance & bankability", "Blended finance structuring", "Donor aligned funding", 
                 "Catalytic capital strategy", "Grant readiness systems", "Investor relations", 
-                "M&A and exit positioning", "Refinancing support"
+                "M&A and exit positioning", "Capital restructuring and refinancing support"
               ].map((m) => (
                 <span key={m} className="px-4 py-2 bg-muted text-xs font-light border border-border/50">{m}</span>
               ))}
             </div>
-            <Button asChild size="lg" variant="outline" className="rounded-none border-primary text-primary px-12">
+            <Button asChild size="lg" variant="outline" className="mt-12 rounded-none border-2 border-primary text-primary px-12">
               <Link href="/consult">Discuss Your Mandate</Link>
             </Button>
           </div>
@@ -453,7 +452,7 @@ export default function CapitalRaisingPage() {
                 <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-8">
                   <Link href="/consult">Book a Capital Strategy Consultation</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-none border-white text-white hover:bg-white/10 h-14 px-8">
+                <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white text-white hover:bg-white/10 h-14 px-8">
                   <Link href="/consult">Discuss a Capital Raising Mandate</Link>
                 </Button>
               </div>

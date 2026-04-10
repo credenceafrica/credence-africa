@@ -58,7 +58,7 @@ const productPathways = [
   {
     title: "Government Relations",
     description: "For institutions that need structured, senior level engagement with ministries, regulators, counties, agencies, and public sector stakeholders.",
-    focus: "Supports relationship planning, issue management, institutional positioning, and engagement strategy where objectives depend on effective public sector alignment.",
+    focus: "Supports relationship planning, issue management, institutional positioning, and engagement strategy where commercial or strategic objectives depend on effective public sector alignment.",
     icon: <Users className="size-8 text-primary" />,
     cta: "Discuss Government Relations"
   },
@@ -169,7 +169,7 @@ export default function PublicAffairsPage() {
                   Book a Public Affairs Consultation <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
+              <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
                 <Link href="/consult" className="justify-center">
                   Discuss a Regulatory Mandate
                 </Link>
@@ -185,12 +185,12 @@ export default function PublicAffairsPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Executive Positioning</h2>
-              <h3 className="text-3xl md:text-4xl font-normal text-foreground leading-tight">Public Affairs: Where Policy Shapes Markets</h3>
+              <h3 className="text-3xl md:text-4xl font-normal text-foreground leading-tight">Public Affairs : Where Policy Shapes Markets</h3>
               <div className="space-y-4 text-muted-foreground font-light leading-relaxed">
-                <p>In African markets, commercial execution is often influenced by regulation, institutional process, and policy direction. Licensing determines speed to market. Reform can alter sector economics.</p>
-                <p>Credence Africa provides a structured platform that brings together regulatory strategy, government relations, stakeholder mapping, policy analysis, and execution support to help institutions move with greater coherence.</p>
+                <p>In African markets, commercial execution is often influenced by regulation, institutional process, and policy direction. Licensing determines speed to market. Reform can alter sector economics. Government engagement can affect approvals, partnerships, market structure, and long term operating certainty.</p>
+                <p>Credence Africa advises institutions that need more than fragmented engagement across ministries, regulators, agencies, and public actors. We provide a structured public affairs platform that brings together regulatory strategy, government relations, stakeholder mapping, policy analysis, and execution support. The objective is clear. To help institutions move with stronger foresight, better positioning, and greater institutional coherence.</p>
               </div>
-              <Button asChild variant="outline" className="rounded-none border-primary text-primary h-12 px-8">
+              <Button asChild variant="outline" className="rounded-none border-2 border-primary text-primary h-12 px-8">
                 <Link href="/consult">Speak to the Team</Link>
               </Button>
             </div>
@@ -207,17 +207,17 @@ export default function PublicAffairsPage() {
       <section className="py-24 bg-muted/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mb-16 space-y-4">
-            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Designed for Executive Teams and Regulated Market Participants</h2>
-            <p className="text-muted-foreground font-light">Built for institutions whose commercial priorities are materially shaped by public systems or policy change.</p>
+            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Designed for Executive Teams, Institutional Platforms, and Regulated Market Participants</h2>
+            <p className="text-muted-foreground font-light">Built for institutions whose commercial priorities are materially shaped by public systems, regulatory frameworks, or policy change.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Regulated businesses managing multi-agency interfaces",
-              "Companies entering sectors where approvals are critical",
-              "Investors and funds with market-shaping interfaces",
-              "Industry associations engaging on reform",
-              "Development actors in policy-sensitive sectors",
-              "Boards requiring stronger public affairs capability",
+              "Regulated businesses managing licensing, compliance exposure, and multi agency interfaces",
+              "Companies entering or expanding into sectors where approvals and regulatory clarity are critical",
+              "Investors, funds, and project sponsors with public sector, infrastructure, or market shaping interfaces",
+              "Industry associations, chambers, and sector platforms engaging on reform and institutional alignment",
+              "Development actors and ecosystem institutions operating in policy sensitive sectors",
+              "Boards, founders, and executive teams that need stronger public affairs capability to support growth",
             ].map((item, i) => (
               <div key={i} className="flex gap-4 p-6 bg-white border hover:border-primary transition-colors group">
                 <CheckCircle2 className="size-5 text-primary shrink-0 mt-1" />
@@ -238,18 +238,19 @@ export default function PublicAffairsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal">Strategic Support Across Regulation and Policy</h2>
+              <h2 className="text-3xl md:text-4xl font-normal">Strategic Support Across Regulation, Policy, and Institutional Engagement</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 We help leadership teams interpret the environment accurately, structure the right engagement pathway, and move with greater confidence.
               </p>
               <div className="space-y-4">
                 {[
-                  "Navigate complex licensing and regulatory approvals",
-                  "Build structured government relations strategies",
+                  "Navigate complex licensing and regulatory approval environments",
+                  "Build structured government relations and institutional engagement strategies",
                   "Anticipate and respond to policy reform and legislative change",
-                  "Shape policy positions and advocacy priorities",
-                  "Map stakeholder interests and political economy risk",
-                  "Coordinate public sector interfaces across multiple levels"
+                  "Shape policy positions and advocacy priorities with greater credibility",
+                  "Map stakeholder interests, influence patterns, and political economy risk",
+                  "Coordinate public sector interfaces across ministries, regulators, counties, and agencies",
+                  "Understand how upcoming regulation may affect market entry, operations, investment, or sector growth"
                 ].map((val, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="size-5 text-primary shrink-0" />
@@ -315,7 +316,7 @@ export default function PublicAffairsPage() {
                 </CardHeader>
                 <CardContent className="p-8 pt-0 flex-grow flex flex-col">
                   <p className="text-sm text-muted-foreground font-light leading-relaxed flex-grow">{product.focus}</p>
-                  <Button asChild variant="outline" className="w-full mt-8 rounded-none border-primary text-primary hover:bg-primary hover:text-white">
+                  <Button asChild variant="outline" className="w-full mt-8 rounded-none border-2 border-primary text-primary hover:bg-primary hover:text-white">
                     <Link href="/consult">{product.cta}</Link>
                   </Button>
                 </CardContent>
@@ -378,7 +379,7 @@ export default function PublicAffairsPage() {
               <div className="space-y-4">
                 {[
                   "Translate complexity into actionable strategic priorities",
-                  "Bring structure to government engagement and positioning",
+                  "Bring structure to government engagement and institutional positioning",
                   "Anticipate reform risk before operational disruption",
                   "Connect stakeholder mapping with execution pathways",
                   "Interpret change early through POLICY & MARKETS™"
@@ -456,14 +457,14 @@ export default function PublicAffairsPage() {
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal leading-tight">Public Affairs Support for Strategic Control</h2>
               <p className="text-lg opacity-80 font-light leading-relaxed">
-                If your institution is navigating approvals, policy reform, stakeholder pressure, or emerging regulation, Credence Africa provides the strategic support to move that mandate forward.
+                If your institution is navigating approvals, government engagement, policy reform, stakeholder pressure, or emerging regulation that may affect growth, market access, or investor confidence, Credence Africa provides the strategic support and execution discipline to move the mandate forward.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-8">
                   <Link href="/consult">Book a Public Affairs Consultation</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-none border-white text-white hover:bg-white/10 h-14 px-8">
-                  <Link href="/consult">Discuss a Policy Mandate</Link>
+                <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white text-white hover:bg-white/10 h-14 px-8">
+                  <Link href="/consult">Discuss a Regulatory or Policy Mandate</Link>
                 </Button>
               </div>
             </div>

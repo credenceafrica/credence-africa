@@ -210,7 +210,7 @@ export default function TradeGrowthPage() {
                   Discuss Market Entry Strategy <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
+              <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-medium bg-white">
                 <Link href="/consult" className="justify-center">
                   Plan Cross Border Expansion
                 </Link>
@@ -231,7 +231,7 @@ export default function TradeGrowthPage() {
                 <p>Growth in Africa is shaped by more than market opportunity. It is shaped by regulatory access, market sequencing, route to market strategy, partner quality, and operating model design.</p>
                 <p>We help clients move from market interest to market execution through advisory that connects commercial strategy, compliance, ecosystem access, and operational rollout.</p>
               </div>
-              <Button asChild variant="outline" className="rounded-none border-primary text-primary h-12 px-8">
+              <Button asChild variant="outline" className="rounded-none border-2 border-primary text-primary h-12 px-8">
                 <Link href="/consult">Speak to the Team</Link>
               </Button>
             </div>
@@ -369,7 +369,7 @@ export default function TradeGrowthPage() {
                       <p className="text-xs font-light leading-relaxed">{product.bestFor}</p>
                     </div>
                   </div>
-                  <Button asChild variant="outline" className="w-full mt-8 rounded-none border-primary text-primary hover:bg-primary hover:text-white">
+                  <Button asChild variant="outline" className="w-full mt-8 rounded-none border-2 border-primary text-primary hover:bg-primary hover:text-white">
                     <Link href="/consult">{product.cta}</Link>
                   </Button>
                 </CardContent>
@@ -446,7 +446,7 @@ export default function TradeGrowthPage() {
               <span key={sector} className="px-6 py-3 bg-muted text-xs font-bold uppercase tracking-widest border border-border/50">{sector}</span>
             ))}
           </div>
-          <Button asChild variant="outline" className="mt-12 rounded-none border-primary text-primary px-12">
+          <Button asChild variant="outline" className="mt-12 rounded-none border-2 border-primary text-primary px-12">
             <Link href="/consult">Discuss Sector Specific Expansion</Link>
           </Button>
         </div>
@@ -509,7 +509,7 @@ export default function TradeGrowthPage() {
             <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">
               <Link href="/consult">Discuss Market Entry Strategy</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-none border-white text-white hover:bg-white/10 h-14 px-10">
+            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white text-white hover:bg-white/10 h-14 px-10">
               <Link href="/consult">Plan Cross Border Expansion</Link>
             </Button>
           </div>
