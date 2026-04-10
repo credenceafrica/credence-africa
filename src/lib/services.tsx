@@ -96,7 +96,7 @@ const services: Service[] = [
   {
     id: "networks",
     slug: "networks",
-    href: "#",
+    href: "/services/networks",
     icon: <Users className="size-8" />,
     title: "Credence Networks",
     description: "Communities strengthening connection and visibility.",
