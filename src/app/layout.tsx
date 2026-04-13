@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import React, { Suspense } from "react";
+import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -40,6 +41,22 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${outfit.variable} font-sans antialiased bg-background text-foreground`}
       >
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-TTZHMWM5F6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-TTZHMWM5F6');
+          `}
+        </Script>
+        
         <LayoutWrapper
           header={<SiteHeader />}
           footer={<SiteFooter />}

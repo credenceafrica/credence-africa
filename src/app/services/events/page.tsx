@@ -68,7 +68,7 @@ export default function EventsPage() {
       <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1540575861501-7ad05823c9f5?q=80&w=2070&auto=format&fit=crop"
+            src="/events.jpg"
             alt="Credence Events"
             fill
             className="object-cover"
