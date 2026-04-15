@@ -59,10 +59,10 @@ export default function Home() {
         {/* Full-width Background Image - Flipped Horizontally */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/hero.jpg"
+            src="/hero-two.png"
             alt="Building the Institutions That Build Africa"
             fill
-            className="object-cover -scale-x-100"
+            className="object-cover scale-x-100"
             priority
           />
         </div>

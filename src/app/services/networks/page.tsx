@@ -116,7 +116,7 @@ export default function NetworksPage() {
       <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop"
+            src="/networks.jpg"
             alt="Professional Networks Africa"
             fill
             className="object-cover"

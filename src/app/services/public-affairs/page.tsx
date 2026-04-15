@@ -130,7 +130,7 @@ export default function PublicAffairsPage() {
       <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/affairs.jpg"
+            src="/public-affairs.png"
             alt="Public Affairs Africa"
             fill
             className="object-cover"
