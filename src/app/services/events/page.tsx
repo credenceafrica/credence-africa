@@ -3,10 +3,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  ArrowRight, 
-  ArrowUpRight, 
-  CheckCircle2, 
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
   Calendar,
   Layers,
   Target,
@@ -16,23 +16,14 @@ import {
   Globe,
   Mail,
   Phone,
-  Layout
+  Layout,
+  Clock,
+  MapPin
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
-const eventPortfolio = [
-  { month: "February", title: "Capital Africa", desc: "Investment, capital flows, and investment opportunities in Africa." },
-  { month: "March", title: "Credence Women Week", desc: "A multi-format convening across business, creativity, cooperatives, leadership, and recognition. Includes Women and Faith, Women Creatives Circle, Women and Business, Women and Coops, and the Credible Women Awards." },
-  { month: "May", title: "The Cooperative Expo", desc: "Market access, member engagement, financing, compliance, and cooperative sector growth." },
-  { month: "June", title: "Public Affairs Conference", desc: "Governance, policy reform, regulation, and institutional dialogue." },
-  { month: "July", title: "Credence Business Week", desc: "Sector-specific growth, financing, and market access for Agribusiness, Wellness, Creative Economy, Healthcare, Manufacturing, Tech, and Tourism." },
-  { month: "August", title: "Mobility Week", desc: "Transport systems, infrastructure, financing, and innovation." },
-  { month: "September", title: "Impact Finance Summit", desc: "Development finance, capital deployment, and inclusive growth." },
-  { month: "October", title: "Credible Saccos | Sacco Day", desc: "Financial services, governance, member engagement, and sector growth." },
-  { month: "November", title: "Credible Experts Week and Awards", desc: "Expert visibility, knowledge leadership, and recognition." },
-  { month: "December", title: "CBC Festival", desc: "Commerce, community engagement, education, and opportunity." }
-];
+import { useEffect, useState } from "react";
+import { getEventPortfolio, PortfolioEvent } from "@/lib/external-data";
 
 const digitalConferences = [
   {
@@ -62,6 +53,23 @@ const digitalConferences = [
 ];
 
 export default function EventsPage() {
+  const [eventPortfolio, setEventPortfolio] = useState<PortfolioEvent[]>([]);
+  const [portfolioLoading, setPortfolioLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPortfolio() {
+      try {
+        const events = await getEventPortfolio();
+        setEventPortfolio(events);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setPortfolioLoading(false);
+      }
+    }
+    fetchPortfolio();
+  }, []);
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -208,21 +216,93 @@ export default function EventsPage() {
             <p className="text-muted-foreground font-light uppercase tracking-widest text-xs">Annual Events in Kenya</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {eventPortfolio.map((event) => (
-              <Card key={event.title} className="rounded-none border-none shadow-sm group hover:shadow-md transition-shadow flex flex-col">
-                <div className="bg-primary text-white px-6 py-2 text-xs font-bold uppercase tracking-widest group-hover:bg-black transition-colors">
-                  {event.month}
+          {portfolioLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="bg-white shadow-sm flex flex-col animate-pulse">
+                  <div className="bg-muted aspect-[4/3] w-full" />
+                  <div className="p-6 space-y-4">
+                    <div className="h-3 bg-muted rounded w-16" />
+                    <div className="h-5 bg-muted rounded w-3/4" />
+                    <div className="space-y-2">
+                      <div className="h-3 bg-muted rounded w-full" />
+                      <div className="h-3 bg-muted rounded w-5/6" />
+                    </div>
+                    <div className="h-4 bg-muted rounded w-1/2" />
+                    <div className="flex items-center justify-between pt-2">
+                      <div className="h-6 bg-muted rounded w-20" />
+                      <div className="h-10 bg-muted rounded w-28" />
+                    </div>
+                  </div>
                 </div>
-                <CardHeader className="p-8 pb-4">
-                  <CardTitle className="text-xl font-normal group-hover:text-primary transition-colors text-foreground">{event.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-8 pt-0 flex-grow">
-                  <p className="text-sm text-muted-foreground leading-relaxed font-light">{event.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : eventPortfolio.length === 0 ? (
+            <p className="text-center text-muted-foreground font-light">Our event portfolio will be announced soon.</p>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {eventPortfolio.map((event) => (
+                <div key={event.id} className="bg-white shadow-sm hover:shadow-lg transition-shadow flex flex-col group overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+                    {event.image ? (
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-primary/80 to-primary" />
+                    )}
+                    <div className="absolute top-4 right-4 bg-foreground/90 text-white flex flex-col items-center justify-center w-16 h-16 rounded-md shadow-md">
+                      <span className="text-2xl font-bold leading-none">{event.day}</span>
+                      <span className="text-[11px] font-medium uppercase tracking-wider mt-1">{event.month}</span>
+                    </div>
+                  </div>
+
+                  <div className="p-6 flex flex-col flex-grow space-y-4">
+                    {event.time && (
+                      <div className="flex items-center gap-2 text-primary text-sm font-semibold">
+                        <Clock className="size-4" />
+                        <span>{event.time}</span>
+                      </div>
+                    )}
+
+                    <h3 className="text-lg font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
+                      {event.title}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed line-clamp-2">
+                      {event.description}
+                    </p>
+
+                    {event.location && (
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <MapPin className="size-4 shrink-0" />
+                        <span className="truncate">{event.location}</span>
+                      </div>
+                    )}
+
+                    <div className="flex items-center justify-between gap-3 pt-2 mt-auto">
+                      {event.category ? (
+                        <span className="bg-muted text-foreground/70 text-xs font-medium px-3 py-1.5 rounded-full capitalize">
+                          {event.category}
+                        </span>
+                      ) : <span />}
+                      <Button
+                        asChild
+                        className="bg-primary hover:bg-primary/90 text-white rounded-md px-5 h-10 text-sm font-semibold"
+                      >
+                        <Link href={event.url}>
+                          Get Ticket <ArrowRight className="ml-1 size-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
