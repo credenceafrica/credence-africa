@@ -129,7 +129,9 @@ export default function EventDetailPage() {
 
   async function handleShare() {
     if (typeof window === "undefined") return;
-    const url = window.location.href;
+    const url = event?.shortLink
+      ? `${window.location.origin}/e/${event.shortLink}`
+      : window.location.href;
     const title = event?.name || "Credence Event";
     if (navigator.share) {
       try {
