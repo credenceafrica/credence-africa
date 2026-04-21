@@ -86,6 +86,7 @@ export interface EventDetail {
     eventKind?: string;
     virtualLink?: string;
     status?: string;
+    shortLink?: string;
 }
 
 export interface ExternalCourse {
@@ -218,6 +219,62 @@ export async function getEventPortfolio(): Promise<PortfolioEvent[]> {
 
 export const PORTFOLIO_USER_ID = 'JqvQkB8nZ4cSIPQHiKdXtwV06uG3';
 
+const SHORT_LINK_COLLECTION = 'eventShortLinks';
+const SHORT_LINK_LENGTH = 6;
+
+function generateShortCode(length = SHORT_LINK_LENGTH): string {
+    const chars = 'abcdefghijkmnpqrstuvwxyz23456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return result;
+}
+
+async function ensureEventShortLink(eventId: string, existing?: string): Promise<string | undefined> {
+    if (existing) return existing;
+    try {
+        const db = getEngageDb();
+        for (let attempt = 0; attempt < 5; attempt++) {
+            const code = generateShortCode();
+            const shortRef = doc(db, SHORT_LINK_COLLECTION, code);
+            const existingShort = await getDoc(shortRef);
+            if (existingShort.exists()) continue;
+
+            await setDoc(shortRef, {
+                eventId,
+                userId: PORTFOLIO_USER_ID,
+                createdAt: serverTimestamp(),
+            });
+            const eventRef = doc(db, 'users', PORTFOLIO_USER_ID, 'events', eventId);
+            await setDoc(eventRef, { shortLink: code }, { merge: true });
+            return code;
+        }
+        return undefined;
+    } catch (e) {
+        console.error('Failed to generate short link for event:', e);
+        return undefined;
+    }
+}
+
+export async function resolveEventShortLink(code: string): Promise<{ eventId: string; userId: string } | null> {
+    try {
+        const db = getEngageDb();
+        const shortRef = doc(db, SHORT_LINK_COLLECTION, code);
+        const snap = await getDoc(shortRef);
+        if (!snap.exists()) return null;
+        const data = snap.data();
+        if (!data.eventId) return null;
+        return {
+            eventId: data.eventId as string,
+            userId: (data.userId as string) || PORTFOLIO_USER_ID,
+        };
+    } catch (e) {
+        console.error('Failed to resolve event short link:', e);
+        return null;
+    }
+}
+
 export async function getEventById(id: string): Promise<EventDetail | null> {
     try {
         const db = getEngageDb();
@@ -225,6 +282,7 @@ export async function getEventById(id: string): Promise<EventDetail | null> {
         const snapshot = await getDoc(eventRef);
         if (!snapshot.exists()) return null;
         const data = snapshot.data();
+        const shortLink = await ensureEventShortLink(snapshot.id, data.shortLink);
         return {
             id: snapshot.id,
             name: data.name || 'Untitled Event',
@@ -239,6 +297,7 @@ export async function getEventById(id: string): Promise<EventDetail | null> {
             eventKind: data.eventKind,
             virtualLink: data.virtualLink,
             status: data.status,
+            shortLink,
         };
     } catch (e) {
         console.error("Error fetching Engage event by id:", e);
