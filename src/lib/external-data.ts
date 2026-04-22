@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, where, limit } from "firebase/firestore";
+import { getFirestore, collection, getDocs, getDoc, doc, setDoc, query, where, limit, serverTimestamp } from "firebase/firestore";
 import { engageFirebaseConfig, perspectiveFirebaseConfig, instituteFirebaseConfig } from "@/firebase/config";
 
 export interface ExternalEvent {
@@ -9,6 +9,84 @@ export interface ExternalEvent {
     description: string;
     url: string;
     image?: string;
+}
+
+export interface PortfolioEvent {
+    id: string;
+    title: string;
+    month: string;
+    day: string;
+    time?: string;
+    description: string;
+    url: string;
+    image?: string;
+    startDate?: string;
+    location?: string;
+    category?: string;
+}
+
+export const TICKET_CATEGORIES = [
+    'attendee',
+    'exhibitor',
+    'sponsor',
+    'corporate',
+    'podcast',
+    'webinar',
+] as const;
+
+export type TicketCategory = typeof TICKET_CATEGORIES[number];
+
+export interface Ticket {
+    id: string;
+    category: TicketCategory | string;
+    name: string;
+    price: number;
+    quantity: number;
+    minBuyLimit: number;
+    maxBuyLimit: number;
+    startSaleDate?: string;
+    endSaleDate?: string;
+    features: string[];
+}
+
+export interface RegistrationInput {
+    name: string;
+    email: string;
+    phone?: string | null;
+    ticketId: string;
+    ticketName: string;
+    ticketCategory: string;
+    interest?: string | null;
+    exhibitorCompanyName?: string | null;
+    exhibitorDescription?: string | null;
+    quantity?: number;
+    unitPrice?: number;
+    totalAmount?: number;
+    currency?: string;
+    paystackReference?: string;
+}
+
+export interface RegistrationResult {
+    id: string;
+    ticketNumber: string;
+    ticketUrl: string;
+}
+
+export interface EventDetail {
+    id: string;
+    name: string;
+    description: string;
+    startDate?: string;
+    endDate?: string;
+    startTime?: string;
+    endTime?: string;
+    location?: string;
+    thumbnail?: string;
+    eventType?: string;
+    eventKind?: string;
+    virtualLink?: string;
+    status?: string;
+    shortLink?: string;
 }
 
 export interface ExternalCourse {
@@ -86,6 +164,254 @@ export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
     } catch (e) {
         console.error("Error fetching Engage events:", e);
         return getFallbackEvents();
+    }
+}
+
+export async function getEventPortfolio(): Promise<PortfolioEvent[]> {
+    try {
+        const db = getEngageDb();
+        const eventsRef = collection(db, 'users', PORTFOLIO_USER_ID, 'events');
+        const q = query(eventsRef, where('status', '==', 'published'));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) return [];
+
+        const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' });
+        const dayFormatter = new Intl.DateTimeFormat('en-US', { day: '2-digit', timeZone: 'UTC' });
+
+        return snapshot.docs
+            .map(doc => {
+                const data = doc.data();
+                const startDate: string | undefined = data.startDate;
+                const parsed = startDate ? new Date(startDate) : null;
+                const validDate = parsed && !isNaN(parsed.getTime()) ? parsed : null;
+                const month = validDate ? monthFormatter.format(validDate).toUpperCase() : 'TBA';
+                const day = validDate ? dayFormatter.format(validDate) : '--';
+
+                const time: string | undefined = data.startTime;
+                const location: string | undefined = data.location;
+                const category: string | undefined = data.eventType;
+
+                return {
+                    id: doc.id,
+                    title: data.name || 'Untitled Event',
+                    month,
+                    day,
+                    time,
+                    description: data.description || '',
+                    url: `/services/events/${doc.id}`,
+                    image: data.thumbnail,
+                    startDate,
+                    location,
+                    category,
+                };
+            })
+            .sort((a, b) => {
+                const aTime = a.startDate ? new Date(a.startDate).getTime() : Number.MAX_SAFE_INTEGER;
+                const bTime = b.startDate ? new Date(b.startDate).getTime() : Number.MAX_SAFE_INTEGER;
+                return aTime - bTime;
+            });
+    } catch (e) {
+        console.error("Error fetching Engage event portfolio:", e);
+        return [];
+    }
+}
+
+export const PORTFOLIO_USER_ID = 'JqvQkB8nZ4cSIPQHiKdXtwV06uG3';
+
+const SHORT_LINK_COLLECTION = 'eventShortLinks';
+const SHORT_LINK_LENGTH = 6;
+
+function generateShortCode(length = SHORT_LINK_LENGTH): string {
+    const chars = 'abcdefghijkmnpqrstuvwxyz23456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return result;
+}
+
+async function ensureEventShortLink(eventId: string, existing?: string): Promise<string | undefined> {
+    if (existing) return existing;
+    try {
+        const db = getEngageDb();
+        for (let attempt = 0; attempt < 5; attempt++) {
+            const code = generateShortCode();
+            const shortRef = doc(db, SHORT_LINK_COLLECTION, code);
+            const existingShort = await getDoc(shortRef);
+            if (existingShort.exists()) continue;
+
+            await setDoc(shortRef, {
+                eventId,
+                userId: PORTFOLIO_USER_ID,
+                createdAt: serverTimestamp(),
+            });
+            const eventRef = doc(db, 'users', PORTFOLIO_USER_ID, 'events', eventId);
+            await setDoc(eventRef, { shortLink: code }, { merge: true });
+            return code;
+        }
+        return undefined;
+    } catch (e) {
+        console.error('Failed to generate short link for event:', e);
+        return undefined;
+    }
+}
+
+export async function resolveEventShortLink(code: string): Promise<{ eventId: string; userId: string } | null> {
+    try {
+        const db = getEngageDb();
+        const shortRef = doc(db, SHORT_LINK_COLLECTION, code);
+        const snap = await getDoc(shortRef);
+        if (!snap.exists()) return null;
+        const data = snap.data();
+        if (!data.eventId) return null;
+        return {
+            eventId: data.eventId as string,
+            userId: (data.userId as string) || PORTFOLIO_USER_ID,
+        };
+    } catch (e) {
+        console.error('Failed to resolve event short link:', e);
+        return null;
+    }
+}
+
+export async function getEventById(id: string): Promise<EventDetail | null> {
+    try {
+        const db = getEngageDb();
+        const eventRef = doc(db, 'users', PORTFOLIO_USER_ID, 'events', id);
+        const snapshot = await getDoc(eventRef);
+        if (!snapshot.exists()) return null;
+        const data = snapshot.data();
+        const shortLink = await ensureEventShortLink(snapshot.id, data.shortLink);
+        return {
+            id: snapshot.id,
+            name: data.name || 'Untitled Event',
+            description: data.description || '',
+            startDate: data.startDate,
+            endDate: data.endDate,
+            startTime: data.startTime,
+            endTime: data.endTime,
+            location: data.location,
+            thumbnail: data.thumbnail,
+            eventType: data.eventType,
+            eventKind: data.eventKind,
+            virtualLink: data.virtualLink,
+            status: data.status,
+            shortLink,
+        };
+    } catch (e) {
+        console.error("Error fetching Engage event by id:", e);
+        return null;
+    }
+}
+
+export async function getEventTickets(eventId: string): Promise<Ticket[]> {
+    try {
+        const db = getEngageDb();
+        const ticketsRef = collection(db, 'users', PORTFOLIO_USER_ID, 'events', eventId, 'tickets');
+        const snapshot = await getDocs(ticketsRef);
+        if (snapshot.empty) return [];
+        return snapshot.docs.map(snap => {
+            const data = snap.data();
+            return {
+                id: snap.id,
+                category: String(data.category || 'attendee').toLowerCase(),
+                name: data.name || 'Ticket',
+                price: Number(data.price) || 0,
+                quantity: Number(data.quantity) || 0,
+                minBuyLimit: Number(data.minBuyLimit) || 1,
+                maxBuyLimit: Number(data.maxBuyLimit) || 10,
+                startSaleDate: data.startSaleDate,
+                endSaleDate: data.endSaleDate,
+                features: Array.isArray(data.features) ? data.features : [],
+            };
+        });
+    } catch (e) {
+        console.error('Error fetching event tickets:', e);
+        return [];
+    }
+}
+
+export const CREDENCE_ENGAGE_URL = 'https://engage.credence.africa';
+
+function generateTicketNumber(): string {
+    const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    let result = '';
+    for (let i = 0; i < 8; i++) {
+        result += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return result;
+}
+
+export function buildTicketUrl(eventId: string, registrationId: string): string {
+    return `${CREDENCE_ENGAGE_URL}/ticket/${PORTFOLIO_USER_ID}/${eventId}/${registrationId}`;
+}
+
+export async function createEventRegistration(
+    eventId: string,
+    input: RegistrationInput
+): Promise<RegistrationResult> {
+    const db = getEngageDb();
+    const registrationsRef = collection(db, 'users', PORTFOLIO_USER_ID, 'events', eventId, 'registrations');
+    const newRegRef = doc(registrationsRef);
+    const ticketNumber = generateTicketNumber();
+
+    await setDoc(newRegRef, {
+        name: input.name,
+        email: input.email.toLowerCase().trim(),
+        phone: input.phone || null,
+        ticketId: input.ticketId,
+        ticketName: input.ticketName,
+        ticketCategory: input.ticketCategory,
+        registrationDate: serverTimestamp(),
+        ticketNumber,
+        interest: input.interest || null,
+        exhibitorCompanyName: input.exhibitorCompanyName || null,
+        exhibitorDescription: input.exhibitorDescription || null,
+        quantity: input.quantity ?? 1,
+        unitPrice: input.unitPrice ?? null,
+        totalAmount: input.totalAmount ?? null,
+        currency: input.currency ?? null,
+        paystackReference: input.paystackReference ?? null,
+        attended: false,
+    });
+
+    return {
+        id: newRegRef.id,
+        ticketNumber,
+        ticketUrl: buildTicketUrl(eventId, newRegRef.id),
+    };
+}
+
+export interface RegistrationEmailArgs {
+    email: string;
+    name: string;
+    eventName: string;
+    ticketNumber: string;
+    eventBannerUrl?: string;
+    ticketUrl: string;
+    startDate?: string;
+    startTime?: string;
+}
+
+export async function sendRegistrationEmail(args: RegistrationEmailArgs): Promise<void> {
+    try {
+        await fetch('/api/send-registration-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                to: args.email,
+                name: args.name,
+                eventName: args.eventName,
+                ticketNumber: args.ticketNumber,
+                eventBannerUrl: args.eventBannerUrl ?? '',
+                ticketUrl: args.ticketUrl,
+                startDate: args.startDate,
+                startTime: args.startTime,
+            }),
+        });
+    } catch (e) {
+        console.error('Failed to send registration email:', e);
     }
 }
 
