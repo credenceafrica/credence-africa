@@ -30,7 +30,7 @@ const networks = [
     items: [
       "Access to business partnerships and deal flow",
       "Exposure to investors and institutional partners",
-      "Peer exchange on scaling, operations, and governance",
+      "Peer exchange on scaling, operations and governance",
       "Participation in business forums and executive sessions"
     ],
     cta: "Join the Business Network"
@@ -43,7 +43,7 @@ const networks = [
       "Access to curated investment opportunities",
       "Governance and structuring support",
       "Financial literacy and wealth frameworks",
-      "Connections to legal, tax, and advisory ecosystems"
+      "Connections to legal, tax and advisory ecosystems"
     ],
     cta: "Join the Chamas Network"
   },
@@ -52,10 +52,10 @@ const networks = [
     description: "Cooperative Ecosystems, SACCO Networks and Institutional Market Access Platforms.",
     icon: <Users className="size-8 text-primary" />,
     items: [
-      "Access to buyers, partners, and institutional markets",
-      "Governance, compliance, and leadership development",
-      "Participation in expos, clinics, and sector forums",
-      "Connection to policy, finance, and advisory platforms"
+      "Access to buyers, partners and institutional markets",
+      "Governance, compliance and leadership development",
+      "Participation in expos, clinics and sector forums",
+      "Connection to policy, finance and advisory platforms"
     ],
     cta: "Join the Cooperatives Network"
   },
@@ -66,7 +66,7 @@ const networks = [
     items: [
       "Visibility as a domain expert within the ecosystem",
       "Access to advisory and consulting opportunities",
-      "Participation in research, media, and thought leadership",
+      "Participation in research, media and thought leadership",
       "Connection to institutions requiring expertise"
     ],
     cta: "Join the Experts Network"
@@ -100,9 +100,9 @@ const networks = [
     description: "Women in Business, Leadership and Wealth Creation Networks Across Africa.",
     icon: <TrendingUp className="size-8 text-primary" />,
     items: [
-      "Access to investment, ownership, and wealth pathways",
-      "Participation in summits, clinics, and advisory sessions",
-      "Connection to capital, institutions, and opportunities",
+      "Access to investment, ownership and wealth pathways",
+      "Participation in summits, clinics and advisory sessions",
+      "Connection to capital, institutions and opportunities",
       "Peer networks supporting leadership and growth"
     ],
     cta: "Join the Women Network"
@@ -136,7 +136,7 @@ export default function NetworksPage() {
                   Network Infrastructure
                 </p>
                 <p className="text-sm md:text-base leading-relaxed font-light">
-                  Membership communities connecting leaders, experts, and institutions across Africa's business and policy systems.
+                  Membership communities connecting leaders, experts and institutions across Africa's business and policy systems.
                 </p>
               </div>
               <div className="space-y-2 md:space-y-3 md:border-l md:pl-8">
@@ -170,15 +170,15 @@ export default function NetworksPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-4 mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-normal text-foreground">Why Engage Credible Networks</h2>
-            <p className="text-muted-foreground text-sm md:text-lg">Access curated professional networks, strategic partnerships, and high-value communities.</p>
+            <p className="text-muted-foreground text-sm md:text-lg">Access curated professional networks, strategic partnerships and high-value communities.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               "Curated professional networks aligned to sectors and roles",
               "Structured membership communities built on trust and relevance",
-              "Access to partnerships, markets, and institutional relationships",
-              "Environments for peer learning, collaboration, and deal flow",
-              "Integration with intelligence, advisory, and convening platforms"
+              "Access to partnerships, markets and institutional relationships",
+              "Environments for peer learning, collaboration and deal flow",
+              "Integration with intelligence, advisory and convening platforms"
             ].map((item, index) => (
               <div key={index} className="flex gap-4 p-6 bg-white border hover:border-primary transition-colors group h-full">
                 <CheckCircle2 className="size-5 text-primary shrink-0 mt-1" />
@@ -252,7 +252,7 @@ export default function NetworksPage() {
               <div className="space-y-8">
                 <h3 className="text-xl font-normal">Engage the Ecosystem</h3>
                 <p className="text-sm text-white/60 font-light">
-                  Partner with Credible Networks to expand your reach, strengthen your positioning, and connect to opportunities across Africa.
+                  Partner with Credible Networks to expand your reach, strengthen your positioning and connect to opportunities across Africa.
                 </p>
                 <div className="flex flex-col gap-4">
                   <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none py-6">
@@ -269,24 +269,24 @@ export default function NetworksPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24 text-center">
+      <section className="bg-[#aa3018] py-16 md:py-24 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-normal mb-8 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-normal mb-8 max-w-4xl mx-auto text-white">
             Join Africa’s Leading Professional Networks and Business Communities
           </h2>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-12">
-            <a href="mailto:connect@credence.africa" className="flex items-center gap-3 text-xl hover:text-white transition-colors">
+            <a href="mailto:connect@credence.africa" className="flex items-center gap-3 text-xl text-white hover:text-white/80 transition-colors">
               <Mail className="size-6" /> connect@credence.africa
             </a>
-            <a href="tel:+254719468240" className="flex items-center gap-3 text-xl hover:text-white transition-colors">
+            <a href="tel:+254719468240" className="flex items-center gap-3 text-xl text-white hover:text-white/80 transition-colors">
               <Phone className="size-6" /> +254 719 468 240
             </a>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-            <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-primary hover:bg-white/90">
+            <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-[#aa3018] hover:bg-white/90">
               <Link href="/consult">Apply for Membership</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="text-primary-foreground border-primary-foreground hover:bg-white hover:text-primary rounded-none bg-transparent px-10 h-14 text-base font-bold">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] rounded-none px-10 h-14 text-base font-bold">
               <Link href="/consult">Explore All Communities</Link>
             </Button>
           </div>

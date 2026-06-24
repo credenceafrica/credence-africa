@@ -4,14 +4,16 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   const services = await getServices();
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
+  return services
+    // Only prerender on-site services; external arms (Institute, Perspectives) link off to subdomains.
+    .filter((service) => service.href.startsWith("/"))
+    .map((service) => ({
+      slug: service.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -36,8 +38,8 @@ export default async function ServicePage({ params }: { params: { slug: string }
   if (!service) {
     notFound();
   }
-  
-  const otherServices = allServices.filter(s => s.id !== service.id).slice(0, 3);
+
+  const otherServices = allServices.filter(s => s.id !== service.id && s.href.startsWith("/")).slice(0, 3);
 
   return (
     <div className="py-16 lg:py-24 space-y-24 mx-auto lg:w-85">
@@ -51,19 +53,23 @@ export default async function ServicePage({ params }: { params: { slug: string }
                     <p className="text-xl text-muted-foreground">{service.description}</p>
                 </header>
 
-                <section>
-                    <h2 className="text-2xl font-semibold mb-6">What We Deliver</h2>
-                     <ul className="space-y-4">
-                        {service.details.map(detail => (
-                        <li key={detail} className="flex items-start gap-3">
-                            <div className="w-2 h-2 rounded-full bg-primary mt-2.5 shrink-0"></div>
-                            <span className="text-lg">{detail}</span>
-                        </li>
-                        ))}
-                    </ul>
-                </section>
+                <p className="text-lg leading-relaxed text-foreground/90">{service.longDescription}</p>
+
+                {service.details && service.details.length > 0 && (
+                  <section>
+                      <h2 className="text-2xl font-semibold mb-6">What We Deliver</h2>
+                       <ul className="space-y-4">
+                          {service.details.map(detail => (
+                          <li key={detail} className="flex items-start gap-3">
+                              <div className="w-2 h-2 rounded-full bg-primary mt-2.5 shrink-0"></div>
+                              <span className="text-lg">{detail}</span>
+                          </li>
+                          ))}
+                      </ul>
+                  </section>
+                )}
             </div>
-            
+
             <aside className="space-y-8">
                 <Card className="bg-secondary">
                     <CardHeader>

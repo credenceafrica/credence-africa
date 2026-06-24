@@ -1,84 +1,144 @@
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Leaf, Handshake, Mic, School, Church, HeartPulse, Bus, Users, Laptop, Briefcase, Building, Plane } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+import { sectorList } from "@/lib/sectors-content";
 
-const sectors = [
-    { icon: <Leaf className="size-6"/>, name: "Agriculture & Food", description: "Enhancing agribusiness operations, supply chain efficiency, and climate-smart farming.", href: "/sectors/agriculture-food" },
-    { icon: <Mic className="size-6"/>, name: "Creative & Digital Economy", description: "Supporting artists, digital entrepreneurs, and content creators with commercialization and IP protection.", href: "/sectors/creative-digital-economy" },
-    { icon: <School className="size-6"/>, name: "Education & Skills Development", description: "Equipping educators and policymakers with modern strategies in curriculum and institutional leadership.", href: "/sectors/education-skills-development" },
-    { icon: <Church className="size-6"/>, name: "Faith-Based Organizations", description: "Providing governance, fundraising, and community impact strategies.", href: "/sectors/faith-based-organizations" },
-    { icon: <HeartPulse className="size-6"/>, name: "Healthcare & Wellness", description: "Improving healthcare management, financing, and digital health solutions.", href: "/sectors/healthcare-wellness" },
-    { icon: <Plane className="size-6"/>, name: "Hospitality & Tourism", description: "Driving sustainable tourism and business growth strategies.", href: "/sectors/hospitality-tourism" },
-    { icon: <Users className="size-6"/>, name: "Non-Profit Sector", description: "Strengthening impact measurement, fundraising, and governance.", href: "/sectors/non-profit-sector" },
-    { icon: <Building className="size-6"/>, name: "Public Sector & Governance", description: "Enhancing policy development, regulatory frameworks, and governance efficiency.", href: "/sectors/public-sector-governance" },
-    { icon: <Briefcase className="size-6"/>, name: "SMEs & Startups", description: "Providing business model innovation, funding access, and scaling strategies.", href: "/sectors/smes-startups" },
-    { icon: <Laptop className="size-6"/>, name: "Technology & Digital Economy", description: "Driving innovation in fintech, AI, blockchain, and digital transformation.", href: "/sectors/technology-digital-economy" },
-    { icon: <Handshake className="size-6"/>, name: "Cooperatives & Social Economy", description: "Strengthening governance, leadership, and financial sustainability.", href: "/sectors/cooperatives-social-economy" },
-    { icon: <Bus className="size-6"/>, name: "Mobility & Logistics", description: "Advancing smart transport, sustainable mobility, and logistics solutions.", href: "/sectors/mobility-logistics" },
+export const metadata: Metadata = {
+  title: "Sectors We Cover",
+  description:
+    "The sectors where Credence Africa builds institutions — from agribusiness and the green and blue economies to financial services, technology, trade and industrial development across Africa's growth markets.",
+};
+
+const clients = [
+  "Cooperatives",
+  "Corporations",
+  "Growth-Stage SMEs & Enterprises",
+  "Foreign Investors",
+  "Startups & Innovators",
+  "Non-Profits & Development Organizations",
+  "Faith-Based Institutions",
+  "Governments & Public Institutions",
+  "Investors & Capital Platforms",
+  "Industry Associations & Ecosystem Actors",
 ];
 
 export default function SectorsPage() {
-    return (
-        <div className="py-16 lg:py-24 mx-auto lg:w-85">
-            <div className="text-center">
-                <h1 className="text-4xl font-normal">Sectors We Serve</h1>
-                <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">At Credence Africa, our work spans multiple sectors where social enterprise, policy reform, and capital access intersect.</p>
-                <p className="mt-4 max-w-4xl mx-auto">Each intervention builds resilient institutions, drives inclusive growth, and creates measurable impact.</p>
-            </div>
-
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sectors.map(sector => (
-                    <Card key={sector.name} id={sector.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')} className="flex flex-col">
-                        <CardHeader className="flex-row items-center gap-4 space-y-0">
-                            <div className="text-primary">{sector.icon}</div>
-                            <CardTitle className="font-normal">{sector.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col">
-                            <p className="text-muted-foreground flex-grow">{sector.description}</p>
-                            <Button asChild variant="link" className="p-0 mt-4 self-start">
-                                <Link href={sector.href}>Learn More</Link>
-                            </Button>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
-
-            <section className="mt-24 bg-secondary py-16 text-center">
-                <div className="container mx-auto">
-                    <h2 className="text-3xl font-normal">Why Partner with Credence Africa?</h2>
-                    <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div>
-                            <h3 className="font-normal text-lg">Expert-Led Insights</h3>
-                            <p className="text-muted-foreground mt-2">Work with seasoned industry experts, legal professionals, and policymakers.</p>
-                        </div>
-                        <div>
-                            <h3 className="font-normal text-lg">Tailored Solutions</h3>
-                            <p className="text-muted-foreground mt-2">Customized interventions addressing unique sectoral challenges.</p>
-                        </div>
-                        <div>
-                            <h3 className="font-normal text-lg">Innovative Approaches</h3>
-                            <p className="text-muted-foreground mt-2">Africa-centric strategies blending global best practices.</p>
-                        </div>
-                        <div>
-                            <h3 className="font-normal text-lg">Measurable Impact</h3>
-                            <p className="text-muted-foreground mt-2">Outcomes that drive growth, resilience, and transformation.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section className="mt-24 text-center">
-                 <h2 className="text-3xl font-normal">Let’s Shape the Future Together</h2>
-                 <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="mailto:connect@credence.africa" className="text-lg hover:text-primary transition-colors">📧 connect@credence.africa</a>
-                    <a href="tel:+254719468240" className="text-lg hover:text-primary transition-colors">☎️ +254 719 468 240</a>
-                 </div>
-                 <Button asChild size="lg" className="mt-8 rounded-none px-10">
-                    <Link href="/consult">Book a Strategy Call</Link>
-                 </Button>
-            </section>
+  return (
+    <div className="overflow-x-hidden">
+      {/* Hero — navy */}
+      <section className="bg-foreground">
+        <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+          <div className="cred-rise max-w-3xl">
+            <h1 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2.75rem,7vw,5.5rem)]">
+              Sectors We <span className="text-primary">Cover</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
+              Our work spans the sectors driving Africa's economic and social transformation — where
+              capital, policy and enterprise intersect.
+            </p>
+            <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
+              Each engagement builds resilient institutions, drives inclusive growth and creates
+              measurable impact.
+            </p>
+          </div>
         </div>
-    );
+      </section>
+
+      {/* The ten sectors — light ledger */}
+      <section className="bg-background">
+        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <div className="border-y border-foreground/12 divide-y divide-foreground/12">
+            {sectorList.map((s) => {
+              const Icon = s.icon;
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/sectors/${s.slug}`}
+                  className="group flex items-start gap-5 py-7 transition-colors duration-300 hover:bg-foreground/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:gap-6 md:py-8"
+                >
+                  <Icon className="mt-1 size-7 shrink-0 text-primary md:size-8" aria-hidden="true" />
+                  <div className="min-w-0 flex-1">
+                    <h2 className="relative inline-block text-xl font-normal leading-tight text-foreground md:text-2xl">
+                      {s.name}
+                      <span
+                        className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100"
+                        aria-hidden="true"
+                      />
+                    </h2>
+                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-foreground/70 md:text-base">
+                      {s.scope}
+                    </p>
+                  </div>
+                  <ArrowRight
+                    className="mt-1 size-6 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1.5"
+                    aria-hidden="true"
+                  />
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Work With — navy hairline grid */}
+      <section className="bg-foreground">
+        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
+                Who We Work With
+              </h2>
+              <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-background/70">
+                Credence Africa works with institutions and organizations shaping Africa's economic
+                and social development.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <ul className="grid gap-px border border-white/15 bg-white/15 sm:grid-cols-2">
+                {clients.map((client) => (
+                  <li key={client} className="flex items-center gap-3 bg-foreground p-5 md:p-6">
+                    <span className="size-1.5 shrink-0 bg-primary" aria-hidden="true" />
+                    <span className="text-base font-normal text-background md:text-lg">{client}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA — deep-red + white */}
+      <section className="bg-[#aa3018]">
+        <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
+          <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">
+            Not sure which sector frames your mandate?
+          </h2>
+          <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/85">
+            Tell us the objective. We will map the fastest credible path to execution.
+          </p>
+          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button
+              asChild
+              size="lg"
+              className="h-14 rounded-none border-none bg-white px-8 text-base font-medium text-[#aa3018] hover:bg-white/90"
+            >
+              <Link href="/consult">
+                Book a Consultation
+                <ArrowRight className="ml-2 size-5" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-medium text-white hover:bg-white hover:text-[#aa3018]"
+            >
+              <Link href="/services">Explore Our Platforms</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }

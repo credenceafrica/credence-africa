@@ -28,41 +28,41 @@ import { ExternalEvent, getUpcomingEvents } from "@/lib/external-data";
 const conferenceServices = [
   {
     title: "Conferences and Summits",
-    desc: "Design and delivery of conferences that position organizations at the center of sector conversations, market visibility, and executive engagement with partners and stakeholders.",
+    desc: "Design and delivery of conferences that position organizations at the center of sector conversations, market visibility and executive engagement with partners and stakeholders.",
   },
   {
     title: "Policy Forums and Sector Convenings",
-    desc: "Structured environments that bring together regulators, industry leaders, associations, and development actors for dialogue, coordination, and sector alignment.",
+    desc: "Structured environments that bring together regulators, industry leaders, associations and development actors for dialogue, coordination and sector alignment.",
   },
   {
     title: "Business Events and High Level Convenings",
-    desc: "Coordination of executive events where audience composition, flow, and experience directly influence the quality of engagement and decision making.",
+    desc: "Coordination of executive events where audience composition, flow and experience directly influence the quality of engagement and decision making.",
   },
 ];
 
 const agmServices = [
   {
     title: "AGM Planning and Delivery",
-    desc: "End to end planning covering agenda structuring, participant coordination, compliance with meeting protocols, and controlled execution environments.",
+    desc: "End to end planning covering agenda structuring, participant coordination, compliance with meeting protocols and controlled execution environments.",
   },
   {
     title: "Shareholder Meetings",
-    desc: "Structured delivery for shareholder meetings where communication clarity, participation discipline, and documentation standards are essential.",
+    desc: "Structured delivery for shareholder meetings where communication clarity, participation discipline and documentation standards are essential.",
   },
   {
     title: "Board Meetings",
-    desc: "Support for governance environments requiring executive level coordination, discretion, and alignment with institutional standards.",
+    desc: "Support for governance environments requiring executive level coordination, discretion and alignment with institutional standards.",
   },
 ];
 
 const investorServices = [
   {
     title: "Investor Briefings and Analyst Sessions",
-    desc: "Event design focused on communicating performance, strategy, and outlook with clarity, structure, and professional delivery.",
+    desc: "Event design focused on communicating performance, strategy and outlook with clarity, structure and professional delivery.",
   },
   {
     title: "Executive Communication Forums",
-    desc: "High level environments that support leadership visibility, stakeholder alignment, and institutional positioning.",
+    desc: "High level environments that support leadership visibility, stakeholder alignment and institutional positioning.",
   },
   {
     title: "Investor Relations and Stakeholder Meetings",
@@ -73,22 +73,22 @@ const investorServices = [
 const saccoServices = [
   {
     title: "SACCO Delegate Meetings",
-    desc: "Planning and delivery of delegate forums with defined participation structures, agenda discipline, and coordinated execution.",
+    desc: "Planning and delivery of delegate forums with defined participation structures, agenda discipline and coordinated execution.",
   },
   {
     title: "SACCO Members Meetings",
-    desc: "Management of members meetings with a focus on accessibility, communication clarity, and a consistent participant experience.",
+    desc: "Management of members meetings with a focus on accessibility, communication clarity and a consistent participant experience.",
   },
   {
     title: "SACCO Annual Meetings and Member Forums",
-    desc: "Support for cooperative institutions seeking to strengthen engagement, governance processes, and member confidence through well executed forums.",
+    desc: "Support for cooperative institutions seeking to strengthen engagement, governance processes and member confidence through well executed forums.",
   },
 ];
 
 const policyServices = [
   {
     title: "Policy Dialogue and Consultation Forums",
-    desc: "Structured platforms for engaging regulators, institutions, and sector actors around reform, governance, and implementation priorities.",
+    desc: "Structured platforms for engaging regulators, institutions and sector actors around reform, governance and implementation priorities.",
   },
   {
     title: "Stakeholder Engagement and Public Forums",
@@ -96,22 +96,22 @@ const policyServices = [
   },
   {
     title: "Regulatory and Multistakeholder Convenings",
-    desc: "Coordination of forums where multiple actors engage around standards, compliance, sector coordination, and institutional alignment.",
+    desc: "Coordination of forums where multiple actors engage around standards, compliance, sector coordination and institutional alignment.",
   },
 ];
 
 const roundtableServices = [
   {
     title: "Executive Roundtables",
-    desc: "Curated sessions that bring together decision makers for focused dialogue, insight exchange, and relationship building.",
+    desc: "Curated sessions that bring together decision makers for focused dialogue, insight exchange and relationship building.",
   },
   {
     title: "Board Retreats and Strategy Sessions",
-    desc: "Offsite environments designed to support leadership alignment, strategic reflection, and structured decision making.",
+    desc: "Offsite environments designed to support leadership alignment, strategic reflection and structured decision making.",
   },
   {
     title: "Private Leadership and High Trust Forums",
-    desc: "Invitation only convenings where discretion, audience quality, and institutional relevance define the experience.",
+    desc: "Invitation only convenings where discretion, audience quality and institutional relevance define the experience.",
   },
 ];
 
@@ -157,19 +157,19 @@ export default function ConvenePage() {
                 Corporate Event Management Services in Kenya
               </h1>
               <p className="text-lg md:text-xl font-normal text-muted-foreground italic">
-                Corporate AGMs, Conferences, Investor Briefings, and Policy Forums
+                Corporate AGMs, Conferences, Investor Briefings and Policy Forums
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-foreground/80">
               <div className="space-y-2 md:space-y-3">
                 <p className="text-sm md:text-base leading-relaxed font-light">
-                  CREDENCE CONVENE™ designs and delivers corporate and institutional events in Kenya structured for executive communication, stakeholder alignment, governance credibility, and measurable outcomes.
+                  CREDENCE CONVENE™ designs and delivers corporate and institutional events in Kenya structured for executive communication, stakeholder alignment, governance credibility and measurable outcomes.
                 </p>
               </div>
               <div className="space-y-2 md:space-y-3 md:border-l md:pl-8">
                 <p className="text-sm md:text-base leading-relaxed font-light">
-                  Each engagement is built as a decision environment where participation, messaging, and execution support institutional priorities beyond the event itself.
+                  Each engagement is built as a decision environment where participation, messaging and execution support institutional priorities beyond the event itself.
                 </p>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function ConvenePage() {
       <section className="py-16 bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <p className="text-lg md:text-xl text-center font-light leading-relaxed">
-            We work with corporates, financial institutions, SACCOs, associations, regulators, and development partners to plan and execute conferences, corporate AGMs, investor briefings, policy forums, SACCO delegate and members meetings, executive roundtables, board retreats, and stakeholder engagement platforms aligned to strategic objectives.
+            We work with corporates, financial institutions, SACCOs, associations, regulators and development partners to plan and execute conferences, corporate AGMs, investor briefings, policy forums, SACCO delegate and members meetings, executive roundtables, board retreats and stakeholder engagement platforms aligned to strategic objectives.
           </p>
         </div>
       </section>
@@ -208,7 +208,7 @@ export default function ConvenePage() {
                 Conference Planning and Event Management Services in Kenya
               </h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                We design conferences and summits as structured platforms for sector positioning, institutional visibility, and stakeholder engagement.
+                We design conferences and summits as structured platforms for sector positioning, institutional visibility and stakeholder engagement.
               </p>
               <div className="space-y-6">
                 {conferenceServices.map((service) => (
@@ -237,7 +237,7 @@ export default function ConvenePage() {
           <div className="max-w-4xl mb-16 space-y-6">
             <h2 className="text-3xl md:text-4xl font-normal">AGM Planning Services in Kenya</h2>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              Corporate AGMs operate as formal governance platforms where accountability, reporting, and shareholder communication must be delivered with precision.
+              Corporate AGMs operate as formal governance platforms where accountability, reporting and shareholder communication must be delivered with precision.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -266,7 +266,7 @@ export default function ConvenePage() {
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal">Investor Briefing Events in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                Investor events are high stakes communication environments where perception, clarity, and confidence shape stakeholder decisions.
+                Investor events are high stakes communication environments where perception, clarity and confidence shape stakeholder decisions.
               </p>
               <div className="grid gap-8">
                 {investorServices.map((service) => (
@@ -290,7 +290,7 @@ export default function ConvenePage() {
           <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
             <h2 className="text-3xl md:text-4xl font-normal">SACCO Delegates and Sacco Members Meetings in Kenya</h2>
             <p className="text-muted-foreground font-light leading-relaxed">
-              Governance critical environments where participation, communication, and trust directly affect institutional stability.
+              Governance critical environments where participation, communication and trust directly affect institutional stability.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -311,7 +311,7 @@ export default function ConvenePage() {
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal">Policy Forums and Stakeholder Engagement Events in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                Platforms that support multistakeholder dialogue and regulatory consultation while maintaining clarity, neutrality, and direction.
+                Platforms that support multistakeholder dialogue and regulatory consultation while maintaining clarity, neutrality and direction.
               </p>
               <div className="space-y-6">
                 {policyServices.map((service) => (
@@ -328,7 +328,7 @@ export default function ConvenePage() {
             <div className="bg-muted p-12 border-l-8 border-primary">
               <h3 className="text-2xl font-normal mb-6">Executive Roundtables and Board Retreats in Kenya</h3>
               <p className="text-sm font-light text-muted-foreground mb-8 leading-relaxed">
-                Executive convenings operate in high trust environments where depth, alignment, and strategic engagement determine value.
+                Executive convenings operate in high trust environments where depth, alignment and strategic engagement determine value.
               </p>
               <div className="space-y-6">
                 {roundtableServices.map((service) => (
@@ -349,7 +349,7 @@ export default function ConvenePage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-12 text-center">Event Management Services for Institutions</h2>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-muted-foreground font-light text-center mb-12">
-              We support organizations operating in environments where stakeholder coordination, communication, and institutional credibility influence outcomes.
+              We support organizations operating in environments where stakeholder coordination, communication and institutional credibility influence outcomes.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -374,20 +374,20 @@ export default function ConvenePage() {
       {/* End to End */}
       <section className="py-24 bg-background border-y">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center">End to End Event Planning, Strategy, and Delivery in Kenya</h2>
+          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center">End to End Event Planning, Strategy and Delivery in Kenya</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
                 title: "Event Strategy and Audience Architecture",
-                desc: "Definition of purpose, stakeholder mapping, invitation logic, and program structure to ensure relevance and participation quality.",
+                desc: "Definition of purpose, stakeholder mapping, invitation logic and program structure to ensure relevance and participation quality.",
               },
               {
                 title: "Event Execution and Delivery",
-                desc: "Full coordination across logistics, production, protocol, scheduling, and participant experience with a focus on precision and control.",
+                desc: "Full coordination across logistics, production, protocol, scheduling and participant experience with a focus on precision and control.",
               },
               {
                 title: "Post Event Continuity and Reporting",
-                desc: "Structured follow through including reporting, stakeholder engagement, and transition into advisory or institutional engagement.",
+                desc: "Structured follow through including reporting, stakeholder engagement and transition into advisory or institutional engagement.",
               },
             ].map((item, idx) => (
               <div key={idx} className="space-y-4">
@@ -409,15 +409,15 @@ export default function ConvenePage() {
                 Why Organizations Choose CREDENCE CONVENE™ in Kenya
               </h2>
               <p className="text-lg opacity-70 font-light leading-relaxed">
-                Organizations engage us where convenings must deliver alignment, credibility, and institutional traction.
+                Organizations engage us where convenings must deliver alignment, credibility and institutional traction.
               </p>
               <div className="space-y-4">
                 {[
                   "Strategic stakeholder mapping and audience architecture",
                   "Program design aligned to governance and sector priorities",
                   "High trust audience curation across institutions and leadership",
-                  "Execution discipline across logistics, protocol, and coordination",
-                  "Continuity into advisory, research, and institutional engagement",
+                  "Execution discipline across logistics, protocol and coordination",
+                  "Continuity into advisory, research and institutional engagement",
                 ].map((strength) => (
                   <div key={strength} className="flex items-center gap-3">
                     <CheckCircle2 className="size-5 text-primary shrink-0" />
@@ -427,8 +427,8 @@ export default function ConvenePage() {
               </div>
             </div>
             <div className="relative p-12 bg-white/5 border border-white/10 flex flex-col justify-center text-center space-y-8">
-              <h3 className="text-2xl font-normal">Plan a Corporate AGM, Conference, or Stakeholder Forum</h3>
-              <p className="text-sm font-light opacity-60">Identify the right event, audience, and engagement model aligned to your objectives.</p>
+              <h3 className="text-2xl font-normal">Plan a Corporate AGM, Conference or Stakeholder Forum</h3>
+              <p className="text-sm font-light opacity-60">Identify the right event, audience and engagement model aligned to your objectives.</p>
               <Button asChild size="lg" className="rounded-none px-12 h-16 font-bold text-lg">
                 <Link href="/consult">Plan Your Event</Link>
               </Button>
@@ -490,24 +490,24 @@ export default function ConvenePage() {
       </section>
 
       {/* Final Conversion Section */}
-      <section className="bg-primary text-primary-foreground py-24">
+      <section className="bg-[#aa3018] py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-5xl">
-          <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8">
-            Plan a Corporate AGM, Conference, Investor Briefing, or Stakeholder Forum in Kenya
+          <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8 text-white">
+            Plan a Corporate AGM, Conference, Investor Briefing or Stakeholder Forum in Kenya
           </h2>
-          <p className="text-lg opacity-80 font-light leading-relaxed mb-12">
-            If your organization is planning a corporate AGM, conference, investor briefing, policy forum, SACCO delegate meeting, board retreat, or institutional convening, CREDENCE CONVENE™ provides the strategy, structure, and execution required to deliver it with credibility and precision.
+          <p className="text-lg text-white/90 font-light leading-relaxed mb-12">
+            If your organization is planning a corporate AGM, conference, investor briefing, policy forum, SACCO delegate meeting, board retreat or institutional convening, CREDENCE CONVENE™ provides the strategy, structure and execution required to deliver it with credibility and precision.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-            <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">
+            <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-[#aa3018] hover:bg-white/90 h-14 px-10">
               <Link href="/consult">Plan Your Event</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white text-white hover:bg-white/10 h-14 px-10">
+            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] h-14 px-10">
               <Link href="/consult">Discuss Your Event</Link>
             </Button>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-white border-t border-white/20 pt-12">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-white border-t border-white/25 pt-12">
             <a href="mailto:connect@credence.africa" className="flex items-center gap-3 hover:underline">
               <Mail className="size-5" /> connect@credence.africa
             </a>

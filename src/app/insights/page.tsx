@@ -11,12 +11,12 @@ import { getInsights, type Insight } from "@/lib/insights";
 import { cn } from "@/lib/utils";
 
 const categories = [
-    { icon: <BarChart />, title: "Capital, Investment & Blended Finance", description: "Funding trends, investor mandates, and catalytic finance models." },
-    { icon: <Scale />, title: "Regulatory, Compliance & Licensing", description: "Legislation updates, licensing pathways, and compliance navigation." },
-    { icon: <Landmark />, title: "Policy, Public Affairs & Government Strategy", description: "Bills, policy reforms, ESG mandates, and advocacy intelligence." },
-    { icon: <FileText />, title: "IP, Brand & Digital Asset Strategy", description: "IP monetization, NIL rights, and influencer strategy." },
-    { icon: <Building />, title: "Corporate Structuring, Tax & Expansion", description: "Cross-border structuring, tax efficiency, and jurisdictional risk." },
-    { icon: <Globe />, title: "Market Entry & Sector Intelligence", description: "Localization playbooks, sector outlooks, and trade updates." },
+    { icon: <BarChart />, title: "Capital, Investment & Blended Finance", description: "Funding trends, investor mandates and catalytic finance models." },
+    { icon: <Scale />, title: "Regulatory, Compliance & Licensing", description: "Legislation updates, licensing pathways and compliance navigation." },
+    { icon: <Landmark />, title: "Policy, Public Affairs & Government Strategy", description: "Bills, policy reforms, ESG mandates and advocacy intelligence." },
+    { icon: <FileText />, title: "IP, Brand & Digital Asset Strategy", description: "IP monetization, NIL rights and influencer strategy." },
+    { icon: <Building />, title: "Corporate Structuring, Tax & Expansion", description: "Cross-border structuring, tax efficiency and jurisdictional risk." },
+    { icon: <Globe />, title: "Market Entry & Sector Intelligence", description: "Localization playbooks, sector outlooks and trade updates." },
 ];
 
 export default function InsightsPage() {
@@ -59,7 +59,7 @@ export default function InsightsPage() {
             <div className="text-center">
                 <h1 className="text-4xl font-bold">Credence Insights</h1>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Clarity that Powers Strategy. Intelligence that Shapes Action.</p>
-                <p className="mt-4 max-w-4xl mx-auto">Credence Insights delivers expert briefings, regulatory intelligence, capital market updates, and sector-specific analysis for Africa-focused businesses, investors, and innovators.</p>
+                <p className="mt-4 max-w-4xl mx-auto">Credence Insights delivers expert briefings, regulatory intelligence, capital market updates and sector-specific analysis for Africa-focused businesses, investors and innovators.</p>
             </div>
 
             <section id="recent-insights">

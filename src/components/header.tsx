@@ -27,18 +27,16 @@ import type { Insight } from "@/lib/insights";
 import type { Service } from "@/lib/services";
 
 const sectors = [
-    { name: "Agriculture & Food", href: "/sectors/agriculture-food" },
-    { name: "Creative & Digital Economy", href: "/sectors/creative-digital-economy" },
-    { name: "Education & Skills", href: "/sectors/education-skills-development" },
-    { name: "Faith-Based Organizations", href: "/sectors/faith-based-organizations" },
+    { name: "Agribusiness", href: "/sectors/agribusiness" },
+    { name: "Green Economy", href: "/sectors/green-economy" },
+    { name: "Blue Economy", href: "/sectors/blue-economy" },
+    { name: "Creative Economy", href: "/sectors/creative-economy" },
+    { name: "Financial Services", href: "/sectors/financial-services" },
+    { name: "Skills & Workforce Development", href: "/sectors/skills-workforce-development" },
     { name: "Healthcare & Wellness", href: "/sectors/healthcare-wellness" },
-    { name: "Hospitality & Tourism", href: "/sectors/hospitality-tourism" },
-    { name: "Non-Profit Sector", href: "/sectors/non-profit-sector" },
-    { name: "Public Sector", href: "/sectors/public-sector-governance" },
-    { name: "SMEs & Startups", href: "/sectors/smes-startups" },
-    { name: "Tech & Digital", href: "/sectors/technology-digital-economy" },
-    { name: "Cooperatives", href: "/sectors/cooperatives-social-economy" },
-    { name: "Mobility & Logistics", href: "/sectors/mobility-logistics" },
+    { name: "Mobility, Transport & Logistics", href: "/sectors/mobility-transport-logistics" },
+    { name: "Technology, AI & Digital Economy", href: "/sectors/technology-ai-digital-economy" },
+    { name: "Trade, Infrastructure & Industrial Development", href: "/sectors/trade-infrastructure-industrial-development" },
 ];
 
 export function Header({ insights, services }: { insights: Insight[], services: Service[] }) {

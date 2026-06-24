@@ -81,7 +81,7 @@ export default function CaseStudiesPage() {
       <div className="text-center">
         <h1 className="text-4xl font-bold">Case Studies</h1>
         <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Strategy That Works. Results That Scale.</p>
-        <p className="mt-4 max-w-4xl mx-auto">Explore how Credence Africa has supported businesses, governments, cooperatives, and digital ventures with practical, execution-ready advisory.</p>
+        <p className="mt-4 max-w-4xl mx-auto">Explore how Credence Africa has supported businesses, governments, cooperatives and digital ventures with practical, execution-ready advisory.</p>
       </div>
 
       <div>
