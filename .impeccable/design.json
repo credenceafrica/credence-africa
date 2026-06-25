@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-24T00:00:00Z",
+  "title": "Design System: Credence Africa",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Vermillion",
+        "canonical": "hsl(10 83% 54%)",
+        "tonalRamp": ["#460f06", "#75190a", "#a4230e", "#d12f15", "#eb4928", "#ef6e52", "#f49a86", "#fbd8cf"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Institutional Ink",
+        "canonical": "hsl(222 84% 4.9%)",
+        "tonalRamp": ["#020817", "#0b1326", "#172033", "#2c3850", "#46566f", "#6b7a93", "#9aa6ba", "#cdd5e0"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Institutional Ground",
+        "canonical": "hsl(0 0% 95%)",
+        "tonalRamp": ["#171717", "#333333", "#525252", "#737373", "#9a9a9a", "#c2c2c2", "#e0e0e0", "#f2f2f2"]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Supporting Slate",
+        "canonical": "hsl(215.4 16.3% 46.9%)",
+        "tonalRamp": ["#1e2632", "#2f3a4a", "#445064", "#5b6880", "#64748b", "#8b97a9", "#b3bcc8", "#dde2e8"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "hsl(214.3 31.8% 91.4%)",
+        "tonalRamp": ["#1f2937", "#334155", "#475569", "#64748b", "#94a3b8", "#cbd5e1", "#e2e8f0", "#f1f5f9"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page heroes only — light weight, dramatic clamp scale." },
+      "headline": { "displayName": "Headline", "purpose": "Section and full-bleed band titles." },
+      "title": { "displayName": "Title", "purpose": "Card and ledger-row titles." },
+      "body": { "displayName": "Body", "purpose": "Long-form copy, weight 300, 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Kickers, CTAs, meta — bold, wide-tracked, uppercase, used sparingly." }
+    },
+    "shadows": [
+      { "name": "inset-card", "value": "0 1px 3px rgba(2,8,23,0.06)", "purpose": "Subtle resting lift on white content cards." },
+      { "name": "hero-lift", "value": "0 25px 50px -12px rgba(2,8,23,0.25)", "purpose": "Hero content box and final CTA only — the one or two moments that must command the eye." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Signature entrances and reveals (header rise, rule wipe)." },
+      { "name": "ease-state", "value": "ease-out", "purpose": "Hover and state transitions, ~200–300ms." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "container-max", "value": "1400px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The primary call to action — square, vermillion, confident.",
+      "html": "<button class=\"ds-btn-primary\">Book a Consultation</button>",
+      "css": ".ds-btn-primary { font-family: Outfit, sans-serif; background: #eb4928; color: #f8fafc; height: 3.5rem; padding: 0 2rem; border: none; border-radius: 0; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s ease-out; } .ds-btn-primary:hover { background: #d12f15; } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #f2f2f2, 0 0 0 4px #eb4928; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action — vermillion on white, square, hairline border.",
+      "html": "<button class=\"ds-btn-outline\">Explore Our Work</button>",
+      "css": ".ds-btn-outline { font-family: Outfit, sans-serif; background: #ffffff; color: #eb4928; height: 3.5rem; padding: 0 2rem; border: 1px solid #eb4928; border-radius: 0; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s ease-out; } .ds-btn-outline:hover { background: rgba(235,73,40,0.05); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px #eb4928; }"
+    },
+    {
+      "name": "On-Vermillion CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The CTA button placed on a vermillion band — ink ground, light text.",
+      "html": "<button class=\"ds-btn-onverm\">Book a Consultation</button>",
+      "css": ".ds-btn-onverm { font-family: Outfit, sans-serif; background: #020817; color: #f2f2f2; height: 3.5rem; padding: 0 2.5rem; border: none; border-radius: 0; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.2s ease-out; } .ds-btn-onverm:hover { background: #0b1326; } .ds-btn-onverm:focus-visible { outline: none; box-shadow: 0 0 0 2px #eb4928, 0 0 0 4px #f2f2f2; }"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Square white content block with a hairline border and a top accent on hover.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Capital Raising</h3><p class=\"ds-card-body\">Become capital-ready and mobilize growth capital across equity, debt and blended finance.</p></div>",
+      "css": ".ds-card { font-family: Outfit, sans-serif; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0; padding: 2rem; border-top: 4px solid transparent; transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out; } .ds-card:hover { border-top-color: #eb4928; box-shadow: 0 1px 3px rgba(2,8,23,0.06); } .ds-card-title { font-weight: 400; font-size: 1.5rem; color: #020817; margin: 0 0 0.5rem; } .ds-card-body { font-weight: 300; font-size: 0.95rem; line-height: 1.6; color: rgba(2,8,23,0.78); margin: 0; }"
+    },
+    {
+      "name": "Ledger Row (signature)",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "The full-width ledger row used inside full-bleed bands — title, lead, supporting copy, trailing arrow; divided by hairlines, never boxed.",
+      "html": "<a class=\"ds-row\" href=\"#\"><div class=\"ds-row-main\"><h3 class=\"ds-row-title\">Trade &amp; Growth Advisory</h3><p class=\"ds-row-lead\">Enter markets and scale across borders.</p><p class=\"ds-row-desc\">We help institutions select markets, design entry pathways and scale across African and global markets with commercial precision.</p></div><span class=\"ds-row-arrow\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a>",
+      "css": ".ds-row { font-family: Outfit, sans-serif; display: flex; align-items: flex-start; gap: 2.5rem; padding: 2.25rem 0; border-top: 1px solid rgba(2,8,23,0.12); text-decoration: none; color: inherit; transition: background 0.3s ease-out; } .ds-row:hover { background: rgba(2,8,23,0.04); } .ds-row-main { flex: 1; min-width: 0; } .ds-row-title { font-weight: 400; font-size: 1.875rem; line-height: 1.1; color: #020817; margin: 0; } .ds-row-lead { font-weight: 500; font-size: 1rem; color: #020817; margin: 0.5rem 0 0; } .ds-row-desc { font-weight: 300; font-size: 0.9rem; line-height: 1.55; color: rgba(2,8,23,0.75); margin: 0.5rem 0 0; max-width: 42rem; } .ds-row-arrow { color: #eb4928; flex-shrink: 0; padding-top: 0.5rem; transition: transform 0.3s ease-out; } .ds-row:hover .ds-row-arrow { transform: translateX(6px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Execution Ledger",
+    "overview": "Credence Africa reads like the working surface of an institution that gets serious things done — a ledger, a prospectus, a signed mandate — not a vendor's pitch deck. Hard right angles, one decisive vermillion, near-black institutional ink, and one geometric sans in light display weights. Authoritative and decisive with pan-African ambition; quiet power over noise. Vermillion is the single instrument of emphasis, deployed in committed full-bleed blocks or as sharp accents, against generous light space and deep navy gravitas.",
+    "keyCharacteristics": [
+      "Zero radius — every corner is square.",
+      "One geometric sans (Outfit) in light display weights; hierarchy from scale, not weight.",
+      "A single vermillion accent, committed or sharp, never timidly sprinkled.",
+      "Near-black navy ink for gravitas; light gray ground for breathing room.",
+      "Full-bleed colored bands and full-width hairlines instead of card chrome."
+    ],
+    "rules": [
+      { "name": "The One Vermillion Rule", "body": "There is exactly one accent hue. It is either committed (a full-bleed band, 30–60% of a surface) or sharp (≤10%), never a timid sprinkle.", "section": "colors" },
+      { "name": "The Ink-on-Vermillion Rule", "body": "Text on a vermillion ground is Ink (#020817), not white — higher contrast and more institutional. White is permitted only on near-black ink bands.", "section": "colors" },
+      { "name": "The Light-Heading Rule", "body": "Headings are weight 400, never bold. Scale and space create hierarchy.", "section": "typography" },
+      { "name": "The Single-Family Rule", "body": "Do not introduce a second font family. Contrast comes from weight (300 ↔ 700) and dramatic scale jumps within Outfit.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Elevation is reserved for the hero box and the conversion CTA.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every corner square (0 radius).",
+      "Do set headings in Outfit weight 400 and create hierarchy with scale and space.",
+      "Do commit vermillion — full-bleed bands or sharp accents, deployed with intent.",
+      "Do put Ink (#020817) text on vermillion grounds, and use Ink at 70–80% for body on light grounds.",
+      "Do separate content with full-bleed color and 1px full-width hairlines.",
+      "Do ship real, specific imagery — not generic 'Africa rising' maps or stock skylines."
+    ],
+    "donts": [
+      "Don't use border-left/border-right greater than 1px as a colored side-stripe.",
+      "Don't use gradient text, glassmorphism, or the big-number hero-metric template.",
+      "Don't look like interchangeable Big-4 consulting (stock skylines, corporate blue, glassy gradients).",
+      "Don't drift into flashy startup/SaaS, NGO/aid framing, or bureaucratic portal stiffness.",
+      "Don't introduce a second font family or bold display headings.",
+      "Don't put small vermillion or muted-foreground body text on a light ground; it fails contrast."
+    ]
+  }
+}

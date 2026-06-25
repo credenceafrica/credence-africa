@@ -27,17 +27,17 @@ import Image from "next/image";
 const activationServices = [
   {
     title: "Event Strategy and Audience Design",
-    desc: "We define audience segments, engagement pathways, and participation models that align event structure with commercial objectives and target market behavior.",
+    desc: "We define audience segments, engagement pathways and participation models that align event structure with commercial objectives and target market behavior.",
     icon: <Target className="size-8 text-primary" />,
   },
   {
     title: "Brand Positioning and Experiential Activation",
-    desc: "We design environments where brands are experienced through interaction, demonstration, and direct engagement rather than passive visibility.",
+    desc: "We design environments where brands are experienced through interaction, demonstration and direct engagement rather than passive visibility.",
     icon: <Zap className="size-8 text-primary" />,
   },
   {
     title: "Commercial Integration and Marketplace Design",
-    desc: "We structure events to integrate sponsors, exhibitors, and partners into active commercial environments that support transactions and deal flow.",
+    desc: "We structure events to integrate sponsors, exhibitors and partners into active commercial environments that support transactions and deal flow.",
     icon: <BarChart className="size-8 text-primary" />,
   },
 ];
@@ -45,15 +45,15 @@ const activationServices = [
 const productLaunchServices = [
   {
     title: "Product Launch Events and Market Entry Campaigns",
-    desc: "Launch platforms designed to introduce products, position brands, and drive early adoption across target audiences.",
+    desc: "Launch platforms designed to introduce products, position brands and drive early adoption across target audiences.",
   },
   {
     title: "Experiential Brand Activation and Customer Engagement",
-    desc: "Interactive environments where customers engage directly with products, services, and brand narratives.",
+    desc: "Interactive environments where customers engage directly with products, services and brand narratives.",
   },
   {
     title: "Product Demonstrations and Showcase Platforms",
-    desc: "Structured demonstration formats that support understanding, interest, and conversion.",
+    desc: "Structured demonstration formats that support understanding, interest and conversion.",
   },
 ];
 
@@ -64,26 +64,26 @@ const tradeExpoServices = [
   },
   {
     title: "Marketplaces and Buyer Seller Engagement Platforms",
-    desc: "Curated environments where businesses connect with buyers, distributors, partners, and investors.",
+    desc: "Curated environments where businesses connect with buyers, distributors, partners and investors.",
   },
   {
     title: "Deal Rooms and Transaction Environments",
-    desc: "Facilitated spaces designed to support negotiations, partnerships, and commercial transactions during and after the event.",
+    desc: "Facilitated spaces designed to support negotiations, partnerships and commercial transactions during and after the event.",
   },
 ];
 
 const acquisitionServices = [
   {
     title: "Audience Acquisition and Lead Generation Events",
-    desc: "Platforms designed to attract, qualify, and convert high intent audiences into customers, users, or participants.",
+    desc: "Platforms designed to attract, qualify and convert high intent audiences into customers, users or participants.",
   },
   {
     title: "Community and Ecosystem Engagement Platforms",
-    desc: "Events that connect brands and institutions with communities, networks, and ecosystem participants to build long term engagement.",
+    desc: "Events that connect brands and institutions with communities, networks and ecosystem participants to build long term engagement.",
   },
   {
     title: "Regulatory and Stakeholder Engagement Platforms",
-    desc: "Market facing environments where institutions engage regulators, partners, and stakeholders within commercial and compliance contexts.",
+    desc: "Market facing environments where institutions engage regulators, partners and stakeholders within commercial and compliance contexts.",
   },
 ];
 
@@ -109,19 +109,19 @@ export default function EngagePage() {
                 CREDENCE ENGAGE™
               </p>
               <h1 className="text-foreground leading-tight text-3xl md:text-4xl lg:text-[2.5rem]">
-                Market Activation and Audience Engagement Events in Kenya for Brands, Corporates, and Institutions
+                Market Activation and Audience Engagement Events in Kenya for Brands, Corporates and Institutions
               </h1>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-foreground/80">
               <div className="space-y-2 md:space-y-3">
                 <p className="text-sm md:text-base leading-relaxed font-light">
-                  CREDENCE ENGAGE™ designs and delivers market facing events in Kenya structured for customer acquisition, product adoption, stakeholder engagement, and commercial growth.
+                  CREDENCE ENGAGE™ designs and delivers market facing events in Kenya structured for customer acquisition, product adoption, stakeholder engagement and commercial growth.
                 </p>
               </div>
               <div className="space-y-2 md:space-y-3 md:border-l md:pl-8">
                 <p className="text-sm md:text-base leading-relaxed font-light">
-                  Each engagement is built as a conversion platform where brands, institutions, and partners engage directly with defined audiences across physical, hybrid, and digital environments.
+                  Each engagement is built as a conversion platform where brands, institutions and partners engage directly with defined audiences across physical, hybrid and digital environments.
                 </p>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function EngagePage() {
       <section className="py-16 bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <p className="text-lg md:text-xl text-center font-light leading-relaxed">
-            We support corporates, growth businesses, financial institutions, development platforms, and ecosystem actors to activate markets, launch products, build pipelines, and create transaction environments that move audiences from awareness to participation.
+            We support corporates, growth businesses, financial institutions, development platforms and ecosystem actors to activate markets, launch products, build pipelines and create transaction environments that move audiences from awareness to participation.
           </p>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function EngagePage() {
               Market Activation Event Management Services in Kenya
             </h2>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              CREDENCE ENGAGE™ structures events as audience driven platforms segmented by purchasing power, decision authority, and participation intent. This ensures each event is aligned to clear commercial outcomes.
+              CREDENCE ENGAGE™ structures events as audience driven platforms segmented by purchasing power, decision authority and participation intent. This ensures each event is aligned to clear commercial outcomes.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -183,7 +183,7 @@ export default function EngagePage() {
                 Product Launches and Brand Activation Events in Kenya
               </h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                Product launches and brand activations require controlled environments where messaging, experience, and audience engagement translate into adoption and market traction.
+                Product launches and brand activations require controlled environments where messaging, experience and audience engagement translate into adoption and market traction.
               </p>
               <div className="space-y-6">
                 {productLaunchServices.map((service) => (
@@ -221,7 +221,7 @@ export default function EngagePage() {
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal">Trade Expos and Marketplace Event Platforms in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                Trade expos and marketplace platforms create structured environments for visibility, pipeline development, and commercial engagement between businesses, buyers, investors, and partners.
+                Trade expos and marketplace platforms create structured environments for visibility, pipeline development and commercial engagement between businesses, buyers, investors and partners.
               </p>
               <div className="grid gap-8">
                 {tradeExpoServices.map((service) => (
@@ -245,7 +245,7 @@ export default function EngagePage() {
           <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
             <h2 className="text-3xl md:text-4xl font-normal">Customer Acquisition and Market Engagement Events in Kenya</h2>
             <p className="text-muted-foreground font-light leading-relaxed">
-              Events are structured to move audiences from awareness to participation through direct engagement, targeted messaging, and structured interaction.
+              Events are structured to move audiences from awareness to participation through direct engagement, targeted messaging and structured interaction.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -267,15 +267,15 @@ export default function EngagePage() {
             {[
               {
                 title: "Pre Event Strategy and Campaign Development",
-                desc: "Event positioning, audience targeting, partnership structuring, and campaign design aligned to market objectives.",
+                desc: "Event positioning, audience targeting, partnership structuring and campaign design aligned to market objectives.",
               },
               {
                 title: "Live Event Execution and Audience Engagement",
-                desc: "Delivery across onsite activations, exhibitions, demonstrations, and engagement platforms that drive interaction and participation.",
+                desc: "Delivery across onsite activations, exhibitions, demonstrations and engagement platforms that drive interaction and participation.",
               },
               {
                 title: "Post Event Conversion and Data Utilization",
-                desc: "Lead capture, audience analytics, follow up systems, and conversion strategies that extend value beyond the event.",
+                desc: "Lead capture, audience analytics, follow up systems and conversion strategies that extend value beyond the event.",
               },
             ].map((item, idx) => (
               <div key={idx} className="space-y-4 text-center">
@@ -307,7 +307,7 @@ export default function EngagePage() {
                   "Exhibition and marketplace participation fees",
                   "Deal room participation and transaction facilitation",
                   "Data and lead generation monetization",
-                  "Conversion into advisory, capital, and trade facilitation mandates"
+                  "Conversion into advisory, capital and trade facilitation mandates"
                 ].map((val) => (
                   <div key={val} className="flex items-center gap-3">
                     <CheckCircle2 className="size-5 text-primary shrink-0" />
@@ -326,7 +326,7 @@ export default function EngagePage() {
                   "Development partners and ecosystem programs",
                   "Trade bodies and industry associations",
                   "Startups launching products or entering markets",
-                  "Platforms driving adoption, usage, or behavioral change"
+                  "Platforms driving adoption, usage or behavioral change"
                 ].map((val) => (
                   <div key={val} className="text-sm font-light border-b border-white/10 pb-2 last:border-0">{val}</div>
                 ))}
@@ -349,7 +349,7 @@ export default function EngagePage() {
                 {[
                   "Audience first event architecture based on participation intent",
                   "Integration of brand experience with commercial outcomes",
-                  "Strong execution across activations, expos, and marketplaces",
+                  "Strong execution across activations, expos and marketplaces",
                   "Structured lead capture and audience analytics systems",
                   "Conversion focused design linking events to revenue and growth"
                 ].map((strength) => (
@@ -361,8 +361,8 @@ export default function EngagePage() {
               </div>
             </div>
             <div className="relative p-12 bg-muted flex flex-col justify-center text-center space-y-8 border-l-8 border-primary">
-              <h3 className="text-2xl font-normal text-foreground">Plan a Market Activation, Product Launch, or Trade Event in Kenya</h3>
-              <p className="text-sm font-light text-muted-foreground">Deliver measurable commercial outcomes through strategy, audience design, and execution.</p>
+              <h3 className="text-2xl font-normal text-foreground">Plan a Market Activation, Product Launch or Trade Event in Kenya</h3>
+              <p className="text-sm font-light text-muted-foreground">Deliver measurable commercial outcomes through strategy, audience design and execution.</p>
               <Button asChild size="lg" className="rounded-none px-12 h-16 font-bold text-lg">
                 <Link href="/consult">Plan Your Activation</Link>
               </Button>
@@ -372,24 +372,24 @@ export default function EngagePage() {
       </section>
 
       {/* Final Conversion Section */}
-      <section className="bg-primary text-primary-foreground py-24">
+      <section className="bg-[#aa3018] py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-5xl">
-          <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8">
+          <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8 text-white">
             Activate Your Market with CREDENCE ENGAGE™
           </h2>
-          <p className="text-lg opacity-80 font-light leading-relaxed mb-12">
-            If your organization is planning a product launch, trade expo, brand activation, deal room, marketplace platform, or customer acquisition event in Kenya, we provide the strategy, audience design, and execution required to deliver measurable commercial outcomes.
+          <p className="text-lg text-white/80 font-light leading-relaxed mb-12">
+            If your organization is planning a product launch, trade expo, brand activation, deal room, marketplace platform or customer acquisition event in Kenya, we provide the strategy, audience design and execution required to deliver measurable commercial outcomes.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-            <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">
+            <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-[#aa3018] hover:bg-white/90 h-14 px-10">
               <Link href="/consult">Plan Your Activation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white text-white hover:bg-white/10 h-14 px-10">
+            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] h-14 px-10">
               <Link href="/consult">Discuss Your Campaign</Link>
             </Button>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-white border-t border-white/20 pt-12">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-white border-t border-white/25 pt-12">
             <a href="mailto:connect@credence.africa" className="flex items-center gap-3 hover:underline">
               <Mail className="size-5" /> connect@credence.africa
             </a>
