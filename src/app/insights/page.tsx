@@ -55,15 +55,15 @@ export default function InsightsPage() {
     };
 
     return (
-        <div className="py-16 lg:py-24 space-y-24 mx-auto lg:w-85">
+        <div className="py-16 lg:py-24 space-y-24 mx-auto px-4 sm:px-6 lg:px-0 lg:w-85 max-w-[1400px]">
             <div className="text-center">
-                <h1 className="text-4xl font-bold">Credence Insights</h1>
+                <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Credence Insights</h1>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Clarity that Powers Strategy. Intelligence that Shapes Action.</p>
                 <p className="mt-4 max-w-4xl mx-auto">Credence Insights delivers expert briefings, regulatory intelligence, capital market updates and sector-specific analysis for Africa-focused businesses, investors and innovators.</p>
             </div>
 
             <section id="recent-insights">
-                <h2 className="text-3xl font-bold text-center mb-10">Recent Insights</h2>
+                <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground text-center mb-10">Recent Insights</h2>
                 <div className="mt-10 grid gap-8">
                     {loading ? (
                         <p className="text-center">Loading insights...</p>
@@ -93,7 +93,7 @@ export default function InsightsPage() {
             </section>
 
              <section id="content-categories">
-                 <h2 className="text-3xl font-bold text-center mb-10">Content Categories</h2>
+                 <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground text-center mb-10">Content Categories</h2>
                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                      {categories.map(category => (
                          <Card 
@@ -118,9 +118,9 @@ export default function InsightsPage() {
             
             <section id="subscribe" className="bg-secondary py-16">
                 <div className="container mx-auto text-center">
-                    <h2 className="text-3xl font-bold">Subscribe to the Credence Insights Briefing</h2>
+                    <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Subscribe to the Credence Insights Briefing</h2>
                     <p className="mt-4 text-muted-foreground">Get strategic intelligence straight to your inbox.</p>
-                    <form className="mt-8 max-w-md mx-auto flex gap-2">
+                    <form className="mt-8 max-w-md mx-auto flex flex-col sm:flex-row gap-2">
                         <Input type="email" placeholder="Enter your email" className="flex-grow" />
                         <Button type="submit">Subscribe</Button>
                     </form>

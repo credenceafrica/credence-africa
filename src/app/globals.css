@@ -72,6 +72,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Guard against phantom horizontal scroll on mobile. `clip` (not `hidden`)
+       prevents a scroll container from forming, so the sticky header still works. */
+    overflow-x: clip;
   }
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;

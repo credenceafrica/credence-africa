@@ -126,7 +126,7 @@ export default function ResearchPage() {
                 <span className="h-1 w-10 bg-primary" aria-hidden="true" />
                 Research and Market Intelligence
               </div>
-              <h1 className="mt-8 text-balance font-normal leading-[1.04] tracking-[-0.02em] text-background [font-size:clamp(2.75rem,7vw,5.5rem)]">
+              <h1 className="mt-8 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 The evidence and the
                 <span className="text-primary"> sight.</span>
               </h1>
@@ -145,7 +145,7 @@ export default function ResearchPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 rounded-none border-none bg-primary px-8 text-base font-bold text-foreground hover:bg-primary/90"
+                  className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
                 >
                   <Link href="/consult">
                     Commission a Study <ArrowRight className="ml-2 size-5" />
@@ -155,7 +155,7 @@ export default function ResearchPage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-background/30 bg-transparent px-8 text-base font-medium text-background hover:bg-background/5"
+                  className="h-14 rounded-none border-2 border-background/30 bg-transparent px-8 text-base font-light text-background hover:bg-background/5"
                 >
                   <Link href="/consult">Scope a Market Scan</Link>
                 </Button>
@@ -205,7 +205,7 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-white [font-size:clamp(1.9rem,4vw,3rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Evidence you can defend. Sight you can act on.
               </h2>
             </div>
@@ -230,7 +230,7 @@ export default function ResearchPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,4vw,2.5rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               It is a chain. We hold every link.
             </h2>
             <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-foreground/75">
@@ -276,7 +276,7 @@ export default function ResearchPage() {
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-white [font-size:clamp(2.25rem,4.5vw,3.5rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               What we run
             </h2>
             <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-white/85">
@@ -367,7 +367,7 @@ export default function ResearchPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,4vw,2.5rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               How an engagement runs
             </h2>
             <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-foreground/75">
@@ -405,7 +405,7 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-primary [font-size:clamp(2.25rem,4.5vw,3.5rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Who commissions it
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/80">
@@ -437,7 +437,7 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-7">
-              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,4vw,2.75rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Tell us the decision. We will build the evidence and the read.
               </h2>
               <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-white/90 md:text-lg">
@@ -451,13 +451,13 @@ export default function ResearchPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 rounded-none border-none bg-white px-10 text-base font-bold text-[#aa3018] hover:bg-white/90"
+                  className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
                 >
                   <Link href="/consult">Commission a Study</Link>
                 </Button>
                 <a
                   href="mailto:connect@credence.africa"
-                  className="group inline-flex h-14 items-center justify-center gap-2 border-2 border-white bg-transparent px-10 text-base font-bold text-white transition-colors hover:bg-white hover:text-[#aa3018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#aa3018]"
+                  className="group inline-flex h-14 items-center justify-center gap-2 border-2 border-white bg-transparent px-8 text-base font-light text-white transition-colors hover:bg-white hover:text-[#aa3018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#aa3018]"
                 >
                   connect@credence.africa
                   <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

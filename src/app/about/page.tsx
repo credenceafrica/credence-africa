@@ -65,7 +65,7 @@ export default function AboutPage() {
         </div>
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="cred-rise max-w-2xl py-24 md:py-36">
-            <h1 className="mt-6 text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2.5rem,6vw,4.5rem)]">
+            <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Blending precision with perspective.
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-lg font-light leading-relaxed text-background/90 md:text-xl">
@@ -81,8 +81,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 md:grid-cols-2 md:gap-16">
             <div>
-              <span className="block h-1 w-12 bg-primary" aria-hidden="true" />
-              <h2 className="mt-5 text-3xl font-normal tracking-[-0.01em] text-foreground md:text-4xl">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Our Mission
               </h2>
               <p className="mt-4 max-w-prose text-lg font-light leading-relaxed text-foreground/80">
@@ -91,8 +90,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div>
-              <span className="block h-1 w-12 bg-primary" aria-hidden="true" />
-              <h2 className="mt-5 text-3xl font-normal tracking-[-0.01em] text-foreground md:text-4xl">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Our Vision
               </h2>
               <p className="mt-4 max-w-prose text-lg font-light leading-relaxed text-foreground/80">
@@ -108,7 +106,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-white [font-size:clamp(2rem,4vw,3rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 The Credence Africa Model
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-white/85">
@@ -146,8 +144,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <span className="block h-1 w-12 bg-primary" aria-hidden="true" />
-              <h2 className="mt-5 text-3xl font-normal tracking-[-0.01em] text-foreground md:text-4xl">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Who We Work With
               </h2>
               <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-foreground/75">
@@ -176,19 +173,19 @@ export default function AboutPage() {
       {/* Closing CTA: deep-red band, white text */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">
+          <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Build with a partner that executes.
           </h2>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/90">
             Get the full picture of our services, impact and approach. Or start the conversation.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <ProfileDownloadDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-medium text-[#aa3018] hover:bg-white/90" />
+            <ProfileDownloadDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90" />
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-medium text-white hover:bg-white hover:text-[#aa3018]"
+              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
             >
               <Link href="/consult">
                 Book a Consultation

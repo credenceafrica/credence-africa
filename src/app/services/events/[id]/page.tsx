@@ -164,11 +164,11 @@ export default function EventDetailPage() {
   if (!event) {
     return (
       <div className="py-24 container mx-auto px-4 text-center space-y-6">
-        <h1 className="text-3xl font-semibold">Event not found</h1>
+        <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Event not found</h1>
         <p className="text-muted-foreground font-light">
           The event you are looking for is no longer available.
         </p>
-        <Button asChild className="rounded-none">
+        <Button asChild className="h-14 rounded-none px-8 text-base font-light">
           <Link href="/services/events#portfolio">
             <ArrowLeft className="mr-2 size-4" /> Back to Events
           </Link>
@@ -213,7 +213,7 @@ export default function EventDetailPage() {
                 {event.eventType}
               </span>
             )}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+            <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               {event.name}
             </h1>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm md:text-base pt-2">
@@ -243,7 +243,7 @@ export default function EventDetailPage() {
           <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
             <div className="lg:col-span-2 space-y-10">
               <div className="space-y-6">
-                <h2 className="text-2xl md:text-3xl font-semibold inline-block border-b-2 border-primary pb-2">
+                <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
                   About the Event
                 </h2>
                 <div className="text-foreground/80 font-light leading-relaxed whitespace-pre-line text-base">
@@ -253,7 +253,7 @@ export default function EventDetailPage() {
 
               <div id="tickets" className="space-y-6 scroll-mt-24">
                 <div className="space-y-2">
-                  <h2 className="text-2xl md:text-3xl font-semibold inline-block border-b-2 border-primary pb-2">
+                  <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
                     Tickets
                   </h2>
                   <p className="text-muted-foreground font-light text-sm">
@@ -295,8 +295,8 @@ export default function EventDetailPage() {
                                 className="rounded-lg border shadow-sm flex flex-col p-6 hover:shadow-md transition-shadow"
                               >
                                 <div className="flex items-center justify-between gap-3">
-                                  <h4 className="text-lg font-semibold text-foreground">{ticket.name}</h4>
-                                  <span className="bg-muted text-foreground/70 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                                  <h4 className="text-lg font-semibold text-foreground min-w-0 break-words">{ticket.name}</h4>
+                                  <span className="bg-muted text-foreground/70 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shrink-0">
                                     {String(ticket.category)}
                                   </span>
                                 </div>
@@ -327,7 +327,7 @@ export default function EventDetailPage() {
                                     type="button"
                                     onClick={() => setCheckoutTicket(ticket)}
                                     disabled={!canBuy}
-                                    className="w-full h-11 font-semibold bg-primary hover:bg-primary/90 text-white disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+                                    className="w-full h-14 rounded-none text-base font-light bg-primary hover:bg-primary/90 text-white disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                                   >
                                     {canBuy ? "Get Ticket" : saleStatus.reason || "Unavailable"}
                                   </Button>
@@ -343,7 +343,7 @@ export default function EventDetailPage() {
               </div>
 
               <div className="pt-4">
-                <Button asChild variant="outline" className="rounded-none border-primary text-primary hover:bg-primary/5">
+                <Button asChild variant="outline" className="h-14 rounded-none px-8 text-base font-light border-primary text-primary hover:bg-primary/5">
                   <Link href="/services/events#portfolio">
                     <ArrowLeft className="mr-2 size-4" /> Back to Portfolio
                   </Link>
@@ -391,7 +391,7 @@ export default function EventDetailPage() {
                       <Button
                         type="button"
                         onClick={scrollToTickets}
-                        className="w-full h-12 font-semibold bg-primary hover:bg-primary/90 text-white rounded-md"
+                        className="w-full h-14 rounded-none text-base font-light bg-primary hover:bg-primary/90 text-white"
                       >
                         <TicketIcon className="mr-2 size-4" />
                         Get Tickets
@@ -399,7 +399,7 @@ export default function EventDetailPage() {
                     ) : (
                       <Button
                         disabled
-                        className="w-full h-12 font-semibold bg-primary/40 text-white rounded-md cursor-not-allowed"
+                        className="w-full h-14 rounded-none text-base font-light bg-primary/40 text-white cursor-not-allowed"
                       >
                         Registration Closed
                       </Button>
@@ -407,7 +407,7 @@ export default function EventDetailPage() {
                     <Button
                       type="button"
                       variant="outline"
-                      className="w-full h-12 font-semibold rounded-md"
+                      className="w-full h-14 rounded-none text-base font-light"
                       onClick={handleShare}
                     >
                       <Share2 className="mr-2 size-4" />

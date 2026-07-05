@@ -227,7 +227,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                           <Link
                             key={service.id}
                             href={service.href}
-                            className="text-sm py-1.5 text-muted-foreground hover:text-primary"
+                            className="text-sm py-3 text-muted-foreground hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {service.title}
@@ -235,7 +235,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                         ))}
                         <Link 
                           href="/services" 
-                          className="text-sm font-bold text-primary py-1.5"
+                          className="text-sm font-bold text-primary py-3"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           View All Services
@@ -252,7 +252,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                           <Link
                             key={sector.href}
                             href={sector.href}
-                            className="text-sm py-1.5 text-muted-foreground hover:text-primary"
+                            className="text-sm py-3 text-muted-foreground hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {sector.name}
@@ -260,7 +260,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                         ))}
                         <Link 
                           href="/sectors" 
-                          className="text-sm font-bold text-primary py-1.5"
+                          className="text-sm font-bold text-primary py-3"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           All Sectors
@@ -288,7 +288,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                 </Link>
                 
                 <div className="mt-6">
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-none py-6 text-lg font-bold">
+                  <Button asChild className="w-full h-14 rounded-none text-base font-light bg-primary hover:bg-primary/90 text-white">
                     <Link href="/consult" onClick={() => setIsMobileMenuOpen(false)}>
                       Book a Consultation
                     </Link>

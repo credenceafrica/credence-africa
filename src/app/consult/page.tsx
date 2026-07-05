@@ -92,7 +92,7 @@ export default function ConsultationPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="cred-rise max-w-3xl">
-            <h1 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2.5rem,6vw,4.5rem)]">
+            <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Book a <span className="text-primary">Consultation</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
@@ -274,7 +274,7 @@ export default function ConsultationPage() {
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="h-14 w-full rounded-none border-none bg-primary text-base font-medium text-foreground hover:bg-primary/90 sm:w-auto sm:px-10"
+                    className="h-14 w-full rounded-none border-none bg-primary text-base font-light text-foreground hover:bg-primary/90 sm:w-auto sm:px-10"
                   >
                     {loading ? "Sending…" : "Submit request"}
                     {!loading && <ArrowRight className="ml-2 size-5" aria-hidden="true" />}

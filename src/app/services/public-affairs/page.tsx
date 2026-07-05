@@ -227,7 +227,7 @@ export default function PublicAffairsPage() {
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">
               Public Affairs &amp; Policy Advisory
             </p>
-            <h1 className="mt-5 text-balance font-normal leading-[1.04] tracking-[-0.02em] text-background [font-size:clamp(2.5rem,6.5vw,5rem)]">
+            <h1 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Where policy shapes <span className="text-primary">markets</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-relaxed text-background/85 md:text-xl">
@@ -240,7 +240,7 @@ export default function PublicAffairsPage() {
               <Button
                 asChild
                 size="lg"
-                className="h-14 rounded-none border-none bg-primary px-8 text-base font-bold text-white hover:bg-primary/90"
+                className="h-14 w-full whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90 sm:w-auto"
               >
                 <Link href="/consult" className="justify-center">
                   Book a Public Affairs Consultation
@@ -251,7 +251,7 @@ export default function PublicAffairsPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-medium text-background hover:bg-background/10 hover:text-background"
+                className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
               >
                 <Link href="/consult" className="justify-center">
                   Discuss a Regulatory Mandate
@@ -267,7 +267,7 @@ export default function PublicAffairsPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,4vw,3rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Public affairs, run as a discipline, not as fragmented engagement.
               </h2>
               <div className="mt-8 max-w-2xl space-y-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
@@ -289,7 +289,7 @@ export default function PublicAffairsPage() {
               <Button
                 asChild
                 variant="outline"
-                className="mt-8 h-12 rounded-none border-2 border-primary bg-white px-8 text-primary hover:bg-primary hover:text-white"
+                className="mt-8 h-14 rounded-none border-2 border-primary bg-white px-8 text-base font-light text-primary hover:bg-primary hover:text-white"
               >
                 <Link href="/consult">Speak to the Team</Link>
               </Button>
@@ -316,7 +316,7 @@ export default function PublicAffairsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-primary [font-size:clamp(2rem,4vw,3rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Core advisory
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/75">
@@ -325,7 +325,7 @@ export default function PublicAffairsPage() {
               </p>
               <Button
                 asChild
-                className="mt-8 h-12 rounded-none border-none bg-primary px-8 font-bold text-white hover:bg-primary/90"
+                className="mt-8 h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
               >
                 <Link href="/consult">Book a Consultation</Link>
               </Button>
@@ -366,7 +366,7 @@ export default function PublicAffairsPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,4vw,2.8rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Strategic support across regulation, policy and institutional engagement
               </h2>
               <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-foreground/75">
@@ -389,7 +389,7 @@ export default function PublicAffairsPage() {
               <Button
                 asChild
                 size="lg"
-                className="mt-8 h-14 rounded-none border-none bg-primary px-10 font-bold text-white hover:bg-primary/90"
+                className="mt-8 h-14 whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90"
               >
                 <Link href="/consult">Explore the Right Public Affairs Pathway</Link>
               </Button>
@@ -411,7 +411,7 @@ export default function PublicAffairsPage() {
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-4xl">
-            <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-white [font-size:clamp(1.9rem,4vw,2.75rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Built for executive teams, institutional platforms and regulated market participants
             </h2>
             <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-white/90 md:text-lg">
@@ -433,7 +433,7 @@ export default function PublicAffairsPage() {
           <div className="mt-10">
             <Link
               href="/consult"
-              className="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-base font-bold text-white transition-opacity hover:opacity-80"
+              className="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-base font-light text-white transition-opacity hover:opacity-80"
             >
               Discuss Your Public Affairs Objective
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -446,7 +446,7 @@ export default function PublicAffairsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-foreground [font-size:clamp(2rem,4.5vw,3.25rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Product <span className="text-primary">pathways</span>
             </h2>
             <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-foreground/75 md:text-lg">
@@ -500,7 +500,7 @@ export default function PublicAffairsPage() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 Early visibility
               </p>
-              <h2 className="mt-5 text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2rem,4.5vw,3.5rem)]">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Why <span className="text-primary">POLICY &amp; MARKETS™</span> matters
               </h2>
               <div className="mt-8 max-w-2xl space-y-5 text-lg font-light leading-relaxed text-background/80">
@@ -530,7 +530,7 @@ export default function PublicAffairsPage() {
               <Button
                 asChild
                 size="lg"
-                className="mt-10 h-14 rounded-none border-none bg-primary px-10 font-bold text-white hover:bg-primary/90"
+                className="mt-10 h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
               >
                 <Link href="/consult">Join the Next Session</Link>
               </Button>
@@ -580,7 +580,7 @@ export default function PublicAffairsPage() {
             </div>
 
             <div>
-              <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,4vw,2.8rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 A more strategic approach to public affairs
               </h2>
               <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-foreground/75">
@@ -601,7 +601,7 @@ export default function PublicAffairsPage() {
               <Button
                 asChild
                 size="lg"
-                className="mt-8 h-14 rounded-none border-none bg-primary px-10 font-bold text-white hover:bg-primary/90"
+                className="mt-8 h-14 whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90"
               >
                 <Link href="/consult">See How Your Mandate Can Be Structured</Link>
               </Button>
@@ -617,7 +617,7 @@ export default function PublicAffairsPage() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
               The sequence
             </p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2rem,4.5vw,3.25rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               How engagement works
             </h2>
           </div>
@@ -657,7 +657,7 @@ export default function PublicAffairsPage() {
             <Button
               asChild
               size="lg"
-              className="h-14 rounded-none border-none bg-primary px-12 font-bold text-white hover:bg-primary/90"
+              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
             >
               <Link href="/consult">Book a Public Affairs Consultation</Link>
             </Button>
@@ -668,7 +668,7 @@ export default function PublicAffairsPage() {
       {/* ───────────── FAQs: light ───────────── */}
       <section className="bg-background">
         <div className="container mx-auto max-w-4xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,4vw,2.75rem)]">
+          <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Public affairs FAQs
           </h2>
           <Accordion type="single" collapsible className="mt-10 w-full">
@@ -695,7 +695,7 @@ export default function PublicAffairsPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <h2 className="text-balance font-normal leading-[1.06] tracking-[-0.01em] [font-size:clamp(2rem,4.5vw,3.25rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Public affairs support for strategic control
               </h2>
               <p className="mt-7 max-w-2xl text-lg font-light leading-relaxed text-white/90">
@@ -708,7 +708,7 @@ export default function PublicAffairsPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 rounded-none border-none bg-white px-8 font-bold text-[#aa3018] hover:bg-white/90"
+                  className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
                 >
                   <Link href="/consult">Book a Public Affairs Consultation</Link>
                 </Button>
@@ -716,7 +716,7 @@ export default function PublicAffairsPage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-white bg-transparent px-8 font-medium text-white hover:bg-white/10 hover:text-white"
+                  className="h-14 whitespace-normal rounded-none border-2 border-white bg-transparent px-8 text-center text-base font-light text-white hover:bg-white/10 hover:text-white"
                 >
                   <Link href="/consult">Discuss a Regulatory or Policy Mandate</Link>
                 </Button>
@@ -729,7 +729,7 @@ export default function PublicAffairsPage() {
                 <div className="mt-8 space-y-6">
                   <a
                     href="mailto:connect@credence.africa"
-                    className="flex items-center gap-4 text-lg transition-opacity hover:opacity-80 md:text-xl"
+                    className="flex items-center gap-4 break-all text-lg transition-opacity hover:opacity-80 md:text-xl"
                   >
                     <Mail className="size-6 shrink-0" aria-hidden="true" /> connect@credence.africa
                   </a>
@@ -741,7 +741,7 @@ export default function PublicAffairsPage() {
                   </a>
                   <Link
                     href="/consult"
-                    className="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-lg font-bold text-white transition-opacity hover:opacity-80"
+                    className="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-lg font-light text-white transition-opacity hover:opacity-80"
                   >
                     Join POLICY &amp; MARKETS™
                     <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

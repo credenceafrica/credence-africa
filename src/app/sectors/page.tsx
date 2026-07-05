@@ -30,7 +30,7 @@ export default function SectorsPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
-            <h1 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2.75rem,7vw,5.5rem)]">
+            <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Sectors We <span className="text-primary">Cover</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
@@ -59,7 +59,7 @@ export default function SectorsPage() {
                 >
                   <Icon className="mt-1 size-7 shrink-0 text-primary md:size-8" aria-hidden="true" />
                   <div className="min-w-0 flex-1">
-                    <h2 className="relative inline-block text-xl font-normal leading-tight text-foreground md:text-2xl">
+                    <h2 className="relative inline-block break-words text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                       {s.name}
                       <span
                         className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100"
@@ -111,7 +111,7 @@ export default function SectorsPage() {
       {/* CTA: deep-red + white */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">
+          <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Not sure which sector frames your mandate?
           </h2>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/85">
@@ -121,7 +121,7 @@ export default function SectorsPage() {
             <Button
               asChild
               size="lg"
-              className="h-14 rounded-none border-none bg-white px-8 text-base font-medium text-[#aa3018] hover:bg-white/90"
+              className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
             >
               <Link href="/consult">
                 Book a Consultation
@@ -132,7 +132,7 @@ export default function SectorsPage() {
               asChild
               size="lg"
               variant="outline"
-              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-medium text-white hover:bg-white hover:text-[#aa3018]"
+              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
             >
               <Link href="/services">Explore Our Platforms</Link>
             </Button>

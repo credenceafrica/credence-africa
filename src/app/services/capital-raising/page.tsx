@@ -189,7 +189,7 @@ export default function CapitalRaisingPage() {
               <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 Capital Raising and Investment Structuring
               </p>
-              <h1 className="mt-5 text-balance font-normal leading-[1.03] tracking-[-0.02em] text-background [font-size:clamp(2.5rem,6.5vw,5rem)]">
+              <h1 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Capital, structured for the institutions building Africa
               </h1>
               <p className="mt-7 max-w-xl text-lg font-light leading-relaxed text-background/80">
@@ -200,7 +200,7 @@ export default function CapitalRaisingPage() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Button
                   asChild
-                  className="h-14 rounded-none border-none bg-primary px-8 text-base font-bold text-background hover:bg-primary/90"
+                  className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center"
                 >
                   <Link href="/consult">
                     Book a Capital Strategy Consultation
@@ -210,7 +210,7 @@ export default function CapitalRaisingPage() {
                 <Button
                   asChild
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-medium text-background hover:bg-background/10 hover:text-background"
+                  className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
                 >
                   <Link href="/consult">Discuss a Capital Raising Mandate</Link>
                 </Button>
@@ -238,7 +238,7 @@ export default function CapitalRaisingPage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Executive function</p>
-              <h2 className="mt-5 text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(2rem,4vw,3rem)]">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Capital raising shapes growth, timing and strategic flexibility
               </h2>
               <div className="mt-6 max-w-md space-y-4 text-base font-light leading-relaxed text-foreground/75">
@@ -251,7 +251,7 @@ export default function CapitalRaisingPage() {
               <Button
                 asChild
                 variant="outline"
-                className="mt-8 h-12 rounded-none border-2 border-primary bg-transparent px-8 text-primary hover:bg-primary hover:text-background"
+                className="mt-8 h-14 rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-background"
               >
                 <Link href="/consult">Speak to the Team</Link>
               </Button>
@@ -273,7 +273,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.06] tracking-[-0.02em] text-white [font-size:clamp(2rem,4vw,3rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Built for institutions raising capital
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-white/85">
@@ -282,7 +282,7 @@ export default function CapitalRaisingPage() {
               </p>
               <Button
                 asChild
-                className="mt-8 h-12 rounded-none border-none bg-white px-8 text-sm font-bold text-[#aa3018] hover:bg-white/90"
+                className="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
               >
                 <Link href="/consult">
                   Discuss Your Capital Objective
@@ -312,7 +312,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The instruments</p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(2rem,4vw,3rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Capital raising pathways
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75">
@@ -342,7 +342,7 @@ export default function CapitalRaisingPage() {
           <div className="mt-10">
             <Button
               asChild
-              className="h-14 rounded-none border-none bg-primary px-10 text-base font-bold text-background hover:bg-primary/90"
+              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90"
             >
               <Link href="/consult">Explore the Right Capital Pathway</Link>
             </Button>
@@ -355,7 +355,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">What we run</p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.06] tracking-[-0.02em] text-background [font-size:clamp(2rem,4vw,3rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Capital raising advisory services
             </h2>
           </div>
@@ -392,7 +392,7 @@ export default function CapitalRaisingPage() {
           <div className="mt-10">
             <Button
               asChild
-              className="h-14 rounded-none border-none bg-primary px-10 text-base font-bold text-background hover:bg-primary/90"
+              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center"
             >
               <Link href="/consult">Book a Capital Strategy Consultation</Link>
             </Button>
@@ -405,7 +405,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Specialized tracks</p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(2rem,4vw,3rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Fundraising pathways
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75">
@@ -452,7 +452,7 @@ export default function CapitalRaisingPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="mt-8 h-12 w-full rounded-none border-2 border-primary bg-transparent text-sm font-bold text-primary hover:bg-primary hover:text-background"
+                    className="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent text-base font-light text-primary hover:bg-primary hover:text-background"
                   >
                     <Link href="/consult">{product.cta}</Link>
                   </Button>
@@ -468,7 +468,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <h2 className="text-balance font-normal leading-[1.06] tracking-[-0.02em] text-white [font-size:clamp(2rem,4vw,3rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Strategic approach to capital raising
               </h2>
               <p className="mt-6 max-w-md text-lg font-light leading-relaxed text-white/90">
@@ -478,7 +478,7 @@ export default function CapitalRaisingPage() {
               </p>
               <Button
                 asChild
-                className="mt-8 h-14 rounded-none border-none bg-white px-10 text-base font-bold text-[#aa3018] hover:bg-white/90"
+                className="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center"
               >
                 <Link href="/consult">See How Your Mandate Can Be Structured</Link>
               </Button>
@@ -505,7 +505,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Where we operate</p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(2rem,4vw,3rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Capital raising mandates
             </h2>
           </div>
@@ -522,7 +522,7 @@ export default function CapitalRaisingPage() {
           <Button
             asChild
             variant="outline"
-            className="mt-10 h-14 rounded-none border-2 border-primary bg-transparent px-12 text-base font-bold text-primary hover:bg-primary hover:text-background"
+            className="mt-10 h-14 rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-background"
           >
             <Link href="/consult">Discuss Your Mandate</Link>
           </Button>
@@ -534,7 +534,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The sequence</p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.06] tracking-[-0.02em] text-background [font-size:clamp(2rem,4vw,3rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               How engagement works
             </h2>
           </div>
@@ -560,7 +560,7 @@ export default function CapitalRaisingPage() {
           <div className="mt-12">
             <Button
               asChild
-              className="h-14 rounded-none border-none bg-primary px-12 text-base font-bold text-background hover:bg-primary/90"
+              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center"
             >
               <Link href="/consult">Book a Capital Strategy Consultation</Link>
             </Button>
@@ -571,7 +571,7 @@ export default function CapitalRaisingPage() {
       {/* FAQs: light; preserved Radix accordion interactivity */}
       <section className="bg-background">
         <div className="container mx-auto max-w-3xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(2rem,4vw,3rem)]">
+          <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Capital raising FAQs
           </h2>
           <Accordion type="single" collapsible className="mt-10 w-full">
@@ -594,7 +594,7 @@ export default function CapitalRaisingPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <h2 className="text-balance font-normal leading-[1.05] tracking-[-0.02em] text-white [font-size:clamp(2.25rem,4.5vw,3.5rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Capital raising support
               </h2>
               <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-white/90">
@@ -605,14 +605,14 @@ export default function CapitalRaisingPage() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Button
                   asChild
-                  className="h-14 rounded-none border-none bg-white px-8 text-base font-bold text-[#aa3018] hover:bg-white/90"
+                  className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center"
                 >
                   <Link href="/consult">Book a Capital Strategy Consultation</Link>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-bold text-white hover:bg-white hover:text-[#aa3018]"
+                  className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
                 >
                   <Link href="/consult">Discuss a Capital Raising Mandate</Link>
                 </Button>
