@@ -230,7 +230,7 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
             <DialogHeader className="space-y-2">
               <DialogTitle className="text-center">Confirming Your Registration</DialogTitle>
               <DialogDescription className="text-center">
-                Payment received. We're finalizing your ticket and sending your receipt — this will only take a moment.
+                Payment received. We're finalizing your ticket and sending your receipt. This will only take a moment.
               </DialogDescription>
             </DialogHeader>
           </div>

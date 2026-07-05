@@ -7,7 +7,7 @@ import { sectorList } from "@/lib/sectors-content";
 export const metadata: Metadata = {
   title: "Sectors We Cover",
   description:
-    "The sectors where Credence Africa builds institutions — from agribusiness and the green and blue economies to financial services, technology, trade and industrial development across Africa's growth markets.",
+    "The sectors where Credence Africa builds institutions, from agribusiness and the green and blue economies to financial services, technology, trade and industrial development across Africa's growth markets.",
 };
 
 const clients = [
@@ -26,7 +26,7 @@ const clients = [
 export default function SectorsPage() {
   return (
     <div className="overflow-x-hidden">
-      {/* Hero — navy */}
+      {/* Hero: navy */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
@@ -34,7 +34,7 @@ export default function SectorsPage() {
               Sectors We <span className="text-primary">Cover</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Our work spans the sectors driving Africa's economic and social transformation — where
+              Our work spans the sectors driving Africa's economic and social transformation, where
               capital, policy and enterprise intersect.
             </p>
             <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
@@ -45,7 +45,7 @@ export default function SectorsPage() {
         </div>
       </section>
 
-      {/* The ten sectors — light ledger */}
+      {/* The ten sectors: light ledger */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="border-y border-foreground/12 divide-y divide-foreground/12">
@@ -81,7 +81,7 @@ export default function SectorsPage() {
         </div>
       </section>
 
-      {/* Who We Work With — navy hairline grid */}
+      {/* Who We Work With: navy hairline grid */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -108,7 +108,7 @@ export default function SectorsPage() {
         </div>
       </section>
 
-      {/* CTA — deep-red + white */}
+      {/* CTA: deep-red + white */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">

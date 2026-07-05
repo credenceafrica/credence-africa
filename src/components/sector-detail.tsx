@@ -54,12 +54,12 @@ const GROUND: Record<
   },
 };
 
-// Items are "Title — description." strings (interventions, advisory) or a single
-// sentence (impact). Split on the spaced em dash; no dash → render as one line.
+// Items are "Title: description." strings (interventions, advisory) or a single
+// sentence (impact). Split on the colon separator; no separator → render as one line.
 function splitItem(item: string): { title: string; desc: string } {
-  const idx = item.indexOf(" — ");
+  const idx = item.indexOf(": ");
   if (idx === -1) return { title: item, desc: "" };
-  return { title: item.slice(0, idx), desc: item.slice(idx + 3) };
+  return { title: item.slice(0, idx), desc: item.slice(idx + 2) };
 }
 
 function LedgerBand({
@@ -121,7 +121,7 @@ export function SectorDetail({ sector }: { sector: Sector }) {
   const Icon = sector.icon;
   return (
     <div className="overflow-x-hidden">
-      {/* Hero — navy, sector icon as the identity mark */}
+      {/* Hero: navy, sector icon as the identity mark */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="cred-rise max-w-3xl">
@@ -136,7 +136,7 @@ export function SectorDetail({ sector }: { sector: Sector }) {
         </div>
       </section>
 
-      {/* Our Approach — light */}
+      {/* Our Approach: light */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -175,7 +175,7 @@ export function SectorDetail({ sector }: { sector: Sector }) {
         items={sector.impact}
       />
 
-      {/* CTA — deep-red + white */}
+      {/* CTA: deep-red + white */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">

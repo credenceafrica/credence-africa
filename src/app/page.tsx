@@ -60,7 +60,7 @@ export default function Home() {
     <div className="flex flex-col overflow-x-hidden">
       {/* Hero Section - Full Background Image with Content Box Overlay */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted">
-        {/* Hero background: Nairobi central business district at golden hour — photo by Amani Nation via Unsplash */}
+        {/* Hero background: Nairobi central business district at golden hour, photo by Amani Nation via Unsplash */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-nairobi.jpg"
@@ -150,7 +150,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Who We Work With — full-bleed light band */}
+      {/* Who We Work With: full-bleed light band */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="mx-auto max-w-5xl space-y-4 md:space-y-6">
@@ -162,11 +162,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Credence Africa — full-bleed navy "Execution Ledger" band */}
+      {/* Why Credence Africa: full-bleed navy "Execution Ledger" band */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
             <div className="cred-rise grid gap-10 lg:grid-cols-12 lg:gap-16">
-                {/* The thesis — why institutions choose us */}
+                {/* The thesis: why institutions choose us */}
                 <div className="lg:col-span-4">
                     <span className="cred-rule block h-1 w-12 bg-primary" aria-hidden="true" />
                     <h2 className="mt-6 text-balance font-normal leading-[1.08] tracking-[-0.01em] text-background [font-size:clamp(2rem,4vw,3rem)]">
@@ -176,14 +176,14 @@ export default function Home() {
                         Institutions choose Credence Africa because execution in African markets is interconnected.
                     </p>
                     <p className="mt-4 max-w-md text-pretty text-base font-light leading-relaxed text-background/75">
-                        We bring these dimensions together through one integrated execution system — moving institutions from insight to action, from participation to partnership and from strategic intent to measurable outcomes.
+                        We bring these dimensions together through one integrated execution system, moving institutions from insight to action, from participation to partnership and from strategic intent to measurable outcomes.
                     </p>
                     <p className="mt-8 max-w-md text-pretty text-base font-normal leading-snug text-background">
-                        Five connected dimensions — from first insight to lasting partnership.
+                        Five connected dimensions, from first insight to lasting partnership.
                     </p>
                 </div>
 
-                {/* How we create value — five connected dimensions as a ledger */}
+                {/* How we create value: five connected dimensions as a ledger */}
                 <div className="lg:col-span-8">
                     <div className="border-y border-white/15 divide-y divide-white/15">
                         {valueDimensions.map((item) => (
@@ -213,7 +213,7 @@ export default function Home() {
           </div>
       </section>
 
-      {/* Partner with Credence Africa — full-bleed light band */}
+      {/* Partner with Credence Africa: full-bleed light band */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="mx-auto max-w-5xl text-center space-y-6 md:space-y-8">
@@ -233,7 +233,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA — full-bleed deep-red drench */}
+      {/* Final CTA: full-bleed deep-red drench */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8">
             <h2 className="text-xl md:text-3xl font-normal leading-relaxed max-w-5xl mx-auto text-white">

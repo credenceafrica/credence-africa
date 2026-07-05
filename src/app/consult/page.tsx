@@ -30,15 +30,14 @@ const interests = [
   { value: "capital-raising", label: "Capital Raising & Investment Structuring" },
   { value: "trade-growth", label: "Trade & Growth Advisory" },
   { value: "public-affairs", label: "Public Affairs & Policy Advisory" },
-  { value: "institute", label: "Credence Institute — Executive Education" },
-  { value: "research", label: "Research" },
-  { value: "market-intelligence", label: "Market Intelligence" },
+  { value: "institute", label: "Credence Institute: Executive Education" },
+  { value: "research", label: "Research & Market Intelligence" },
   { value: "events", label: "Events, Community & Convenings" },
   { value: "other", label: "Other / Not sure yet" },
 ];
 
 const steps = [
-  "Send us the brief — tell us the mandate and where you are.",
+  "Send us the brief: tell us the mandate and where you are.",
   "A senior advisor reviews it and responds within 24 hours.",
   "We map the fastest credible path to execution on a strategy call.",
 ];
@@ -89,7 +88,7 @@ export default function ConsultationPage() {
 
   return (
     <div className="overflow-x-hidden">
-      {/* Hero — navy */}
+      {/* Hero: navy */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="cred-rise max-w-3xl">
@@ -97,18 +96,18 @@ export default function ConsultationPage() {
               Book a <span className="text-primary">Consultation</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Tell us the mandate. A senior advisor will map the fastest credible path to execution —
+              Tell us the mandate. A senior advisor will map the fastest credible path to execution:
               across capital, markets, policy and capability.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Form band — light */}
+      {/* Form band: light */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* Left rail — how to reach us + what happens next */}
+            {/* Left rail: how to reach us + what happens next */}
             <div className="lg:col-span-5">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Talk to a senior advisor
@@ -156,7 +155,7 @@ export default function ConsultationPage() {
               </div>
             </div>
 
-            {/* Right — the form */}
+            {/* Right: the form */}
             <div className="lg:col-span-7">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

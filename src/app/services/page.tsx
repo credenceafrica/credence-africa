@@ -15,14 +15,14 @@ type ThemeKey = "vermillion" | "navy" | "light";
 const GROUPS: { label: string; blurb: string; ids: string[]; theme: ThemeKey }[] = [
   {
     label: "Advisory",
-    blurb: "Strategy, capital and policy — the mandates that move institutions forward.",
-    ids: ["capital", "trade", "public-affairs"],
+    blurb: "Strategy, capital and policy: the mandates that move institutions forward.",
+    ids: ["capital", "public-affairs", "trade"],
     theme: "vermillion",
   },
   {
     label: "Intelligence & Insight",
     blurb: "The evidence, intelligence and perspective behind confident decisions.",
-    ids: ["research", "market-intelligence", "perspectives"],
+    ids: ["perspectives", "research"],
     theme: "navy",
   },
   {
@@ -159,7 +159,7 @@ export default async function ServicesPage() {
 
   return (
     <div className="overflow-x-hidden">
-      {/* Header — full-bleed navy; flows straight into the first (vermillion) band */}
+      {/* Header: full-bleed navy; flows straight into the first (vermillion) band */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
@@ -167,11 +167,11 @@ export default async function ServicesPage() {
               Our <span className="text-primary">Platforms</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Eight integrated platforms — one execution system for institutions shaping Africa's growth.
+              Eight integrated platforms: one execution system for institutions shaping Africa's growth.
             </p>
             <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
               At Credence Africa we design the strategic infrastructure that turns ambition into
-              institution — for enterprises, cooperatives, nonprofits, public benefit actors and
+              institution, for enterprises, cooperatives, nonprofits, public benefit actors and
               governments navigating complexity, unlocking capital and driving sustainable
               transformation.
             </p>
@@ -179,7 +179,7 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-      {/* Platform bands — each group owns a full-bleed ground colour */}
+      {/* Platform bands: each group owns a full-bleed ground colour */}
       {GROUPS.map((group) => {
         const items = group.ids
           .map((id) => byId.get(id))
@@ -215,7 +215,7 @@ export default async function ServicesPage() {
         );
       })}
 
-      {/* Closing CTA — second deep-red drench, bookending the navy header */}
+      {/* Closing CTA: second deep-red drench, bookending the navy header */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">

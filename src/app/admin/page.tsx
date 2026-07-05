@@ -9,7 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { List, Newspaper, MessagesSquare, FileText } from "lucide-react";
+import { List, Newspaper, MessagesSquare, FileText, FileDown } from "lucide-react";
 
 export default function AdminDashboard() {
   const [user, loading] = useAuthState(auth);
@@ -17,6 +17,7 @@ export default function AdminDashboard() {
   const [insightCount, setInsightCount] = useState(0);
   const [consultationCount, setConsultationCount] = useState(0);
   const [caseStudyRequestCount, setCaseStudyRequestCount] = useState(0);
+  const [profileLeadCount, setProfileLeadCount] = useState(0);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -31,6 +32,11 @@ export default function AdminDashboard() {
 
         const caseStudyRequestsSnapshot = await getDocs(collection(firestore, "caseStudyAccessRequests"));
         setCaseStudyRequestCount(caseStudyRequestsSnapshot.size);
+
+        if (firestore) {
+          const profileLeadsSnapshot = await getDocs(collection(firestore, "profileLeads"));
+          setProfileLeadCount(profileLeadsSnapshot.size);
+        }
       };
       fetchData();
     }
@@ -89,6 +95,21 @@ export default function AdminDashboard() {
                 <Link href="/admin/case-study-requests">
                     <FileText className="mr-2 h-4 w-4" />
                     View Requests
+                </Link>
+            </Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Company Profile Leads</CardTitle>
+            <CardDescription>Leads captured from the company-profile download.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-4xl font-bold">{profileLeadCount}</p>
+             <Button asChild variant="outline" className="mt-4">
+                <Link href="/admin/profile-leads">
+                    <FileDown className="mr-2 h-4 w-4" />
+                    View Leads
                 </Link>
             </Button>
           </CardContent>

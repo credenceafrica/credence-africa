@@ -261,7 +261,7 @@ const faqs = [
   },
 ];
 
-/* The three directions of travel — the page's organizing spine.
+/* The three directions of travel: the page's organizing spine.
    These are real, sequential stages of expansion, so numbering is earned. */
 const corridor = [
   {
@@ -306,7 +306,7 @@ export default function TradeGrowthPage() {
       `}</style>
 
       {/* ============================================================ */}
-      {/* HERO — navy drench with image + corridor manifest            */}
+      {/* HERO: navy drench with image + corridor manifest             */}
       {/* ============================================================ */}
       <section className="relative isolate overflow-hidden bg-foreground">
         <div className="absolute inset-0 -z-10">
@@ -329,7 +329,7 @@ export default function TradeGrowthPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/85 md:text-xl">
             Credence Africa helps institutions establish presence, expand across
-            regional blocs and build global growth pathways — from market interest
+            regional blocs and build global growth pathways, from market interest
             to market execution.
           </p>
 
@@ -373,7 +373,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* POSITIONING — light ground, large pull-statement             */}
+      {/* POSITIONING: light ground, large pull-statement              */}
       {/* ============================================================ */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -415,7 +415,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* WHO WE ADVISE — navy band, ledger rows                       */}
+      {/* WHO WE ADVISE: navy band, ledger rows                        */}
       {/* ============================================================ */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -464,7 +464,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* WHAT WE SOLVE — light ground, two-column ledger              */}
+      {/* WHAT WE SOLVE: light ground, two-column ledger               */}
       {/* ============================================================ */}
       <section className="bg-[#F2F2F2]">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -509,7 +509,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* CORE ADVISORY SERVICES — deep-red drench, expandable rows    */}
+      {/* CORE ADVISORY SERVICES: deep-red drench, expandable rows     */}
       {/* white text on #aa3018 (~6.7:1) passes AA                     */}
       {/* ============================================================ */}
       <section className="bg-[#aa3018]">
@@ -573,7 +573,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* PRODUCT PATHWAYS — light ground, passport-stamp register     */}
+      {/* PRODUCT PATHWAYS: light ground, passport-stamp register      */}
       {/* ============================================================ */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -651,7 +651,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* WHY ENGAGE — navy band with image + value ledger             */}
+      {/* WHY ENGAGE: navy band with image + value ledger              */}
       {/* ============================================================ */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -707,7 +707,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* PRIORITY SECTORS — light ground, ledger rows                 */}
+      {/* PRIORITY SECTORS: light ground, ledger rows                  */}
       {/* ============================================================ */}
       <section className="bg-[#F2F2F2]">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -751,7 +751,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* HOW ENGAGEMENT WORKS — navy band, sequential corridor        */}
+      {/* HOW ENGAGEMENT WORKS: navy band, sequential corridor         */}
       {/* (a real 5-step sequence, so numbering is earned)             */}
       {/* ============================================================ */}
       <section className="bg-foreground">
@@ -797,7 +797,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* FAQs — light ground                                          */}
+      {/* FAQs: light ground                                           */}
       {/* ============================================================ */}
       <section className="bg-background">
         <div className="container mx-auto max-w-4xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -824,7 +824,7 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* FINAL CONVERSION — deep-red drench (white passes AA on it)   */}
+      {/* FINAL CONVERSION: deep-red drench (white passes AA on it)    */}
       {/* ============================================================ */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-28 lg:px-8">

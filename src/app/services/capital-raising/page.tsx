@@ -181,7 +181,7 @@ export default function CapitalRaisingPage() {
         }
       `}</style>
 
-      {/* HERO — navy gravitas drench with image as a held-in panel, not full-bleed wash */}
+      {/* HERO: navy gravitas drench with image as a held-in panel, not full-bleed wash */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-stretch gap-10 lg:grid-cols-12 lg:gap-12">
@@ -232,7 +232,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* THE FUNCTION — light ledger statement, large pull-quote scale */}
+      {/* THE FUNCTION: light ledger statement, large pull-quote scale */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -268,7 +268,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* WHO THIS IS FOR — vermillion drench (deep red so white passes AA), ledger rows */}
+      {/* WHO THIS IS FOR: vermillion drench (deep red so white passes AA), ledger rows */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -307,7 +307,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* CAPITAL PATHWAYS — light, full-width ledger rows, large index */}
+      {/* CAPITAL PATHWAYS: light, full-width ledger rows, large index */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
@@ -350,7 +350,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* CORE ADVISORY SERVICES — navy band, four indexed working blocks */}
+      {/* CORE ADVISORY SERVICES: navy band, four indexed working blocks */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-2xl">
@@ -400,7 +400,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* FUNDRAISING PATHWAYS — light; four tracks as ledger panels with icons */}
+      {/* FUNDRAISING PATHWAYS: light; four tracks as ledger panels with icons */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
@@ -463,7 +463,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* STRATEGIC APPROACH — deep-red drench, white text passes AA */}
+      {/* STRATEGIC APPROACH: deep-red drench, white text passes AA */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -500,7 +500,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* MANDATES — light, dense tag field */}
+      {/* MANDATES: light, dense tag field */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
@@ -529,7 +529,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* HOW ENGAGEMENT WORKS — navy band; real 5-step sequence */}
+      {/* HOW ENGAGEMENT WORKS: navy band; real 5-step sequence */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-2xl">
@@ -568,7 +568,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* FAQs — light; preserved Radix accordion interactivity */}
+      {/* FAQs: light; preserved Radix accordion interactivity */}
       <section className="bg-background">
         <div className="container mx-auto max-w-3xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(2rem,4vw,3rem)]">
@@ -589,7 +589,7 @@ export default function CapitalRaisingPage() {
         </div>
       </section>
 
-      {/* FINAL CONVERSION — deep-red drench close, white text passes AA */}
+      {/* FINAL CONVERSION: deep-red drench close, white text passes AA */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
