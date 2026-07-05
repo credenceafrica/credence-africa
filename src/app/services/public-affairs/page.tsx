@@ -202,7 +202,7 @@ export default function PublicAffairsPage() {
         }
       `}</style>
 
-      {/* ───────────── Hero — navy ground, image plate, no side-stripe ───────────── */}
+      {/* ───────────── Hero: navy ground, image plate, no side-stripe ───────────── */}
       <section className="relative overflow-hidden bg-foreground">
         <div className="absolute inset-y-0 right-0 z-0 hidden w-1/2 lg:block">
           <Image
@@ -231,7 +231,7 @@ export default function PublicAffairsPage() {
               Where policy shapes <span className="text-primary">markets</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-relaxed text-background/85 md:text-xl">
-              Navigate regulation, policy and institutional complexity with strategic clarity —
+              Navigate regulation, policy and institutional complexity with strategic clarity
               and engage government, manage regulatory exposure, secure approvals and shape policy
               positioning across African markets.
             </p>
@@ -262,13 +262,13 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Executive positioning — light ground ───────────── */}
+      {/* ───────────── Executive positioning: light ground ───────────── */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,4vw,3rem)]">
-                Public affairs, run as a discipline — not as fragmented engagement.
+                Public affairs, run as a discipline, not as fragmented engagement.
               </h2>
               <div className="mt-8 max-w-2xl space-y-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
                 <p>
@@ -282,7 +282,7 @@ export default function PublicAffairsPage() {
                   across ministries, regulators, agencies and public actors. We provide a structured
                   public affairs platform that brings together regulatory strategy, government
                   relations, stakeholder mapping, policy analysis and execution support. The
-                  objective is clear — to help institutions move with stronger foresight, better
+                  objective is clear: to help institutions move with stronger foresight, better
                   positioning and greater institutional coherence.
                 </p>
               </div>
@@ -311,7 +311,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Core advisory services — navy band, ledger rows ───────────── */}
+      {/* ───────────── Core advisory services: navy band, ledger rows ───────────── */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -361,7 +361,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── What we help solve — light, with image ───────────── */}
+      {/* ───────────── What we help solve: light, with image ───────────── */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
@@ -407,7 +407,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Who we advise — deep-red drench (white passes AA) ───────────── */}
+      {/* ───────────── Who we advise: deep-red drench (white passes AA) ───────────── */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-4xl">
@@ -442,7 +442,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Product pathways — light, ledger rows ───────────── */}
+      {/* ───────────── Product pathways: light, ledger rows ───────────── */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-3xl">
@@ -492,7 +492,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Why POLICY & MARKETS™ matters — deep navy feature ───────────── */}
+      {/* ───────────── Why POLICY & MARKETS™ matters: deep navy feature ───────────── */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
@@ -556,7 +556,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── A more strategic approach — light, with images ───────────── */}
+      {/* ───────────── A more strategic approach: light, with images ───────────── */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -610,7 +610,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── How engagement works — navy, vertical ledger spine ───────────── */}
+      {/* ───────────── How engagement works: navy, vertical ledger spine ───────────── */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-3xl">
@@ -665,7 +665,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── FAQs — light ───────────── */}
+      {/* ───────────── FAQs: light ───────────── */}
       <section className="bg-background">
         <div className="container mx-auto max-w-4xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,4vw,2.75rem)]">
@@ -690,7 +690,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Final conversion — deep red drench (white passes AA) ───────────── */}
+      {/* ───────────── Final conversion: deep red drench (white passes AA) ───────────── */}
       <section style={{ backgroundColor: DEEP_RED }} className="text-white">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">

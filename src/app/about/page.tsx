@@ -1,20 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { ProfileDownloadDialog } from "@/components/profile-download-dialog";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Credence Africa blends precision with perspective — execution-ready advisory, context-driven structuring and integrated expertise for institutions shaping Africa's growth.",
+    "Credence Africa blends precision with perspective: execution-ready advisory, context-driven structuring and integrated expertise for institutions shaping Africa's growth.",
 };
 
 const model = [
   {
     n: "01",
     title: "Execution-Ready Advisory",
-    desc: "Blueprints built for immediate, risk-managed implementation — not slideware.",
+    desc: "Blueprints built for immediate, risk-managed implementation, not slideware.",
   },
   {
     n: "02",
@@ -34,7 +35,7 @@ const model = [
   {
     n: "05",
     title: "Growth with Integrity",
-    desc: "Sustainable, scalable and strategically sound — growth that earns trust.",
+    desc: "Sustainable, scalable and strategically sound: growth that earns trust.",
   },
 ];
 
@@ -50,7 +51,7 @@ const partners = [
 export default function AboutPage() {
   return (
     <div className="overflow-x-hidden">
-      {/* Hero — full-bleed photo with an ink content panel */}
+      {/* Hero: full-bleed photo with an ink content panel */}
       <section className="relative isolate bg-foreground">
         <div className="absolute inset-0 z-0">
           <Image
@@ -69,13 +70,13 @@ export default function AboutPage() {
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-lg font-light leading-relaxed text-background/90 md:text-xl">
               We deliver strategy that reflects the real-world dynamics of doing business in
-              Africa — deep local understanding matched with global-standard execution.
+              Africa: deep local understanding matched with global-standard execution.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision — light band */}
+      {/* Mission & Vision: light band */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 md:grid-cols-2 md:gap-16">
@@ -102,7 +103,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Credence Africa Model — deep-red band, ledger rows */}
+      {/* The Credence Africa Model: deep-red band, ledger rows */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -140,7 +141,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Who We Work With — light band */}
+      {/* Who We Work With: light band */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
@@ -172,26 +173,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Closing CTA — deep-red band, white text */}
+      {/* Closing CTA: deep-red band, white text */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">
             Build with a partner that executes.
           </h2>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/90">
-            Get the full picture of our services, impact and approach — or start the conversation.
+            Get the full picture of our services, impact and approach. Or start the conversation.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="h-14 rounded-none border-none bg-white px-8 text-base font-medium text-[#aa3018] hover:bg-white/90"
-            >
-              <a href="/credence-africa-profile.pdf" download>
-                <Download className="mr-2 size-5" aria-hidden="true" />
-                Download Company Profile
-              </a>
-            </Button>
+            <ProfileDownloadDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-medium text-[#aa3018] hover:bg-white/90" />
             <Button
               asChild
               size="lg"

@@ -47,6 +47,7 @@ const nextConfig: NextConfig = {
       { source: '/sectors/smes-startups', destination: '/sectors', permanent: true },
       { source: '/sectors/cooperatives-social-economy', destination: '/sectors', permanent: true },
       { source: '/sectors/hospitality-tourism', destination: '/sectors', permanent: true },
+      { source: '/services/market-intelligence', destination: '/services/research', permanent: true },
     ];
   },
 };

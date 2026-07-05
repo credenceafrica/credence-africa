@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import { getEventPortfolio, PortfolioEvent } from "@/lib/external-data";
 
 /* ------------------------------------------------------------------ */
-/*  Content — the four arms of the convening system                    */
+/*  Content: the four arms of the convening system                    */
 /* ------------------------------------------------------------------ */
 
 const digitalConferences = [
@@ -46,7 +46,7 @@ const digitalConferences = [
   },
 ];
 
-// CONVENE — formal / institutional / policy convenings
+// CONVENE: formal / institutional / policy convenings
 const conveneRows = [
   { title: "Conferences and Summits", desc: "Sector platforms positioning organizations at the center of market visibility and executive engagement with partners and stakeholders." },
   { title: "Corporate AGMs and Shareholder Meetings", desc: "Formal governance platforms where accountability, reporting and shareholder communication are delivered with precision and protocol discipline." },
@@ -68,7 +68,7 @@ const conveneAudience = [
   "Professional networks",
 ];
 
-// ENGAGE — market activation
+// ENGAGE: market activation
 const engageRows = [
   { title: "Event Strategy and Audience Design", desc: "Audience segments, engagement pathways and participation models aligned to commercial objectives and target market behavior." },
   { title: "Brand Positioning and Experiential Activation", desc: "Environments where brands are experienced through interaction and demonstration rather than passive visibility." },
@@ -89,7 +89,7 @@ const engageRevenue = [
   "Conversion into advisory, capital and trade facilitation mandates",
 ];
 
-// NETWORKS — the curated "Credible" communities
+// NETWORKS: the curated "Credible" communities
 const networks = [
   { title: "Credible Business Network", description: "Business networking, market access and enterprise expansion for executives and founders." },
   { title: "Credible Chamas Network", description: "Investment communities, collective capital and structured wealth platforms across Africa." },
@@ -166,7 +166,7 @@ export default function EventsPage() {
       `}</style>
 
       {/* ============================================================ */}
-      {/*  HERO — deep-red drench, white text (passes AA at ~6.7:1)     */}
+      {/*  HERO: deep-red drench, white text (passes AA at ~6.7:1)     */}
       {/* ============================================================ */}
       <section className="relative isolate bg-[#aa3018] text-white">
         <div className="absolute inset-0 z-0 opacity-[0.16] mix-blend-multiply">
@@ -181,7 +181,7 @@ export default function EventsPage() {
               The rooms where<br className="hidden sm:block" /> markets move.
             </h1>
             <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-white/90 md:text-xl">
-              One convening engine for capital, policy, markets and strategic partnerships — engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
+              One convening engine for capital, policy, markets and strategic partnerships: engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Button asChild size="lg" className="h-14 rounded-none border-none bg-white px-8 text-base font-bold text-[#aa3018] hover:bg-white/90">
@@ -198,7 +198,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  THE FOUR ARMS — index of one system (a real sequence)       */}
+      {/*  THE FOUR ARMS: index of one system (a real sequence)       */}
       {/* ============================================================ */}
       <section className="bg-foreground text-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-20 lg:px-8">
@@ -208,7 +208,7 @@ export default function EventsPage() {
                 One system, <span className="text-primary">four arms</span>
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/75">
-                Credence convenes the continent through four connected platforms — from closed-door governance to open markets to standing communities.
+                Credence convenes the continent through four connected platforms: from closed-door governance to open markets to standing communities.
               </p>
             </div>
             <nav className="lg:col-span-8" aria-label="Convening arms">
@@ -235,7 +235,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  01 · CONVENE — light ground, ledger rows                    */}
+      {/*  01 · CONVENE: light ground, ledger rows                    */}
       {/* ============================================================ */}
       <section id="convene" className="scroll-mt-20 bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -247,7 +247,7 @@ export default function EventsPage() {
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-foreground">Formal & Policy Convenings</p>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-foreground/75">
-                Corporate and institutional events built as decision environments — AGMs, conferences, investor briefings and policy forums delivered with governance credibility and precision.
+                Corporate and institutional events built as decision environments: AGMs, conferences, investor briefings and policy forums delivered with governance credibility and precision.
               </p>
               <div className="mt-8">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-foreground/60">Who we work with</p>
@@ -273,7 +273,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  02 · EVENTS — owned flagship platforms. Navy ground.        */}
+      {/*  02 · EVENTS: owned flagship platforms. Navy ground.        */}
       {/*  Holds the LIVE PORTFOLIO + ticketing (preserved).           */}
       {/* ============================================================ */}
       <section id="events" className="scroll-mt-20 bg-foreground text-background">
@@ -286,7 +286,7 @@ export default function EventsPage() {
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-primary">Owned Flagship Platforms</p>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/75">
-                Proprietary events that function as market infrastructure — convening investors, policymakers, sector leaders and commercial partners in structured environments engineered to accelerate transactions.
+                Proprietary events that function as market infrastructure, convening investors, policymakers, sector leaders and commercial partners in structured environments engineered to accelerate transactions.
               </p>
             </div>
             <div className="lg:col-span-8 space-y-12">
@@ -327,7 +327,7 @@ export default function EventsPage() {
           </div>
         </div>
 
-        {/* Live portfolio — preserved data fetch + ticketing links */}
+        {/* Live portfolio: preserved data fetch + ticketing links */}
         <div id="portfolio" className="scroll-mt-20 border-t border-white/15">
           <div className="container mx-auto px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -405,7 +405,7 @@ export default function EventsPage() {
           </div>
         </div>
 
-        {/* Digital conferences — continuous, year-round system */}
+        {/* Digital conferences: continuous, year-round system */}
         <div className="border-t border-white/15">
           <div className="container mx-auto px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             <div className="mb-12 max-w-3xl">
@@ -451,7 +451,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  03 · ENGAGE — market activation. Light ground.              */}
+      {/*  03 · ENGAGE: market activation. Light ground.              */}
       {/* ============================================================ */}
       <section id="engage" className="scroll-mt-20 bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -463,7 +463,7 @@ export default function EventsPage() {
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-foreground">Market Activation</p>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-foreground/75">
-                Market-facing events structured as conversion platforms — built around participation economics where brands, institutions and partners engage defined audiences across physical, hybrid and digital environments.
+                Market-facing events structured as conversion platforms: built around participation economics where brands, institutions and partners engage defined audiences across physical, hybrid and digital environments.
               </p>
               <div className="mt-8">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-foreground/60">Revenue-driven models</p>
@@ -501,7 +501,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  04 · NETWORKS — Credible communities. Navy ground.          */}
+      {/*  04 · NETWORKS: Credible communities. Navy ground.          */}
       {/* ============================================================ */}
       <section id="networks" className="scroll-mt-20 bg-foreground text-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -513,7 +513,7 @@ export default function EventsPage() {
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-primary">Curated Communities</p>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/75">
-                Standing membership communities connecting leaders, experts and institutions across Africa's business and policy systems — where relationships compound between convenings.
+                Standing membership communities connecting leaders, experts and institutions across Africa's business and policy systems, where relationships compound between convenings.
               </p>
               <div className="mt-8">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-background/60">For institutional partners</p>
@@ -555,7 +555,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  SPONSORSHIP — deep-red band (white passes AA at ~6.7:1)     */}
+      {/*  SPONSORSHIP: deep-red band (white passes AA at ~6.7:1)     */}
       {/* ============================================================ */}
       <section className="bg-[#aa3018] text-white">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -590,7 +590,7 @@ export default function EventsPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  FINAL CTA — deep-red drench, white text, the engine close   */}
+      {/*  FINAL CTA: deep-red drench, white text, the engine close   */}
       {/* ============================================================ */}
       <section className="bg-[#aa3018] text-white">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
@@ -599,7 +599,7 @@ export default function EventsPage() {
               Own the room where markets move.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/90">
-              Tell us the objective — convene, activate, host or join. We will map the right environment, audience and engagement model to deliver it with credibility and precision.
+              Tell us the objective: convene, activate, host or join. We will map the right environment, audience and engagement model to deliver it with credibility and precision.
             </p>
           </div>
 

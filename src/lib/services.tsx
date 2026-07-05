@@ -1,5 +1,5 @@
 
-import { GraduationCap, Newspaper, Landmark, Globe, Coins, Calendar, Microscope, LineChart } from "lucide-react";
+import { GraduationCap, Newspaper, Landmark, Globe, Coins, Calendar, Microscope } from "lucide-react";
 
 export interface Service {
     id: string;
@@ -22,7 +22,7 @@ const services: Service[] = [
     icon: <Coins className="size-8" />,
     title: "Capital Raising & Investment Structuring",
     description: "Become capital-ready and mobilize growth capital.",
-    longDescription: "We help enterprises, institutions and projects become investment-ready — structuring funding, engaging investors and mobilizing growth capital across equity, debt, blended finance and DFI pathways.",
+    longDescription: "We help enterprises, institutions and projects become investment-ready: structuring funding, engaging investors and mobilizing growth capital across equity, debt, blended finance and DFI pathways.",
     buttonText: "Learn More"
   },
   {
@@ -60,33 +60,19 @@ const services: Service[] = [
     slug: "research",
     href: "/services/research",
     icon: <Microscope className="size-8" />,
-    title: "Research",
-    description: "Evidence and analysis for decisions.",
-    longDescription: "Commissioned research, sector studies, market sizing and policy analysis that give institutions the evidence base for confident capital, market and governance decisions.",
+    title: "Research & Market Intelligence",
+    description: "Evidence and intelligence for decisions.",
+    longDescription: "Commissioned research, sector studies, market sizing, ecosystem mapping and ongoing market intelligence that give institutions the evidence and commercial visibility to make confident capital, market and governance decisions.",
     buttonText: "Learn More",
     details: [
       "Sector and market studies",
       "Market sizing and demand assessment",
       "Policy and regulatory analysis",
-      "Institutional and ecosystem diagnostics",
-      "Evidence and decision-support reporting"
-    ]
-  },
-  {
-    id: "market-intelligence",
-    slug: "market-intelligence",
-    href: "/services/market-intelligence",
-    icon: <LineChart className="size-8" />,
-    title: "Market Intelligence",
-    description: "Visibility before you deploy.",
-    longDescription: "Sector, market and capital intelligence — ecosystem mapping, opportunity scans and ongoing intelligence that give investors and market entrants commercial visibility before they deploy.",
-    buttonText: "Learn More",
-    details: [
-      "Market and sector intelligence reports",
       "Ecosystem and stakeholder mapping",
       "Opportunity and entry scans",
       "Capital and investment intelligence",
-      "Ongoing intelligence subscriptions"
+      "Ongoing intelligence subscriptions",
+      "Evidence and decision-support reporting"
     ]
   },
   {
@@ -96,7 +82,7 @@ const services: Service[] = [
     icon: <Newspaper className="size-8" />,
     title: "Credible Perspectives",
     description: "Research, media and thought leadership.",
-    longDescription: "Our media platform — executive insights, sector analysis, interviews and commentary that help leaders interpret policy, markets and capital with clarity.",
+    longDescription: "Our media platform: executive insights, sector analysis, interviews and commentary that help leaders interpret policy, markets and capital with clarity.",
     buttonText: "Explore Insights"
   },
   {
@@ -106,7 +92,7 @@ const services: Service[] = [
     icon: <Calendar className="size-8" />,
     title: "Events, Community & Convenings",
     description: "Convene, activate and build communities.",
-    longDescription: "From policy roundtables and executive convenings to market activations, flagship summits and curated networks — we turn engagement into decisions, partnerships and lasting ecosystem value.",
+    longDescription: "From policy roundtables and executive convenings to market activations, flagship summits and curated networks, we turn engagement into decisions, partnerships and lasting ecosystem value.",
     buttonText: "View Events"
   },
 ];
