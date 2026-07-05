@@ -91,7 +91,7 @@ export function ProfileDownloadDialog({
             <div className="mt-2 flex flex-col gap-3">
               <Button
                 asChild
-                className="h-12 rounded-none border-none bg-primary text-base font-medium text-foreground hover:bg-primary/90"
+                className="h-14 rounded-none border-none bg-primary text-base font-light text-foreground hover:bg-primary/90"
               >
                 <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
                   <Download className="mr-2 size-5" aria-hidden="true" />
@@ -101,7 +101,7 @@ export function ProfileDownloadDialog({
               <Button
                 asChild
                 variant="outline"
-                className="h-12 rounded-none border-2 border-foreground/20 bg-white text-base font-medium text-foreground hover:bg-foreground hover:text-background"
+                className="h-14 rounded-none border-2 border-foreground/20 bg-white text-base font-light text-foreground hover:bg-foreground hover:text-background"
               >
                 <a href={PROFILE_PDF} target="_blank" rel="noopener noreferrer">
                   <Eye className="mr-2 size-5" aria-hidden="true" />
@@ -175,7 +175,7 @@ export function ProfileDownloadDialog({
               <Button
                 type="submit"
                 disabled={loading}
-                className="h-12 w-full rounded-none border-none bg-primary text-base font-medium text-foreground hover:bg-primary/90"
+                className="h-14 w-full rounded-none border-none bg-primary text-base font-light text-foreground hover:bg-primary/90"
               >
                 {loading ? "Submitting…" : "Unlock the profile"}
                 {!loading && <ArrowRight className="ml-2 size-4" aria-hidden="true" />}

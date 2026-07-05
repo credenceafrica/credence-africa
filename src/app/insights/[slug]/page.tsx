@@ -189,12 +189,12 @@ export default function InsightPage() {
   }
   
   return (
-    <article className="py-12 lg:py-16">
+    <article className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <header className="mb-8 text-center">
           <p className="text-sm text-muted-foreground">{insight.date} | {insight.category} | By {insight.author}</p>
-          <h1 className="text-3xl md:text-4xl font-bold mt-2">{insight.title}</h1>
-           <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mt-4">
+          <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground mt-2 break-words">{insight.title}</h1>
+           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
                 <span className="flex items-center gap-1"><Eye className="size-4" /> {views} views</span>
                 <span className="flex items-center gap-1"><Heart className="size-4" /> {likes} likes</span>
                 <span className="flex items-center gap-1"><MessageSquare className="size-4" /> {comments.length} comments</span>
@@ -258,11 +258,11 @@ export default function InsightPage() {
       </div>
       
       <section className="mt-16 pt-12 border-t max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Comments ({comments.length})</h2>
+        <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground mb-6">Comments ({comments.length})</h2>
         <div className="space-y-6">
             {comments.length > 0 ? (
                 comments.map(comment => (
-                    <div key={comment.id} className="border-b pb-4">
+                    <div key={comment.id} className="border-b pb-4 break-words">
                         <p className="font-semibold">{comment.author}</p>
                         <p className="text-sm text-muted-foreground mb-2">
                            {comment.createdAt ? new Date(comment.createdAt.seconds * 1000).toLocaleString() : ''}

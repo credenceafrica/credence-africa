@@ -177,19 +177,19 @@ export default function EventsPage() {
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-white/75">
               Credence Events, Community & Convenings
             </p>
-            <h1 className="mt-4 text-balance font-normal leading-[1.04] tracking-[-0.02em] text-white [font-size:clamp(2.5rem,7vw,5.5rem)]">
+            <h1 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               The rooms where<br className="hidden sm:block" /> markets move.
             </h1>
             <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-white/90 md:text-xl">
               One convening engine for capital, policy, markets and strategic partnerships: engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Button asChild size="lg" className="h-14 rounded-none border-none bg-white px-8 text-base font-bold text-[#aa3018] hover:bg-white/90">
+              <Button asChild size="lg" className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
                 <Link href="/consult" className="justify-center">
                   Partner with Us <ArrowUpRight className="ml-2 size-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-bold text-white hover:bg-white hover:text-[#aa3018]">
+              <Button asChild size="lg" variant="outline" className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]">
                 <Link href="#portfolio" className="justify-center">View the Portfolio</Link>
               </Button>
             </div>
@@ -204,7 +204,7 @@ export default function EventsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-20 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.75rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-background">
                 One system, <span className="text-primary">four arms</span>
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/75">
@@ -242,7 +242,7 @@ export default function EventsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-normal tabular-nums text-primary [font-size:clamp(2rem,5vw,3.5rem)] leading-none">01</p>
-              <h2 className="mt-4 font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.75rem)]">
+              <h2 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
                 Convene
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-foreground">Formal & Policy Convenings</p>
@@ -281,7 +281,7 @@ export default function EventsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-normal tabular-nums text-primary [font-size:clamp(2rem,5vw,3.5rem)] leading-none">02</p>
-              <h2 className="mt-4 font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.75rem)]">
+              <h2 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-background">
                 Credence Events™
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-primary">Owned Flagship Platforms</p>
@@ -389,11 +389,11 @@ export default function EventsPage() {
                           <MapPin className="size-4 shrink-0" /> <span className="truncate">{event.location}</span>
                         </div>
                       )}
-                      <div className="mt-auto flex items-center justify-between gap-3 pt-3">
+                      <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-3">
                         {event.category ? (
                           <span className="bg-muted px-3 py-1.5 text-xs font-medium capitalize text-foreground/75">{event.category}</span>
                         ) : <span />}
-                        <Button asChild className="h-11 rounded-none bg-foreground px-5 text-sm font-bold text-background hover:bg-foreground/90">
+                        <Button asChild className="h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90">
                           <Link href={event.url}>Get Ticket <ArrowRight className="ml-1 size-4" /></Link>
                         </Button>
                       </div>
@@ -458,7 +458,7 @@ export default function EventsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-normal tabular-nums text-primary [font-size:clamp(2rem,5vw,3.5rem)] leading-none">03</p>
-              <h2 className="mt-4 font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.75rem)]">
+              <h2 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
                 Engage
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-foreground">Market Activation</p>
@@ -508,7 +508,7 @@ export default function EventsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-normal tabular-nums text-primary [font-size:clamp(2rem,5vw,3.5rem)] leading-none">04</p>
-              <h2 className="mt-4 font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.75rem)]">
+              <h2 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-background">
                 Credible Networks
               </h2>
               <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-primary">Curated Communities</p>
@@ -545,7 +545,7 @@ export default function EventsPage() {
                 ))}
               </ol>
               <div className="mt-8">
-                <Button asChild size="lg" className="h-14 rounded-none border-none bg-primary px-8 text-base font-bold text-white hover:bg-primary/90">
+                <Button asChild size="lg" className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90">
                   <Link href="/consult">Apply for Membership <ArrowUpRight className="ml-2 size-5" /></Link>
                 </Button>
               </div>
@@ -560,7 +560,7 @@ export default function EventsPage() {
       <section className="bg-[#aa3018] text-white">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.75rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-white">
               Sponsorship and partnership
             </h2>
             <p className="mt-4 text-lg font-light leading-relaxed text-white/85">
@@ -580,7 +580,7 @@ export default function EventsPage() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="mt-8 h-12 w-full rounded-none border-none bg-white text-sm font-bold text-foreground hover:bg-white/90">
+                <Button asChild className="mt-8 h-14 w-full rounded-none border-none bg-white text-base font-light text-foreground hover:bg-white/90">
                   <Link href="/consult">Become a Partner</Link>
                 </Button>
               </div>
@@ -595,7 +595,7 @@ export default function EventsPage() {
       <section className="bg-[#aa3018] text-white">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-white [font-size:clamp(2rem,5vw,3.5rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-white">
               Own the room where markets move.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/90">
@@ -624,7 +624,7 @@ export default function EventsPage() {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <Button asChild size="lg" className="h-16 rounded-none border-none bg-white px-12 text-base font-bold text-[#aa3018] hover:bg-white/90">
+            <Button asChild size="lg" className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
               <Link href="/consult">Discuss Your Objectives</Link>
             </Button>
           </div>

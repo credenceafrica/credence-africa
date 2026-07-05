@@ -22,7 +22,7 @@ export default function NotFound() {
               404
             </p>
 
-            <h1 className="mt-5 text-balance font-normal leading-[1.15] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,4vw,2.5rem)]">
+            <h1 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               We couldn't find that page.
             </h1>
 
@@ -34,7 +34,7 @@ export default function NotFound() {
               <Button
                 asChild
                 size="lg"
-                className="h-14 rounded-none border-none bg-primary px-8 text-base font-medium text-foreground hover:bg-primary/90"
+                className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
               >
                 <Link href="/">
                   Back to home
@@ -45,7 +45,7 @@ export default function NotFound() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 rounded-none border-primary bg-white px-8 text-base font-medium text-[#aa3018] hover:bg-primary/5"
+                className="h-14 rounded-none border-primary bg-white px-8 text-base font-light text-[#aa3018] hover:bg-primary/5"
               >
                 <Link href="/services">View our platforms</Link>
               </Button>

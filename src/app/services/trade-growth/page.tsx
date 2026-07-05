@@ -324,7 +324,7 @@ export default function TradeGrowthPage() {
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-primary">
             Trade &amp; Growth Advisory
           </p>
-          <h1 className="mt-5 max-w-4xl text-balance font-normal leading-[1.04] tracking-[-0.02em] text-background [font-size:clamp(2.5rem,6.5vw,5rem)]">
+          <h1 className="mt-5 max-w-4xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Market entry and expansion across Africa and beyond
           </h1>
           <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/85 md:text-xl">
@@ -354,7 +354,7 @@ export default function TradeGrowthPage() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Button
               asChild
-              className="h-14 rounded-none bg-primary px-8 text-base font-bold text-foreground hover:bg-primary/90"
+              className="h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
             >
               <Link href="/consult">
                 Discuss Market Entry Strategy
@@ -364,7 +364,7 @@ export default function TradeGrowthPage() {
             <Button
               asChild
               variant="outline"
-              className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-bold text-background hover:bg-background/10 hover:text-background"
+              className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
             >
               <Link href="/consult">Plan Cross Border Expansion</Link>
             </Button>
@@ -382,13 +382,13 @@ export default function TradeGrowthPage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
                 Executive Positioning
               </p>
-              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Built for institutions ready to execute
               </h2>
               <Button
                 asChild
                 variant="outline"
-                className="mt-8 h-12 rounded-none border-2 border-primary bg-background px-8 font-bold text-[#aa3018] hover:bg-primary hover:text-foreground"
+                className="mt-8 h-14 rounded-none border-2 border-primary bg-background px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground"
               >
                 <Link href="/consult">Speak to the Team</Link>
               </Button>
@@ -421,7 +421,7 @@ export default function TradeGrowthPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Into, across <span className="text-primary">and beyond</span> Africa
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/80">
@@ -453,7 +453,7 @@ export default function TradeGrowthPage() {
               </div>
               <Link
                 href="/consult"
-                className="group mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-primary"
+                className="group mt-8 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.15em] text-primary"
               >
                 Discuss your expansion objective
                 <ArrowRight className="size-4 tg-arrow" aria-hidden="true" />
@@ -472,7 +472,7 @@ export default function TradeGrowthPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
               From ambition to execution
             </p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               What Credence Africa helps you solve
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
@@ -501,7 +501,7 @@ export default function TradeGrowthPage() {
 
           <Button
             asChild
-            className="mt-10 h-14 rounded-none bg-primary px-10 text-base font-bold text-foreground hover:bg-primary/90"
+            className="mt-10 h-14 w-full rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90 sm:w-auto"
           >
             <Link href="/consult">Explore the Right Growth Pathway</Link>
           </Button>
@@ -518,7 +518,7 @@ export default function TradeGrowthPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/85">
               Core advisory
             </p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Four mandates that move institutions across markets
             </h2>
           </div>
@@ -565,7 +565,7 @@ export default function TradeGrowthPage() {
 
           <Button
             asChild
-            className="mt-12 h-14 rounded-none bg-foreground px-10 text-base font-bold text-background hover:bg-foreground/90"
+            className="mt-12 h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90"
           >
             <Link href="/consult">Discuss Market Entry Strategy</Link>
           </Button>
@@ -581,7 +581,7 @@ export default function TradeGrowthPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
               Product pathways
             </p>
-            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+            <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Productized systems built for outcomes
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
@@ -638,7 +638,7 @@ export default function TradeGrowthPage() {
                   </p>
                   <Link
                     href="/consult"
-                    className="group mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#aa3018]"
+                    className="group mt-5 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.12em] text-[#aa3018]"
                   >
                     {cta}
                     <ArrowRight className="size-4 tg-arrow" aria-hidden="true" />
@@ -660,7 +660,7 @@ export default function TradeGrowthPage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 Why executive teams engage
               </p>
-              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 A more strategic approach to expansion
               </h2>
               <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-background/80 md:text-lg">
@@ -688,7 +688,7 @@ export default function TradeGrowthPage() {
 
               <Button
                 asChild
-                className="mt-8 h-14 rounded-none bg-primary px-10 text-base font-bold text-foreground hover:bg-primary/90"
+                className="mt-8 h-14 w-full rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90 sm:w-auto"
               >
                 <Link href="/consult">See How Your Expansion Can Be Structured</Link>
               </Button>
@@ -716,13 +716,13 @@ export default function TradeGrowthPage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
                 Priority sectors
               </p>
-              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+              <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Where our expansion work concentrates
               </h2>
               <Button
                 asChild
                 variant="outline"
-                className="mt-8 h-12 rounded-none border-2 border-primary bg-transparent px-8 font-bold text-[#aa3018] hover:bg-primary hover:text-foreground"
+                className="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground sm:w-auto"
               >
                 <Link href="/consult">Discuss Sector Specific Expansion</Link>
               </Button>
@@ -756,7 +756,7 @@ export default function TradeGrowthPage() {
       {/* ============================================================ */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+          <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             How engagement works
           </h2>
 
@@ -789,7 +789,7 @@ export default function TradeGrowthPage() {
 
           <Button
             asChild
-            className="mt-14 h-14 rounded-none bg-primary px-10 text-base font-bold text-foreground hover:bg-primary/90"
+            className="mt-14 h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
           >
             <Link href="/consult">Plan Cross Border Expansion</Link>
           </Button>
@@ -801,7 +801,7 @@ export default function TradeGrowthPage() {
       {/* ============================================================ */}
       <section className="bg-background">
         <div className="container mx-auto max-w-4xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.9rem,3.6vw,2.75rem)]">
+          <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Trade &amp; Growth FAQs
           </h2>
           <Accordion type="single" collapsible className="mt-10 w-full">
@@ -829,7 +829,7 @@ export default function TradeGrowthPage() {
       <section className="bg-[#aa3018]">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-4xl">
-            <h2 className="text-balance font-normal leading-[1.08] tracking-[-0.01em] text-white [font-size:clamp(2rem,4.5vw,3.5rem)]">
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Trade and growth support for institutions ready to expand across
               Africa
             </h2>
@@ -842,14 +842,14 @@ export default function TradeGrowthPage() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button
                 asChild
-                className="h-14 rounded-none bg-foreground px-10 text-base font-bold text-background hover:bg-foreground/90"
+                className="h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90"
               >
                 <Link href="/consult">Discuss Market Entry Strategy</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="h-14 rounded-none border-2 border-white bg-transparent px-10 text-base font-bold text-white hover:bg-white/10 hover:text-white"
+                className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white/10 hover:text-white"
               >
                 <Link href="/consult">Plan Cross Border Expansion</Link>
               </Button>

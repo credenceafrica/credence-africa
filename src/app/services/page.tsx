@@ -163,7 +163,7 @@ export default async function ServicesPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
-            <h1 className="mt-6 text-balance font-normal leading-[1.05] tracking-[-0.02em] text-background [font-size:clamp(2.75rem,7vw,5.5rem)]">
+            <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Our <span className="text-primary">Platforms</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
@@ -193,7 +193,7 @@ export default async function ServicesPage() {
               <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
                 <div className="lg:col-span-4">
                   <h2
-                    className={`text-balance font-normal leading-[1.05] tracking-[-0.02em] ${t.title} [font-size:clamp(2.25rem,4.5vw,3.5rem)]`}
+                    className={`text-balance font-normal leading-[1.1] tracking-[-0.01em] ${t.title} [font-size:clamp(1.75rem,3.5vw,2.5rem)]`}
                   >
                     {group.label}
                   </h2>
@@ -218,7 +218,7 @@ export default async function ServicesPage() {
       {/* Closing CTA: second deep-red drench, bookending the navy header */}
       <section className="bg-[#aa3018]">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <h2 className="mx-auto max-w-3xl text-balance text-2xl font-normal leading-snug text-white md:text-4xl">
+          <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Not sure which platform fits your mandate?
           </h2>
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/85">
@@ -227,7 +227,7 @@ export default async function ServicesPage() {
           <Button
             asChild
             size="lg"
-            className="h-14 rounded-none border-none bg-white px-10 text-base font-bold text-[#aa3018] hover:bg-white/90"
+            className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
           >
             <Link href="/consult">Book a Consultation</Link>
           </Button>
