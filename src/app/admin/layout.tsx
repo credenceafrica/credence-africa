@@ -57,7 +57,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             <div className="container mx-auto flex h-20 items-center justify-between">
                 <div className="flex items-center gap-6">
                     <Link href="/admin">
-                        <Logo className="h-14 w-auto" />
+                        <Logo className="h-8 w-auto" />
                     </Link>
                 </div>
                 <nav className="hidden md:flex items-center gap-6 text-sm font-medium">

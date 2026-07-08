@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 // Research & Market Intelligence: one service, two instruments working as a
@@ -142,23 +141,19 @@ export default function ResearchPage() {
                 and built for your call.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button
-                  asChild
+                <ConsultationDialog
                   size="lg"
-                  className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
+                  triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
                 >
-                  <Link href="/consult">
-                    Commission a Study <ArrowRight className="ml-2 size-5" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
+                  Commission a Study <ArrowRight className="ml-2 size-5" />
+                </ConsultationDialog>
+                <ConsultationDialog
                   size="lg"
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-background/30 bg-transparent px-8 text-base font-light text-background hover:bg-background/5"
+                  triggerClassName="h-14 rounded-none border-2 border-background/30 bg-transparent px-8 text-base font-light text-background hover:bg-background/5"
                 >
-                  <Link href="/consult">Scope a Market Scan</Link>
-                </Button>
+                  Scope a Market Scan
+                </ConsultationDialog>
               </div>
             </div>
 
@@ -448,13 +443,12 @@ export default function ResearchPage() {
             </div>
             <div className="lg:col-span-5 lg:justify-self-end">
               <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
-                <Button
-                  asChild
+                <ConsultationDialog
                   size="lg"
-                  className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+                  triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
                 >
-                  <Link href="/consult">Commission a Study</Link>
-                </Button>
+                  Commission a Study
+                </ConsultationDialog>
                 <a
                   href="mailto:connect@credence.africa"
                   className="group inline-flex h-14 items-center justify-center gap-2 border-2 border-white bg-transparent px-8 text-base font-light text-white transition-colors hover:bg-white hover:text-[#aa3018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#aa3018]"

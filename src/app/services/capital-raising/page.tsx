@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import {
   Accordion,
   AccordionItem,
@@ -17,7 +17,6 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 
 const targetAudience = [
@@ -198,22 +197,16 @@ export default function CapitalRaisingPage() {
                 structure investment and move transactions forward.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <Button
-                  asChild
-                  className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center"
-                >
-                  <Link href="/consult">
-                    Book a Capital Strategy Consultation
-                    <ArrowUpRight className="ml-1 size-5" aria-hidden="true" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
+                <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center">
+                  Book a Capital Strategy Consultation
+                  <ArrowUpRight className="ml-1 size-5" aria-hidden="true" />
+                </ConsultationDialog>
+                <ConsultationDialog
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
+                  triggerClassName="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
                 >
-                  <Link href="/consult">Discuss a Capital Raising Mandate</Link>
-                </Button>
+                  Discuss a Capital Raising Mandate
+                </ConsultationDialog>
               </div>
             </div>
 
@@ -248,13 +241,12 @@ export default function CapitalRaisingPage() {
                   profile and transaction readiness.
                 </p>
               </div>
-              <Button
-                asChild
+              <ConsultationDialog
                 variant="outline"
-                className="mt-8 h-14 rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-background"
+                triggerClassName="mt-8 h-14 rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-background"
               >
-                <Link href="/consult">Speak to the Team</Link>
-              </Button>
+                Speak to the Team
+              </ConsultationDialog>
             </div>
 
             <div className="flex items-center border-t border-foreground/12 pt-8 lg:col-span-7 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
@@ -280,15 +272,10 @@ export default function CapitalRaisingPage() {
                 For businesses, projects, funds and institutions that need to raise, structure or
                 manage capital across Africa.
               </p>
-              <Button
-                asChild
-                className="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
-              >
-                <Link href="/consult">
-                  Discuss Your Capital Objective
-                  <ArrowRight className="ml-1 size-4" aria-hidden="true" />
-                </Link>
-              </Button>
+              <ConsultationDialog triggerClassName="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+                Discuss Your Capital Objective
+                <ArrowRight className="ml-1 size-4" aria-hidden="true" />
+              </ConsultationDialog>
             </div>
 
             <div className="lg:col-span-8">
@@ -340,12 +327,9 @@ export default function CapitalRaisingPage() {
           </div>
 
           <div className="mt-10">
-            <Button
-              asChild
-              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90"
-            >
-              <Link href="/consult">Explore the Right Capital Pathway</Link>
-            </Button>
+            <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90">
+              Explore the Right Capital Pathway
+            </ConsultationDialog>
           </div>
         </div>
       </section>
@@ -390,12 +374,9 @@ export default function CapitalRaisingPage() {
           </div>
 
           <div className="mt-10">
-            <Button
-              asChild
-              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center"
-            >
-              <Link href="/consult">Book a Capital Strategy Consultation</Link>
-            </Button>
+            <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center">
+              Book a Capital Strategy Consultation
+            </ConsultationDialog>
           </div>
         </div>
       </section>
@@ -449,13 +430,12 @@ export default function CapitalRaisingPage() {
                     </p>
                   </div>
 
-                  <Button
-                    asChild
+                  <ConsultationDialog
                     variant="outline"
-                    className="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent text-base font-light text-primary hover:bg-primary hover:text-background"
+                    triggerClassName="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent text-base font-light text-primary hover:bg-primary hover:text-background"
                   >
-                    <Link href="/consult">{product.cta}</Link>
-                  </Button>
+                    {product.cta}
+                  </ConsultationDialog>
                 </div>
               );
             })}
@@ -476,12 +456,9 @@ export default function CapitalRaisingPage() {
                 direction. We bring structure to readiness, documentation and transaction
                 preparation.
               </p>
-              <Button
-                asChild
-                className="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center"
-              >
-                <Link href="/consult">See How Your Mandate Can Be Structured</Link>
-              </Button>
+              <ConsultationDialog triggerClassName="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center">
+                See How Your Mandate Can Be Structured
+              </ConsultationDialog>
             </div>
 
             <div className="lg:col-span-7">
@@ -519,13 +496,12 @@ export default function CapitalRaisingPage() {
               </span>
             ))}
           </div>
-          <Button
-            asChild
+          <ConsultationDialog
             variant="outline"
-            className="mt-10 h-14 rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-background"
+            triggerClassName="mt-10 h-14 rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-background"
           >
-            <Link href="/consult">Discuss Your Mandate</Link>
-          </Button>
+            Discuss Your Mandate
+          </ConsultationDialog>
         </div>
       </section>
 
@@ -558,12 +534,9 @@ export default function CapitalRaisingPage() {
           </ol>
 
           <div className="mt-12">
-            <Button
-              asChild
-              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center"
-            >
-              <Link href="/consult">Book a Capital Strategy Consultation</Link>
-            </Button>
+            <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-background hover:bg-primary/90 whitespace-normal text-center">
+              Book a Capital Strategy Consultation
+            </ConsultationDialog>
           </div>
         </div>
       </section>
@@ -603,19 +576,15 @@ export default function CapitalRaisingPage() {
                 to move that agenda forward with clarity.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <Button
-                  asChild
-                  className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center"
-                >
-                  <Link href="/consult">Book a Capital Strategy Consultation</Link>
-                </Button>
-                <Button
-                  asChild
+                <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center">
+                  Book a Capital Strategy Consultation
+                </ConsultationDialog>
+                <ConsultationDialog
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
+                  triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
                 >
-                  <Link href="/consult">Discuss a Capital Raising Mandate</Link>
-                </Button>
+                  Discuss a Capital Raising Mandate
+                </ConsultationDialog>
               </div>
             </div>
 

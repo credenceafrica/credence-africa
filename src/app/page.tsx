@@ -2,6 +2,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import { getServices, Service } from "@/lib/services";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
@@ -35,6 +36,25 @@ const valueDimensions = [
         title: "Relationships and Continuity",
         description: "We sustain access, community and long term ecosystem position through networks, recurring engagement and connected institutional relationships."
     }
+];
+
+const whoWeWorkWith = [
+  "Collective Investment Structures",
+  "Cooperatives",
+  "Cross Border Investors",
+  "Development Partners",
+  "Donor Programs",
+  "Enterprises",
+  "Financial Institutions",
+  "Fintech Platforms",
+  "Funds",
+  "Governments",
+  "Growth Stage Businesses",
+  "Nonprofits",
+  "Regional Platforms",
+  "Regulatory Agencies",
+  "Social Enterprises",
+  "Trade Bodies",
 ];
 
 export default function Home() {
@@ -98,11 +118,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 md:gap-6 pt-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-light">
-                <Link href="/consult" className="justify-center">
-                  Book a Consultation <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
+              <ConsultationDialog size="lg" triggerClassName="bg-primary hover:bg-primary/90 text-white rounded-none px-8 h-14 text-base font-light">
+                Book a Consultation <ArrowUpRight className="ml-2 size-5" />
+              </ConsultationDialog>
               <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-light bg-white">
                 <Link href="#platforms" className="justify-center">
                   Explore Our Work
@@ -117,7 +135,7 @@ export default function Home() {
       <div id="platforms" className="relative z-20 w-full bg-white border-b shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border">
           {services
-            .filter((service) => ["capital", "trade", "public-affairs", "events"].includes(service.id))
+            .filter((service) => ["capital", "trade", "public-affairs", "research"].includes(service.id))
             .map((service) => (
             <Link 
               key={service.id} 
@@ -153,11 +171,23 @@ export default function Home() {
       {/* Who We Work With: full-bleed light band */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="mx-auto max-w-5xl space-y-4 md:space-y-6">
-            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Who We Work With</h2>
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light max-w-3xl">
-              Credence Africa works with enterprises, growth stage businesses, cooperatives, collective investment structures, financial institutions, funds, fintech platforms, governments, regulatory agencies, development partners, donor programs, nonprofits, social enterprises, trade bodies, regional platforms and cross border investors seeking stronger execution across Africa’s growth markets.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Who We Work With</h2>
+              <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-foreground/75">
+                We work with the institutions and organizations shaping Africa’s economic and social development.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <ul className="columns-1 gap-x-10 sm:columns-2 lg:columns-3">
+                {whoWeWorkWith.map((client) => (
+                  <li key={client} className="flex break-inside-avoid items-center gap-3 border-b border-foreground/12 py-3.5">
+                    <span className="h-1.5 w-1.5 shrink-0 bg-primary" aria-hidden="true" />
+                    <span className="text-base font-light text-foreground">{client}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -221,9 +251,9 @@ export default function Home() {
               If your institution is raising capital, entering markets, shaping policy, building leadership capability, convening stakeholders, producing intelligence or strengthening ecosystem position, Credence Africa provides the strategic integration and execution support to move that mandate forward.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 pt-4">
-               <Button asChild size="lg" className="rounded-none px-8 h-14 text-base font-light">
-                <Link href="/consult" className="justify-center">Book a Consultation</Link>
-              </Button>
+               <ConsultationDialog size="lg" triggerClassName="rounded-none px-8 h-14 text-base font-light">
+                Book a Consultation
+              </ConsultationDialog>
                <Button asChild size="lg" variant="outline" className="rounded-none px-8 h-14 text-base font-light bg-white border-primary text-primary">
                 <Link href="#platforms" className="justify-center">Explore Our Work</Link>
               </Button>
@@ -242,12 +272,12 @@ export default function Home() {
               Tell us the mandate. We will map the fastest credible path to execution.
             </p>
             <div className="mt-10 md:mt-12 flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-               <Button asChild size="lg" variant="secondary" className="rounded-none px-8 h-14 text-base font-light bg-white text-[#aa3018] hover:bg-white/90 border-none">
-                <Link href="/consult" className="justify-center">Book A Strategy Call</Link>
-              </Button>
-               <Button asChild size="lg" variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] rounded-none px-8 h-14 text-base font-light">
-                <Link href="/consult" className="justify-center">Send An Inquiry</Link>
-              </Button>
+               <ConsultationDialog size="lg" variant="secondary" triggerClassName="rounded-none px-8 h-14 text-base font-light bg-white text-[#aa3018] hover:bg-white/90 border-none">
+                Book A Strategy Call
+              </ConsultationDialog>
+               <ConsultationDialog size="lg" variant="outline" triggerClassName="border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] rounded-none px-8 h-14 text-base font-light">
+                Send An Inquiry
+              </ConsultationDialog>
             </div>
         </div>
       </section>

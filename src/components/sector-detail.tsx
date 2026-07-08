@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import { ArrowRight } from "lucide-react";
 import type { Sector } from "@/lib/sectors-content";
 
@@ -185,16 +186,13 @@ export function SectorDetail({ sector }: { sector: Sector }) {
             Tell us the mandate. We will map the fastest credible path to execution.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
+            <ConsultationDialog
               size="lg"
-              className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+              triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
             >
-              <Link href="/consult">
-                Book a Consultation
-                <ArrowRight className="ml-2 size-5" aria-hidden="true" />
-              </Link>
-            </Button>
+              Book a Consultation
+              <ArrowRight className="ml-2 size-5" aria-hidden="true" />
+            </ConsultationDialog>
             <Button
               asChild
               size="lg"

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { ProfileDownloadDialog } from "@/components/profile-download-dialog";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 
 export const metadata: Metadata = {
   title: "About",
@@ -181,17 +181,14 @@ export default function AboutPage() {
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <ProfileDownloadDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90" />
-            <Button
-              asChild
+            <ConsultationDialog
               size="lg"
               variant="outline"
-              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
+              triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
             >
-              <Link href="/consult">
-                Book a Consultation
-                <ArrowRight className="ml-2 size-5" aria-hidden="true" />
-              </Link>
-            </Button>
+              Book a Consultation
+              <ArrowRight className="ml-2 size-5" aria-hidden="true" />
+            </ConsultationDialog>
           </div>
         </div>
       </section>

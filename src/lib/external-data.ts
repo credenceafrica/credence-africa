@@ -199,7 +199,7 @@ export async function getEventPortfolio(): Promise<PortfolioEvent[]> {
                     day,
                     time,
                     description: data.description || '',
-                    url: `/services/events/${doc.id}`,
+                    url: `/services/credence-engage/${doc.id}`,
                     image: data.thumbnail,
                     startDate,
                     location,
