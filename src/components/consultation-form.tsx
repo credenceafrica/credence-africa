@@ -26,20 +26,33 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+/**
+ * Area-of-interest options. `value` doubles as the deep-link key so a child site can open
+ * the dialog with an area preselected via `?consult=<value>` (e.g. ?consult=institute).
+ */
 export const consultationInterests = [
-  { value: "capital-raising", label: "Capital Raising & Investment Structuring" },
-  { value: "events", label: "Credence Engage" },
+  { value: "capital", label: "Capital Raising & Investment Structuring" },
+  { value: "engage", label: "Credence Engage" },
   { value: "institute", label: "Credence Institute: Executive Education" },
+  { value: "perspectives", label: "Credible Perspectives" },
   { value: "public-affairs", label: "Public Affairs & Policy Advisory" },
   { value: "research", label: "Research & Market Intelligence" },
-  { value: "trade-growth", label: "Trade & Growth Advisory" },
+  { value: "trade", label: "Trade & Growth Advisory" },
   { value: "other", label: "Other / Not sure yet" },
 ];
+
+export const consultationInterestValues = consultationInterests.map((i) => i.value);
 
 const fieldClass =
   "h-12 rounded-none border-foreground/20 bg-white text-base text-foreground placeholder:text-foreground/55 focus-visible:ring-primary";
 
-export function ConsultationForm({ onSuccess }: { onSuccess?: () => void }) {
+export function ConsultationForm({
+  defaultInterest = "",
+  onSuccess,
+}: {
+  defaultInterest?: string;
+  onSuccess?: () => void;
+}) {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -51,7 +64,7 @@ export function ConsultationForm({ onSuccess }: { onSuccess?: () => void }) {
       phone: "",
       company: "",
       country: "",
-      interest: "",
+      interest: defaultInterest,
       message: "",
     },
   });

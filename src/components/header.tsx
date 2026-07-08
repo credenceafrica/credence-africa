@@ -307,11 +307,9 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                 </Link>
                 
                 <div className="mt-6">
-                  <Button asChild className="w-full h-14 rounded-none text-base font-light bg-primary hover:bg-primary/90 text-white">
-                    <Link href="/consult" onClick={() => setIsMobileMenuOpen(false)}>
-                      Book a Consultation
-                    </Link>
-                  </Button>
+                  <ConsultationDialog triggerClassName="w-full h-14 rounded-none text-base font-light bg-primary hover:bg-primary/90 text-white">
+                    Book a Consultation
+                  </ConsultationDialog>
                 </div>
               </div>
             </SheetContent>

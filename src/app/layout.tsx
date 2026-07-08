@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { LayoutWrapper } from "@/components/layout-wrapper";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { ConsultationDeepLink } from "@/components/consultation-deep-link";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
@@ -64,6 +65,7 @@ export default function RootLayout({
           {children}
         </LayoutWrapper>
         <Toaster />
+        <ConsultationDeepLink />
         <Suspense>
           <ScrollToTop />
         </Suspense>
