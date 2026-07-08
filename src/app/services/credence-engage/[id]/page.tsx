@@ -169,7 +169,7 @@ export default function EventDetailPage() {
           The event you are looking for is no longer available.
         </p>
         <Button asChild className="h-14 rounded-none px-8 text-base font-light">
-          <Link href="/services/events#portfolio">
+          <Link href="/services/credence-engage#portfolio">
             <ArrowLeft className="mr-2 size-4" /> Back to Events
           </Link>
         </Button>
@@ -344,7 +344,7 @@ export default function EventDetailPage() {
 
               <div className="pt-4">
                 <Button asChild variant="outline" className="h-14 rounded-none px-8 text-base font-light border-primary text-primary hover:bg-primary/5">
-                  <Link href="/services/events#portfolio">
+                  <Link href="/services/credence-engage#portfolio">
                     <ArrowLeft className="mr-2 size-4" /> Back to Portfolio
                   </Link>
                 </Button>

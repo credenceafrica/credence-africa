@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Button } from "./ui/button";
+import { ConsultationDialog } from "./consultation-dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import {
   Accordion,
@@ -28,16 +29,22 @@ import type { Service } from "@/lib/services";
 
 const sectors = [
     { name: "Agribusiness", href: "/sectors/agribusiness" },
-    { name: "Green Economy", href: "/sectors/green-economy" },
     { name: "Blue Economy", href: "/sectors/blue-economy" },
     { name: "Creative Economy", href: "/sectors/creative-economy" },
     { name: "Financial Services", href: "/sectors/financial-services" },
-    { name: "Skills & Workforce Development", href: "/sectors/skills-workforce-development" },
+    { name: "Green Economy", href: "/sectors/green-economy" },
     { name: "Healthcare & Wellness", href: "/sectors/healthcare-wellness" },
     { name: "Mobility, Transport & Logistics", href: "/sectors/mobility-transport-logistics" },
+    { name: "Skills & Workforce Development", href: "/sectors/skills-workforce-development" },
     { name: "Technology, AI & Digital Economy", href: "/sectors/technology-ai-digital-economy" },
     { name: "Trade, Infrastructure & Industrial Development", href: "/sectors/trade-infrastructure-industrial-development" },
 ];
+
+// Header services dropdown, explicit columns.
+// Left column: Capital Raising, Public Affairs, Trade & Growth, Research.
+// Right column: Credible Perspectives, Credence Engage, Credence Institute.
+const serviceLeftColumnIds = ["capital", "public-affairs", "trade", "research"];
+const serviceRightColumnIds = ["perspectives", "events", "institute"];
 
 export function Header({ insights, services }: { insights: Insight[], services: Service[] }) {
   const pathname = usePathname();
@@ -50,6 +57,12 @@ export function Header({ insights, services }: { insights: Insight[], services: 
 
   const isAdminPage = pathname.startsWith('/admin');
 
+  const pickServices = (ids: string[]) =>
+    ids.map((id) => services.find((s) => s.id === id)).filter(Boolean) as Service[];
+  const leftServices = pickServices(serviceLeftColumnIds);
+  const rightServices = pickServices(serviceRightColumnIds);
+  const mobileServices = [...leftServices, ...rightServices];
+
   if (isAdminPage) {
     return null;
   }
@@ -59,7 +72,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
       <header className="w-full border-b bg-white h-24">
         <div className="container mx-auto flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <Logo className="h-16 w-auto" />
+            <Logo className="h-6 w-auto sm:h-8 lg:h-10" />
           </div>
         </div>
       </header>
@@ -70,7 +83,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
     <header className="w-full bg-white border-b shadow-sm h-24 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Logo className="h-16 w-auto" />
+          <Logo className="h-6 w-auto sm:h-8 lg:h-10" />
         </Link>
         
         <div className="hidden lg:flex flex-grow items-center justify-center">
@@ -98,34 +111,40 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                   Our Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {services.map((service) => (
-                      <li key={service.id}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            href={service.href}
-                            target={service.href.startsWith('http') ? "_blank" : undefined}
-                            rel={service.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-bold leading-none flex items-center gap-2">
-                              {service.title}
-                            </div>
-                            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground mt-1">
-                              {service.description}
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                    <li className="col-span-full border-t pt-2">
-                        <NavigationMenuLink asChild>
-                            <Link href="/services" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
-                                View All Services <ChevronRight className="size-4" />
-                            </Link>
-                        </NavigationMenuLink>
-                    </li>
-                  </ul>
+                  <div className="w-[400px] p-4 md:w-[520px] lg:w-[600px]">
+                    <div className="grid gap-x-6 md:grid-cols-2">
+                      {[leftServices, rightServices].map((column, ci) => (
+                        <ul key={ci} className="space-y-1">
+                          {column.map((service) => (
+                            <li key={service.id}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={service.href}
+                                  target={service.href.startsWith('http') ? "_blank" : undefined}
+                                  rel={service.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                >
+                                  <div className="text-sm font-bold leading-none flex items-center gap-2">
+                                    {service.title}
+                                  </div>
+                                  <p className="line-clamp-2 text-xs leading-snug text-muted-foreground mt-1">
+                                    {service.description}
+                                  </p>
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      ))}
+                    </div>
+                    <div className="mt-2 border-t pt-2">
+                      <NavigationMenuLink asChild>
+                        <Link href="/services" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
+                          View All Services <ChevronRight className="size-4" />
+                        </Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -136,27 +155,29 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                   Sectors
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                   <ul className="grid w-[400px] gap-2 p-4 md:w-[600px] md:grid-cols-3">
-                    {sectors.map((sector) => (
-                      <li key={sector.href}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            href={sector.href}
-                            className="block select-none rounded-md p-2 text-xs font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-                          >
-                            {sector.name}
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                    <li className="col-span-full border-t pt-2">
-                        <NavigationMenuLink asChild>
-                            <Link href="/sectors" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
-                                All Sectors <ChevronRight className="size-4" />
+                   <div className="w-[400px] p-4 md:w-[600px]">
+                    <ul className="columns-2 gap-x-6 md:columns-3">
+                      {sectors.map((sector) => (
+                        <li key={sector.href} className="break-inside-avoid">
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={sector.href}
+                              className="block select-none rounded-md p-2 text-xs font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                            >
+                              {sector.name}
                             </Link>
-                        </NavigationMenuLink>
-                    </li>
-                  </ul>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-2 border-t pt-2">
+                      <NavigationMenuLink asChild>
+                        <Link href="/sectors" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
+                          All Sectors <ChevronRight className="size-4" />
+                        </Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -190,11 +211,9 @@ export function Header({ insights, services }: { insights: Insight[], services: 
         </div>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Button asChild className="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-6 shadow-md">
-            <Link href="/consult" className="flex items-center gap-2">
-              Book a Consultation <Phone className="size-4" />
-            </Link>
-          </Button>
+          <ConsultationDialog triggerClassName="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-6 shadow-md">
+            Book a Consultation <Phone className="size-4" />
+          </ConsultationDialog>
         </div>
 
         <div className="lg:hidden">
@@ -223,7 +242,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                     <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Our Services</AccordionTrigger>
                     <AccordionContent>
                       <div className="flex flex-col gap-2 pl-4 pt-2">
-                        {services.map((service) => (
+                        {mobileServices.map((service) => (
                           <Link
                             key={service.id}
                             href={service.href}

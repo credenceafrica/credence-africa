@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -175,7 +176,7 @@ export default function EventsPage() {
         <div className="container relative z-10 mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-4xl">
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-white/75">
-              Credence Events, Community & Convenings
+              Credence Engage
             </p>
             <h1 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               The rooms where<br className="hidden sm:block" /> markets move.
@@ -184,11 +185,9 @@ export default function EventsPage() {
               One convening engine for capital, policy, markets and strategic partnerships: engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Button asChild size="lg" className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
-                <Link href="/consult" className="justify-center">
-                  Partner with Us <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
+              <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+                Partner with Us <ArrowUpRight className="ml-2 size-5" />
+              </ConsultationDialog>
               <Button asChild size="lg" variant="outline" className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]">
                 <Link href="#portfolio" className="justify-center">View the Portfolio</Link>
               </Button>
@@ -545,9 +544,9 @@ export default function EventsPage() {
                 ))}
               </ol>
               <div className="mt-8">
-                <Button asChild size="lg" className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90">
-                  <Link href="/consult">Apply for Membership <ArrowUpRight className="ml-2 size-5" /></Link>
-                </Button>
+                <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90">
+                  Apply for Membership <ArrowUpRight className="ml-2 size-5" />
+                </ConsultationDialog>
               </div>
             </div>
           </div>
@@ -580,9 +579,9 @@ export default function EventsPage() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="mt-8 h-14 w-full rounded-none border-none bg-white text-base font-light text-foreground hover:bg-white/90">
-                  <Link href="/consult">Become a Partner</Link>
-                </Button>
+                <ConsultationDialog triggerClassName="mt-8 h-14 w-full rounded-none border-none bg-white text-base font-light text-foreground hover:bg-white/90">
+                  Become a Partner
+                </ConsultationDialog>
               </div>
             ))}
           </div>
@@ -624,9 +623,9 @@ export default function EventsPage() {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <Button asChild size="lg" className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
-              <Link href="/consult">Discuss Your Objectives</Link>
-            </Button>
+            <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+              Discuss Your Objectives
+            </ConsultationDialog>
           </div>
         </div>
       </section>

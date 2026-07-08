@@ -48,6 +48,8 @@ const nextConfig: NextConfig = {
       { source: '/sectors/cooperatives-social-economy', destination: '/sectors', permanent: true },
       { source: '/sectors/hospitality-tourism', destination: '/sectors', permanent: true },
       { source: '/services/market-intelligence', destination: '/services/research', permanent: true },
+      { source: '/services/events', destination: '/services/credence-engage', permanent: true },
+      { source: '/services/events/:id*', destination: '/services/credence-engage/:id*', permanent: true },
     ];
   },
 };

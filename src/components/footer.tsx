@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { Logo } from "./logo";
-import { Button } from "./ui/button";
+import { ConsultationDialog } from "./consultation-dialog";
 import { usePathname } from 'next/navigation';
 
 export function Footer() {
@@ -21,7 +21,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Logo className="h-[70px] w-auto"/>
+              <Logo className="h-auto w-full max-w-[220px]"/>
             </Link>
           </div>
 
@@ -42,23 +42,21 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               <li><a href="mailto:connect@credence.africa" className="text-muted-foreground hover:text-primary hover:underline">connect@credence.africa</a></li>
               <li><a href="tel:+254719468240" className="text-muted-foreground hover:text-primary hover:underline">+254 719 468 240</a></li>
-              <li className="text-muted-foreground">Applewood Adams, Ngong Road, Nairobi</li>
+              <li><a href="https://maps.app.goo.gl/EeS5D837UZnSDsEZ7" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary hover:underline">Applewood Adams, Ngong Road, Nairobi</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold uppercase text-foreground/80">Follow Us</h3>
             <div className="flex mt-4 space-x-4 text-muted-foreground">
-                <Link href="#" className="hover:text-primary">LinkedIn</Link>
-                <Link href="#" className="hover:text-primary">(X)</Link>
-                <Link href="#" className="hover:text-primary">Instagram</Link>
+                <Link href="https://www.facebook.com/share/1Aw6gyX8ZH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Facebook</Link>
+                <Link href="https://x.com/CredenceAfrica" target="_blank" rel="noopener noreferrer" className="hover:text-primary">X</Link>
+                <Link href="https://ke.linkedin.com/company/credence-africalimited" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn</Link>
             </div>
              <div className="mt-4">
-                <Link href="/consult">
-                    <Button>
-                        Book a Consultation
-                    </Button>
-                </Link>
+                <ConsultationDialog>
+                    Book a Consultation
+                </ConsultationDialog>
              </div>
           </div>
         </div>

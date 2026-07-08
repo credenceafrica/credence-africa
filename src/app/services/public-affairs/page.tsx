@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import {
   Accordion,
   AccordionContent,
@@ -21,7 +21,6 @@ import {
   Phone,
   Zap,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 
 const advisoryServices = [
@@ -237,26 +236,20 @@ export default function PublicAffairsPage() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Button
-                asChild
+              <ConsultationDialog
                 size="lg"
-                className="h-14 w-full whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90 sm:w-auto"
+                triggerClassName="h-14 w-full whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90 sm:w-auto"
               >
-                <Link href="/consult" className="justify-center">
-                  Book a Public Affairs Consultation
-                  <ArrowUpRight className="ml-2 size-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
+                Book a Public Affairs Consultation
+                <ArrowUpRight className="ml-2 size-5" />
+              </ConsultationDialog>
+              <ConsultationDialog
                 size="lg"
                 variant="outline"
-                className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
+                triggerClassName="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
               >
-                <Link href="/consult" className="justify-center">
-                  Discuss a Regulatory Mandate
-                </Link>
-              </Button>
+                Discuss a Regulatory Mandate
+              </ConsultationDialog>
             </div>
           </div>
         </div>
@@ -286,13 +279,12 @@ export default function PublicAffairsPage() {
                   positioning and greater institutional coherence.
                 </p>
               </div>
-              <Button
-                asChild
+              <ConsultationDialog
                 variant="outline"
-                className="mt-8 h-14 rounded-none border-2 border-primary bg-white px-8 text-base font-light text-primary hover:bg-primary hover:text-white"
+                triggerClassName="mt-8 h-14 rounded-none border-2 border-primary bg-white px-8 text-base font-light text-primary hover:bg-primary hover:text-white"
               >
-                <Link href="/consult">Speak to the Team</Link>
-              </Button>
+                Speak to the Team
+              </ConsultationDialog>
             </div>
 
             {/* Pull-quote as a deep-red plate (white passes AA) */}
@@ -323,12 +315,11 @@ export default function PublicAffairsPage() {
                 Five disciplines that turn regulatory complexity into a deliberate, sequenced
                 mandate.
               </p>
-              <Button
-                asChild
-                className="mt-8 h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
+              <ConsultationDialog
+                triggerClassName="mt-8 h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
               >
-                <Link href="/consult">Book a Consultation</Link>
-              </Button>
+                Book a Consultation
+              </ConsultationDialog>
             </div>
 
             <div className="lg:col-span-8">
@@ -386,13 +377,12 @@ export default function PublicAffairsPage() {
                   </li>
                 ))}
               </ul>
-              <Button
-                asChild
+              <ConsultationDialog
                 size="lg"
-                className="mt-8 h-14 whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90"
+                triggerClassName="mt-8 h-14 whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90"
               >
-                <Link href="/consult">Explore the Right Public Affairs Pathway</Link>
-              </Button>
+                Explore the Right Public Affairs Pathway
+              </ConsultationDialog>
             </div>
 
             <div className="relative aspect-[4/5] w-full lg:sticky lg:top-24">
@@ -431,13 +421,12 @@ export default function PublicAffairsPage() {
           </div>
 
           <div className="mt-10">
-            <Link
-              href="/consult"
-              className="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-base font-light text-white transition-opacity hover:opacity-80"
+            <ConsultationDialog
+              triggerClassName="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-base font-light text-white transition-opacity hover:opacity-80"
             >
               Discuss Your Public Affairs Objective
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
+            </ConsultationDialog>
           </div>
         </div>
       </section>
@@ -458,10 +447,9 @@ export default function PublicAffairsPage() {
             {productPathways.map((product) => {
               const Icon = product.icon;
               return (
-                <Link
+                <ConsultationDialog
                   key={product.title}
-                  href="/consult"
-                  className="group grid gap-5 py-8 transition-colors hover:bg-foreground/[0.03] md:grid-cols-12 md:gap-8 md:py-10"
+                  triggerClassName="group grid gap-5 py-8 transition-colors hover:bg-foreground/[0.03] md:grid-cols-12 md:gap-8 md:py-10"
                 >
                   <div className="md:col-span-4">
                     <div className="flex items-center gap-4">
@@ -485,7 +473,7 @@ export default function PublicAffairsPage() {
                       <ArrowRight className="size-4 text-primary transition-transform group-hover:translate-x-1.5" />
                     </span>
                   </div>
-                </Link>
+                </ConsultationDialog>
               );
             })}
           </div>
@@ -527,13 +515,12 @@ export default function PublicAffairsPage() {
                 ))}
               </div>
 
-              <Button
-                asChild
+              <ConsultationDialog
                 size="lg"
-                className="mt-10 h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
+                triggerClassName="mt-10 h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
               >
-                <Link href="/consult">Join the Next Session</Link>
-              </Button>
+                Join the Next Session
+              </ConsultationDialog>
             </div>
 
             <div className="lg:col-span-5 lg:pt-14">
@@ -598,13 +585,12 @@ export default function PublicAffairsPage() {
                   </li>
                 ))}
               </ul>
-              <Button
-                asChild
+              <ConsultationDialog
                 size="lg"
-                className="mt-8 h-14 whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90"
+                triggerClassName="mt-8 h-14 whitespace-normal rounded-none border-none bg-primary px-8 text-center text-base font-light text-white hover:bg-primary/90"
               >
-                <Link href="/consult">See How Your Mandate Can Be Structured</Link>
-              </Button>
+                See How Your Mandate Can Be Structured
+              </ConsultationDialog>
             </div>
           </div>
         </div>
@@ -654,13 +640,12 @@ export default function PublicAffairsPage() {
           </div>
 
           <div className="mt-14 pl-10 md:pl-14">
-            <Button
-              asChild
+            <ConsultationDialog
               size="lg"
-              className="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
+              triggerClassName="h-14 rounded-none border-none bg-primary px-8 text-base font-light text-white hover:bg-primary/90"
             >
-              <Link href="/consult">Book a Public Affairs Consultation</Link>
-            </Button>
+              Book a Public Affairs Consultation
+            </ConsultationDialog>
           </div>
         </div>
       </section>
@@ -705,21 +690,19 @@ export default function PublicAffairsPage() {
                 discipline to move the mandate forward.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button
-                  asChild
+                <ConsultationDialog
                   size="lg"
-                  className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+                  triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
                 >
-                  <Link href="/consult">Book a Public Affairs Consultation</Link>
-                </Button>
-                <Button
-                  asChild
+                  Book a Public Affairs Consultation
+                </ConsultationDialog>
+                <ConsultationDialog
                   size="lg"
                   variant="outline"
-                  className="h-14 whitespace-normal rounded-none border-2 border-white bg-transparent px-8 text-center text-base font-light text-white hover:bg-white/10 hover:text-white"
+                  triggerClassName="h-14 whitespace-normal rounded-none border-2 border-white bg-transparent px-8 text-center text-base font-light text-white hover:bg-white/10 hover:text-white"
                 >
-                  <Link href="/consult">Discuss a Regulatory or Policy Mandate</Link>
-                </Button>
+                  Discuss a Regulatory or Policy Mandate
+                </ConsultationDialog>
               </div>
             </div>
 
@@ -739,13 +722,12 @@ export default function PublicAffairsPage() {
                   >
                     <Phone className="size-6 shrink-0" aria-hidden="true" /> +254 719 468 240
                   </a>
-                  <Link
-                    href="/consult"
-                    className="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-lg font-light text-white transition-opacity hover:opacity-80"
+                  <ConsultationDialog
+                    triggerClassName="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-lg font-light text-white transition-opacity hover:opacity-80"
                   >
                     Join POLICY &amp; MARKETS™
                     <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </Link>
+                  </ConsultationDialog>
                 </div>
               </div>
             </div>

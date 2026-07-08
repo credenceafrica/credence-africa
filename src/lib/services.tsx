@@ -87,10 +87,10 @@ const services: Service[] = [
   },
   {
     id: "events",
-    slug: "events",
-    href: "/services/events",
+    slug: "credence-engage",
+    href: "/services/credence-engage",
     icon: <Calendar className="size-8" />,
-    title: "Events, Community & Convenings",
+    title: "Credence Engage",
     description: "Convene, activate and build communities.",
     longDescription: "From policy roundtables and executive convenings to market activations, flagship summits and curated networks, we turn engagement into decisions, partnerships and lasting ecosystem value.",
     buttonText: "View Events"

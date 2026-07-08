@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import {
   Accordion,
   AccordionContent,
@@ -19,7 +19,6 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 
 /* ------------------------------------------------------------------ */
@@ -352,22 +351,16 @@ export default function TradeGrowthPage() {
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button
-              asChild
-              className="h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
-            >
-              <Link href="/consult">
-                Discuss Market Entry Strategy
-                <ArrowUpRight className="ml-1 size-5 tg-arrow" />
-              </Link>
-            </Button>
-            <Button
-              asChild
+            <ConsultationDialog triggerClassName="h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90">
+              Discuss Market Entry Strategy
+              <ArrowUpRight className="ml-1 size-5 tg-arrow" />
+            </ConsultationDialog>
+            <ConsultationDialog
               variant="outline"
-              className="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
+              triggerClassName="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
             >
-              <Link href="/consult">Plan Cross Border Expansion</Link>
-            </Button>
+              Plan Cross Border Expansion
+            </ConsultationDialog>
           </div>
         </div>
       </section>
@@ -385,13 +378,12 @@ export default function TradeGrowthPage() {
               <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Built for institutions ready to execute
               </h2>
-              <Button
-                asChild
+              <ConsultationDialog
                 variant="outline"
-                className="mt-8 h-14 rounded-none border-2 border-primary bg-background px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground"
+                triggerClassName="mt-8 h-14 rounded-none border-2 border-primary bg-background px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground"
               >
-                <Link href="/consult">Speak to the Team</Link>
-              </Button>
+                Speak to the Team
+              </ConsultationDialog>
             </div>
 
             <div className="space-y-8 lg:col-span-7">
@@ -451,13 +443,10 @@ export default function TradeGrowthPage() {
                   </div>
                 ))}
               </div>
-              <Link
-                href="/consult"
-                className="group mt-8 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.15em] text-primary"
-              >
+              <ConsultationDialog asChild triggerClassName="group mt-8 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.15em] text-primary transition-colors hover:text-primary/70">
                 Discuss your expansion objective
                 <ArrowRight className="size-4 tg-arrow" aria-hidden="true" />
-              </Link>
+              </ConsultationDialog>
             </div>
           </div>
         </div>
@@ -499,12 +488,9 @@ export default function TradeGrowthPage() {
             ))}
           </div>
 
-          <Button
-            asChild
-            className="mt-10 h-14 w-full rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90 sm:w-auto"
-          >
-            <Link href="/consult">Explore the Right Growth Pathway</Link>
-          </Button>
+          <ConsultationDialog triggerClassName="mt-10 h-14 w-full rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90 sm:w-auto">
+            Explore the Right Growth Pathway
+          </ConsultationDialog>
         </div>
       </section>
 
@@ -563,12 +549,9 @@ export default function TradeGrowthPage() {
             ))}
           </div>
 
-          <Button
-            asChild
-            className="mt-12 h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90"
-          >
-            <Link href="/consult">Discuss Market Entry Strategy</Link>
-          </Button>
+          <ConsultationDialog triggerClassName="mt-12 h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90">
+            Discuss Market Entry Strategy
+          </ConsultationDialog>
         </div>
       </section>
 
@@ -636,13 +619,10 @@ export default function TradeGrowthPage() {
                   <p className="mt-3 flex-1 text-sm font-light leading-relaxed text-foreground/75">
                     {bestFor}
                   </p>
-                  <Link
-                    href="/consult"
-                    className="group mt-5 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.12em] text-[#aa3018]"
-                  >
+                  <ConsultationDialog asChild triggerClassName="group mt-5 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.12em] text-[#aa3018] transition-colors hover:text-[#aa3018]/70">
                     {cta}
                     <ArrowRight className="size-4 tg-arrow" aria-hidden="true" />
-                  </Link>
+                  </ConsultationDialog>
                 </div>
               </div>
             ))}
@@ -686,12 +666,9 @@ export default function TradeGrowthPage() {
                 ))}
               </div>
 
-              <Button
-                asChild
-                className="mt-8 h-14 w-full rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90 sm:w-auto"
-              >
-                <Link href="/consult">See How Your Expansion Can Be Structured</Link>
-              </Button>
+              <ConsultationDialog triggerClassName="mt-8 h-14 w-full rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90 sm:w-auto">
+                See How Your Expansion Can Be Structured
+              </ConsultationDialog>
             </div>
 
             <div className="relative min-h-[22rem] lg:col-span-5">
@@ -719,13 +696,12 @@ export default function TradeGrowthPage() {
               <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
                 Where our expansion work concentrates
               </h2>
-              <Button
-                asChild
+              <ConsultationDialog
                 variant="outline"
-                className="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground sm:w-auto"
+                triggerClassName="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground sm:w-auto"
               >
-                <Link href="/consult">Discuss Sector Specific Expansion</Link>
-              </Button>
+                Discuss Sector Specific Expansion
+              </ConsultationDialog>
             </div>
 
             <div className="lg:col-span-8">
@@ -787,12 +763,9 @@ export default function TradeGrowthPage() {
             ))}
           </div>
 
-          <Button
-            asChild
-            className="mt-14 h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90"
-          >
-            <Link href="/consult">Plan Cross Border Expansion</Link>
-          </Button>
+          <ConsultationDialog triggerClassName="mt-14 h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90">
+            Plan Cross Border Expansion
+          </ConsultationDialog>
         </div>
       </section>
 
@@ -840,19 +813,15 @@ export default function TradeGrowthPage() {
               structure and clarity.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button
-                asChild
-                className="h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90"
-              >
-                <Link href="/consult">Discuss Market Entry Strategy</Link>
-              </Button>
-              <Button
-                asChild
+              <ConsultationDialog triggerClassName="h-14 rounded-none bg-foreground px-8 text-base font-light text-background hover:bg-foreground/90">
+                Discuss Market Entry Strategy
+              </ConsultationDialog>
+              <ConsultationDialog
                 variant="outline"
-                className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white/10 hover:text-white"
+                triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white/10 hover:text-white"
               >
-                <Link href="/consult">Plan Cross Border Expansion</Link>
-              </Button>
+                Plan Cross Border Expansion
+              </ConsultationDialog>
             </div>
           </div>
 

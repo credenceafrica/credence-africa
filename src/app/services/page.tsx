@@ -1,5 +1,5 @@
 import { getServices, Service } from "@/lib/services";
-import { Button } from "@/components/ui/button";
+import { ConsultationDialog } from "@/components/consultation-dialog";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
@@ -224,13 +224,12 @@ export default async function ServicesPage() {
           <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/85">
             Tell us the objective. We will map the fastest credible path to execution.
           </p>
-          <Button
-            asChild
+          <ConsultationDialog
             size="lg"
-            className="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+            triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
           >
-            <Link href="/consult">Book a Consultation</Link>
-          </Button>
+            Book a Consultation
+          </ConsultationDialog>
         </div>
       </section>
     </div>
