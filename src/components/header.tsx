@@ -26,6 +26,7 @@ import { cn } from "@/lib/utils";
 import React, { useState, useEffect } from "react";
 import type { Insight } from "@/lib/insights";
 import type { Service } from "@/lib/services";
+import { audiences } from "@/lib/audiences";
 
 const sectors = [
     { name: "Agribusiness", href: "/sectors/agribusiness" },
@@ -182,8 +183,41 @@ export function Header({ insights, services }: { insights: Insight[], services: 
               </NavigationMenuItem>
 
               <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className="text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent h-auto py-2 px-4 text-foreground hover:text-primary data-[state=open]:text-primary"
+                >
+                  Who We Work With
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[400px] p-5 md:w-[660px]">
+                    <ul className="columns-2 gap-x-8">
+                      {audiences.map((audience) => (
+                        <li key={audience.slug} className="mb-1 break-inside-avoid">
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={`/who-we-work-with/${audience.slug}`}
+                              className="block select-none rounded-md px-3 py-3 text-sm font-medium leading-snug no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                            >
+                              {audience.name}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-4 border-t pt-3">
+                      <NavigationMenuLink asChild>
+                        <Link href="/who-we-work-with" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
+                          See Everyone We Work With <ChevronRight className="size-4" />
+                        </Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link 
+                  <Link
                     href="https://engage.credence.africa"
                     target="_blank"
                     className="text-sm font-medium transition-all relative py-2 px-4 group text-foreground hover:text-primary"
@@ -277,12 +311,37 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                             {sector.name}
                           </Link>
                         ))}
-                        <Link 
-                          href="/sectors" 
+                        <Link
+                          href="/sectors"
                           className="text-sm font-bold text-primary py-3"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           All Sectors
+                        </Link>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="audiences" className="border-b">
+                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Who We Work With</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="grid grid-cols-1 gap-2 pl-4 pt-2">
+                        {audiences.map((audience) => (
+                          <Link
+                            key={audience.slug}
+                            href={`/who-we-work-with/${audience.slug}`}
+                            className="text-sm py-3 text-muted-foreground hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {audience.name}
+                          </Link>
+                        ))}
+                        <Link
+                          href="/who-we-work-with"
+                          className="text-sm font-bold text-primary py-3"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          See Everyone We Work With
                         </Link>
                       </div>
                     </AccordionContent>

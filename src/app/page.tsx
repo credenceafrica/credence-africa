@@ -4,6 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { ConsultationDialog } from "@/components/consultation-dialog";
 import { getServices, Service } from "@/lib/services";
+import { audiences } from "@/lib/audiences";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,25 +37,6 @@ const valueDimensions = [
         title: "Relationships and Continuity",
         description: "We sustain access, community and long term ecosystem position through networks, recurring engagement and connected institutional relationships."
     }
-];
-
-const whoWeWorkWith = [
-  "Collective Investment Structures",
-  "Cooperatives",
-  "Cross Border Investors",
-  "Development Partners",
-  "Donor Programs",
-  "Enterprises",
-  "Financial Institutions",
-  "Fintech Platforms",
-  "Funds",
-  "Governments",
-  "Growth Stage Businesses",
-  "Nonprofits",
-  "Regional Platforms",
-  "Regulatory Agencies",
-  "Social Enterprises",
-  "Trade Bodies",
 ];
 
 export default function Home() {
@@ -177,13 +159,30 @@ export default function Home() {
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-foreground/75">
                 We work with the institutions and organizations shaping Africa’s economic and social development.
               </p>
+              <Link
+                href="/who-we-work-with"
+                className="mt-6 inline-flex items-center gap-1.5 text-xs font-light uppercase tracking-widest text-primary transition-colors hover:text-primary/70 md:text-sm"
+              >
+                See how we work with each <ArrowRight className="size-4" />
+              </Link>
             </div>
             <div className="lg:col-span-8">
-              <ul className="columns-1 gap-x-10 sm:columns-2 lg:columns-3">
-                {whoWeWorkWith.map((client) => (
-                  <li key={client} className="flex break-inside-avoid items-center gap-3 border-b border-foreground/12 py-3.5">
-                    <span className="h-1.5 w-1.5 shrink-0 bg-primary" aria-hidden="true" />
-                    <span className="text-base font-light text-foreground">{client}</span>
+              <ul className="columns-1 gap-x-10 sm:columns-2">
+                {audiences.map((audience) => (
+                  <li key={audience.slug} className="break-inside-avoid border-b border-foreground/12">
+                    <Link
+                      href={`/who-we-work-with/${audience.slug}`}
+                      className="group flex items-center gap-3 py-3.5"
+                    >
+                      <span className="h-1.5 w-1.5 shrink-0 bg-primary" aria-hidden="true" />
+                      <span className="break-words text-base font-light text-foreground transition-colors group-hover:text-primary">
+                        {audience.name}
+                      </span>
+                      <ArrowUpRight
+                        className="ml-auto size-4 shrink-0 text-primary opacity-0 transition-opacity group-hover:opacity-100"
+                        aria-hidden="true"
+                      />
+                    </Link>
                   </li>
                 ))}
               </ul>
