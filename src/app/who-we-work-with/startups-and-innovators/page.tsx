@@ -125,7 +125,7 @@ export default function StartupsAndInnovatorsPage() {
       </section>
 
       {/* The argument: deep-red slab, white type, five full-bleed ledger rows. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-2xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Why Startups Work With Credence Africa
@@ -194,7 +194,7 @@ export default function StartupsAndInnovatorsPage() {
       </section>
 
       {/* The close: deep-red. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
             <div className="lg:col-span-7">
@@ -211,7 +211,7 @@ export default function StartupsAndInnovatorsPage() {
             <div className="lg:col-span-5 lg:flex lg:justify-end">
               <ConsultationDialog
                 size="lg"
-                triggerClassName="h-14 w-full rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 sm:w-auto"
+                triggerClassName="h-14 w-full rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90 sm:w-auto"
               >
                 Book a Consultation
                 <ArrowRight className="ml-2 size-5" aria-hidden="true" />

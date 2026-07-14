@@ -33,9 +33,7 @@ const GROUPS: { label: string; blurb: string; ids: string[]; theme: ThemeKey }[]
   },
 ];
 
-// Each band commits to one ground colour; text colours clear WCAG AA for body.
-// The Advisory band uses a deepened brand red (#aa3018) so white text passes AA
-// (white ~6.7:1, white/85 ~4.8:1); white on bright vermillion fails for small text.
+// Each band commits to one ground colour. Red bands are the brand primary with white text.
 const THEME: Record<
   ThemeKey,
   {
@@ -55,7 +53,7 @@ const THEME: Record<
   }
 > = {
   vermillion: {
-    section: "bg-[#aa3018]",
+    section: "bg-primary",
     title: "text-white",
     blurb: "text-white/85",
     frame: "border-white/25",
@@ -67,7 +65,7 @@ const THEME: Record<
     arrow: "text-white",
     underline: "bg-white",
     hover: "hover:bg-white/[0.06]",
-    ring: "focus-visible:ring-white focus-visible:ring-offset-[#aa3018]",
+    ring: "focus-visible:ring-white focus-visible:ring-offset-primary",
   },
   navy: {
     section: "bg-foreground",
@@ -216,7 +214,7 @@ export default async function ServicesPage() {
       })}
 
       {/* Closing CTA: second deep-red drench, bookending the navy header */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Not sure which platform fits your mandate?
@@ -226,7 +224,7 @@ export default async function ServicesPage() {
           </p>
           <ConsultationDialog
             size="lg"
-            triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+            triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
           >
             Book a Consultation
           </ConsultationDialog>

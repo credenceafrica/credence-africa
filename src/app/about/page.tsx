@@ -102,7 +102,7 @@ export default function AboutPage() {
       </section>
 
       {/* The Credence Africa Model: deep-red band, ledger rows */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -171,7 +171,7 @@ export default function AboutPage() {
       </section>
 
       {/* Closing CTA: deep-red band, white text */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Build with a partner that executes.
@@ -180,11 +180,11 @@ export default function AboutPage() {
             Get the full picture of our services, impact and approach. Or start the conversation.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <ProfileDownloadDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90" />
+            <ProfileDownloadDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90" />
             <ConsultationDialog
               size="lg"
               variant="outline"
-              triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
+              triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-primary"
             >
               Book a Consultation
               <ArrowRight className="ml-2 size-5" aria-hidden="true" />

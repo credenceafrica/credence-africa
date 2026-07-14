@@ -199,7 +199,7 @@ export default function IndustryAssociationsPage() {
 
       {/* 3. Why: deep red. Full-width heading, then five reasons as one calm column of
           divided rows held to the left three quarters of the band. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Why Associations Work With Credence Africa
@@ -289,7 +289,7 @@ export default function IndustryAssociationsPage() {
       </section>
 
       {/* 6. Start the Conversation: deep red ground, white type and a white button. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -303,7 +303,7 @@ export default function IndustryAssociationsPage() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <ConsultationDialog
                 size="lg"
-                triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+                triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
               >
                 Book a Consultation
                 <ArrowRight className="ml-2 size-5" aria-hidden="true" />
@@ -312,7 +312,7 @@ export default function IndustryAssociationsPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
+                className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-primary"
               >
                 <Link href="/who-we-work-with">Who We Work With</Link>
               </Button>

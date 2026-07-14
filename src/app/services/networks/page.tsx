@@ -269,7 +269,7 @@ export default function NetworksPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-[#aa3018] py-16 md:py-24 text-center">
+      <section className="bg-primary py-16 md:py-24 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-normal mb-8 max-w-4xl mx-auto text-white">
             Join Africa’s Leading Professional Networks and Business Communities
@@ -283,10 +283,10 @@ export default function NetworksPage() {
             </a>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-            <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-[#aa3018] hover:bg-white/90">
+            <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-primary hover:bg-white/90">
               <Link href="/consult">Apply for Membership</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] rounded-none px-10 h-14 text-base font-bold">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary rounded-none px-10 h-14 text-base font-bold">
               <Link href="/consult">Explore All Communities</Link>
             </Button>
           </div>

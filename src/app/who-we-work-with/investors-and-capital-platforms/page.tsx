@@ -139,7 +139,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
       </section>
 
       {/* 2. Overview: deep red. The thesis line carries the heading; the argument runs beneath it. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-4xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Deploying capital in African markets rewards those with better intelligence, better access
@@ -219,7 +219,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
       </section>
 
       {/* 5. How We Support, part two: deep red with white text. The two standing capabilities. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Intelligence, Convenings and Networks
@@ -265,7 +265,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
       </section>
 
       {/* 7. Start the Conversation: deep red. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -279,7 +279,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
             <div className="mt-10">
               <ConsultationDialog
                 size="lg"
-                triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+                triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
               >
                 Book a Consultation
                 <ArrowRight className="ml-2 size-5" aria-hidden="true" />

@@ -179,9 +179,6 @@ const faqs = [
   },
 ];
 
-// Deepened brand red for white-text bands (white ~6.7:1, white/85 ~4.8:1).
-const DEEP_RED = "#aa3018";
-
 export default function PublicAffairsPage() {
   return (
     <div className="flex flex-col overflow-x-hidden">
@@ -289,7 +286,7 @@ export default function PublicAffairsPage() {
 
             {/* Pull-quote as a deep-red plate (white passes AA) */}
             <div className="lg:col-span-5">
-              <figure className="flex h-full flex-col justify-between bg-[#aa3018] p-8 md:p-10">
+              <figure className="flex h-full flex-col justify-between bg-primary p-8 md:p-10">
                 <blockquote className="text-balance font-normal leading-snug text-white [font-size:clamp(1.4rem,2.2vw,1.85rem)]">
                   “Licensing determines speed to market. Reform can alter sector economics. We help
                   institutions move with stronger foresight and better positioning.”
@@ -398,7 +395,7 @@ export default function PublicAffairsPage() {
       </section>
 
       {/* ───────────── Who we advise: deep-red drench (white passes AA) ───────────── */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-4xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -412,7 +409,7 @@ export default function PublicAffairsPage() {
 
           <div className="mt-12 grid gap-px border border-white/25 bg-white/25 sm:grid-cols-2 lg:grid-cols-3">
             {whoWeAdvise.map((item) => (
-              <div key={item} className="bg-[#aa3018] p-6 md:p-8">
+              <div key={item} className="bg-primary p-6 md:p-8">
                 <p className="text-sm font-light leading-relaxed text-white/85 md:text-base">
                   {item}
                 </p>
@@ -676,7 +673,7 @@ export default function PublicAffairsPage() {
       </section>
 
       {/* ───────────── Final conversion: deep red drench (white passes AA) ───────────── */}
-      <section style={{ backgroundColor: DEEP_RED }} className="text-white">
+      <section className="bg-primary text-white">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
@@ -692,7 +689,7 @@ export default function PublicAffairsPage() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <ConsultationDialog
                   size="lg"
-                  triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+                  triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
                 >
                   Book a Public Affairs Consultation
                 </ConsultationDialog>

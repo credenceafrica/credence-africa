@@ -196,7 +196,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Thesis: why both instruments belong to one service. Deep-red drench, white text. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -268,7 +268,7 @@ export default function ResearchPage() {
       </section>
 
       {/* What we run: two instruments as grouped ledger rows on a vermillion drench. */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -428,7 +428,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Closing CTA: deep-red drench, white text plus white button (AA-safe close). */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-7">
@@ -445,13 +445,13 @@ export default function ResearchPage() {
               <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                 <ConsultationDialog
                   size="lg"
-                  triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+                  triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
                 >
                   Commission a Study
                 </ConsultationDialog>
                 <a
                   href="mailto:connect@credence.africa"
-                  className="group inline-flex h-14 items-center justify-center gap-2 border-2 border-white bg-transparent px-8 text-base font-light text-white transition-colors hover:bg-white hover:text-[#aa3018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#aa3018]"
+                  className="group inline-flex h-14 items-center justify-center gap-2 border-2 border-white bg-transparent px-8 text-base font-light text-white transition-colors hover:bg-white hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 >
                   connect@credence.africa
                   <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

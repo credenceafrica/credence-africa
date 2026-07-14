@@ -209,7 +209,7 @@ export default function EventDetailPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 md:py-20">
           <div className="max-w-4xl space-y-6 text-white">
             {event.eventType && (
-              <span className="inline-block bg-[#aa3018] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-md">
+              <span className="inline-block bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-md">
                 {event.eventType}
               </span>
             )}
@@ -353,7 +353,7 @@ export default function EventDetailPage() {
 
             <aside className="lg:col-span-1">
               <Card className="rounded-lg overflow-hidden shadow-md border lg:sticky lg:top-24">
-                <div className={`p-6 text-center ${registrationOpen ? "bg-[#aa3018]" : "bg-muted-foreground"}`}>
+                <div className={`p-6 text-center ${registrationOpen ? "bg-primary" : "bg-muted-foreground"}`}>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/80 mb-1">
                     Event Access
                   </p>

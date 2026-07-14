@@ -73,7 +73,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
       <header className="w-full border-b bg-white h-24">
         <div className="container mx-auto flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <Logo className="h-6 w-auto sm:h-8 lg:h-10" />
+            <Logo className="h-5 w-auto sm:h-6 lg:h-8" />
           </div>
         </div>
       </header>
@@ -84,7 +84,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
     <header className="w-full bg-white border-b shadow-sm h-24 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Logo className="h-6 w-auto sm:h-8 lg:h-10" />
+          <Logo className="h-5 w-auto sm:h-6 lg:h-8" />
         </Link>
         
         <div className="hidden lg:flex flex-grow items-center justify-center">

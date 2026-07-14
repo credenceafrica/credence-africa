@@ -80,7 +80,7 @@ export default function WhoWeWorkWithPage() {
       </section>
 
       {/* CTA: deep-red drench */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Tell us the mandate.
@@ -90,7 +90,7 @@ export default function WhoWeWorkWithPage() {
             institution you lead.
           </p>
           <div className="mt-10 flex justify-center">
-            <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+            <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90">
               Book a Consultation
             </ConsultationDialog>
           </div>
