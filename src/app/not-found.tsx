@@ -45,7 +45,7 @@ export default function NotFound() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 rounded-none border-primary bg-white px-8 text-base font-light text-[#aa3018] hover:bg-primary/5"
+                className="h-14 rounded-none border-primary bg-white px-8 text-base font-light text-primary hover:bg-primary/5"
               >
                 <Link href="/services">View our platforms</Link>
               </Button>

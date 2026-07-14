@@ -372,7 +372,7 @@ export default function TradeGrowthPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 Executive Positioning
               </p>
               <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -380,7 +380,7 @@ export default function TradeGrowthPage() {
               </h2>
               <ConsultationDialog
                 variant="outline"
-                triggerClassName="mt-8 h-14 rounded-none border-2 border-primary bg-background px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground"
+                triggerClassName="mt-8 h-14 rounded-none border-2 border-primary bg-background px-8 text-base font-light text-primary hover:bg-primary hover:text-foreground"
               >
                 Speak to the Team
               </ConsultationDialog>
@@ -458,7 +458,7 @@ export default function TradeGrowthPage() {
       <section className="bg-[#F2F2F2]">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
               From ambition to execution
             </p>
             <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -495,10 +495,9 @@ export default function TradeGrowthPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* CORE ADVISORY SERVICES: deep-red drench, expandable rows     */}
-      {/* white text on #aa3018 (~6.7:1) passes AA                     */}
+      {/* CORE ADVISORY SERVICES: red drench, expandable rows          */}
       {/* ============================================================ */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/85">
@@ -561,7 +560,7 @@ export default function TradeGrowthPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
               Product pathways
             </p>
             <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -619,7 +618,7 @@ export default function TradeGrowthPage() {
                   <p className="mt-3 flex-1 text-sm font-light leading-relaxed text-foreground/75">
                     {bestFor}
                   </p>
-                  <ConsultationDialog asChild triggerClassName="group mt-5 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.12em] text-[#aa3018] transition-colors hover:text-[#aa3018]/70">
+                  <ConsultationDialog asChild triggerClassName="group mt-5 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.12em] text-primary transition-colors hover:text-primary/70">
                     {cta}
                     <ArrowRight className="size-4 tg-arrow" aria-hidden="true" />
                   </ConsultationDialog>
@@ -690,7 +689,7 @@ export default function TradeGrowthPage() {
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#aa3018]">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
                 Priority sectors
               </p>
               <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
@@ -698,7 +697,7 @@ export default function TradeGrowthPage() {
               </h2>
               <ConsultationDialog
                 variant="outline"
-                triggerClassName="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-[#aa3018] hover:bg-primary hover:text-foreground sm:w-auto"
+                triggerClassName="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-foreground sm:w-auto"
               >
                 Discuss Sector Specific Expansion
               </ConsultationDialog>
@@ -799,7 +798,7 @@ export default function TradeGrowthPage() {
       {/* ============================================================ */}
       {/* FINAL CONVERSION: deep-red drench (white passes AA on it)    */}
       {/* ============================================================ */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-4xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">

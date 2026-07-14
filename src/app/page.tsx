@@ -262,7 +262,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA: full-bleed deep-red drench */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8">
             <p className="mx-auto max-w-3xl text-pretty text-lg font-light leading-relaxed text-white sm:text-xl md:text-2xl">
               Credence Africa delivers capital raising, market entry, public affairs, executive education, strategic convenings, events, intelligence and networks across Africa’s growth markets.
@@ -271,10 +271,10 @@ export default function Home() {
               Tell us the mandate. We will map the fastest credible path to execution.
             </p>
             <div className="mt-10 md:mt-12 flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-               <ConsultationDialog size="lg" variant="secondary" triggerClassName="rounded-none px-8 h-14 text-base font-light bg-white text-[#aa3018] hover:bg-white/90 border-none">
+               <ConsultationDialog size="lg" variant="secondary" triggerClassName="rounded-none px-8 h-14 text-base font-light bg-white text-primary hover:bg-white/90 border-none">
                 Book A Strategy Call
               </ConsultationDialog>
-               <ConsultationDialog size="lg" variant="outline" triggerClassName="border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] rounded-none px-8 h-14 text-base font-light">
+               <ConsultationDialog size="lg" variant="outline" triggerClassName="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary rounded-none px-8 h-14 text-base font-light">
                 Send An Inquiry
               </ConsultationDialog>
             </div>

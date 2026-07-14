@@ -43,7 +43,7 @@ const GROUND: Record<
     marker: "bg-primary",
   },
   red: {
-    section: "bg-[#aa3018]",
+    section: "bg-primary",
     label: "text-white",
     blurb: "text-white/85",
     frame: "border-white/25",
@@ -177,7 +177,7 @@ export function SectorDetail({ sector }: { sector: Sector }) {
       />
 
       {/* CTA: deep-red + white */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
           <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Building institutions in {sector.name}?
@@ -188,7 +188,7 @@ export function SectorDetail({ sector }: { sector: Sector }) {
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <ConsultationDialog
               size="lg"
-              triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90"
+              triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
             >
               Book a Consultation
               <ArrowRight className="ml-2 size-5" aria-hidden="true" />
@@ -197,7 +197,7 @@ export function SectorDetail({ sector }: { sector: Sector }) {
               asChild
               size="lg"
               variant="outline"
-              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
+              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-primary"
             >
               <Link href="/sectors">All Sectors</Link>
             </Button>

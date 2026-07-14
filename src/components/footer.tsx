@@ -21,7 +21,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Logo className="h-auto w-full max-w-[220px]"/>
+              <Logo className="h-auto w-full max-w-[180px]"/>
             </Link>
           </div>
 

@@ -261,7 +261,7 @@ export default function CapitalRaisingPage() {
       </section>
 
       {/* WHO THIS IS FOR: vermillion drench (deep red so white passes AA), ledger rows */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -272,7 +272,7 @@ export default function CapitalRaisingPage() {
                 For businesses, projects, funds and institutions that need to raise, structure or
                 manage capital across Africa.
               </p>
-              <ConsultationDialog triggerClassName="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+              <ConsultationDialog triggerClassName="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90">
                 Discuss Your Capital Objective
                 <ArrowRight className="ml-1 size-4" aria-hidden="true" />
               </ConsultationDialog>
@@ -444,7 +444,7 @@ export default function CapitalRaisingPage() {
       </section>
 
       {/* STRATEGIC APPROACH: deep-red drench, white text passes AA */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -456,7 +456,7 @@ export default function CapitalRaisingPage() {
                 direction. We bring structure to readiness, documentation and transaction
                 preparation.
               </p>
-              <ConsultationDialog triggerClassName="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center">
+              <ConsultationDialog triggerClassName="mt-8 h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90 whitespace-normal text-center">
                 See How Your Mandate Can Be Structured
               </ConsultationDialog>
             </div>
@@ -563,7 +563,7 @@ export default function CapitalRaisingPage() {
       </section>
 
       {/* FINAL CONVERSION: deep-red drench close, white text passes AA */}
-      <section className="bg-[#aa3018]">
+      <section className="bg-primary">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
@@ -576,12 +576,12 @@ export default function CapitalRaisingPage() {
                 to move that agenda forward with clarity.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90 whitespace-normal text-center">
+                <ConsultationDialog triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90 whitespace-normal text-center">
                   Book a Capital Strategy Consultation
                 </ConsultationDialog>
                 <ConsultationDialog
                   variant="outline"
-                  triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]"
+                  triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-primary"
                 >
                   Discuss a Capital Raising Mandate
                 </ConsultationDialog>

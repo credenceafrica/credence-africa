@@ -372,7 +372,7 @@ export default function EngagePage() {
       </section>
 
       {/* Final Conversion Section */}
-      <section className="bg-[#aa3018] py-24">
+      <section className="bg-primary py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8 text-white">
             Activate Your Market with CREDENCE ENGAGE™
@@ -381,10 +381,10 @@ export default function EngagePage() {
             If your organization is planning a product launch, trade expo, brand activation, deal room, marketplace platform or customer acquisition event in Kenya, we provide the strategy, audience design and execution required to deliver measurable commercial outcomes.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-            <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-[#aa3018] hover:bg-white/90 h-14 px-10">
+            <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">
               <Link href="/consult">Plan Your Activation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#aa3018] h-14 px-10">
+            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary h-14 px-10">
               <Link href="/consult">Discuss Your Campaign</Link>
             </Button>
           </div>

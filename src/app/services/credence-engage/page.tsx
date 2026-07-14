@@ -169,7 +169,7 @@ export default function EventsPage() {
       {/* ============================================================ */}
       {/*  HERO: deep-red drench, white text (passes AA at ~6.7:1)     */}
       {/* ============================================================ */}
-      <section className="relative isolate bg-[#aa3018] text-white">
+      <section className="relative isolate bg-primary text-white">
         <div className="absolute inset-0 z-0 opacity-[0.16] mix-blend-multiply">
           <Image src="/events.png" alt="" fill className="object-cover" priority />
         </div>
@@ -185,10 +185,10 @@ export default function EventsPage() {
               One convening engine for capital, policy, markets and strategic partnerships: engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+              <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90">
                 Partner with Us <ArrowUpRight className="ml-2 size-5" />
               </ConsultationDialog>
-              <Button asChild size="lg" variant="outline" className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-[#aa3018]">
+              <Button asChild size="lg" variant="outline" className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-primary">
                 <Link href="#portfolio" className="justify-center">View the Portfolio</Link>
               </Button>
             </div>
@@ -556,7 +556,7 @@ export default function EventsPage() {
       {/* ============================================================ */}
       {/*  SPONSORSHIP: deep-red band (white passes AA at ~6.7:1)     */}
       {/* ============================================================ */}
-      <section className="bg-[#aa3018] text-white">
+      <section className="bg-primary text-white">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-white">
@@ -568,7 +568,7 @@ export default function EventsPage() {
           </div>
           <div className="mt-12 grid gap-px border border-white/25 bg-white/25 lg:grid-cols-3">
             {sponsorshipTiers.map((tier) => (
-              <div key={tier.tier} className="flex flex-col bg-[#aa3018] p-8">
+              <div key={tier.tier} className="flex flex-col bg-primary p-8">
                 <h3 className="text-2xl font-normal text-white">{tier.tier}</h3>
                 <p className="mt-2 text-sm font-bold uppercase tracking-[0.1em] text-white">{tier.subtitle}</p>
                 <p className="mt-3 text-sm font-light leading-relaxed text-white/85">{tier.focus}</p>
@@ -591,7 +591,7 @@ export default function EventsPage() {
       {/* ============================================================ */}
       {/*  FINAL CTA: deep-red drench, white text, the engine close   */}
       {/* ============================================================ */}
-      <section className="bg-[#aa3018] text-white">
+      <section className="bg-primary text-white">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-white">
@@ -604,7 +604,7 @@ export default function EventsPage() {
 
           <ul className="mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-px border border-white/25 bg-white/25 md:grid-cols-5">
             {["Sponsor", "Partner", "Exhibit", "Speak", "Participate"].map((action) => (
-              <li key={action} className="bg-[#aa3018] p-5 text-center text-xs font-bold uppercase tracking-[0.15em] text-white">
+              <li key={action} className="bg-primary p-5 text-center text-xs font-bold uppercase tracking-[0.15em] text-white">
                 {action}
               </li>
             ))}
@@ -623,7 +623,7 @@ export default function EventsPage() {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-[#aa3018] hover:bg-white/90">
+            <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90">
               Discuss Your Objectives
             </ConsultationDialog>
           </div>
