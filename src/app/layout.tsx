@@ -14,7 +14,7 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Credence Africa | Capital Raising, Trade & Growth, Public Affairs, Executive Education, Events, Intelligence & Networks",
+    default: "Credence Africa | Capital, Trade, Policy, Markets",
     template: `%s | Credence Africa`,
   },
   description: "Credence Africa is a pan African institution building enterprise helping institutions raise capital, enter markets, navigate public affairs, build capability, convene stakeholders, access intelligence and strengthen strategic networks across Africa’s growth markets.",

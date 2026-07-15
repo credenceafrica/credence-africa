@@ -23,7 +23,7 @@ import { Menu, Phone, ChevronRight } from "lucide-react";
 import { Logo } from "./logo";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import type { Insight } from "@/lib/insights";
 import type { Service } from "@/lib/services";
 import { audiences } from "@/lib/audiences";
@@ -50,11 +50,6 @@ const serviceRightColumnIds = ["perspectives", "events", "institute"];
 export function Header({ insights, services }: { insights: Insight[], services: Service[] }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const isAdminPage = pathname.startsWith('/admin');
 
@@ -68,26 +63,14 @@ export function Header({ insights, services }: { insights: Insight[], services: 
     return null;
   }
 
-  if (!mounted) {
-    return (
-      <header className="w-full border-b bg-white h-24">
-        <div className="container mx-auto flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Logo className="h-5 w-auto sm:h-6 lg:h-8" />
-          </div>
-        </div>
-      </header>
-    );
-  }
-
   return (
-    <header className="w-full bg-white border-b shadow-sm h-24 z-50">
+    <header className="w-full bg-white border-b shadow-sm h-16 sm:h-20 xl:h-24 z-50 pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Logo className="h-5 w-auto sm:h-6 lg:h-8" />
+          <Logo className="h-5 w-auto sm:h-6 xl:h-8" />
         </Link>
-        
-        <div className="hidden lg:flex flex-grow items-center justify-center">
+
+        <div className="hidden xl:flex flex-grow items-center justify-center">
           <NavigationMenu>
             <NavigationMenuList className="gap-2">
               <NavigationMenuItem>
@@ -244,28 +227,28 @@ export function Header({ insights, services }: { insights: Insight[], services: 
           </NavigationMenu>
         </div>
 
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden xl:flex items-center gap-2">
           <ConsultationDialog triggerClassName="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-6 shadow-md">
             Book a Consultation <Phone className="size-4" />
           </ConsultationDialog>
         </div>
 
-        <div className="lg:hidden">
+        <div className="xl:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="bg-transparent border-none">
-                <Menu className="h-6 w-6" />
+              <Button variant="outline" size="icon" className="size-11 bg-transparent border-none">
+                <Menu className="size-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] overflow-y-auto">
+            <SheetContent side="right" className="w-[300px] overflow-y-auto pr-[max(1.5rem,env(safe-area-inset-right))]">
               <SheetHeader>
                 <SheetTitle className="text-left">Menu</SheetTitle>
               </SheetHeader>
               <div className="mt-8 flex flex-col gap-2">
                 <Link 
                   href="/about" 
-                  className="text-lg font-medium py-2 border-b"
+                  className="text-lg font-medium py-3 border-b"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Who We Are
@@ -351,7 +334,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                 <Link 
                   href="https://engage.credence.africa" 
                   target="_blank"
-                  className="text-lg font-medium py-2 border-b"
+                  className="text-lg font-medium py-3 border-b"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Events
@@ -359,7 +342,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                 <Link 
                   href="https://perspectives.credence.africa" 
                   target="_blank"
-                  className="text-lg font-medium py-2 border-b"
+                  className="text-lg font-medium py-3 border-b"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Insights
