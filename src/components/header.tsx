@@ -59,6 +59,20 @@ export function Header({ insights, services }: { insights: Insight[], services: 
   const rightServices = pickServices(serviceRightColumnIds);
   const mobileServices = [...leftServices, ...rightServices];
 
+  const isNavActive = (href: string) =>
+    !href.startsWith("http") && (pathname === href || pathname.startsWith(href + "/"));
+
+  // One shared class set for every top-level nav item (plain links AND dropdown triggers) so
+  // they share an exact height, baseline and hover/active treatment. The underline is a
+  // scale-x transform (no layout shift, no stray slivers) shown on hover, on an open dropdown,
+  // or when the section is active.
+  const navItemClass = (active = false) =>
+    cn(
+      "group relative inline-flex h-10 items-center px-3 text-sm font-medium text-foreground/85 transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent hover:text-primary data-[state=open]:text-primary",
+      "after:pointer-events-none after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 motion-reduce:after:transition-none hover:after:scale-x-100 data-[state=open]:after:scale-x-100",
+      active && "text-primary after:scale-x-100"
+    );
+
   if (isAdminPage) {
     return null;
   }
@@ -67,31 +81,25 @@ export function Header({ insights, services }: { insights: Insight[], services: 
     <header className="w-full bg-white border-b shadow-sm h-16 sm:h-20 xl:h-24 z-50 pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Logo className="h-5 w-auto sm:h-6 xl:h-8" />
+          <Logo className="h-5 w-auto sm:h-6 xl:h-7" />
         </Link>
 
         <div className="hidden xl:flex flex-grow items-center justify-center">
           <NavigationMenu>
-            <NavigationMenuList className="gap-2">
+            <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link 
+                  <Link
                     href="/about"
-                    className={cn(
-                      "text-sm font-medium transition-all relative py-2 px-4 group text-foreground hover:text-primary",
-                      pathname === '/about' && "after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
-                    )}
+                    className={navItemClass(isNavActive('/about'))}
                   >
                     Who We Are
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  className="text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent h-auto py-2 px-4 text-foreground hover:text-primary data-[state=open]:text-primary"
-                >
+                <NavigationMenuTrigger className={navItemClass(isNavActive('/services'))}>
                   Our Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -133,9 +141,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  className="text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent h-auto py-2 px-4 text-foreground hover:text-primary data-[state=open]:text-primary"
-                >
+                <NavigationMenuTrigger className={navItemClass(isNavActive('/sectors'))}>
                   Sectors
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -166,9 +172,7 @@ export function Header({ insights, services }: { insights: Insight[], services: 
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className="text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent h-auto py-2 px-4 text-foreground hover:text-primary data-[state=open]:text-primary"
-                >
+                <NavigationMenuTrigger className={navItemClass(isNavActive('/who-we-work-with'))}>
                   Who We Work With
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -203,23 +207,21 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                   <Link
                     href="https://engage.credence.africa"
                     target="_blank"
-                    className="text-sm font-medium transition-all relative py-2 px-4 group text-foreground hover:text-primary"
+                    className={navItemClass()}
                   >
                     Events
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link 
+                  <Link
                     href="https://perspectives.credence.africa"
                     target="_blank"
-                    className="text-sm font-medium transition-all relative py-2 px-4 group text-foreground hover:text-primary"
+                    className={navItemClass()}
                   >
                     Insights
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
