@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import { FloatingActions } from './floating-actions';
 
 export function LayoutWrapper({ 
     children, 
@@ -26,6 +27,7 @@ export function LayoutWrapper({
         {children}
       </main>
       {footer}
+      <FloatingActions />
     </div>
   );
 }
