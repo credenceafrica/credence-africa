@@ -61,8 +61,13 @@ export function Footer() {
              </div>
           </div>
         </div>
-        <div className="border-t border-border mt-8 pt-6 text-center text-sm text-muted-foreground">
+        <div className="border-t border-border mt-8 pt-6 flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} Credence Africa. All rights reserved.</p>
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-6 gap-y-2">
+            <Link href="/privacy-policy" className="hover:text-primary hover:underline">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-primary hover:underline">Terms and Conditions</Link>
+            <Link href="/refund-policy" className="hover:text-primary hover:underline">Refund Policy</Link>
+          </nav>
         </div>
       </div>
     </footer>
