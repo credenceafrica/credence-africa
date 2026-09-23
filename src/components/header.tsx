@@ -28,18 +28,12 @@ import type { Insight } from "@/lib/insights";
 import type { Service } from "@/lib/services";
 import { audiences } from "@/lib/audiences";
 
-const sectors = [
-    { name: "Agribusiness", href: "/sectors/agribusiness" },
-    { name: "Blue Economy", href: "/sectors/blue-economy" },
-    { name: "Creative Economy", href: "/sectors/creative-economy" },
-    { name: "Financial Services", href: "/sectors/financial-services" },
-    { name: "Green Economy", href: "/sectors/green-economy" },
-    { name: "Healthcare & Wellness", href: "/sectors/healthcare-wellness" },
-    { name: "Mobility, Transport & Logistics", href: "/sectors/mobility-transport-logistics" },
-    { name: "Skills & Workforce Development", href: "/sectors/skills-workforce-development" },
-    { name: "Technology, AI & Digital Economy", href: "/sectors/technology-ai-digital-economy" },
-    { name: "Trade, Infrastructure & Industrial Development", href: "/sectors/trade-infrastructure-industrial-development" },
-];
+import { sectorList } from "@/lib/sectors-content";
+import { themeList } from "@/lib/themes-content";
+
+// Derived from the content files so the menu can never drift from the routes.
+const sectors = sectorList.map((s) => ({ name: s.name, href: `/sectors/${s.slug}` }));
+const themes = themeList.map((t) => ({ name: t.name, href: `/themes/${t.slug}` }));
 
 // Header services dropdown, explicit columns.
 // Left column: Capital Raising, Public Affairs, Trade & Growth, Research.
@@ -164,6 +158,37 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                       <NavigationMenuLink asChild>
                         <Link href="/sectors" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
                           All Sectors <ChevronRight className="size-4" />
+                        </Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={navItemClass(isNavActive('/themes'))}>
+                  Themes
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                   <div className="w-[400px] p-4 md:w-[600px]">
+                    <ul className="columns-2 gap-x-6 md:columns-3">
+                      {themes.map((theme) => (
+                        <li key={theme.href} className="break-inside-avoid">
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={theme.href}
+                              className="block select-none rounded-md p-2 text-xs font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                            >
+                              {theme.name}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-2 border-t pt-2">
+                      <NavigationMenuLink asChild>
+                        <Link href="/themes" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
+                          All Themes <ChevronRight className="size-4" />
                         </Link>
                       </NavigationMenuLink>
                     </div>
@@ -302,6 +327,31 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           All Sectors
+                        </Link>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="themes" className="border-b">
+                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Themes</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="grid grid-cols-1 gap-2 pl-4 pt-2">
+                        {themes.map((theme) => (
+                          <Link
+                            key={theme.href}
+                            href={theme.href}
+                            className="text-sm py-3 text-muted-foreground hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {theme.name}
+                          </Link>
+                        ))}
+                        <Link
+                          href="/themes"
+                          className="text-sm font-bold text-primary py-3"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          All Themes
                         </Link>
                       </div>
                     </AccordionContent>
