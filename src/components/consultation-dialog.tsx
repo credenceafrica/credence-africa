@@ -18,6 +18,7 @@ export function ConsultationDialog({
   variant,
   size,
   asChild = false,
+  interest,
 }: {
   children: React.ReactNode;
   triggerClassName?: string;
@@ -25,6 +26,11 @@ export function ConsultationDialog({
   size?: ButtonProps["size"];
   /** When true the trigger is a bare styled element (for inline text links) instead of a Button. */
   asChild?: boolean;
+  /**
+   * Preselects the area of interest. Must be a `consultationInterests` value — the
+   * same keys the `?consult=` deep link uses.
+   */
+  interest?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -49,7 +55,7 @@ export function ConsultationDialog({
           </DialogDescription>
         </DialogHeader>
         <div className="mt-2">
-          <ConsultationForm onSuccess={() => setOpen(false)} />
+          <ConsultationForm defaultInterest={interest} onSuccess={() => setOpen(false)} />
         </div>
       </DialogContent>
     </Dialog>

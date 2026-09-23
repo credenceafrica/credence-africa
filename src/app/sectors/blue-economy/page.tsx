@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { SectorDetail } from "@/components/sector-detail";
+import { LandingDetail } from "@/components/landing-detail";
 import { sectorsBySlug } from "@/lib/sectors-content";
 
 const sector = sectorsBySlug["blue-economy"];
 
 export const metadata: Metadata = {
-  title: sector.name,
-  description: sector.scope,
+  title: sector.seoTitle,
+  description: sector.metaDescription,
+  keywords: sector.keywords,
+  alternates: { canonical: "/sectors/blue-economy" },
 };
 
 export default function Page() {
-  return <SectorDetail sector={sector} />;
+  return <LandingDetail page={sector} />;
 }

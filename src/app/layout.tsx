@@ -13,6 +13,7 @@ import { ConsultationDeepLink } from "@/components/consultation-deep-link";
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.credence.africa"),
   title: {
     default: "Credence Africa | Capital, Trade, Policy, Markets",
     template: `%s | Credence Africa`,
