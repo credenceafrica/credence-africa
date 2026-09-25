@@ -7,13 +7,13 @@ import { ConsultationDialog } from "@/components/consultation-dialog";
 export const metadata: Metadata = {
   title: "Faith-Based Institutions",
   description:
-    "Credence Africa helps churches, ministries, faith-based organizations and faith-rooted enterprises steward resources well, govern with integrity, build sustainable ventures and engage public life with credibility.",
+    "Credence Africa helps churches, ministries, faith-based organisations and faith-rooted enterprises steward resources well, govern with integrity, build sustainable ventures and engage public life with credibility.",
 };
 
 const INSTITUTIONS = [
   "Churches",
   "Ministries",
-  "Faith-Based Organizations",
+  "Faith-Based Organisations",
   "Faith-Rooted Enterprises",
 ];
 
@@ -21,7 +21,7 @@ const REASONS = [
   "Advisory that respects mission while bringing commercial and governance discipline",
   "Support for structuring faith-owned assets, enterprises and investment vehicles",
   "Governance and leadership development for boards, clergy and institutional leaders",
-  "Faith & Polity, our dedicated platform on faith, leadership, ethics and public life",
+  "Faith and Polity, our dedicated platform on faith, leadership, ethics and public life",
   "Credible Faith, a media segment exploring faith, values, stewardship and purpose",
 ];
 
@@ -41,7 +41,7 @@ const SUPPORT: { title: string; items: string[] }[] = [
     items: [
       "Board Governance Academy for trustees, boards and oversight committees",
       "Management and Leadership Academy for institutional and ministry leaders",
-      "Organizational Strengthening Academy: policies, systems, compliance and institutional resilience",
+      "Organisational Strengthening Academy: policies, systems, compliance and institutional resilience",
       "Staff Development Academy for administrative and service teams",
       "Personal Development and Career Growth Academy for emerging leaders within faith communities",
     ],
@@ -58,10 +58,10 @@ const SUPPORT: { title: string; items: string[] }[] = [
   {
     title: "Convening and Community Platforms",
     items: [
-      "Faith & Polity (Easter weekend): faith, leadership, ethics, governance and public discourse",
-      "Women & Faith, part of Credence Women's Week (March)",
+      "Faith and Polity (Easter weekend): faith, leadership, ethics, governance and public discourse",
+      "Women and Faith, part of Credence Women's Week (March)",
       "Credence Convene for conferences, leadership forums and institutional gatherings",
-      "Credence Engage for community outreach and program activations",
+      "Credence Engage for community outreach and programme activations",
     ],
   },
   {
@@ -120,7 +120,7 @@ export default function FaithBasedInstitutionsPage() {
 
             <div className="lg:col-span-5 lg:self-end">
               <p className="border-t border-white/15 pt-6 text-pretty text-base font-light leading-relaxed text-background/80 md:text-lg">
-                Credence Africa helps churches, ministries, faith-based organizations and
+                Credence Africa helps churches, ministries, faith-based organisations and
                 faith-rooted enterprises steward resources well, govern with integrity, build
                 sustainable ventures and engage public life with credibility.
               </p>
@@ -153,7 +153,7 @@ export default function FaithBasedInstitutionsPage() {
             <div className="divide-y divide-white/20 border-y border-white/20 lg:col-span-8">
               <p className="max-w-prose text-pretty py-6 text-base font-light leading-relaxed text-white md:py-8 md:text-lg">
                 Faith-based institutions are among Africa&rsquo;s most trusted and far-reaching
-                organizations, stewarding congregations, communities, schools, health facilities,
+                organisations, stewarding congregations, communities, schools, health facilities,
                 savings groups, land and enterprises. That trust carries responsibility: for sound
                 governance, financial discipline, accountable leadership and sustainable models that
                 serve both mission and community.
@@ -173,8 +173,7 @@ export default function FaithBasedInstitutionsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Faith-Based Institutions Work With Credence Africa
-          </h2>
+            Why faith-based institutions work with Credence Africa</h2>
 
           <ul className="mt-10 grid grid-cols-1 border-b border-foreground/12 md:mt-14 md:grid-cols-2 md:gap-x-16">
             {REASONS.map((reason) => (
@@ -195,8 +194,7 @@ export default function FaithBasedInstitutionsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Faith-Based Institutions
-            </h2>
+              How we support faith-based institutions</h2>
           </div>
 
           <div className="mt-10 divide-y divide-white/15 border-y border-white/15 md:mt-14">
@@ -226,8 +224,7 @@ export default function FaithBasedInstitutionsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We Serve You Across
-          </h2>
+            Sectors we serve</h2>
 
           <ul className="mt-10 grid grid-cols-1 border-b border-foreground/12 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
             {SECTORS.map((sector) => (

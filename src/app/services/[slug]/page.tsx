@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
                 {service.details && service.details.length > 0 && (
                   <section>
-                      <h2 className="text-2xl font-semibold mb-6">What We Deliver</h2>
+                      <h2 className="text-2xl font-semibold mb-6">What we deliver</h2>
                        <ul className="space-y-4">
                           {service.details.map(detail => (
                           <li key={detail} className="flex items-start gap-3">

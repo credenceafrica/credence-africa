@@ -368,7 +368,7 @@ export default function EventDetailPage() {
                       <Calendar className="size-5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="font-semibold text-foreground">Date & Time</p>
+                      <p className="font-semibold text-foreground">Date and Time</p>
                       <p className="text-sm text-muted-foreground">{dateRange}</p>
                       {timeRange && <p className="text-sm text-muted-foreground">{timeRange}</p>}
                     </div>

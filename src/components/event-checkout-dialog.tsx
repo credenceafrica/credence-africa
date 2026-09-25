@@ -27,6 +27,7 @@ import {
   sendRegistrationEmail,
 } from "@/lib/external-data";
 import { payWithPaystack, PaystackClosedError } from "@/lib/paystack";
+import Link from "next/link";
 
 interface Props {
   open: boolean;
@@ -374,6 +375,14 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
                 "Complete Registration"
               )}
             </Button>
+            <p className="text-sm font-light leading-relaxed text-foreground/65">
+              By submitting this form you agree to our{" "}
+              <Link href="/privacy-policy" className="font-normal underline decoration-primary decoration-1 underline-offset-2 hover:decoration-2">
+                Privacy Policy
+              </Link>
+              .
+            </p>
+
           </form>
         )}
       </DialogContent>

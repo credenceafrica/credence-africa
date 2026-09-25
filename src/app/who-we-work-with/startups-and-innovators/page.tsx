@@ -5,7 +5,7 @@ import { ConsultationDialog } from "@/components/consultation-dialog";
 export const metadata: Metadata = {
   title: "Startups and Innovators",
   description:
-    "Credence Africa helps startups, founders and innovators become investor ready, navigate regulation, access markets and build the systems and credibility that growth demands.",
+    "Credence Africa helps startups, founders and innovators become investor-ready, navigate regulation, access markets and build the systems and credibility that growth demands.",
 };
 
 const reasons = [
@@ -13,7 +13,7 @@ const reasons = [
   "Regulatory navigation for innovators operating in regulated and emerging sectors",
   "Founder-focused capability building through the Entrepreneurship Academy and applied technical academies",
   "Pitch and showcase platforms at Capital Africa, the Nairobi Investment Summit and Credence Business Week",
-  "Community, visibility and ecosystem access through Credible Perspectives and Credence Networks",
+  "Community, visibility and ecosystem access through Credible Perspectives and Credible Networks",
 ];
 
 const support: { title: string; items: string[] }[] = [
@@ -21,7 +21,7 @@ const support: { title: string; items: string[] }[] = [
     title: "Capital Readiness and Fundraising",
     items: [
       "Capital strategy aligned to stage and funding objective",
-      "Financial modeling, valuation logic and unit economics validation",
+      "Financial modelling, valuation logic and unit economics validation",
       "Pitch materials, investment memoranda and data room readiness",
       "Investor targeting across VC, angels, family offices, DFIs and impact investors",
       "Term sheet support, negotiation preparation and post-investment reporting",
@@ -101,7 +101,7 @@ export default function StartupsAndInnovatorsPage() {
               <span className="text-primary">Structured, Investable, Scalable</span> Enterprise
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Credence Africa helps startups, founders and innovators become investor ready, navigate
+              Credence Africa helps startups, founders and innovators become investor-ready, navigate
               regulation, access markets and build the systems and credibility that growth demands.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function StartupsAndInnovatorsPage() {
           <div className="mt-14 border-t border-white/15 pt-12 md:mt-16">
             <div className="grid gap-8 md:grid-cols-2 md:gap-12">
               <p className="max-w-prose text-pretty text-base font-light leading-relaxed text-background/70">
-                Africa's innovators are building solutions for the continent's biggest opportunities, in
+                Africa's innovators are building solutions for the continent's biggest challenges and opportunities, in
                 fintech, healthtech, agritech, mobility, energy and the creative and digital economies. But
                 great products alone do not build great companies. Startups need capital readiness,
                 regulatory clarity, commercial discipline, market access and credible visibility.
@@ -128,8 +128,7 @@ export default function StartupsAndInnovatorsPage() {
       <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-2xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Startups Work With Credence Africa
-          </h2>
+            Why startups work with Credence Africa</h2>
 
           <div className="mt-10 divide-y divide-white/20 border-y border-white/20 md:mt-12">
             {reasons.map((reason) => (
@@ -148,8 +147,7 @@ export default function StartupsAndInnovatorsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-2xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            How We Support Startups and Innovators
-          </h2>
+            How we support startups and innovators</h2>
 
           <div className="mt-10 divide-y divide-foreground/12 border-t border-foreground/12 md:mt-14">
             {support.map((group) => (

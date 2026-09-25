@@ -5,20 +5,20 @@ import { Button } from "@/components/ui/button";
 import { ConsultationDialog } from "@/components/consultation-dialog";
 
 export const metadata: Metadata = {
-  title: "Non-Profits and Development Organizations",
+  title: "Nonprofits and Development Organisations",
   description:
-    "Credence Africa helps non-profits, NGOs, foundations and development organizations become better governed, more credible, more fundable and more effective in delivering impact.",
+    "Credence Africa helps nonprofits, NGOs, foundations and development organisations become better governed, more credible, more fundable and more effective in delivering impact.",
 };
 
-const institutions = ["Non-Profits", "NGOs", "Foundations", "Development Organizations"];
+const institutions = ["Nonprofits", "NGOs", "Foundations", "Development Organisations"];
 
 const overview = [
   "Mission-driven institutions carry some of Africa's most important mandates, in health, education, livelihoods, rights, climate and community development. But delivering impact at scale requires more than commitment. It requires strong governance, donor confidence, disciplined systems, credible advocacy and evidence of results.",
-  "Credence Africa supports social impact institutions across funding, governance, capability, advocacy and visibility, helping organizations move from project-to-project survival toward institutional strength and sustainable impact.",
+  "Credence Africa supports social impact institutions across funding, governance, capability, advocacy and visibility, helping organisations move from project-to-project survival toward institutional strength and sustainable impact.",
 ];
 
 const why = [
-  "A dedicated Grant Ready pathway covering donor readiness, blended finance design and compliance and reporting",
+  "A dedicated Grant-Ready pathway covering donor readiness, blended finance design and compliance and reporting",
   "The School of Social Impact and Civic Leadership, built specifically for nonprofit and civic institutions",
   "Advocacy and policy engagement support grounded in stakeholder mapping and public interest credibility",
   "Convening capability for policy dialogues, public participation and multi-stakeholder consultations",
@@ -30,20 +30,20 @@ const support: { title: string; lines: string[] }[] = [
     title: "Funding, Grants and Blended Finance",
     lines: [
       "Grant funding and donor readiness: positioning, proposals and institutional credibility",
-      "Blended finance design for social enterprises, projects and impact programs",
+      "Blended finance design for social enterprises, projects and impact programmes",
       "Donor capital integration and DFI positioning",
       "Donor compliance, reporting systems and accountability frameworks",
-      "Follow-on funding readiness and diversified resource mobilization",
+      "Follow-on funding readiness and diversified resource mobilisation",
     ],
   },
   {
     title: "Governance and Institutional Strengthening",
     lines: [
-      "School of Social Impact and Civic Leadership: governance, strategy, fundraising, partnerships, advocacy, program design and impact measurement",
+      "School of Social Impact and Civic Leadership: governance, strategy, fundraising, partnerships, advocacy, programme design and impact measurement",
       "Board Governance Academy for trustees and directors of mission-driven institutions",
-      "Organizational Strengthening Academy: institutional diagnostics, policy development, compliance readiness and performance systems",
-      "Staff Development Academy for program, administrative and frontline teams",
-      "Certified Data Analyst Professional for monitoring, evaluation and evidence-based decision making",
+      "Organisational Strengthening Academy: institutional diagnostics, policy development, compliance readiness and performance systems",
+      "Staff Development Academy for programme, administrative and frontline teams",
+      "Certified Data Analyst Professional for monitoring, evaluation and evidence-based decision-making",
     ],
   },
   {
@@ -61,7 +61,7 @@ const support: { title: string; lines: string[] }[] = [
       "Policy roundtables, sector dialogues and public participation forums",
       "Stakeholder consultations with documented proceedings, resolutions and action matrices",
       "Communiques, policy briefs and follow-up engagement plans",
-      "Community engagement and program activation through Credence Engage",
+      "Community engagement and programme activation through Credence Engage",
     ],
   },
   {
@@ -108,10 +108,9 @@ export default function NonProfitsPage() {
           <div className="cred-rise max-w-3xl">
             <p className="text-xs font-light uppercase tracking-[0.18em] text-primary">Who We Work With</p>
             <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Strengthening the Institutions That Deliver Public Value
-            </h1>
+              Strengthening the institutions that deliver public value</h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-background/80">
-              Credence Africa helps non-profits, NGOs, foundations and development organizations become better
+              Credence Africa helps nonprofits, NGOs, foundations and development organisations become better
               governed, more credible, more fundable and more effective in delivering impact.
             </p>
           </div>
@@ -151,8 +150,7 @@ export default function NonProfitsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Why Non-Profits Work With Credence Africa
-              </h2>
+                Why nonprofits work with Credence Africa</h2>
             </div>
             <div className="lg:col-span-7">
               <ul className="divide-y divide-white/20 border-y border-white/20">
@@ -175,8 +173,7 @@ export default function NonProfitsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Non-Profits and Development Organizations
-            </h2>
+              How we support nonprofits and development organisations</h2>
           </div>
 
           <div className="mt-10 divide-y divide-white/15 border-y border-white/15 md:mt-14">
@@ -208,8 +205,7 @@ export default function NonProfitsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Sectors We Serve You Across
-              </h2>
+                Sectors we serve</h2>
             </div>
             <div className="lg:col-span-8">
               <ul className="grid grid-cols-1 border-b border-foreground/12 sm:grid-cols-2">
@@ -235,7 +231,7 @@ export default function NonProfitsPage() {
               Start the Conversation
             </h2>
             <p className="mt-6 max-w-2xl text-pretty text-base font-light leading-relaxed text-white/85 md:text-lg">
-              If your organization is pursuing donor funding, strengthening governance, building advocacy capability
+              If your organisation is pursuing donor funding, strengthening governance, building advocacy capability
               or convening stakeholders, book a consultation. We will help you build the institutional strength your
               mission deserves.
             </p>

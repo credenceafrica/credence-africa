@@ -60,7 +60,7 @@ const standing: { title: string; lines: string[] }[] = [
     title: "Market, Policy and Political Economy Intelligence",
     lines: [
       "AFRICA INTEL™: intelligence reports, ecosystem access and the Capital Intelligence Framework™",
-      "POLICY & MARKETS™: executive briefings on emerging regulation and market implications of reform",
+      "Policy and Markets Series™: executive briefings on emerging regulation and market implications of reform",
       "Sector analysis and market briefs through Credible Perspectives",
       "Stakeholder mapping and political economy risk assessment",
     ],
@@ -68,7 +68,7 @@ const standing: { title: string; lines: string[] }[] = [
   {
     title: "Capital Convenings and Networks",
     lines: [
-      "Capital Africa (February): The African Opportunity showcase, Steak & Bullish private gathering of wealth, fund and asset managers and the Alpha Club Awards",
+      "Capital Africa (February): The African Opportunity showcase, Steak and Bullish private gathering of wealth, fund and asset managers and the Alpha Club Awards",
       "Nairobi Investment Summit (November): Family Office and Investor Forum, DFI and Development Finance Roundtable and private capital networking",
       "Sector financing platforms: Financing Education, Financing Healthcare, Financing Agribusiness and Financing Mobility",
       "Curated investor communities and strategic networks",
@@ -166,8 +166,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Investors Work With Credence Africa
-          </h2>
+            Why investors work with Credence Africa</h2>
 
           <div className="mt-10 divide-y divide-foreground/12 border-y border-foreground/12 md:mt-12">
             {reasons.map((reason) => (
@@ -188,8 +187,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Investors and Capital Platforms
-            </h2>
+              How we support investors and capital platforms</h2>
             <p className="mt-6 text-base font-light leading-relaxed text-background/70">
               Three mandates carry capital through its cycle, from pipeline to exit positioning. Two more
               run alongside them.
@@ -222,8 +220,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
       <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Intelligence, Convenings and Networks
-          </h2>
+            Intelligence, convenings and networks</h2>
 
           <div className="mt-10 divide-y divide-white/20 border-y border-white/20 md:mt-12">
             {standing.map((group) => (
@@ -248,8 +245,7 @@ export default function InvestorsAndCapitalPlatformsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-20 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We Serve You Across
-          </h2>
+            Sectors we serve</h2>
 
           <div className="mt-10 grid grid-cols-1 border-l border-t border-foreground/12 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((sector) => (

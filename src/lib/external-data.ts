@@ -419,7 +419,7 @@ export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
     try {
         const db = getInstituteDb();
         const programsQuery = query(
-            collection(db, 'programs'), 
+            collection(db, 'programmes'), 
             limit(3)
         );
         const snapshot = await getDocs(programsQuery);
@@ -432,7 +432,7 @@ export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
                 id: doc.id,
                 title: docData.name,
                 description: docData.description,
-                tag: docData.category || 'Program',
+                tag: docData.category || 'Programme',
                 url: `https://institute.credence.africa/programs/${doc.id}`,
                 image: docData.image || docData.thumbnail || docData.imageUrl
             }

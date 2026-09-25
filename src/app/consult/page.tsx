@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ConsultationForm } from "@/components/consultation-form";
+import { contact, contactLabels } from "@/lib/contact";
 
 const steps = [
   "Send us the brief: tell us the mandate and where you are.",
@@ -35,32 +36,35 @@ export default function ConsultationPage() {
                 Talk to a senior advisor
               </h2>
               <p className="mt-4 max-w-md text-base font-light leading-relaxed text-foreground/75">
-                Reach us directly or send the form and we will come to you.
+                Reach us directly or send the form and we will get back to you.
               </p>
 
               <div className="mt-8 space-y-4">
                 <a
-                  href="mailto:connect@credence.africa"
+                  href={`mailto:${contact.email}`}
                   className="group flex items-center gap-3 text-foreground transition-colors hover:text-primary"
                 >
                   <Mail className="size-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span className="text-base md:text-lg">connect@credence.africa</span>
+                  <span className="sr-only">{contactLabels.email}</span>
+                  <span className="text-base md:text-lg">{contact.email}</span>
                 </a>
                 <a
-                  href="tel:+254719468240"
+                  href={`tel:${contact.phoneHref}`}
                   className="group flex items-center gap-3 text-foreground transition-colors hover:text-primary"
                 >
                   <Phone className="size-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span className="text-base md:text-lg">+254 719 468 240</span>
+                  <span className="sr-only">{contactLabels.phone}</span>
+                  <span className="text-base md:text-lg">{contact.phone}</span>
                 </a>
                 <a
-                  href="https://maps.app.goo.gl/EeS5D837UZnSDsEZ7"
+                  href={contact.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-start gap-3 text-foreground transition-colors hover:text-primary"
                 >
                   <MapPin className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span className="text-base md:text-lg">Applewood Adams, Ngong Road, Nairobi</span>
+                  <span className="sr-only">{contactLabels.address}</span>
+                  <span className="text-base md:text-lg">{contact.addressShort}</span>
                 </a>
               </div>
 

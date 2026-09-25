@@ -27,11 +27,11 @@ import Image from "next/image";
 
 const solveItems = [
   "Select the right markets based on opportunity, regulation, timing and strategic fit",
-  "Build credible market entry pathways across East, West, Southern and North Africa",
-  "Structure route to market, channel, distribution and partnership models",
+  "Build credible market entry pathways across East, West, Central, Southern and North Africa",
+  "Structure route-to-market, channel, distribution and partnership models",
   "Navigate licensing, regulatory approvals and operating requirements",
-  "Expand across regional blocs including EAC, COMESA, ECOWAS and SADC",
-  "Build cross border trade flows, supply chain systems and transaction pathways",
+  "Expand across regional blocs including the East African Community (EAC), COMESA, ECOWAS and SADC",
+  "Build cross-border trade flows, supply chain systems and transaction pathways",
   "Strengthen access to market intelligence, stakeholders, partners and commercial networks",
   "Support African businesses pursuing export growth and international expansion",
   "Coordinate rollout, commercial activation and ongoing growth across multiple jurisdictions",
@@ -41,9 +41,9 @@ const coreServices = [
   {
     no: "01",
     title: "Market Entry Strategy in Africa",
-    desc: "We help institutions assess markets, prioritize jurisdictions, map regulatory requirements and design entry pathways.",
+    desc: "We help institutions assess markets, prioritise jurisdictions, map regulatory requirements and design entry pathways.",
     items: [
-      "Jurisdiction selection and prioritization",
+      "Jurisdiction selection and prioritisation",
       "Market sizing and demand assessment",
       "Licensing pathways and approval mapping",
       "Entity establishment and operating model design",
@@ -54,7 +54,7 @@ const coreServices = [
   },
   {
     no: "02",
-    title: "Cross Border Trade Facilitation",
+    title: "Cross-Border Trade Facilitation",
     desc: "We support institutions building structured trade pathways through stronger transaction design and commercial coordination.",
     items: [
       "Trade structuring and transaction design",
@@ -77,15 +77,15 @@ const coreServices = [
       "Regional compliance mapping",
       "Cross border tax and treasury coordination",
       "Expansion dashboards and performance tracking",
-      "Phased multi market scaling support",
+      "Phased multi-market scaling support",
     ],
   },
   {
     no: "04",
-    title: "Global Expansion From Africa",
+    title: "Global expansion from Africa",
     desc: "We support African businesses entering international markets with stronger export readiness and global positioning.",
     items: [
-      "Global market selection and prioritization",
+      "Global market selection and prioritisation",
       "Export readiness and trade structuring",
       "International compliance design",
       "Distribution and buyer access strategy",
@@ -108,24 +108,24 @@ const productPathways = [
       "Market Command™",
     ],
     bestFor:
-      "Foreign companies, investors assessing establishment and regulated businesses requiring setup support.",
+      "Foreign companies, regulated businesses requiring set-up support and investors assessing establishment.",
     Icon: Building2,
     cta: "Discuss ACCESS AFRICA™",
   },
   {
-    title: "GROWTH HACKING™",
+    title: "SCALE AFRICA™",
     tagline:
       "For institutions expanding across multiple African markets with coordinated regional execution.",
     tracks: [
       "Regional Scaling Blueprint™",
-      "Multi Market Expansion System™",
+      "Multi-Market Expansion System™",
       "Market Development Engine™",
       "Growth Command™",
     ],
     bestFor:
-      "Businesses scaling across Africa, multi country operators and institutions building regional systems.",
+      "Businesses scaling across Africa, multi-country operators and institutions building regional systems.",
     Icon: TrendingUp,
-    cta: "Explore GROWTH HACKING™",
+    cta: "Explore SCALE AFRICA™",
   },
   {
     title: "GO GLOBAL™",
@@ -145,7 +145,7 @@ const productPathways = [
   {
     title: "TRADE AFRICA™",
     tagline:
-      "For institutions executing cross border trade flows, transactions and supply chain systems.",
+      "For institutions executing cross-border trade flows, transactions and supply chain systems.",
     tracks: [
       "Trade Structuring Framework™",
       "Supply Chain System™",
@@ -153,7 +153,7 @@ const productPathways = [
       "Trade Command™",
     ],
     bestFor:
-      "Importers, exporters, distributors, trade platforms and institutions executing cross border transactions.",
+      "Importers, exporters, distributors, trade platforms and institutions executing cross-border transactions.",
     Icon: Ship,
     cta: "Discuss TRADE AFRICA™",
   },
@@ -181,14 +181,14 @@ const advisedFor = [
   "African enterprises preparing for global entry",
   "Investors evaluating expansion opportunities",
   "Trade and market development actors",
-  "Regulated businesses managing cross border complexity",
+  "Regulated businesses managing cross-border complexity",
 ];
 
 const whyEngage = [
-  "Choose markets more intelligently",
+  "Choose the right markets",
   "Bring structure to entry, scale, trade and channel strategy",
   "Improve visibility across regulation and execution risk",
-  "Connect market intelligence with commercial decision making",
+  "Connect market intelligence with commercial decision-making",
   "Support stronger rollout discipline across jurisdictions",
   "Productized pathways matching your growth cycle",
 ];
@@ -202,7 +202,7 @@ const sectors = [
   "Logistics and mobility",
   "Education and skills platforms",
   "Creative economy and digital content",
-  "Infrastructure linked commercial platforms",
+  "Infrastructure-linked commercial platforms",
 ];
 
 const engagement = [
@@ -223,7 +223,7 @@ const engagement = [
   },
   {
     step: "4",
-    title: "Execution & Activation",
+    title: "Execution and Activation",
     desc: "Support across entry, launch, trade execution and commercial activation.",
   },
   {
@@ -236,23 +236,23 @@ const engagement = [
 const faqs = [
   {
     q: "What is the first step before entering a new African market?",
-    a: "The first step is to assess the market opportunity, regulatory environment, route to market options, operating implications and strategic fit with the institution’s business model and growth goals.",
+    a: "The first step is to assess the market opportunity, regulatory environment, route-to-market options, operating implications and strategic fit with the institution’s business model and growth goals.",
   },
   {
-    q: "Do you support entry into one market or multi country expansion?",
-    a: "Yes. Credence Africa supports both single market entry and phased multi country expansion across regional blocs.",
+    q: "Do you support entry into one market or multi-country expansion?",
+    a: "Yes. Credence Africa supports both single market entry and phased multi-country expansion across regional blocs.",
   },
   {
     q: "Do you help with regulatory and licensing issues?",
     a: "Yes. We support licensing pathway mapping, regulatory approvals planning, compliance coordination and market setup considerations as part of entry and expansion.",
   },
   {
-    q: "Can you support trade facilitation and cross border transactions?",
+    q: "Can you support trade facilitation and cross-border transactions?",
     a: "Yes. We support trade structuring, commercial contracting, payment pathway design, logistics alignment, supply chain coordination and transaction activation.",
   },
   {
     q: "Do you work with African businesses expanding globally?",
-    a: "Yes. GO GLOBAL™ supports export readiness, international market selection, cross border structuring, partnership development and global market entry coordination.",
+    a: "Yes. GO GLOBAL™ supports export readiness, international market selection, cross-border structuring, partnership development and global market entry coordination.",
   },
   {
     q: "Do you provide market intelligence before expansion begins?",
@@ -260,7 +260,7 @@ const faqs = [
   },
 ];
 
-/* The three directions of travel: the page's organizing spine.
+/* The three directions of travel: the page's organising spine.
    These are real, sequential stages of expansion, so numbering is earned. */
 const corridor = [
   {
@@ -287,6 +287,20 @@ const corridor = [
 export default function TradeGrowthPage() {
   return (
     <div className="overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
       <style>{`
         @keyframes tg-corridor {
           from { transform: translateX(-0.5rem); opacity: 0; }
@@ -321,7 +335,7 @@ export default function TradeGrowthPage() {
 
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-            Trade &amp; Growth Advisory
+            Trade and Growth Advisory
           </p>
           <h1 className="mt-5 max-w-4xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
             Market entry and expansion across Africa and beyond
@@ -359,7 +373,7 @@ export default function TradeGrowthPage() {
               variant="outline"
               triggerClassName="h-14 rounded-none border-2 border-background/40 bg-transparent px-8 text-base font-light text-background hover:bg-background/10 hover:text-background"
             >
-              Plan Cross Border Expansion
+              Plan Cross-Border Expansion
             </ConsultationDialog>
           </div>
         </div>
@@ -389,7 +403,7 @@ export default function TradeGrowthPage() {
             <div className="space-y-8 lg:col-span-7">
               <p className="text-balance font-light leading-[1.25] tracking-[-0.01em] text-foreground [font-size:clamp(1.4rem,2.6vw,2rem)]">
                 Growth in Africa is shaped by more than market opportunity. It is
-                shaped by regulatory access, market sequencing, route to market
+                shaped by regulatory access, market sequencing, route-to-market
                 strategy, partner quality and operating model design.
               </p>
               <p className="max-w-2xl text-base font-light leading-relaxed text-foreground/75 md:text-lg">
@@ -398,8 +412,8 @@ export default function TradeGrowthPage() {
                 ecosystem access and operational rollout.
               </p>
               <p className="border-t border-border pt-6 text-base font-light italic leading-relaxed text-foreground/80 md:text-lg">
-                “This gives executive teams a clearer basis for market selection,
-                faster decision making and stronger control over expansion risk.”
+                “Our advisory gives executive teams a clearer basis for market selection,
+                faster decision-making and stronger control over expansion risk.”
               </p>
             </div>
           </div>
@@ -417,7 +431,7 @@ export default function TradeGrowthPage() {
                 Into, across <span className="text-primary">and beyond</span> Africa
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/80">
-                Built for organizations whose growth agenda depends on entering
+                Built for organisations whose growth agenda depends on entering
                 new markets or scaling across borders.
               </p>
             </div>
@@ -444,7 +458,7 @@ export default function TradeGrowthPage() {
                 ))}
               </div>
               <ConsultationDialog asChild triggerClassName="group mt-8 inline-flex items-center gap-2 text-sm font-light uppercase tracking-[0.15em] text-primary transition-colors hover:text-primary/70">
-                Discuss your expansion objective
+                Discuss Your Expansion Objective
                 <ArrowRight className="size-4 tg-arrow" aria-hidden="true" />
               </ConsultationDialog>
             </div>
@@ -567,7 +581,7 @@ export default function TradeGrowthPage() {
               Productized systems built for outcomes
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
-              Grounding your expansion in a structured system, matched to where you
+              We ground your expansion in a structured system matched to where you
               are in the growth cycle.
             </p>
           </div>
@@ -699,7 +713,7 @@ export default function TradeGrowthPage() {
                 variant="outline"
                 triggerClassName="mt-8 h-14 w-full rounded-none border-2 border-primary bg-transparent px-8 text-base font-light text-primary hover:bg-primary hover:text-foreground sm:w-auto"
               >
-                Discuss Sector Specific Expansion
+                Discuss Sector-Specific Expansion
               </ConsultationDialog>
             </div>
 
@@ -763,7 +777,7 @@ export default function TradeGrowthPage() {
           </div>
 
           <ConsultationDialog triggerClassName="mt-14 h-14 rounded-none bg-primary px-8 text-base font-light text-foreground hover:bg-primary/90">
-            Plan Cross Border Expansion
+            Plan Cross-Border Expansion
           </ConsultationDialog>
         </div>
       </section>
@@ -774,7 +788,7 @@ export default function TradeGrowthPage() {
       <section className="bg-background">
         <div className="container mx-auto max-w-4xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Trade &amp; Growth FAQs
+            Trade and growth FAQs
           </h2>
           <Accordion type="single" collapsible className="mt-10 w-full">
             {faqs.map((faq, idx) => (
@@ -806,7 +820,7 @@ export default function TradeGrowthPage() {
               Africa
             </h2>
             <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">
-              If your institution is entering African markets, building cross border
+              If your institution is entering African markets, building cross-border
               trade pathways or taking African products global, Credence Africa
               provides the strategic support to move that mandate forward with
               structure and clarity.
@@ -819,7 +833,7 @@ export default function TradeGrowthPage() {
                 variant="outline"
                 triggerClassName="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white/10 hover:text-white"
               >
-                Plan Cross Border Expansion
+                Plan Cross-Border Expansion
               </ConsultationDialog>
             </div>
           </div>

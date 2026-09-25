@@ -40,7 +40,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Strategy, intelligence and capability for stronger financial markets",
       paragraphs: [
-        "Financial services institutions operate inside fast changing commercial, regulatory and technology environments. Growth requires disciplined market choices, credible governance, strong stakeholder relationships and a clear understanding of customer behavior, capital needs and policy direction.",
+        "Financial services institutions operate inside fast changing commercial, regulatory and technology environments. Growth requires disciplined market choices, credible governance, strong stakeholder relationships and a clear understanding of customer behaviour, capital needs and policy direction.",
         "Credence Africa supports established financial institutions, emerging financial technology businesses, investors, industry associations, development partners and public institutions. Our work converts market complexity into practical decisions, stronger institutions and investable growth pathways.",
       ],
     },
@@ -61,16 +61,16 @@ export const sectorList: Sector[] = [
           "Through Credence Institute and Credence Engage, we build the leadership, commercial and institutional capability required to compete in African financial markets.",
         items: [
           "Executive education for banking, insurance, fintech, SACCO and investment leaders",
-          "Board and governance programs for regulated and member based financial institutions",
+          "Board and governance programmes for regulated and member based financial institutions",
           "Digital finance, payments, financial inclusion and responsible innovation training",
-          "Capital readiness and investor engagement programs for financial services businesses",
+          "Capital readiness and investor engagement programmes for financial services businesses",
           "Policy dialogues, industry roundtables and executive forums for market leaders",
         ],
       },
       {
         heading: HELP_HEADINGS.research,
         blurb:
-          "Our research and intelligence work gives decision makers a reliable view of markets, customers, competitors, regulation and investment activity.",
+          "Our research and intelligence work gives decision-makers a reliable view of markets, customers, competitors, regulation and investment activity.",
         items: [
           "Financial market assessments and sector outlooks",
           "Fintech, payments, banking, insurance and capital markets research",
@@ -168,7 +168,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Commercial growth and institutional strength for African healthcare",
       paragraphs: [
-        "Healthcare organizations face a demanding combination of patient needs, workforce pressures, capital constraints, regulation, technology change and complex supply chains. Sound decisions require commercial evidence and a clear understanding of the institutions that influence market access and service delivery.",
+        "Healthcare organisations face a demanding combination of patient needs, workforce pressures, capital constraints, regulation, technology change and complex supply chains. Sound decisions require commercial evidence and a clear understanding of the institutions that influence market access and service delivery.",
         "Credence Africa works across healthcare delivery, pharmaceuticals, diagnostics, medical technology, health financing, health technology, wellness and public health. We support businesses and institutions that need to grow, enter new markets, attract capital, understand policy, strengthen leadership or build credible sector platforms.",
       ],
     },
@@ -189,16 +189,16 @@ export const sectorList: Sector[] = [
           "Through Credence Institute and Credence Engage, we strengthen leadership, governance, commercial capability and collaboration across the healthcare ecosystem.",
         items: [
           "Executive education for healthcare founders, facility leaders and senior managers",
-          "Governance and board programs for hospitals, health businesses and associations",
+          "Governance and board programmes for hospitals, health businesses and associations",
           "Commercial growth, investment readiness and market entry training",
-          "Policy, regulatory and stakeholder engagement programs",
+          "Policy, regulatory and stakeholder engagement programmes",
           "Healthcare leadership forums, investor conversations and sector roundtables",
         ],
       },
       {
         heading: HELP_HEADINGS.research,
         blurb:
-          "Our research gives healthcare decision makers a commercially useful view of demand, competition, regulation, investment and service delivery conditions.",
+          "Our research gives healthcare decision-makers a commercially useful view of demand, competition, regulation, investment and service delivery conditions.",
         items: [
           "Healthcare market assessments and opportunity studies",
           "Facility, provider, product and ecosystem mapping",
@@ -251,7 +251,7 @@ export const sectorList: Sector[] = [
       },
       {
         q: "Does Credence Africa conduct healthcare market research?",
-        a: "Yes. Our work can cover market size, service demand, facility mapping, customer and purchaser behavior, competitive positioning, regulation, supply chains, investment activity and ecosystem structure.",
+        a: "Yes. Our work can cover market size, service demand, facility mapping, customer and purchaser behaviour, competitive positioning, regulation, supply chains, investment activity and ecosystem structure.",
       },
       {
         q: "Does Credence Africa provide clinical or medical advice?",
@@ -296,7 +296,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Stronger enterprises and value chains across African food systems",
       paragraphs: [
-        "Agriculture is a connected system of production, finance, processing, storage, logistics, distribution, trade and consumption. Commercial success depends on the strength of the full value chain. It also depends on policy, infrastructure, climate resilience, market access and the institutions that organize producers and buyers.",
+        "Agriculture is a connected system of production, finance, processing, storage, logistics, distribution, trade and consumption. Commercial success depends on the strength of the full value chain. It also depends on policy, infrastructure, climate resilience, market access and the institutions that organise producers and buyers.",
         "Credence Africa works across agricultural production, livestock, agritech, agricultural finance, food processing, cold chains, distribution, exports and food security. We help clients identify where value can be created, what capital and partnerships are required and how an enterprise or initiative can move from concept to execution.",
       ],
     },
@@ -316,10 +316,10 @@ export const sectorList: Sector[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we build enterprise, cooperative and institutional capability across agricultural value chains.",
         items: [
-          "Agribusiness management and growth programs",
+          "Agribusiness management and growth programmes",
           "Cooperative governance, leadership and member value training",
           "Investment readiness and financial management for agricultural enterprises",
-          "Export readiness, trade and market access programs",
+          "Export readiness, trade and market access programmes",
           "Value chain forums, buyer conversations and sector roundtables",
         ],
       },
@@ -359,15 +359,15 @@ export const sectorList: Sector[] = [
     ],
     audiences: [
       "Agribusinesses, food processors, exporters and distributors",
-      "Producer organizations, cooperatives and SACCOs",
+      "Producer organisations, cooperatives and SACCOs",
       "Agritech and agricultural finance companies",
       "Investors, banks and development finance institutions",
       "Governments, associations, research institutions and development partners",
     ],
     geography:
-      "Kenya is a priority market for East African value chains, horticulture, agritech, cooperatives and regional trade. Nigeria is a priority market for scale, food processing, distribution and agricultural investment. South Africa is a priority market for commercial agriculture, food manufacturing, finance and regional supply chains. We also support cross border value chains and expansion into other African markets.",
+      "Kenya is a priority market for East African value chains, horticulture, agritech, cooperatives and regional trade. Nigeria is a priority market for scale, food processing, distribution and agricultural investment. South Africa is a priority market for commercial agriculture, food manufacturing, finance and regional supply chains. We also support cross-border value chains and expansion into other African markets.",
     why:
-      "We follow the economics of the value chain. We examine production, processing, finance, infrastructure, trade and consumer demand together. This allows clients to identify the binding constraints and direct capital and capability toward the highest value interventions.",
+      "We follow the economics of the value chain. We examine production, processing, finance, infrastructure, trade and consumer demand together. This allows clients to identify the binding constraints and direct capital and capability toward the highest-value interventions.",
     faqs: [
       {
         q: "What agribusiness consulting services does Credence Africa provide?",
@@ -424,7 +424,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Investment and institutional strategy for Africa's energy transition",
       paragraphs: [
-        "Energy and climate opportunities sit inside complex systems. Projects depend on policy, infrastructure, finance, public institutions, land, technology, customers and long term stakeholder confidence. Strong strategy must account for all of these conditions.",
+        "Energy and climate opportunities sit inside complex systems. Projects depend on policy, infrastructure, finance, public institutions, land, technology, customers and long-term stakeholder confidence. Strong strategy must account for all of these conditions.",
         "Credence Africa works across renewable energy, power, distributed energy, climate finance, carbon markets, water, waste, circular economy, environmental services and selected natural resource value chains. We help clients evaluate opportunities, prepare projects and institutions, engage capital and navigate market and policy environments.",
       ],
     },
@@ -445,8 +445,8 @@ export const sectorList: Sector[] = [
           "Through Credence Institute and Credence Engage, we build practical capability around energy investment, climate finance, policy and project leadership.",
         items: [
           "Executive education on energy markets, climate finance and investment",
-          "Project preparation and capital readiness programs",
-          "Board, governance and stakeholder leadership programs",
+          "Project preparation and capital readiness programmes",
+          "Board, governance and stakeholder leadership programmes",
           "Policy and regulatory capability for energy and climate institutions",
           "Investor forums, policy dialogues and sector roundtables",
         ],
@@ -493,7 +493,7 @@ export const sectorList: Sector[] = [
       "Associations, foundations, universities and development partners",
     ],
     geography:
-      "Kenya is a priority market for renewable energy, distributed power, e mobility links and climate innovation. Nigeria is a priority market for energy access, infrastructure, distributed energy and large scale commercial demand. South Africa is a priority market for power reform, renewable energy, capital and industrial transition. Our work can extend to other African markets through targeted research, local partnerships and stakeholder strategy.",
+      "Kenya is a priority market for renewable energy, distributed power, e-mobility links and climate innovation. Nigeria is a priority market for energy access, infrastructure, distributed energy and large-scale commercial demand. South Africa is a priority market for power reform, renewable energy, capital and industrial transition. Our work can extend to other African markets through targeted research, local partnerships and stakeholder strategy.",
     why:
       "We bring commercial, capital, policy and institutional analysis into one mandate. We focus on the decisions that determine whether an opportunity can attract support and move forward. Engineering, environmental science and other technical disciplines are delivered with qualified specialist partners when required.",
     faqs: [
@@ -572,9 +572,9 @@ export const sectorList: Sector[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we help leaders and teams build the capability required to use technology responsibly and commercially.",
         items: [
-          "Executive AI literacy and responsible AI programs",
+          "Executive AI literacy and responsible AI programmes",
           "Digital transformation and technology leadership training",
-          "Capital readiness and market entry programs for technology businesses",
+          "Capital readiness and market entry programmes for technology businesses",
           "Data governance, digital policy and cyber risk awareness",
           "Technology forums, innovation roundtables and executive communities",
         ],
@@ -598,7 +598,7 @@ export const sectorList: Sector[] = [
           "Our advisory work supports technology growth and institutional transformation from strategic choice through implementation planning.",
         items: [
           "Market entry and expansion strategy",
-          "Growth, partnership and commercialization strategy",
+          "Growth, partnership and commercialisation strategy",
           "Capital readiness and investment structuring",
           "AI and digital transformation strategy",
           "Public affairs, policy and regulatory engagement",
@@ -639,7 +639,7 @@ export const sectorList: Sector[] = [
       },
       {
         q: "Can you train boards and executives on artificial intelligence?",
-        a: "Yes. Credence Institute develops executive AI literacy, responsible AI, governance, risk and sector specific adoption programs for boards, leadership teams and institutions.",
+        a: "Yes. Credence Institute develops executive AI literacy, responsible AI, governance, risk and sector-specific adoption programmes for boards, leadership teams and institutions.",
       },
     ],
     closing: {
@@ -656,7 +656,7 @@ export const sectorList: Sector[] = [
     kind: "sector",
     name: "Mobility, Transport and Logistics",
     scope:
-      "Road transport, rail, aviation, maritime systems, ports, freight, warehousing, supply chains, fleet services, urban mobility and e mobility.",
+      "Road transport, rail, aviation, maritime systems, ports, freight, warehousing, supply chains, fleet services, urban mobility and e-mobility.",
     icon: Truck,
     seoTitle: "Transport and Logistics Consulting in Africa",
     metaDescription:
@@ -668,7 +668,7 @@ export const sectorList: Sector[] = [
       "transport consulting Kenya",
       "logistics consulting Nigeria",
       "mobility advisory South Africa",
-      "e mobility consulting Africa",
+      "e-mobility consulting Africa",
     ],
     h1: "Mobility, Transport and Logistics Advisory Across Africa",
     intro:
@@ -681,7 +681,7 @@ export const sectorList: Sector[] = [
       heading: "Strategy and intelligence for the systems that move Africa",
       paragraphs: [
         "Transport and logistics connect every productive sector. The commercial case depends on routes, customers, infrastructure, regulation, fleet economics, technology, energy and regional trade. Each decision affects the wider supply chain.",
-        "Credence Africa works across road transport, rail, aviation, maritime systems, ports, freight, warehousing, supply chains, fleet services, urban mobility, e mobility and transport infrastructure. We help businesses and institutions evaluate opportunities and design credible pathways for growth, investment and market development.",
+        "Credence Africa works across road transport, rail, aviation, maritime systems, ports, freight, warehousing, supply chains, fleet services, urban mobility, e-mobility and transport infrastructure. We help businesses and institutions evaluate opportunities and design credible pathways for growth, investment and market development.",
       ],
     },
     needs: {
@@ -700,10 +700,10 @@ export const sectorList: Sector[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we strengthen leadership, operational thinking and sector collaboration.",
         items: [
-          "Executive programs for transport, logistics and supply chain leaders",
-          "E mobility, fleet transition and charging ecosystem learning programs",
+          "Executive programmes for transport, logistics and supply chain leaders",
+          "E-mobility, fleet transition and charging ecosystem learning programmes",
           "Capital readiness and project preparation training",
-          "Policy, governance and stakeholder engagement programs",
+          "Policy, governance and stakeholder engagement programmes",
           "Transport forums, trade corridor roundtables and investor conversations",
         ],
       },
@@ -715,7 +715,7 @@ export const sectorList: Sector[] = [
           "Transport, logistics and mobility market assessments",
           "Freight, route, corridor, warehousing and supply chain studies",
           "Fleet, customer and competitor intelligence",
-          "E mobility, charging and energy ecosystem research",
+          "E-mobility, charging and energy ecosystem research",
           "Transport policy, regulation and infrastructure analysis",
           "Project, investor, partner and stakeholder mapping",
         ],
@@ -736,20 +736,20 @@ export const sectorList: Sector[] = [
     ],
     mandates: [
       "A logistics company entering a new African market or corridor",
-      "An e mobility company assessing fleet, charging and partnership opportunities",
+      "An e-mobility company assessing fleet, charging and partnership opportunities",
       "An investor evaluating transport infrastructure, fleet or logistics assets",
       "A public institution developing a transport, trade corridor or urban mobility initiative",
       "An industry association commissioning research, policy engagement or executive training",
     ],
     audiences: [
       "Transport operators, logistics companies and fleet businesses",
-      "E mobility, charging and mobility technology companies",
+      "E-mobility, charging and mobility technology companies",
       "Ports, aviation, rail, warehousing and supply chain institutions",
       "Infrastructure investors, funds and development finance institutions",
       "Governments, regulators, cities, associations and development partners",
     ],
     geography:
-      "Kenya is a priority market for East African logistics, regional corridors, urban mobility and e mobility. Nigeria is a priority market for large scale transport demand, ports, distribution and urban logistics. South Africa is a priority market for freight, fleet, infrastructure, advanced logistics and regional trade. Credence Africa also supports mandates involving other African markets and cross border corridors.",
+      "Kenya is a priority market for East African logistics, regional corridors, urban mobility and e-mobility. Nigeria is a priority market for large-scale transport demand, ports, distribution and urban logistics. South Africa is a priority market for freight, fleet, infrastructure, advanced logistics and regional trade. Credence Africa also supports mandates involving other African markets and cross-border corridors.",
     why:
       "We link transport economics to trade, capital, policy, energy and infrastructure. Mobility decisions rarely sit inside one institution. Credence Africa helps clients map the full system, identify the critical dependencies and build a mandate that can move through commercial and institutional decision points.",
     faqs: [
@@ -758,7 +758,7 @@ export const sectorList: Sector[] = [
         a: "We provide market research, growth strategy, market entry, capital readiness, investment facilitation, project support, trade and corridor strategy, policy advisory, executive training and sector convening.",
       },
       {
-        q: "Can Credence Africa support an e mobility business?",
+        q: "Can Credence Africa support an e-mobility business?",
         a: "Yes. We can assess market demand, fleet segments, charging models, energy relationships, regulation, partnerships, capital requirements and market entry options. Technical engineering work is delivered with specialist partners.",
       },
       {
@@ -808,7 +808,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Commercial intelligence for the markets shaping African demand and culture",
       paragraphs: [
-        "Consumer and service markets are shaped by income, culture, distribution, trust, regulation, digital behavior and changing expectations. Creative industries add intellectual property, audiences, talent, platforms and complex commercial models. Growth requires evidence, institutional discipline and a clear route to revenue.",
+        "Consumer and service markets are shaped by income, culture, distribution, trust, regulation, digital behaviour and changing expectations. Creative industries add intellectual property, audiences, talent, platforms and complex commercial models. Growth requires evidence, institutional discipline and a clear route to revenue.",
         "Credence Africa works across retail, consumer goods, tourism, hospitality, media, entertainment, film, music, gaming, sports, creator businesses, fashion, cultural industries and professional services. We help clients understand demand, structure growth, attract capital, enter markets and develop stronger industry institutions.",
       ],
     },
@@ -818,7 +818,7 @@ export const sectorList: Sector[] = [
         "Which market, customer segment, audience or channel offers the strongest opportunity",
         "How culture, pricing, regulation and distribution affect commercial performance",
         "What revenue, partnership and capital model will support sustainable growth",
-        "How intellectual property, brand, talent and platforms can be commercialized",
+        "How intellectual property, brand, talent and platforms can be commercialised",
         "What sector institutions and policy conditions are required for market development",
       ],
     },
@@ -826,11 +826,11 @@ export const sectorList: Sector[] = [
       {
         heading: HELP_HEADINGS.training,
         blurb:
-          "Through Credence Institute and Credence Engage, we build management, commercialization and institutional capability.",
+          "Through Credence Institute and Credence Engage, we build management, commercialisation and institutional capability.",
         items: [
           "Executive education for consumer, hospitality and service business leaders",
-          "Commercialization, governance and investment readiness for creative enterprises",
-          "Audience, sponsorship, media and sports business programs",
+          "Commercialisation, governance and investment readiness for creative enterprises",
+          "Audience, sponsorship, media and sports business programmes",
           "Market entry, sales and distribution capability",
           "Industry forums, buyer conversations and creative economy roundtables",
         ],
@@ -854,7 +854,7 @@ export const sectorList: Sector[] = [
           "Our advisory work helps businesses and institutions convert market insight into growth and investment action.",
         items: [
           "Market entry and expansion strategy",
-          "Growth, revenue and commercialization strategy",
+          "Growth, revenue and commercialisation strategy",
           "Capital readiness and investment structuring",
           "Trade, distribution and partnership development",
           "Public affairs, policy and regulatory strategy",
@@ -883,11 +883,11 @@ export const sectorList: Sector[] = [
     faqs: [
       {
         q: "What consumer and creative economy consulting services does Credence Africa provide?",
-        a: "We provide consumer research, market entry, growth strategy, commercialization, capital readiness, investment facilitation, policy advisory, executive training and ecosystem convening.",
+        a: "We provide consumer research, market entry, growth strategy, commercialisation, capital readiness, investment facilitation, policy advisory, executive training and ecosystem convening.",
       },
       {
         q: "Can Credence Africa support media, gaming, sports and entertainment businesses?",
-        a: "Yes. We can support market intelligence, audience strategy, commercialization, partnerships, sponsorship strategy, investment readiness, policy engagement and institutional development.",
+        a: "Yes. We can support market intelligence, audience strategy, commercialisation, partnerships, sponsorship strategy, investment readiness, policy engagement and institutional development.",
       },
       {
         q: "Does Credence Africa conduct consumer market research in Kenya, Nigeria and South Africa?",
@@ -912,7 +912,7 @@ export const sectorList: Sector[] = [
     kind: "sector",
     name: "Blue Economy and Marine Resources",
     scope:
-      "Fisheries, aquaculture, coastal economies, ports, maritime trade, ocean innovation and water based industries.",
+      "Fisheries, aquaculture, coastal economies, ports, maritime trade, ocean innovation and water-based industries.",
     icon: Waves,
     seoTitle: "Blue Economy Consulting in Africa",
     metaDescription:
@@ -936,7 +936,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Commercial value from Africa's oceans, lakes and coastlines",
       paragraphs: [
-        "Africa's oceans, lakes and rivers carry substantial unrealized commercial value. Realizing it depends on the full chain from harvest and production through landing sites, cold storage, processing, logistics and market access. It also depends on licensing, resource management, port infrastructure and the institutions that organize producers and buyers.",
+        "Africa's oceans, lakes and rivers carry substantial unrealised commercial value. Realizing it depends on the full chain from harvest and production through landing sites, cold storage, processing, logistics and market access. It also depends on licensing, resource management, port infrastructure and the institutions that organise producers and buyers.",
         "Credence Africa works across capture fisheries, aquaculture and mariculture, coastal processing, ports and maritime trade, ocean innovation, marine biotechnology and coastal resilience. We help clients identify where value can be created, what capital and partnerships are required and how an enterprise or initiative moves from concept to execution.",
       ],
     },
@@ -956,10 +956,10 @@ export const sectorList: Sector[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we build enterprise, cooperative and institutional capability across coastal and maritime value chains.",
         items: [
-          "Fisheries and aquaculture enterprise management programs",
-          "Cooperative governance, leadership and member value training for fisher organizations",
+          "Fisheries and aquaculture enterprise management programmes",
+          "Cooperative governance, leadership and member value training for fisher organisations",
           "Investment readiness and financial management for coastal enterprises",
-          "Export readiness, quality standards and market access programs",
+          "Export readiness, quality standards and market access programmes",
           "Coastal value chain forums, buyer conversations and maritime roundtables",
         ],
       },
@@ -1001,20 +1001,20 @@ export const sectorList: Sector[] = [
       "Fisheries businesses, processors, exporters and distributors",
       "Aquaculture and mariculture producers and input suppliers",
       "Ports, maritime operators, logistics companies and coastal infrastructure developers",
-      "Fisher cooperatives, producer organizations and SACCOs",
+      "Fisher cooperatives, producer organisations and SACCOs",
       "Investors, banks, governments, associations and development partners",
     ],
     geography:
-      "Kenya is a priority market for East African coastal and lake fisheries, aquaculture growth and regional maritime trade. Nigeria is a priority market for scale, domestic demand, coastal processing and port driven logistics. South Africa is a priority market for commercial fisheries, marine services, port infrastructure and export supply chains. We also support cross border coastal value chains and landlocked markets connecting through regional ports.",
+      "Kenya is a priority market for East African coastal and lake fisheries, aquaculture growth and regional maritime trade. Nigeria is a priority market for scale, domestic demand, coastal processing and port-driven logistics. South Africa is a priority market for commercial fisheries, marine services, port infrastructure and export supply chains. We also support cross-border coastal value chains and landlocked markets connecting through regional ports.",
     why:
-      "We follow the economics of the value chain rather than the resource alone. We examine production, cold chain, finance, infrastructure, trade and consumer demand together, so clients can identify the binding constraints and direct capital and capability toward the highest value interventions. Marine science, stock assessment and environmental verification are delivered with qualified specialist partners.",
+      "We follow the economics of the value chain rather than the resource alone. We examine production, cold chain, finance, infrastructure, trade and consumer demand together, so clients can identify the binding constraints and direct capital and capability toward the highest-value interventions. Marine science, stock assessment and environmental verification are delivered with qualified specialist partners.",
     faqs: [
       {
         q: "What blue economy consulting services does Credence Africa provide?",
         a: "We provide market research, value chain analysis, growth strategy, capital readiness, investment facilitation, trade and export strategy, policy advisory, executive training and sector convening.",
       },
       {
-        q: "Can Credence Africa support an aquaculture or fisheries business raise capital?",
+        q: "Can Credence Africa help an aquaculture or fisheries business raise capital?",
         a: "We help clarify the strategy, investment case, financial requirements, governance, materials and investor engagement plan. Funding outcomes depend on the opportunity, market conditions and investor decisions. We do not guarantee capital.",
       },
       {
@@ -1056,7 +1056,7 @@ export const sectorList: Sector[] = [
     ],
     h1: "Education, Skills and Workforce Development Advisory Across Africa",
     intro:
-      "Credence Africa helps education institutions, training providers, edtech businesses, investors and public institutions build stronger, more commercially sustainable learning organizations. We support growth, capital, market entry, accreditation strategy, research and institutional capability.",
+      "Credence Africa helps education institutions, training providers, edtech businesses, investors and public institutions build stronger, more commercially sustainable learning organisations. We support growth, capital, market entry, accreditation strategy, research and institutional capability.",
     actions: [
       { label: "Discuss an Education Sector Mandate", consult: "institute" },
       { label: "Commission Education Market Intelligence", consult: "research" },
@@ -1065,13 +1065,13 @@ export const sectorList: Sector[] = [
       heading: "Stronger institutions across Africa's education and training market",
       paragraphs: [
         "Education and training is a substantial commercial sector in its own right. Universities, colleges, technical and vocational institutions, edtech platforms and corporate learning businesses compete for learners, employers, faculty, accreditation and capital. Enrollment growth alone does not make an institution durable.",
-        "Credence Africa works with the organizations that deliver learning. We support provider growth strategy, business model design, capital readiness, market entry, employer partnerships, quality and accreditation positioning, governance and leadership capability.",
+        "Credence Africa works with the organisations that deliver learning. We support provider growth strategy, business model design, capital readiness, market entry, employer partnerships, quality and accreditation positioning, governance and leadership capability.",
       ],
     },
     needs: {
       lead: "We support education and training leaders who need to determine:",
       items: [
-        "Which learner segments, programs and delivery models offer the strongest growth case",
+        "Which learner segments, programmes and delivery models offer the strongest growth case",
         "How the institution should price, position and differentiate against competing providers",
         "What is required to become ready for investment, expansion or a new campus",
         "How accreditation, regulation and quality frameworks shape the opportunity",
@@ -1082,23 +1082,23 @@ export const sectorList: Sector[] = [
       {
         heading: HELP_HEADINGS.training,
         blurb:
-          "Through Credence Institute and Credence Engage, we build leadership, governance and commercial capability inside education organizations.",
+          "Through Credence Institute and Credence Engage, we build leadership, governance and commercial capability inside education organisations.",
         items: [
-          "Executive programs for vice chancellors, principals, deans and provider founders",
-          "Governance and board programs for universities, colleges and training institutions",
+          "Executive programmes for vice chancellors, principals, deans and provider founders",
+          "Governance and board programmes for universities, colleges and training institutions",
           "Commercial growth, enrollment and investment readiness training",
-          "Curriculum, faculty and quality assurance capability programs",
+          "Curriculum, faculty and quality assurance capability programmes",
           "Education leadership forums, employer conversations and sector roundtables",
         ],
       },
       {
         heading: HELP_HEADINGS.research,
         blurb:
-          "Our research gives education decision makers a commercially useful view of learners, employers, competitors, regulation and investment.",
+          "Our research gives education decision-makers a commercially useful view of learners, employers, competitors, regulation and investment.",
         items: [
           "Education market and enrollment demand assessments",
           "Learner, parent and employer intelligence",
-          "Provider, program and campus landscape mapping",
+          "Provider, programme and campus landscape mapping",
           "Edtech adoption, delivery model and pricing research",
           "Accreditation, regulation and education policy analysis",
           "Commissioned reports, sector outlooks and executive briefs",
@@ -1110,7 +1110,7 @@ export const sectorList: Sector[] = [
           "Our advisory work supports education institutions from strategic choice through market engagement and execution planning.",
         items: [
           "Growth strategy and business model development for providers",
-          "Market entry, new campus and program expansion planning",
+          "Market entry, new campus and programme expansion planning",
           "Capital readiness, investment structuring and investor engagement",
           "Employer, industry and institutional partnership development",
           "Accreditation, quality and regulatory positioning",
@@ -1119,7 +1119,7 @@ export const sectorList: Sector[] = [
       },
     ],
     mandates: [
-      "A university or college planning a new campus, program or market",
+      "A university or college planning a new campus, programme or market",
       "An edtech business preparing for growth capital and regional expansion",
       "A technical and vocational institution aligning provision to employer demand",
       "An investor assessing an education provider, platform or portfolio",
@@ -1139,11 +1139,11 @@ export const sectorList: Sector[] = [
     faqs: [
       {
         q: "What education sector consulting does Credence Africa provide?",
-        a: "We provide growth strategy, business model development, market entry, capital readiness, investment facilitation, market research, accreditation and regulatory positioning, institutional strengthening and executive training for education organizations.",
+        a: "We provide growth strategy, business model development, market entry, capital readiness, investment facilitation, market research, accreditation and regulatory positioning, institutional strengthening and executive training for education organisations.",
       },
       {
         q: "How is this different from the Jobs, Skills and Workforce Transformation theme?",
-        a: "This sector serves the organizations that deliver education and training as their core business. The workforce theme serves employers, governments and institutions in any sector that need to build skills, design academies or manage workforce transition.",
+        a: "This sector serves the organisations that deliver education and training as their core business. The workforce theme serves employers, governments and institutions in any sector that need to build skills, design academies or manage workforce transition.",
       },
       {
         q: "Can Credence Africa help an edtech business raise capital?",
@@ -1157,7 +1157,7 @@ export const sectorList: Sector[] = [
     closing: {
       heading: "Build a stronger education institution",
       body:
-        "Credence Africa can help you test the market, strengthen the model, prepare for capital and build the partnerships an education organization needs to grow.",
+        "Credence Africa can help you test the market, strengthen the model, prepare for capital and build the partnerships an education organisation needs to grow.",
       label: "Book an Education Sector Consultation",
       consult: "institute",
     },
@@ -1192,7 +1192,7 @@ export const sectorList: Sector[] = [
     positioning: {
       heading: "Commercial strategy for the businesses that build and move African production",
       paragraphs: [
-        "Industrial and trade businesses operate on thin margins and long capital cycles. Competitiveness depends on input costs, energy, logistics, order books, plant utilization, working capital, standards and the regulatory conditions of every market they serve.",
+        "Industrial and trade businesses operate on thin margins and long capital cycles. Competitiveness depends on input costs, energy, logistics, order books, plant utilisation, working capital, standards and the regulatory conditions of every market they serve.",
         "Credence Africa works with the companies themselves. We support manufacturers, processors, construction and engineering firms, equipment suppliers, economic zone and industrial park operators, warehousing and industrial real estate businesses and the trade service companies that connect them to customers.",
       ],
     },
@@ -1200,7 +1200,7 @@ export const sectorList: Sector[] = [
       lead: "We support industrial and trade businesses that need to determine:",
       items: [
         "Which products, customer segments and markets offer the strongest commercial return",
-        "Where cost, energy, input supply, logistics or utilization constrain competitiveness",
+        "Where cost, energy, input supply, logistics or utilisation constrain competitiveness",
         "What the business needs to become ready for growth capital or project finance",
         "Which standards, certification and trade requirements govern market access",
         "What partnerships, plant investment or capacity decisions the growth plan requires",
@@ -1212,10 +1212,10 @@ export const sectorList: Sector[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we strengthen industrial leadership, commercial discipline and sector collaboration.",
         items: [
-          "Executive programs for manufacturing, construction and industrial leaders",
+          "Executive programmes for manufacturing, construction and industrial leaders",
           "Commercial, pricing and productivity capability for industrial businesses",
           "Capital readiness and project preparation training",
-          "Standards, certification and export compliance programs",
+          "Standards, certification and export compliance programmes",
           "Industrial forums, buyer supplier conversations and investor roundtables",
         ],
       },
@@ -1263,15 +1263,15 @@ export const sectorList: Sector[] = [
     geography:
       "Kenya is a priority market for regional manufacturing, light industry and East African distribution. Nigeria is a priority market for scale, domestic demand, industrial capacity and import substitution. South Africa is a priority market for advanced manufacturing, industrial finance, construction and supplier networks. We also support businesses serving value chains that connect these markets to the wider continent.",
     why:
-      "We begin with the commercial system around the business. We examine demand, inputs, cost, logistics, capital and regulation together, so clients can direct investment toward the constraints that actually limit competitiveness. Where a mandate concerns national industrial policy, trade frameworks or project development rather than a single business, our Industrialization, Trade and Infrastructure themes carry that work.",
+      "We begin with the commercial system around the business. We examine demand, inputs, cost, logistics, capital and regulation together, so clients can direct investment toward the constraints that actually limit competitiveness. Where a mandate concerns national industrial policy, trade frameworks or project development rather than a single business, our Industrialisation, Trade and Infrastructure themes carry that work.",
     faqs: [
       {
         q: "What industrial sector consulting does Credence Africa provide?",
         a: "We provide growth strategy, market entry, capital readiness, project finance preparation, market and cost research, export and distribution strategy, incentives and regulatory engagement, executive training and sector convening.",
       },
       {
-        q: "How is this different from the Industrialization and Trade themes?",
-        a: "This sector serves industrial and trade businesses directly, on their own growth, capital and market decisions. The themes address industrial policy, value chain development, trade frameworks and project development as cross sector agendas for governments, investors and institutions.",
+        q: "How is this different from the Industrialisation and Trade themes?",
+        a: "This sector serves industrial and trade businesses directly, on their own growth, capital and market decisions. The themes address industrial policy, value chain development, trade frameworks and project development as cross-sector agendas for governments, investors and institutions.",
       },
       {
         q: "Does Credence Africa provide engineering or plant design?",

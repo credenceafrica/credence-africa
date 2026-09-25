@@ -36,7 +36,7 @@ const sectors = sectorList.map((s) => ({ name: s.name, href: `/sectors/${s.slug}
 const themes = themeList.map((t) => ({ name: t.name, href: `/themes/${t.slug}` }));
 
 // Header services dropdown, explicit columns.
-// Left column: Capital Raising, Public Affairs, Trade & Growth, Research.
+// Left column: Capital Raising, Public Affairs, Trade and Growth, Research.
 // Right column: Credible Perspectives, Credence Engage, Credence Institute.
 const serviceLeftColumnIds = ["capital", "public-affairs", "trade", "research"];
 const serviceRightColumnIds = ["perspectives", "events", "institute"];
@@ -87,14 +87,14 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                     href="/about"
                     className={navItemClass(isNavActive('/about'))}
                   >
-                    Who We Are
+                    About Us
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className={navItemClass(isNavActive('/services'))}>
-                  Our Services
+                  Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[400px] p-4 md:w-[520px] lg:w-[600px]">
@@ -278,12 +278,12 @@ export function Header({ insights, services }: { insights: Insight[], services: 
                   className="text-lg font-medium py-3 border-b"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Who We Are
+                  About Us
                 </Link>
                 
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="services" className="border-b">
-                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Our Services</AccordionTrigger>
+                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Services</AccordionTrigger>
                     <AccordionContent>
                       <div className="flex flex-col gap-2 pl-4 pt-2">
                         {mobileServices.map((service) => (

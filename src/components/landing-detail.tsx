@@ -244,6 +244,8 @@ export function LandingDetail({ page }: { page: LandingPage }) {
                   <li key={l.href}>
                     <Link
                       href={l.href}
+                      target={l.href.startsWith("http") ? "_blank" : undefined}
+                      rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="group inline-flex items-center gap-2 text-base font-light text-foreground/80 transition-colors hover:text-primary md:text-lg"
                     >
                       {l.label}

@@ -20,7 +20,7 @@ import { HELP_HEADINGS, serviceLinks, type LandingPage } from "./landing-content
  * Cross sector theme landing pages, following the 2026 SEO publication copy.
  *
  * Themes carry the agendas that run across every sector: capital, trade,
- * industrialization, infrastructure, technology, climate, policy, governance,
+ * industrialisation, infrastructure, technology, climate, policy, governance,
  * inclusion, skills, enterprise, innovation, accessibility and urbanization.
  */
 export type Theme = LandingPage;
@@ -75,9 +75,9 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute, we prepare founders, executives, project sponsors and institutional leaders for capital conversations.",
         items: [
-          "Investment readiness programs for enterprises and projects",
+          "Investment readiness programmes for enterprises and projects",
           "Executive training on capital strategy and investor engagement",
-          "Board programs on governance, risk and investment oversight",
+          "Board programmes on governance, risk and investment oversight",
           "Fundraising preparation for SMEs, startups and growth institutions",
           "Investor forums and curated capital conversations",
         ],
@@ -202,7 +202,7 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we prepare teams and partners to execute trade and market entry plans.",
         items: [
-          "Africa market entry and regional expansion programs",
+          "Africa market entry and regional expansion programmes",
           "Export readiness and trade capability training",
           "Partner, distributor and stakeholder engagement workshops",
           "AfCFTA and regional integration executive education",
@@ -227,7 +227,7 @@ export const themeList: Theme[] = [
         blurb:
           "Our advisory work turns market intelligence into an executable entry or expansion plan.",
         items: [
-          "Market selection and prioritization",
+          "Market selection and prioritisation",
           "Entry strategy and operating model design",
           "Partner, distributor and institutional engagement",
           "Trade, export and market access strategy",
@@ -241,7 +241,7 @@ export const themeList: Theme[] = [
       "An African business expanding from one region into another",
       "An exporter seeking buyers, distributors or institutional access",
       "An investor assessing market conditions before committing capital",
-      "A government or association organizing a trade mission or market access initiative",
+      "A government or association organising a trade mission or market access initiative",
     ],
     audiences: [
       "International companies and foreign investors",
@@ -269,7 +269,7 @@ export const themeList: Theme[] = [
       },
       {
         q: "Can you compare Kenya, Nigeria and South Africa for market entry?",
-        a: "Yes. We can compare commercial demand, regulation, competition, cost, partnerships, institutional conditions and route to market options for the client's specific sector and offer.",
+        a: "Yes. We can compare commercial demand, regulation, competition, cost, partnerships, institutional conditions and route-to-market options for the client's specific sector and offer.",
       },
     ],
     closing: {
@@ -284,7 +284,7 @@ export const themeList: Theme[] = [
   {
     slug: "industrialization",
     kind: "theme",
-    name: "Industrialization, Manufacturing and Value Chains",
+    name: "Industrialisation, Manufacturing and Value Chains",
     scope:
       "Industrial strategy, value chain development, local production, processing, local content and industrial policy.",
     icon: Cog,
@@ -296,7 +296,7 @@ export const themeList: Theme[] = [
       "industrial development advisory Africa",
       "value chain consulting Africa",
       "manufacturing advisory Kenya",
-      "industrialization consulting Nigeria",
+      "industrialisation consulting Nigeria",
       "manufacturing consulting South Africa",
       "local content advisory Africa",
     ],
@@ -311,7 +311,7 @@ export const themeList: Theme[] = [
       heading: "Build productive capacity around real markets and investable demand",
       paragraphs: [
         "Industrial development succeeds when production is connected to demand, inputs, infrastructure, skills, finance, trade and policy. A factory, processing facility or industrial zone requires a full commercial system. The investment case must account for supply, customers, cost, logistics and institutional execution.",
-        "Credence Africa treats manufacturing and processing as cross sector economic capabilities. We support food processing, pharmaceuticals, mobility, energy equipment, consumer goods, technology hardware and other productive sectors. This approach preserves sector expertise while allowing value chain and industrial strategy to operate across the economy.",
+        "Credence Africa treats manufacturing and processing as cross-sector economic capabilities. We support food processing, pharmaceuticals, mobility, energy equipment, consumer goods, technology hardware and other productive sectors. This approach preserves sector expertise while allowing value chain and industrial strategy to operate across the economy.",
       ],
     },
     needs: {
@@ -330,10 +330,10 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we strengthen industrial leadership, supplier capability and institutional coordination.",
         items: [
-          "Manufacturing leadership and productivity programs",
+          "Manufacturing leadership and productivity programmes",
           "Supplier development and local content training",
           "Investment readiness for manufacturers and processors",
-          "Trade, export and value chain capability programs",
+          "Trade, export and value chain capability programmes",
           "Industrial forums, buyer supplier conversations and policy roundtables",
         ],
       },
@@ -384,7 +384,7 @@ export const themeList: Theme[] = [
     faqs: [
       {
         q: "Why is manufacturing a theme rather than one Credence Africa sector?",
-        a: "Manufacturing occurs inside many sectors. Food processing belongs to agriculture. Pharmaceutical manufacturing belongs to healthcare. Vehicle assembly belongs to mobility. The cross sector theme allows Credence Africa to apply industrial expertise without losing sector specific knowledge.",
+        a: "Manufacturing occurs inside many sectors. Food processing belongs to agriculture. Pharmaceutical manufacturing belongs to healthcare. Vehicle assembly belongs to mobility. The cross-sector theme allows Credence Africa to apply industrial expertise without losing sector-specific knowledge.",
       },
       {
         q: "Can Credence Africa assess a manufacturing investment opportunity?",
@@ -392,7 +392,7 @@ export const themeList: Theme[] = [
       },
       {
         q: "Do you support local content and supplier development?",
-        a: "Yes. We can map suppliers, assess capability gaps, design supplier development programs and connect local content objectives to commercial performance.",
+        a: "Yes. We can map suppliers, assess capability gaps, design supplier development programmes and connect local content objectives to commercial performance.",
       },
       {
         q: "Can you support projects in Kenya, Nigeria and South Africa?",
@@ -457,9 +457,9 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we build project preparation, governance and stakeholder capability.",
         items: [
-          "Project preparation and investment readiness programs",
+          "Project preparation and investment readiness programmes",
           "Public private partnership and infrastructure finance training",
-          "Governance and oversight programs for project sponsors",
+          "Governance and oversight programmes for project sponsors",
           "Stakeholder engagement and institutional coordination workshops",
           "Project forums, investor roundtables and public private dialogues",
         ],
@@ -480,7 +480,7 @@ export const themeList: Theme[] = [
       {
         heading: HELP_HEADINGS.advisory,
         blurb:
-          "Our advisory work organizes the strategic and institutional pathway from concept to execution.",
+          "Our advisory work organises the strategic and institutional pathway from concept to execution.",
         items: [
           "Project concept and strategic case development",
           "Project readiness and gap assessment",
@@ -506,7 +506,7 @@ export const themeList: Theme[] = [
       "Associations, universities and development partners",
     ],
     geography:
-      "Kenya, Nigeria and South Africa present distinct infrastructure pipelines, institutional structures and capital environments. We design country specific approaches and support regional infrastructure, trade corridor and cross border projects where the opportunity requires it. Our work can extend to other African markets through local research and qualified project partners.",
+      "Kenya, Nigeria and South Africa present distinct infrastructure pipelines, institutional structures and capital environments. We design country specific approaches and support regional infrastructure, trade corridor and cross-border projects where the opportunity requires it. Our work can extend to other African markets through local research and qualified project partners.",
     why:
       "Our role is to create strategic and institutional coherence. We do not replace engineers, quantity surveyors, environmental specialists, legal advisers or technical consultants. We coordinate the commercial, capital, policy and stakeholder dimensions and bring qualified specialists into the mandate as required.",
     faqs: [
@@ -524,13 +524,13 @@ export const themeList: Theme[] = [
       },
       {
         q: "Can you support infrastructure projects in Kenya, Nigeria and South Africa?",
-        a: "Yes. We can structure country specific or comparative mandates and support projects with regional or pan African relevance.",
+        a: "Yes. We can structure country specific or comparative mandates and support projects with regional or pan-African relevance.",
       },
     ],
     closing: {
       heading: "Turn an infrastructure concept into a structured project mandate",
       body:
-        "Credence Africa can help you define the case, assess readiness, organize the stakeholders and build the pathway toward capital and execution.",
+        "Credence Africa can help you define the case, assess readiness, organise the stakeholders and build the pathway toward capital and execution.",
       label: "Book an Infrastructure Consultation",
       consult: "capital",
     },
@@ -541,7 +541,7 @@ export const themeList: Theme[] = [
     kind: "theme",
     name: "Technology, AI and Digital Transformation",
     scope:
-      "AI strategy, use case prioritization, data governance, operating model design and responsible technology adoption.",
+      "AI strategy, use-case prioritisation, data governance, operating model design and responsible technology adoption.",
     icon: BrainCircuit,
     seoTitle: "AI and Digital Transformation Consulting in Africa",
     metaDescription:
@@ -566,7 +566,7 @@ export const themeList: Theme[] = [
       heading: "Move from technology interest to institutional value",
       paragraphs: [
         "Artificial intelligence and digital systems create opportunities across every sector. Adoption also introduces governance, data, workforce, procurement, security and accountability questions. Institutions need a clear business case and a practical operating model.",
-        "Credence Africa supports technology adoption as a cross sector transformation theme. We work with financial institutions, healthcare organizations, agribusinesses, transport companies, public institutions, consumer businesses and development actors. Our focus is the strategic decision, the institutional readiness and the path to responsible execution.",
+        "Credence Africa supports technology adoption as a cross-sector transformation theme. We work with financial institutions, healthcare organisations, agribusinesses, transport companies, public institutions, consumer businesses and development actors. Our focus is the strategic decision, the institutional readiness and the path to responsible execution.",
       ],
     },
     needs: {
@@ -576,7 +576,7 @@ export const themeList: Theme[] = [
         "What data, systems, skills and governance are required?",
         "How should leaders assess value, risk and implementation priority?",
         "What policy, ethical and stakeholder obligations must be addressed?",
-        "How should the organization prepare its people and operating model?",
+        "How should the organisation prepare its people and operating model?",
       ],
     },
     helps: [
@@ -586,10 +586,10 @@ export const themeList: Theme[] = [
           "Through Credence Institute, we build executive and institutional capability for responsible technology adoption.",
         items: [
           "Executive AI literacy for boards and senior leadership",
-          "AI strategy and responsible adoption programs",
+          "AI strategy and responsible adoption programmes",
           "Digital transformation leadership and operating model training",
           "Data governance, procurement and risk awareness",
-          "Sector specific learning for finance, health, agriculture, mobility and public institutions",
+          "Sector-specific learning for finance, health, agriculture, mobility and public institutions",
         ],
       },
       {
@@ -611,7 +611,7 @@ export const themeList: Theme[] = [
           "Our advisory work converts technology ambition into a focused strategy and implementation pathway.",
         items: [
           "AI and digital transformation strategy",
-          "Use case prioritization and business case development",
+          "Use case prioritisation and business case development",
           "Governance, policy and accountability frameworks",
           "Operating model, workforce and capability planning",
           "Technology partner and procurement strategy",
@@ -634,7 +634,7 @@ export const themeList: Theme[] = [
       "Universities, professional bodies and ecosystem platforms",
     ],
     geography:
-      "Kenya, Nigeria and South Africa are priority markets because they combine active technology ecosystems with substantial institutional demand. Our work can compare adoption conditions across the three markets or focus on one institution, sector or country. We also support regional and pan African transformation initiatives.",
+      "Kenya, Nigeria and South Africa are priority markets because they combine active technology ecosystems with substantial institutional demand. Our work can compare adoption conditions across the three markets or focus on one institution, sector or country. We also support regional and pan-African transformation initiatives.",
     why:
       "We start with institutional value. Technology selection follows the strategy, use case, data, governance and capability assessment. We work with implementation and technical partners when the mandate moves into software, systems integration, cybersecurity or engineering.",
     faqs: [
@@ -644,7 +644,7 @@ export const themeList: Theme[] = [
       },
       {
         q: "Can Credence Africa train our board on AI?",
-        a: "Yes. We design executive AI briefings and board programs focused on strategy, governance, risk, accountability and sector relevant use cases.",
+        a: "Yes. We design executive AI briefings and board programmes focused on strategy, governance, risk, accountability and sector relevant use cases.",
       },
       {
         q: "Do you support public institutions?",
@@ -658,7 +658,7 @@ export const themeList: Theme[] = [
     closing: {
       heading: "Build an AI and digital strategy grounded in institutional reality",
       body:
-        "Credence Africa can help you identify the right use cases, establish governance and prepare the organization for responsible execution.",
+        "Credence Africa can help you identify the right use cases, establish governance and prepare the organisation for responsible execution.",
       label: "Book an AI and Digital Transformation Consultation",
       consult: "institute",
     },
@@ -704,7 +704,7 @@ export const themeList: Theme[] = [
         "What transition, adaptation or resilience priorities require action?",
         "What capital and partnerships can support the strategy?",
         "What policy, reporting and stakeholder expectations must be addressed?",
-        "How should climate commitments translate into programs, governance and measurable decisions?",
+        "How should climate commitments translate into programmes, governance and measurable decisions?",
       ],
     },
     helps: [
@@ -714,9 +714,9 @@ export const themeList: Theme[] = [
           "Through Credence Institute and Credence Engage, we build climate, sustainability and resilience capability.",
         items: [
           "Executive education on climate risk and sustainability strategy",
-          "Climate finance and investment readiness programs",
-          "Board and governance programs for climate oversight",
-          "Carbon market, circular economy and resilience learning programs",
+          "Climate finance and investment readiness programmes",
+          "Board and governance programmes for climate oversight",
+          "Carbon market, circular economy and resilience learning programmes",
           "Climate policy dialogues, investor forums and sector roundtables",
         ],
       },
@@ -761,7 +761,7 @@ export const themeList: Theme[] = [
       "Universities, research institutions and sector platforms",
     ],
     geography:
-      "Kenya is a priority market for climate innovation, renewable energy, agriculture and resilience. Nigeria is a priority market for energy access, infrastructure, cities and large scale transition needs. South Africa is a priority market for industrial transition, power, finance and sustainability governance. We can also structure regional and pan African work.",
+      "Kenya is a priority market for climate innovation, renewable energy, agriculture and resilience. Nigeria is a priority market for energy access, infrastructure, cities and large-scale transition needs. South Africa is a priority market for industrial transition, power, finance and sustainability governance. We can also structure regional and pan-African work.",
     why:
       "We connect climate ambition to capital, policy, markets and institutional execution. We avoid generic commitments. Our work defines the decision, the evidence, the governance and the route to implementation. Technical climate science, verification and certification are delivered with qualified specialists.",
     faqs: [
@@ -785,7 +785,7 @@ export const themeList: Theme[] = [
     closing: {
       heading: "Build a climate strategy that can be governed and financed",
       body:
-        "Credence Africa can help you define the priority, establish the evidence and organize the capital, policy and capability required for action.",
+        "Credence Africa can help you define the priority, establish the evidence and organise the capital, policy and capability required for action.",
       label: "Book a Climate and Sustainability Consultation",
       consult: "capital",
     },
@@ -796,7 +796,7 @@ export const themeList: Theme[] = [
     kind: "theme",
     name: "Policy, Regulation and Public Affairs",
     scope:
-      "Regulatory intelligence, policy research, stakeholder strategy, government engagement and evidence led convening.",
+      "Regulatory intelligence, policy research, stakeholder strategy, government engagement and evidence-led convening.",
     icon: Scale,
     seoTitle: "Public Affairs and Policy Advisory in Africa",
     metaDescription:
@@ -812,7 +812,7 @@ export const themeList: Theme[] = [
     ],
     h1: "Public Affairs, Policy and Regulatory Advisory Across Africa",
     intro:
-      "Credence Africa helps organizations understand policy environments, navigate regulation and engage public institutions with credibility. We combine regulatory intelligence, policy research, stakeholder strategy, public affairs and evidence led convening across African markets.",
+      "Credence Africa helps organisations understand policy environments, navigate regulation and engage public institutions with credibility. We combine regulatory intelligence, policy research, stakeholder strategy, public affairs and evidence-led convening across African markets.",
     actions: [
       { label: "Discuss a Public Affairs Mandate", consult: "public-affairs" },
       { label: "Request a Policy and Regulatory Brief", consult: "research" },
@@ -842,9 +842,9 @@ export const themeList: Theme[] = [
         items: [
           "Executive education on public affairs and regulatory strategy",
           "Government relations and stakeholder engagement training",
-          "Policy writing, advocacy and issues management programs",
+          "Policy writing, advocacy and issues management programmes",
           "Board briefings on political and regulatory risk",
-          "Policy roundtables, closed door dialogues and public forums",
+          "Policy roundtables, closed-door dialogues and public forums",
         ],
       },
       {
@@ -863,7 +863,7 @@ export const themeList: Theme[] = [
       {
         heading: HELP_HEADINGS.advisory,
         blurb:
-          "Our advisory work structures the organization's response to policy and regulatory change.",
+          "Our advisory work structures the organisation's response to policy and regulatory change.",
         items: [
           "Public affairs and government engagement strategy",
           "Regulatory navigation and market access support",
@@ -889,9 +889,9 @@ export const themeList: Theme[] = [
       "Investors, universities, media and research institutions",
     ],
     geography:
-      "We support public affairs and policy mandates across Africa, with priority market coverage in Kenya, Nigeria and South Africa. Each market has distinct institutions, policy processes and stakeholder expectations. Regional and continental mandates can include the African Union, regional economic communities and pan African industry institutions.",
+      "We support public affairs and policy mandates across Africa, with priority market coverage in Kenya, Nigeria and South Africa. Each market has distinct institutions, policy processes and stakeholder expectations. Regional and continental mandates can include the African Union, regional economic communities and pan-African industry institutions.",
     why:
-      "Our approach is evidence led, lawful and institutionally responsible. We do not treat public affairs as access alone. We build the policy case, map the stakeholder system, define the engagement purpose and create a process that can withstand public and institutional scrutiny.",
+      "Our approach is evidence-led, lawful and institutionally responsible. We do not treat public affairs as access alone. We build the policy case, map the stakeholder system, define the engagement purpose and create a process that can withstand public and institutional scrutiny.",
     faqs: [
       {
         q: "What public affairs services does Credence Africa provide?",
@@ -949,7 +949,7 @@ export const themeList: Theme[] = [
       heading: "Build institutions that can govern, decide and execute",
       paragraphs: [
         "Strong institutions convert ambition into consistent decisions. They define authority, allocate resources, manage risk and hold leadership accountable. Weak governance creates delay, confusion, unmanaged exposure and dependence on individuals.",
-        "Credence Africa supports governance and institutional development as a cross sector theme. We help clients clarify mandates, strengthen boards, align strategy, improve operating structures and build leadership capability. Our work focuses on how the institution actually makes decisions and delivers results.",
+        "Credence Africa supports governance and institutional development as a cross-sector theme. We help clients clarify mandates, strengthen boards, align strategy, improve operating structures and build leadership capability. Our work focuses on how the institution actually makes decisions and delivers results.",
       ],
     },
     needs: {
@@ -969,10 +969,10 @@ export const themeList: Theme[] = [
           "Through Credence Institute, we build board, executive and institutional leadership capability.",
         items: [
           "Board induction and governance education",
-          "Board effectiveness and committee programs",
+          "Board effectiveness and committee programmes",
           "Executive leadership and strategy execution",
           "Governance for cooperatives, nonprofits and public institutions",
-          "Risk, accountability and institutional stewardship programs",
+          "Risk, accountability and institutional stewardship programmes",
         ],
       },
       {
@@ -985,7 +985,7 @@ export const themeList: Theme[] = [
           "Strategy, operating model and capability analysis",
           "Policy, process and accountability reviews",
           "Institutional benchmarking and stakeholder research",
-          "Leadership, workforce and organizational intelligence",
+          "Leadership, workforce and organisational intelligence",
         ],
       },
       {
@@ -1017,17 +1017,17 @@ export const themeList: Theme[] = [
       "Governments, agencies, associations and development partners",
     ],
     geography:
-      "Kenya, Nigeria and South Africa are priority markets for corporate, cooperative, nonprofit and public institutional mandates. We also support regional bodies, pan African organizations and institutions operating across multiple jurisdictions. Each engagement is adapted to the legal form, ownership structure, mandate and operating context of the institution.",
+      "Kenya, Nigeria and South Africa are priority markets for corporate, cooperative, nonprofit and public institutional mandates. We also support regional bodies, pan-African organisations and institutions operating across multiple jurisdictions. Each engagement is adapted to the legal form, ownership structure, mandate and operating context of the institution.",
     why:
       "We connect governance to strategy and execution. Policies alone do not strengthen an institution. The board, leadership, structure, information, incentives and accountability system must work together. Credence Africa designs governance around the institution's purpose, scale, risk and growth direction.",
     faqs: [
       {
         q: "What governance advisory services does Credence Africa provide?",
-        a: "We provide board reviews, governance framework design, institutional strategy, operating model development, accountability systems, leadership programs, policy reviews and institutional strengthening.",
+        a: "We provide board reviews, governance framework design, institutional strategy, operating model development, accountability systems, leadership programmes, policy reviews and institutional strengthening.",
       },
       {
         q: "Can Credence Africa train our board?",
-        a: "Yes. Credence Institute delivers board induction, governance, strategy, risk, committee effectiveness and sector specific board programs.",
+        a: "Yes. Credence Institute delivers board induction, governance, strategy, risk, committee effectiveness and sector-specific board programmes.",
       },
       {
         q: "Do you work with cooperatives and nonprofits?",
@@ -1097,8 +1097,8 @@ export const themeList: Theme[] = [
           "Through Credence Institute and Credence Engage, we build capability for inclusive initiative design and leadership.",
         items: [
           "Gender responsive and youth focused initiative design training",
-          "Inclusive finance and enterprise support programs",
-          "Leadership and governance programs for women and young leaders",
+          "Inclusive finance and enterprise support programmes",
+          "Leadership and governance programmes for women and young leaders",
           "Youth employment, entrepreneurship and market access academies",
           "Policy dialogues and investor forums on economic inclusion",
         ],
@@ -1122,7 +1122,7 @@ export const themeList: Theme[] = [
         items: [
           "Gender and youth inclusion strategy",
           "Inclusive finance and investment initiative design",
-          "Enterprise, procurement and market access programs",
+          "Enterprise, procurement and market access programmes",
           "Youth employment and workforce transition strategy",
           "Policy, public affairs and institutional reform support",
           "Partnership, funding and ecosystem development",
@@ -1150,15 +1150,15 @@ export const themeList: Theme[] = [
     faqs: [
       {
         q: "What gender and youth inclusion services does Credence Africa provide?",
-        a: "We provide research, strategy, initiative design, inclusive finance advisory, enterprise and workforce programs, policy support, capability building and stakeholder convening.",
+        a: "We provide research, strategy, initiative design, inclusive finance advisory, enterprise and workforce programmes, policy support, capability building and stakeholder convening.",
       },
       {
         q: "Can Credence Africa design a women or youth fund?",
         a: "We can support the strategy, market assessment, target segment design, governance, pipeline development, capability initiative and investment readiness elements. Regulated fund management and legal structuring require appropriately licensed and qualified partners.",
       },
       {
-        q: "Do you support youth employment programs?",
-        a: "Yes. We can conduct labor market research, identify sector demand, design employer linked training and transition programs and build partnerships around jobs and enterprise.",
+        q: "Do you support youth employment programmes?",
+        a: "Yes. We can conduct labour market research, identify sector demand, design employer-linked training and transition programmes and build partnerships around jobs and enterprise.",
       },
       {
         q: "Can you work in Kenya, Nigeria and South Africa?",
@@ -1179,7 +1179,7 @@ export const themeList: Theme[] = [
     kind: "theme",
     name: "Jobs, Skills and Workforce Transformation",
     scope:
-      "Skills needs assessment, executive education, sector academies, professional programs and workforce systems.",
+      "Skills needs assessment, executive education, sector academies, professional programmes and workforce systems.",
     icon: BriefcaseBusiness,
     seoTitle: "Workforce Development and Executive Training in Africa",
     metaDescription:
@@ -1189,13 +1189,13 @@ export const themeList: Theme[] = [
       "executive training Africa",
       "skills development consulting Africa",
       "workforce training Kenya",
-      "skills programs Nigeria",
+      "skills programmes Nigeria",
       "executive education South Africa",
       "sector academy design Africa",
     ],
     h1: "Jobs, Skills and Workforce Transformation Across Africa",
     intro:
-      "Credence Africa helps employers, governments and institutions build the skills, leadership and workforce systems required for changing African industries. Through Credence Institute, we design executive education, sector academies, professional programs and institutional capability initiatives.",
+      "Credence Africa helps employers, governments and institutions build the skills, leadership and workforce systems required for changing African industries. Through Credence Institute, we design executive education, sector academies, professional programmes and institutional capability initiatives.",
     actions: [
       { label: "Discuss a Workforce or Training Mandate", consult: "institute" },
       { label: "Commission a Skills Needs Assessment", consult: "research" },
@@ -1204,7 +1204,7 @@ export const themeList: Theme[] = [
       heading: "Build capability around the work markets actually require",
       paragraphs: [
         "Workforce initiatives create value when they respond to real sector demand. Training must connect to job roles, enterprise needs, technology change, professional standards and institutional performance. Generic content produces limited results.",
-        "Credence Africa combines labor market intelligence, sector knowledge, curriculum design, employer engagement and executive learning. We support institutions that need to strengthen leaders, prepare teams, build professional capability or create employment and enterprise pathways.",
+        "Credence Africa combines labour market intelligence, sector knowledge, curriculum design, employer engagement and executive learning. We support institutions that need to strengthen leaders, prepare teams, build professional capability or create employment and enterprise pathways.",
       ],
     },
     needs: {
@@ -1225,8 +1225,8 @@ export const themeList: Theme[] = [
         items: [
           "Executive education and leadership development",
           "Sector academies and professional credentials",
-          "Board, governance and institutional capability programs",
-          "Workforce readiness, reskilling and upskilling programs",
+          "Board, governance and institutional capability programmes",
+          "Workforce readiness, reskilling and upskilling programmes",
           "Employer linked learning, study tours and executive exchanges",
         ],
       },
@@ -1235,7 +1235,7 @@ export const themeList: Theme[] = [
         blurb:
           "Our research establishes the demand, audience and institutional case for skills investment.",
         items: [
-          "Labor market and skills needs assessments",
+          "Labour market and skills needs assessments",
           "Sector capability and workforce studies",
           "Employer demand and occupational research",
           "Training ecosystem and provider mapping",
@@ -1260,8 +1260,8 @@ export const themeList: Theme[] = [
     mandates: [
       "A company building leadership and functional capability",
       "An association developing a sector academy or credential",
-      "A government designing an employer linked workforce initiative",
-      "A university or training institution aligning programs to market demand",
+      "A government designing an employer-linked workforce initiative",
+      "A university or training institution aligning programmes to market demand",
       "A development partner funding jobs, skills or institutional capability",
     ],
     audiences: [
@@ -1272,13 +1272,13 @@ export const themeList: Theme[] = [
       "Foundations, investors and development partners",
     ],
     geography:
-      "Kenya, Nigeria and South Africa are priority markets for sector academies, employer partnerships, executive learning and workforce transition. We can also build regional programs that serve institutions and professionals from multiple African countries. Delivery can be physical, virtual or blended.",
+      "Kenya, Nigeria and South Africa are priority markets for sector academies, employer partnerships, executive learning and workforce transition. We can also build regional programmes that serve institutions and professionals from multiple African countries. Delivery can be physical, virtual or blended.",
     why:
       "Our advantage is the connection between research and delivery. We first establish what the market and institution need. We then design the learning model, partnerships, content, governance and measurement framework around that evidence. Credence Institute can deliver directly or coordinate specialist faculty and partners.",
     faqs: [
       {
         q: "What workforce development services does Credence Africa provide?",
-        a: "We provide skills needs assessments, workforce strategy, executive education, academy design, curriculum development, professional programs, employer partnerships and initiative evaluation.",
+        a: "We provide skills needs assessments, workforce strategy, executive education, academy design, curriculum development, professional programmes, employer partnerships and initiative evaluation.",
       },
       {
         q: "Can Credence Africa design a sector academy?",
@@ -1286,11 +1286,11 @@ export const themeList: Theme[] = [
       },
       {
         q: "Do you deliver custom executive training?",
-        a: "Yes. Credence Institute designs custom programs for boards, executives, managers, professionals and institutional teams.",
+        a: "Yes. Credence Institute designs custom programmes for boards, executives, managers, professionals and institutional teams.",
       },
       {
-        q: "Can programs cover Kenya, Nigeria and South Africa?",
-        a: "Yes. Programs can be country specific, regional, hybrid or pan African, depending on the audience, faculty and delivery model.",
+        q: "Can programmes cover Kenya, Nigeria and South Africa?",
+        a: "Yes. Programmes can be country specific, regional, hybrid or pan-African, depending on the audience, faculty and delivery model.",
       },
     ],
     closing: {
@@ -1332,7 +1332,7 @@ export const themeList: Theme[] = [
       heading: "Build enterprises that can govern, finance and scale growth",
       paragraphs: [
         "Many enterprises begin with market energy and founder commitment. Growth introduces a different requirement. The business needs systems, management discipline, capital planning, customer intelligence, governance and a repeatable route to market.",
-        "Credence Africa supports individual enterprises and the institutions that serve them. We work across strategy, finance, market entry, trade, governance, leadership and investment readiness. We also design accelerators, supplier development programs, sector academies and enterprise platforms.",
+        "Credence Africa supports individual enterprises and the institutions that serve them. We work across strategy, finance, market entry, trade, governance, leadership and investment readiness. We also design accelerators, supplier development programmes, sector academies and enterprise platforms.",
       ],
     },
     needs: {
@@ -1350,9 +1350,9 @@ export const themeList: Theme[] = [
         heading: HELP_HEADINGS.training,
         blurb: "Through Credence Institute, we build practical enterprise and leadership capability.",
         items: [
-          "Founder and SME growth programs",
+          "Founder and SME growth programmes",
           "Investment readiness and financial management training",
-          "Governance, leadership and operating systems programs",
+          "Governance, leadership and operating systems programmes",
           "Sales, market entry, export and partnership capability",
           "Accelerators, supplier development and sector academies",
         ],
@@ -1393,13 +1393,13 @@ export const themeList: Theme[] = [
     ],
     audiences: [
       "Entrepreneurs, SMEs and growth companies",
-      "Corporations and supplier development programs",
+      "Corporations and supplier development programmes",
       "Banks, investors and development finance institutions",
       "Accelerators, hubs and industry associations",
       "Governments, foundations and development partners",
     ],
     geography:
-      "Kenya, Nigeria and South Africa are priority markets for our enterprise growth work. Each market offers distinct customer, capital and institutional conditions. We support businesses entering or expanding across these markets and institutions designing enterprise initiatives at country, regional or pan African level.",
+      "Kenya, Nigeria and South Africa are priority markets for our enterprise growth work. Each market offers distinct customer, capital and institutional conditions. We support businesses entering or expanding across these markets and institutions designing enterprise initiatives at country, regional or pan-African level.",
     why:
       "We connect enterprise support to commercial performance. Training alone is insufficient when strategy, governance, finance and market access remain weak. Our mandates combine capability with advisory, intelligence and institutional partnerships so that the enterprise can make and execute better decisions.",
     faqs: [
@@ -1478,9 +1478,9 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we build ecosystem capability and convene the relationships required for action.",
         items: [
-          "Innovation leadership and ecosystem management programs",
+          "Innovation leadership and ecosystem management programmes",
           "Accelerator, incubator and cluster capability building",
-          "Corporate innovation and partnership programs",
+          "Corporate innovation and partnership programmes",
           "Investor, founder and institutional learning forums",
           "Sector communities, policy dialogues and innovation challenges",
         ],
@@ -1516,7 +1516,7 @@ export const themeList: Theme[] = [
       "A government developing a national or city innovation strategy",
       "A corporation building an open innovation or supplier platform",
       "An investor or foundation mapping a sector ecosystem",
-      "A university building commercialization and industry partnerships",
+      "A university building commercialisation and industry partnerships",
       "A development partner designing an accelerator or ecosystem initiative",
     ],
     audiences: [
@@ -1551,7 +1551,7 @@ export const themeList: Theme[] = [
     closing: {
       heading: "Build an ecosystem that produces real institutional and commercial value",
       body:
-        "Credence Africa can help you map the system, define the intervention and organize the partnerships, capital and capability required for progress.",
+        "Credence Africa can help you map the system, define the intervention and organise the partnerships, capital and capability required for progress.",
       label: "Book an Innovation Ecosystem Consultation",
       consult: "engage",
     },
@@ -1606,9 +1606,9 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we build inclusion and accessibility capability.",
         items: [
-          "Inclusive design and accessibility awareness programs",
+          "Inclusive design and accessibility awareness programmes",
           "Leadership training on inclusive markets and services",
-          "Disability inclusion and institutional capability programs",
+          "Disability inclusion and institutional capability programmes",
           "Inclusive finance, infrastructure and service delivery learning",
           "Policy dialogues and stakeholder forums on access and shared prosperity",
         ],
@@ -1652,7 +1652,7 @@ export const themeList: Theme[] = [
       "Banks, insurers, investors and financial institutions",
       "Governments, cities and public agencies",
       "Foundations, nonprofits and development partners",
-      "Associations, disability organizations and community institutions",
+      "Associations, disability organisations and community institutions",
     ],
     geography:
       "Kenya, Nigeria and South Africa are priority markets with distinct access, infrastructure and institutional conditions. We can assess one market, compare the three or design a regional initiative for wider African implementation. Local stakeholder participation is built into research and initiative design.",
@@ -1665,7 +1665,7 @@ export const themeList: Theme[] = [
       },
       {
         q: "Can Credence Africa conduct disability inclusion research?",
-        a: "Yes. We can design research on access, service use, market barriers, institutional capability and policy. We engage relevant organizations and specialists to ensure the work is grounded and responsible.",
+        a: "Yes. We can design research on access, service use, market barriers, institutional capability and policy. We engage relevant organisations and specialists to ensure the work is grounded and responsible.",
       },
       {
         q: "Do you support inclusive product and service design?",
@@ -1734,9 +1734,9 @@ export const themeList: Theme[] = [
         blurb:
           "Through Credence Institute and Credence Engage, we build urban leadership and institutional capability.",
         items: [
-          "Executive programs for city and municipal leaders",
+          "Executive programmes for city and municipal leaders",
           "Urban investment and municipal finance learning",
-          "Demographic, consumer and market strategy programs",
+          "Demographic, consumer and market strategy programmes",
           "Urban mobility, infrastructure and service delivery forums",
           "City investor roundtables and public private dialogues",
         ],
@@ -1761,7 +1761,7 @@ export const themeList: Theme[] = [
           "Urban and city strategy",
           "City investment and project pipeline development",
           "Municipal finance and partnership strategy",
-          "Market entry and city prioritization for businesses",
+          "Market entry and city prioritisation for businesses",
           "Urban policy and stakeholder engagement",
           "Institutional strengthening and implementation planning",
         ],

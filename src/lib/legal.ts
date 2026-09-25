@@ -8,11 +8,13 @@
  * Kenyan lawyer before final publication. Update `legalLastUpdated` when the wording changes.
  */
 
+import { contact } from "./contact";
+
 export const legalLastUpdated = "30 July 2026";
 
 export const legalContact = {
-  email: "connect@credence.africa",
-  address: "Applewood Adams, Ngong Road, Nairobi, Kenya",
+  email: contact.email,
+  address: contact.address,
 };
 
 export type LegalBlock =
@@ -134,23 +136,19 @@ const privacyPolicy: LegalPolicy = {
         {
           type: "ul",
           items: [
-            "Access your personal data",
-            "Request correction (rectification) of inaccurate data",
-            "Request deletion (erasure) of your data",
-            "Restrict or object to processing",
-            "Data portability (where applicable)",
-            "Withdraw consent at any time",
+            "Access your personal data.",
+            "Request correction (rectification) of inaccurate data.",
+            "Request deletion (erasure) of your data.",
+            "Restrict or object to processing.",
+            "Data portability (where applicable).",
+            "Withdraw consent at any time.",
           ],
         },
         { type: "p", text: "To exercise any of these rights, contact us using the details below." },
-      ],
-    },
-    {
-      id: "contact-us",
-      heading: "Contact Us",
-      blocks: [
-        { type: "p", text: "For any privacy-related questions or requests, email connect@credence.africa." },
-        { type: "p", text: "Postal address: Credence Africa, Applewood Adams, Ngong Road, Nairobi, Kenya." },
+        {
+          type: "p",
+          text: "If you believe your data has been handled unlawfully, you also have the right to lodge a complaint with the Office of the Data Protection Commissioner (ODPC) in Kenya.",
+        },
       ],
     },
   ],
@@ -170,7 +168,7 @@ const termsAndConditions: LegalPolicy = {
       blocks: [
         {
           type: "p",
-          text: "Credence Africa provides advisory, capital structuring, market entry, public affairs, executive education, research and related institutional support services across Africa. All formal engagements are governed by separate written agreements or proposals.",
+          text: "Credence Africa provides advisory, capital structuring, market entry, public affairs, executive education, research and related institutional support services across Africa. All formal engagements are governed by a signed engagement letter or proposal.",
         },
       ],
     },
@@ -210,7 +208,7 @@ const termsAndConditions: LegalPolicy = {
       blocks: [
         {
           type: "p",
-          text: "Content on this website is for general information only and does not constitute legal, financial, investment or professional advice. Formal advice is provided only under a signed engagement letter.",
+          text: "Content on this website is for general information only and does not constitute legal, financial, investment or professional advice. Formal advice is provided only under a signed engagement letter or proposal.",
         },
       ],
     },
@@ -220,7 +218,7 @@ const termsAndConditions: LegalPolicy = {
       blocks: [
         {
           type: "p",
-          text: "Where applicable, fees for services, programmes or events are due as stated in the relevant invoice, proposal or registration terms. Late payments may attract interest or suspension of services.",
+          text: "Where applicable, fees for services, programmes or events are due as stated in the relevant invoice, proposal or registration terms. Late payments may attract interest or suspension of services. See our Refund Policy for cancellation and refund terms.",
         },
       ],
     },
@@ -230,7 +228,7 @@ const termsAndConditions: LegalPolicy = {
       blocks: [
         {
           type: "p",
-          text: "Both parties agree to keep confidential any non-public information shared during engagements, unless disclosure is required by law or agreed in writing.",
+          text: "Credence Africa and the client each agree to keep confidential any non-public information shared during engagements, unless disclosure is required by law or agreed in writing.",
         },
       ],
     },
@@ -312,8 +310,8 @@ const refundPolicy: LegalPolicy = {
         {
           type: "ul",
           items: [
-            "Cancellations received more than 14 days before the start date may be eligible for a full or partial refund, less any non-recoverable costs or administration fees.",
-            "Cancellations within 14 days of the start date are generally non-refundable.",
+            "Cancellations received 14 days or more before the start date may be eligible for a full or partial refund, less any non-recoverable costs or administration fees.",
+            "Cancellations received less than 14 days before the start date are generally non-refundable.",
             "You may transfer your registration to another participant or a future programme (subject to availability and our written approval).",
           ],
         },
@@ -325,7 +323,7 @@ const refundPolicy: LegalPolicy = {
       blocks: [
         {
           type: "p",
-          text: "Ticket or participation fees for events are non-refundable unless the event is cancelled by Credence Africa. In the event of cancellation by us, you will receive a full refund or the option to transfer to a future event.",
+          text: "Ticket or participation fees for events are non-refundable unless the event is cancelled or postponed by Credence Africa. In the event of cancellation by us, you will receive a full refund or the option to transfer to a future event.",
         },
       ],
     },

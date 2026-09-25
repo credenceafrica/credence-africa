@@ -14,6 +14,7 @@ import { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { firestore } from "@/firebase";
 import { useToast } from "@/hooks/use-toast";
+import Link from "next/link";
 
 const featuredStudies = [
   "Unlocking Venture Capital for a Kenyan Mobility Startup",
@@ -85,7 +86,7 @@ export default function CaseStudiesPage() {
       </div>
 
       <div>
-        <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground text-center mb-8">Featured Case Studies</h2>
+        <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground text-center mb-8">Featured case studies</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {featuredStudies.map(study => (
             <Card key={study} className="bg-secondary">
@@ -99,7 +100,7 @@ export default function CaseStudiesPage() {
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-4">
-            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Access Full Reports</h2>
+            <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Access full reports</h2>
             <p className="text-muted-foreground">Complete the form to unlock in-depth case study downloads and gain access to our full library of reports on strategy and execution in African markets.</p>
         </div>
         <Card className="p-8">
@@ -179,7 +180,7 @@ export default function CaseStudiesPage() {
                     name="organization"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Organization / Company Name (Optional)</FormLabel>
+                            <FormLabel>Organisation / Company Name (Optional)</FormLabel>
                             <FormControl>
                                 <Input placeholder="Your Company Inc." {...field} />
                             </FormControl>
@@ -203,6 +204,17 @@ export default function CaseStudiesPage() {
             <Button type="submit" className="w-full h-14 rounded-none text-base font-light" disabled={loading}>
                 {loading ? 'Submitting...' : 'Request Access'}
             </Button>
+
+            <p className="text-sm font-light leading-relaxed text-foreground/65">
+              By submitting this form you agree to our{" "}
+              <Link
+                href="/privacy-policy"
+                className="font-normal text-foreground underline decoration-primary decoration-1 underline-offset-2 hover:decoration-2"
+              >
+                Privacy Policy
+              </Link>
+              .
+            </p>
           </form>
           </Form>
         </Card>

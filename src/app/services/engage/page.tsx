@@ -27,7 +27,7 @@ import Image from "next/image";
 const activationServices = [
   {
     title: "Event Strategy and Audience Design",
-    desc: "We define audience segments, engagement pathways and participation models that align event structure with commercial objectives and target market behavior.",
+    desc: "We define audience segments, engagement pathways and participation models that align event structure with commercial objectives and target market behaviour.",
     icon: <Target className="size-8 text-primary" />,
   },
   {
@@ -59,7 +59,7 @@ const productLaunchServices = [
 
 const tradeExpoServices = [
   {
-    title: "Exhibitions and Trade Show Platforms",
+    title: "Exhibitions and Trade-Show Platforms",
     desc: "Design and execution of expos that enable brands to showcase offerings and engage directly with target markets.",
   },
   {
@@ -79,7 +79,7 @@ const acquisitionServices = [
   },
   {
     title: "Community and Ecosystem Engagement Platforms",
-    desc: "Events that connect brands and institutions with communities, networks and ecosystem participants to build long term engagement.",
+    desc: "Events that connect brands and institutions with communities, networks and ecosystem participants to build long-term engagement.",
   },
   {
     title: "Regulatory and Stakeholder Engagement Platforms",
@@ -109,8 +109,7 @@ export default function EngagePage() {
                 CREDENCE ENGAGE™
               </p>
               <h1 className="text-foreground leading-tight text-3xl md:text-4xl lg:text-[2.5rem]">
-                Market Activation and Audience Engagement Events in Kenya for Brands, Corporates and Institutions
-              </h1>
+                Market activation and audience engagement events in Kenya for brands, corporates and institutions</h1>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-foreground/80">
@@ -156,8 +155,7 @@ export default function EngagePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mb-16 space-y-6">
             <h2 className="text-3xl md:text-4xl font-normal leading-tight">
-              Market Activation Event Management Services in Kenya
-            </h2>
+              Market activation event management services in Kenya</h2>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
               CREDENCE ENGAGE™ structures events as audience driven platforms segmented by purchasing power, decision authority and participation intent. This ensures each event is aligned to clear commercial outcomes.
             </p>
@@ -180,8 +178,7 @@ export default function EngagePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal leading-tight">
-                Product Launches and Brand Activation Events in Kenya
-              </h2>
+                Product launches and brand activation events in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 Product launches and brand activations require controlled environments where messaging, experience and audience engagement translate into adoption and market traction.
               </p>
@@ -219,7 +216,7 @@ export default function EngagePage() {
               />
             </div>
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal">Trade Expos and Marketplace Event Platforms in Kenya</h2>
+              <h2 className="text-3xl md:text-4xl font-normal">Trade expos and marketplace event platforms in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 Trade expos and marketplace platforms create structured environments for visibility, pipeline development and commercial engagement between businesses, buyers, investors and partners.
               </p>
@@ -243,7 +240,7 @@ export default function EngagePage() {
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-normal">Customer Acquisition and Market Engagement Events in Kenya</h2>
+            <h2 className="text-3xl md:text-4xl font-normal">Customer acquisition and market engagement events in Kenya</h2>
             <p className="text-muted-foreground font-light leading-relaxed">
               Events are structured to move audiences from awareness to participation through direct engagement, targeted messaging and structured interaction.
             </p>
@@ -262,7 +259,7 @@ export default function EngagePage() {
       {/* End to End */}
       <section className="py-24 bg-background border-y">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center">End to End Market Activation and Event Execution in Kenya</h2>
+          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center">End to end market activation and event execution in Kenya</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
@@ -271,11 +268,11 @@ export default function EngagePage() {
               },
               {
                 title: "Live Event Execution and Audience Engagement",
-                desc: "Delivery across onsite activations, exhibitions, demonstrations and engagement platforms that drive interaction and participation.",
+                desc: "Delivery across on-site activations, exhibitions, demonstrations and engagement platforms that drive interaction and participation.",
               },
               {
                 title: "Post Event Conversion and Data Utilization",
-                desc: "Lead capture, audience analytics, follow up systems and conversion strategies that extend value beyond the event.",
+                desc: "Lead capture, audience analytics, follow-up systems and conversion strategies that extend value beyond the event.",
               },
             ].map((item, idx) => (
               <div key={idx} className="space-y-4 text-center">
@@ -294,20 +291,19 @@ export default function EngagePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal leading-tight text-primary">
-                Revenue Driven Event Models and Commercial Structuring
-              </h2>
+                Ways to engage</h2>
               <p className="text-lg opacity-70 font-light leading-relaxed">
-                CREDENCE ENGAGE™ events are built around participation economics and campaign based monetization. Each event is structured to generate revenue and create commercial value across stakeholders.
+                CREDENCE ENGAGE™ events are built around participation economics. Each event is structured to create commercial value for the brands, institutions and partners taking part.
               </p>
               <div className="grid gap-4">
                 {[
-                  "Event design and execution fees for brands and corporates",
-                  "Campaign retainers for ongoing engagement programs",
-                  "Ticketing and paid audience access where applicable",
-                  "Exhibition and marketplace participation fees",
+                  "Event design and execution for brands and corporates",
+                  "Ongoing engagement programmes on retainer",
+                  "Ticketed and paid audience access where applicable",
+                  "Exhibition and marketplace participation",
                   "Deal room participation and transaction facilitation",
-                  "Data and lead generation monetization",
-                  "Conversion into advisory, capital and trade facilitation mandates"
+                  "Audience insight and qualified lead generation",
+                  "Progression into advisory, capital and trade facilitation mandates"
                 ].map((val) => (
                   <div key={val} className="flex items-center gap-3">
                     <CheckCircle2 className="size-5 text-primary shrink-0" />
@@ -317,16 +313,16 @@ export default function EngagePage() {
               </div>
             </div>
             <div className="p-12 bg-white/5 border border-white/10 flex flex-col justify-center space-y-8">
-              <h3 className="text-2xl font-normal">Who We Work With</h3>
+              <h3 className="text-2xl font-normal">Who we work with</h3>
               <div className="grid gap-4">
                 {[
                   "Corporates and enterprise brands",
-                  "Growth stage and scaling businesses",
+                  "Growth-stage and scaling businesses",
                   "Financial institutions and investment platforms",
-                  "Development partners and ecosystem programs",
+                  "Development partners and ecosystem programmes",
                   "Trade bodies and industry associations",
                   "Startups launching products or entering markets",
-                  "Platforms driving adoption, usage or behavioral change"
+                  "Platforms driving adoption, usage or behavioural change"
                 ].map((val) => (
                   <div key={val} className="text-sm font-light border-b border-white/10 pb-2 last:border-0">{val}</div>
                 ))}
@@ -341,7 +337,7 @@ export default function EngagePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal">Why Brands Choose CREDENCE ENGAGE™</h2>
+              <h2 className="text-3xl md:text-4xl font-normal">Why brands choose CREDENCE ENGAGE™</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 CREDENCE ENGAGE™ is designed for execution environments where visibility must translate into engagement and engagement into outcomes.
               </p>
@@ -361,7 +357,7 @@ export default function EngagePage() {
               </div>
             </div>
             <div className="relative p-12 bg-muted flex flex-col justify-center text-center space-y-8 border-l-8 border-primary">
-              <h3 className="text-2xl font-normal text-foreground">Plan a Market Activation, Product Launch or Trade Event in Kenya</h3>
+              <h3 className="text-2xl font-normal text-foreground">Plan a market activation, product launch or trade event in Kenya</h3>
               <p className="text-sm font-light text-muted-foreground">Deliver measurable commercial outcomes through strategy, audience design and execution.</p>
               <Button asChild size="lg" className="rounded-none px-12 h-16 font-bold text-lg">
                 <Link href="/consult">Plan Your Activation</Link>
@@ -375,10 +371,10 @@ export default function EngagePage() {
       <section className="bg-primary py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8 text-white">
-            Activate Your Market with CREDENCE ENGAGE™
+            Activate your market with CREDENCE ENGAGE™
           </h2>
           <p className="text-lg text-white/80 font-light leading-relaxed mb-12">
-            If your organization is planning a product launch, trade expo, brand activation, deal room, marketplace platform or customer acquisition event in Kenya, we provide the strategy, audience design and execution required to deliver measurable commercial outcomes.
+            If your organisation is planning a product launch, trade expo, brand activation, deal room, marketplace platform or customer acquisition event in Kenya, we provide the strategy, audience design and execution required to deliver measurable commercial outcomes.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">

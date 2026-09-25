@@ -46,7 +46,7 @@ const SUPPORT: { id: string; title: string; items: string[] }[] = [
     title: "Institutional Strengthening and Governance",
     items: [
       "Board Governance Academy for association boards and councils",
-      "Organizational Strengthening Academy: governance improvement, operating systems, compliance readiness and performance frameworks",
+      "Organisational Strengthening Academy: governance improvement, operating systems, compliance readiness and performance frameworks",
       "Management and Leadership Academy for secretariat leadership",
       "Staff Development Academy for secretariat teams",
       "Sustainable revenue and member value model development",
@@ -57,8 +57,8 @@ const SUPPORT: { id: string; title: string; items: string[] }[] = [
     title: "Member Services and Capacity Building",
     items: [
       "Co-designed member training through the relevant schools and academies, from entrepreneurship and cooperative governance to technical and professional credentials",
-      "Certification programs that raise professional standards across the sector",
-      "Member capital readiness and market access programs",
+      "Certification programmes that raise professional standards across the sector",
+      "Member capital readiness and market access programmes",
       "Sector-specific executive education and leadership development",
     ],
   },
@@ -68,7 +68,7 @@ const SUPPORT: { id: string; title: string; items: string[] }[] = [
     items: [
       "Credence Convene: association meetings, AGMs, sector convenings, executive roundtables and policy dialogues with documented outcomes",
       "Credence Engage: member recruitment drives, trade expos, exhibitions and audience activation",
-      "Partnership and co-hosting opportunities across Credence Events platforms, including Credence Business Week, Policy & Markets and the Public Affairs Conference",
+      "Partnership and co-hosting opportunities across Credence Events platforms, including Credence Business Week, Policy and Markets and the Public Affairs Conference",
       "Awards, recognition platforms and flagship sector days",
     ],
   },
@@ -79,7 +79,7 @@ const SUPPORT: { id: string; title: string; items: string[] }[] = [
       "Sector research, market briefs and policy intelligence through Credible Perspectives",
       "Thought leadership content: commentary, interviews, podcasts and publications",
       "Sector narratives and public positioning that build institutional credibility",
-      "Curated sector communities and strategic networks through Credence Networks",
+      "Curated sector communities and strategic networks through Credible Networks",
     ],
   },
 ];
@@ -202,8 +202,7 @@ export default function IndustryAssociationsPage() {
       <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Associations Work With Credence Africa
-          </h2>
+            Why associations work with Credence Africa</h2>
 
           <ul className="mt-10 max-w-4xl divide-y divide-white/25 border-y border-white/25 md:mt-14">
             {REASONS.map((reason) => (
@@ -226,8 +225,7 @@ export default function IndustryAssociationsPage() {
             <div className="lg:col-span-4">
               <div className="lg:sticky lg:top-24">
                 <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                  How We Support Associations and Ecosystem Actors
-                </h2>
+                  How we support associations and ecosystem actors</h2>
 
                 <nav aria-label="Support areas" className="mt-8 hidden lg:block">
                   <ul className="divide-y divide-foreground/12 border-y border-foreground/12">
@@ -272,8 +270,7 @@ export default function IndustryAssociationsPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We Serve You Across
-          </h2>
+            Sectors we serve</h2>
 
           <ul className="mt-10 grid grid-cols-1 border-b border-white/15 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
             {SECTORS.map((sector) => (

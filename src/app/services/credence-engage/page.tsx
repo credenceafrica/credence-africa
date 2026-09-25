@@ -26,12 +26,12 @@ const digitalConferences = [
     description: "Financing and funding across sectors.",
     tracks: [
       {
-        name: "Financing Tracks (For Profit)",
-        items: ["Agribusiness", "Food Businesses", "Healthcare Businesses", "Creative Businesses", "Tourism and Hospitality Businesses", "Mobility (Infrastructure & Asset)", "Manufacturing Businesses", "Digital Infrastructure", "Renewable Energy", "e-Mobility"],
+        name: "Financing Tracks (For-Profit)",
+        items: ["Agribusiness", "Food Businesses", "Healthcare Businesses", "Creative Businesses", "Tourism and Hospitality Businesses", "Mobility (Infrastructure and Asset)", "Manufacturing Businesses", "Digital Infrastructure", "Renewable Energy", "e-Mobility"],
       },
       {
-        name: "Funding Tracks (Non-Profit)",
-        items: ["Public Healthcare Systems", "Agri-Food Systems", "Gender Interventions", "Social Enterprises", "TVET Education", "Primary Education", "Childcare Services", "Mental Health Services", "Transport Systems", "Housing & Urban Regeneration"],
+        name: "Funding Tracks (Nonprofit)",
+        items: ["Public Healthcare Systems", "Agri-Food Systems", "Gender Interventions", "Social Enterprises", "Technical and Vocational Education and Training (TVET)", "Primary Education", "Childcare Services", "Mental Health Services", "Transport Systems", "Housing and Urban Regeneration"],
       },
     ],
   },
@@ -43,15 +43,15 @@ const digitalConferences = [
   {
     title: "Policy and Markets Series™",
     description: "Regulation, reform and market systems.",
-    items: ["Healthcare Edition", "SACCO Regulation & Reform", "VASP & Digital Assets", "Capital Markets & Financial Regulation", "Trade & Industrial Policy", "Digital Economy & Data", "Energy & Infrastructure", "Housing & Urban Development", "Public Finance & Tax", "Gender Policy Frameworks"],
+    items: ["Healthcare Edition", "SACCO Regulation and Reform", "Virtual Asset Service Providers (VASPs) and Digital Assets", "Capital Markets and Financial Regulation", "Trade and Industrial Policy", "Digital Economy and Data", "Energy and Infrastructure", "Housing and Urban Development", "Public Finance and Tax", "Gender Policy Frameworks"],
   },
 ];
 
 // CONVENE: formal / institutional / policy convenings
 const conveneRows = [
-  { title: "Conferences and Summits", desc: "Sector platforms positioning organizations at the center of market visibility and executive engagement with partners and stakeholders." },
+  { title: "Conferences and Summits", desc: "Sector platforms positioning organisations at the center of market visibility and executive engagement with partners and stakeholders." },
   { title: "Corporate AGMs and Shareholder Meetings", desc: "Formal governance platforms where accountability, reporting and shareholder communication are delivered with precision and protocol discipline." },
-  { title: "Board Meetings and Retreats", desc: "Governance environments and offsite strategy sessions requiring executive coordination, discretion and institutional standards." },
+  { title: "Board Meetings and Retreats", desc: "Governance environments and off-site strategy sessions requiring executive coordination, discretion and institutional standards." },
   { title: "Investor Briefings and Analyst Sessions", desc: "High-stakes communication environments where clarity, structure and confidence shape stakeholder decisions and institutional credibility." },
   { title: "SACCO Delegate and Member Meetings", desc: "Cooperative forums with defined participation structures, agenda discipline and coordinated execution that strengthen member confidence." },
   { title: "Policy Dialogue and Multistakeholder Forums", desc: "Structured platforms engaging regulators, institutions and sector actors around reform, governance and implementation priorities." },
@@ -63,7 +63,7 @@ const conveneAudience = [
   "Listed companies and issuers",
   "Financial institutions",
   "SACCOs and cooperatives",
-  "Associations and organizations",
+  "Associations and organisations",
   "Regulators and public sector",
   "Development partners",
   "Professional networks",
@@ -71,23 +71,25 @@ const conveneAudience = [
 
 // ENGAGE: market activation
 const engageRows = [
-  { title: "Event Strategy and Audience Design", desc: "Audience segments, engagement pathways and participation models aligned to commercial objectives and target market behavior." },
+  { title: "Event Strategy and Audience Design", desc: "Audience segments, engagement pathways and participation models aligned to commercial objectives and target market behaviour." },
   { title: "Brand Positioning and Experiential Activation", desc: "Environments where brands are experienced through interaction and demonstration rather than passive visibility." },
   { title: "Product Launches and Market Entry Campaigns", desc: "Launch platforms that introduce products, position brands and drive early adoption across target audiences." },
-  { title: "Exhibitions and Trade Show Platforms", desc: "Expos that enable brands to showcase offerings and engage directly with target markets, buyers and partners." },
+  { title: "Exhibitions and Trade-Show Platforms", desc: "Expos that enable brands to showcase offerings and engage directly with target markets, buyers and partners." },
   { title: "Marketplaces and Buyer-Seller Platforms", desc: "Curated environments connecting businesses with buyers, distributors, partners and investors." },
   { title: "Deal Rooms and Transaction Environments", desc: "Facilitated spaces supporting negotiations, partnerships and commercial transactions during and after the event." },
   { title: "Audience Acquisition and Lead Generation", desc: "Platforms that attract, qualify and convert high-intent audiences into customers, users or participants." },
 ];
 
-const engageRevenue = [
-  "Event design and execution fees for brands and corporates",
-  "Campaign retainers for ongoing engagement programs",
-  "Ticketing and paid audience access where applicable",
-  "Exhibition and marketplace participation fees",
+// Client-facing ways to work with Engage. Deliberately not a list of our own
+// income streams: this page is read by prospective partners, not by finance.
+const engageWays = [
+  "Event design and execution for brands and corporates",
+  "Ongoing engagement programmes on retainer",
+  "Ticketed and paid audience access where applicable",
+  "Exhibition and marketplace participation",
   "Deal room participation and transaction facilitation",
-  "Data and lead generation monetization",
-  "Conversion into advisory, capital and trade facilitation mandates",
+  "Audience insight and qualified lead generation",
+  "Progression into advisory, capital and trade facilitation mandates",
 ];
 
 // NETWORKS: the curated "Credible" communities
@@ -105,14 +107,14 @@ const sponsorshipTiers = [
   {
     tier: "Strategic Partner",
     subtitle: "Brand leadership. Market activation",
-    focus: "For institutions seeking scale, dominance and direct access.",
-    benefits: ["Keynote speaking", "Category leadership", "Lead partner branding", "Pavilion ownership", "Branded forums", "Lead capture & analytics", "Deal room participation"],
+    focus: "For institutions seeking scale, category leadership and direct access.",
+    benefits: ["Keynote speaking", "Category leadership", "Lead partner branding", "Pavilion ownership", "Branded forums", "Lead capture and analytics", "Deal room participation"],
   },
   {
     tier: "Influence Partner",
     subtitle: "Thought leadership. Policy positioning",
     focus: "For advisory firms, development partners and institutions shaping sectors.",
-    benefits: ["Speaking & panel participation", "Authority positioning", "Publication inclusion", "Policy roundtables", "Executive briefings", "Institutional matching"],
+    benefits: ["Speaking and panel participation", "Authority positioning", "Publication inclusion", "Policy roundtables", "Executive briefings", "Institutional matching"],
   },
   {
     tier: "Visibility Partner",
@@ -123,7 +125,7 @@ const sponsorshipTiers = [
 ];
 
 const ARMS = [
-  { id: "convene", num: "01", name: "Convene", tag: "Formal & Policy Convenings" },
+  { id: "convene", num: "01", name: "Convene", tag: "Formal and Policy Convenings" },
   { id: "events", num: "02", name: "Events", tag: "Owned Flagship Platforms" },
   { id: "engage", num: "03", name: "Engage", tag: "Market Activation" },
   { id: "networks", num: "04", name: "Networks", tag: "Credible Communities" },
@@ -179,10 +181,10 @@ export default function EventsPage() {
               Credence Engage
             </p>
             <h1 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              The rooms where<br className="hidden sm:block" /> markets move.
+              The rooms where markets move.
             </h1>
             <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-white/90 md:text-xl">
-              One convening engine for capital, policy, markets and strategic partnerships: engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
+              One convening engine for capital, policy, markets and strategic partnerships, engineered as institutional-grade environments where allocation, access and opportunity are brought into the same room to accelerate outcomes.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <ConsultationDialog size="lg" triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90">
@@ -207,7 +209,7 @@ export default function EventsPage() {
                 One system, <span className="text-primary">four arms</span>
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-background/75">
-                Credence convenes the continent through four connected platforms: from closed-door governance to open markets to standing communities.
+                Credence convenes the continent through four connected arms: from closed-door governance to open markets to standing communities.
               </p>
             </div>
             <nav className="lg:col-span-8" aria-label="Convening arms">
@@ -244,7 +246,7 @@ export default function EventsPage() {
               <h2 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
                 Convene
               </h2>
-              <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-foreground">Formal & Policy Convenings</p>
+              <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-foreground">Formal and Policy Convenings</p>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-foreground/75">
                 Corporate and institutional events built as decision environments: AGMs, conferences, investor briefings and policy forums delivered with governance credibility and precision.
               </p>
@@ -289,9 +291,9 @@ export default function EventsPage() {
               </p>
             </div>
             <div className="lg:col-span-8 space-y-12">
-              {/* Designed for decision makers */}
+              {/* Designed for decision-makers */}
               <div>
-                <p className="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-background/60">Designed for decision makers</p>
+                <p className="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-background/60">Designed for decision-makers</p>
                 <ul className="divide-y divide-white/15 border-y border-white/15">
                   {[
                     "Audience quality aligns to decision-making authority",
@@ -303,7 +305,7 @@ export default function EventsPage() {
                   ))}
                 </ul>
               </div>
-              {/* Design & ownership capabilities */}
+              {/* Design and ownership capabilities */}
               <div>
                 <p className="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-background/60">Event design and ownership</p>
                 <div className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
@@ -311,9 +313,9 @@ export default function EventsPage() {
                     { t: "Sector-Aligned Events", d: "Built around investment themes, policy priorities and market systems." },
                     { t: "Audience Curation", d: "Targeted participation of investors, corporates, regulators and founders." },
                     { t: "Sponsorship Structuring", d: "Integration of brands into conversations aligned to outcomes." },
-                    { t: "Exhibitions & Marketplaces", d: "Commercial environments for showcasing products to target audiences." },
-                    { t: "Deal Rooms & Clinics", d: "Private formats enabling capital discussions and transactions." },
-                    { t: "Content Distribution", d: "Extended into reports, interviews and thought leadership." },
+                    { t: "Exhibitions and Marketplaces", d: "Commercial environments for showcasing products to target audiences." },
+                    { t: "Deal Rooms and Clinics", d: "Private formats enabling capital discussions and transactions." },
+                    { t: "Content distribution", d: "Distribution of content through reports, interviews and thought leadership." },
                   ].map((c) => (
                     <div key={c.t} className="border-t border-white/15 pt-4">
                       <h3 className="text-lg font-normal text-background">{c.t}</h3>
@@ -331,7 +333,7 @@ export default function EventsPage() {
           <div className="container mx-auto px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <h3 className="font-normal leading-tight [font-size:clamp(1.75rem,3.5vw,2.5rem)]">The Event Portfolio</h3>
+                <h3 className="font-normal leading-tight [font-size:clamp(1.75rem,3.5vw,2.5rem)]">The event portfolio</h3>
                 <p className="mt-2 text-sm font-light text-background/70">Live and upcoming convenings across Kenya.</p>
               </div>
             </div>
@@ -465,9 +467,9 @@ export default function EventsPage() {
                 Market-facing events structured as conversion platforms: built around participation economics where brands, institutions and partners engage defined audiences across physical, hybrid and digital environments.
               </p>
               <div className="mt-8">
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-foreground/60">Revenue-driven models</p>
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-foreground/60">Ways to engage</p>
                 <ul className="divide-y divide-foreground/12 border-y border-foreground/12">
-                  {engageRevenue.map((r) => (
+                  {engageWays.map((r) => (
                     <li key={r} className="py-3 text-sm font-light leading-relaxed text-foreground/75">{r}</li>
                   ))}
                 </ul>
@@ -485,7 +487,7 @@ export default function EventsPage() {
               <div className="mt-8 grid gap-x-10 gap-y-4 sm:grid-cols-3">
                 {[
                   { t: "Pre-event", d: "Positioning, audience targeting, partnership structuring and campaign design." },
-                  { t: "Live event", d: "Onsite activations, exhibitions, demonstrations and engagement platforms." },
+                  { t: "Live event", d: "On-site activations, exhibitions, demonstrations and engagement platforms." },
                   { t: "Post-event", d: "Lead capture, audience analytics and conversion strategies that extend value." },
                 ].map((step) => (
                   <div key={step.t} className="border-t-2 border-primary pt-4">
@@ -518,7 +520,7 @@ export default function EventsPage() {
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-background/60">For institutional partners</p>
                 <ul className="space-y-2.5">
                   {[
-                    "Direct access to decision makers",
+                    "Direct access to decision-makers",
                     "Market entry and expansion platforms",
                     "Partnership and ecosystem engagement",
                     "Product distribution and customer acquisition",
@@ -598,7 +600,7 @@ export default function EventsPage() {
               Own the room where markets move.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/90">
-              Tell us the objective: convene, activate, host or join. We will map the right environment, audience and engagement model to deliver it with credibility and precision.
+              Tell us the objective. Sponsor, partner, exhibit, speak or participate, and we will map the right environment, audience and engagement model to deliver it with credibility and precision.
             </p>
           </div>
 

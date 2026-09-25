@@ -16,6 +16,7 @@ import { Download, Eye, ArrowRight } from "lucide-react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { firestore } from "@/firebase";
 import { useToast } from "@/hooks/use-toast";
+import Link from "next/link";
 
 const PROFILE_PDF = "/profile.pdf";
 const PROFILE_FILENAME = "Credence-Africa-Company-Profile.pdf";
@@ -154,7 +155,7 @@ export function ProfileDownloadDialog({
                   <Input
                     id="pl-company"
                     className={fieldClass}
-                    placeholder="Organization"
+                    placeholder="Organisation"
                     value={form.company}
                     onChange={update("company")}
                   />
@@ -177,9 +178,17 @@ export function ProfileDownloadDialog({
                 disabled={loading}
                 className="h-14 w-full rounded-none border-none bg-primary text-base font-light text-foreground hover:bg-primary/90"
               >
-                {loading ? "Submitting…" : "Unlock the profile"}
+                {loading ? "Submitting…" : "Unlock the Profile"}
                 {!loading && <ArrowRight className="ml-2 size-4" aria-hidden="true" />}
               </Button>
+
+              <p className="text-sm font-light leading-relaxed text-foreground/65">
+                By submitting this form you agree to our{" "}
+                <Link href="/privacy-policy" className="font-normal underline decoration-primary decoration-1 underline-offset-2 hover:decoration-2">
+                  Privacy Policy
+                </Link>
+                .
+              </p>
             </form>
           </>
         )}

@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 const clients = [
   "Cooperatives",
   "Corporations",
-  "Growth-Stage SMEs & Enterprises",
+  "Growth-Stage SMEs and Enterprises",
   "Foreign Investors",
-  "Startups & Innovators",
-  "Non-Profits & Development Organizations",
+  "Startups and Innovators",
+  "Nonprofits and Development Organisations",
   "Faith-Based Institutions",
-  "Governments & Public Institutions",
-  "Investors & Capital Platforms",
-  "Industry Associations & Ecosystem Actors",
+  "Governments and Public Institutions",
+  "Investors and Capital Platforms",
+  "Industry Associations and Ecosystem Actors",
 ];
 
 export default function SectorsPage() {
@@ -32,7 +32,7 @@ export default function SectorsPage() {
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
             <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Sectors We <span className="text-primary">Cover</span>
+              Sectors we <span className="text-primary">cover</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
               Our work spans the sectors driving Africa's economic and social transformation, where
@@ -88,10 +88,9 @@ export default function SectorsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Who We Work With
-              </h2>
+                Who we work with</h2>
               <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-background/70">
-                Credence Africa works with institutions and organizations shaping Africa's economic
+                Credence Africa works with institutions and organisations shaping Africa's economic
                 and social development.
               </p>
             </div>

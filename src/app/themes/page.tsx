@@ -6,9 +6,9 @@ import type { Metadata } from "next";
 import { themeList } from "@/lib/themes-content";
 
 export const metadata: Metadata = {
-  title: "Cross Sector Themes",
+  title: "Cross-Sector Themes",
   description:
-    "The cross sector themes Credence Africa works across, from capital, trade and industrialization to climate, policy, governance, inclusion and urban transformation in Kenya, Nigeria, South Africa and the wider continent.",
+    "The cross-sector themes Credence Africa works across, from capital, trade and industrialisation to climate, policy, governance, inclusion and urban transformation in Kenya, Nigeria, South Africa and the wider continent.",
   alternates: { canonical: "/themes" },
 };
 
@@ -20,16 +20,16 @@ export default function ThemesPage() {
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
             <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Cross Sector <span className="text-primary">Themes</span>
+              Cross-Sector <span className="text-primary">Themes</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Some agendas run through every sector. Capital, trade, industrialization,
+              Some agendas run through every sector. Capital, trade, industrialisation,
               infrastructure, technology, climate, policy, governance, inclusion and skills shape
               the decision whatever market a client operates in.
             </p>
             <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
-              Our themes apply that expertise across the economy while our sector practices hold the
-              market specific knowledge.
+              Our themes apply that expertise across the economy, while our sector practices hold the
+              market-specific knowledge.
             </p>
           </div>
         </div>
