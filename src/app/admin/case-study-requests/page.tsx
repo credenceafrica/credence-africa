@@ -100,7 +100,7 @@ export default function ManageCaseStudyRequestsPage() {
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Phone</TableHead>
-               <TableHead>Organization</TableHead>
+               <TableHead>Organisation</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>

@@ -66,11 +66,11 @@ export type LandingPage = {
 
 /** Service pages the landing copy links to, keyed for terse content entries. */
 export const SERVICE_LINKS = {
-  capital: { label: "Capital Raising & Investment Structuring", href: "/services/capital-raising" },
-  trade: { label: "Trade & Growth Advisory", href: "/services/trade-growth" },
-  publicAffairs: { label: "Public Affairs & Policy Advisory", href: "/services/public-affairs" },
-  research: { label: "Research & Market Intelligence", href: "/services/research" },
-  institute: { label: "Credence Institute", href: "/services/institute" },
+  capital: { label: "Capital Raising and Investment Structuring", href: "/services/capital-raising" },
+  trade: { label: "Trade and Growth Advisory", href: "/services/trade-growth" },
+  publicAffairs: { label: "Public Affairs and Policy Advisory", href: "/services/public-affairs" },
+  research: { label: "Research and Market Intelligence", href: "/services/research" },
+  institute: { label: "Credence Institute", href: "https://institute.credence.africa" },
   engage: { label: "Credence Engage", href: "/services/credence-engage" },
 } as const;
 

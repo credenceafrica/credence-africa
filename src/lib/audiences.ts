@@ -31,7 +31,7 @@ export const audiences: Audience[] = [
   {
     slug: "cooperatives",
     name: "Cooperatives",
-    headline: "Building Better Governed, Better Capitalized, More Sustainable Cooperatives",
+    headline: "Building Better-Governed, Better-Capitalised, More Sustainable Cooperatives",
     blurb: "Governance, capital and member value for SACCOs, chamas and producer groups.",
     icon: Users,
   },
@@ -86,7 +86,7 @@ export const audiences: Audience[] = [
   },
   {
     slug: "non-profits",
-    name: "Non-Profits and Development Organizations",
+    name: "Nonprofits and Development Organisations",
     headline: "Strengthening the Institutions That Deliver Public Value",
     blurb: "Funding, governance, advocacy and impact for mission-driven institutions.",
     icon: HeartHandshake,

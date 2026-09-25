@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const REASONS = [
-  "Deep specialization in cooperative finance, governance and regulation, including SASRA and the wider regulatory environment",
+  "Deep specialisation in cooperative finance, governance and regulation, including the SACCO Societies Regulatory Authority (SASRA) and the wider regulatory environment",
   "A dedicated Cooperative Finance pathway for institutions seeking growth capital, blended finance or diversified investment models",
   "A dedicated Cooperative Academy delivering practical training for boards, management teams and member education officers",
   "Flagship sector platforms including The Cooperative Expo and SACCO Day that connect cooperatives to regulators, partners and markets",
@@ -22,9 +22,9 @@ const SUPPORT: { title: string; lead: string; items: string[] }[] = [
     lead: "Through our Cooperative Finance pathway, we help SACCOs, service cooperatives and agricultural cooperatives access and structure capital for growth and impact.",
     items: [
       "Cooperative growth financing strategy and capital readiness",
-      "Member capital mobilization and diversified investment structures",
+      "Member capital mobilisation and diversified investment structures",
       "Blended finance access for cooperative projects and social impact mandates",
-      "Financial modeling, governance alignment and investor engagement",
+      "Financial modelling, governance alignment and investor engagement",
       "Post-investment reporting, performance tracking and follow-on funding readiness",
     ],
   },
@@ -34,7 +34,7 @@ const SUPPORT: { title: string; lead: string; items: string[] }[] = [
     items: [
       "Cooperative Academy: governance, compliance, member education, financial management, leadership, strategy, risk management, reporting and accountability",
       "Board Governance Academy: fiduciary responsibility, strategy oversight, ethics, regulatory accountability and board effectiveness for cooperative boards",
-      "Certified Regulatory Compliance Professional: SASRA, FRC, CBK, anti-money laundering, data protection and institutional compliance systems",
+      "Certified Regulatory Compliance Professional: SASRA, the Financial Reporting Centre (FRC), the Central Bank of Kenya (CBK), anti-money laundering, data protection and institutional compliance systems",
       "Certified Digital Credit Professional: digital lending, credit governance, borrower assessment, collections and portfolio performance for SACCO credit teams",
       "Certified Digital Transformation and Cybersecurity Professional: secure digital adoption and cyber resilience for member institutions",
     ],
@@ -63,7 +63,7 @@ const SUPPORT: { title: string; lead: string; items: string[] }[] = [
     title: "Events, Community and Convenings",
     lead: "We give cooperatives credible platforms to convene, engage members and connect with the wider ecosystem.",
     items: [
-      "The Cooperative Expo (May), with regional editions in Mt Kenya, Coast, Lake Region and Rift Valley",
+      "The Cooperative Expo (May), with regional editions in Mount Kenya, Coast, Lake Region and Rift Valley",
       "Credible SACCOs / SACCO Day (October): leadership, finance, governance and sector recognition",
       "Credence Convene: AGMs, member forums, delegate meetings, governance engagements and stakeholder consultations",
       "Credence Engage: member recruitment drives, product uptake campaigns and community activations",
@@ -87,7 +87,7 @@ const SECTORS: { label: string; detail?: string }[] = [
     detail: "Producer and marketing cooperatives, agri-processing, agri-finance",
   },
   { label: "Mobility and transport", detail: "Transport SACCOs and fleet cooperatives" },
-  { label: "Housing and the wider green and creative economies" },
+  { label: "Housing, green and creative economies", detail: "Cooperative housing, estate development and emerging cooperative sectors" },
 ];
 
 export default function CooperativesPage() {
@@ -101,7 +101,7 @@ export default function CooperativesPage() {
               Who We Work With
             </p>
             <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Building Better Governed, Better Capitalized, More Sustainable{" "}
+              Building Better-Governed, Better-Capitalised, More Sustainable{" "}
               <span className="text-primary">Cooperatives</span>
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-background/80 md:text-xl">
@@ -141,8 +141,7 @@ export default function CooperativesPage() {
       <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Cooperatives Work With Credence Africa
-          </h2>
+            Why cooperatives work with Credence Africa</h2>
           <ul className="mt-10 max-w-5xl divide-y divide-white/20 border-y border-white/20">
             {REASONS.map((reason) => (
               <li
@@ -161,8 +160,7 @@ export default function CooperativesPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Cooperatives
-            </h2>
+              How we support cooperatives</h2>
           </div>
 
           <div className="mt-12 divide-y divide-white/15 border-y border-white/15">
@@ -202,8 +200,7 @@ export default function CooperativesPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Sectors We Serve You Across
-              </h2>
+                Sectors we serve</h2>
             </div>
 
             <div className="lg:col-span-8">
@@ -239,7 +236,7 @@ export default function CooperativesPage() {
             <p className="mt-6 text-pretty text-base font-light leading-relaxed text-white/85 md:text-lg">
               Whether you are a SACCO preparing for institutional capital, a producer cooperative
               seeking markets or a board strengthening governance and compliance, Credence Africa is
-              built to walk with you. Book a consultation to discuss your cooperative&rsquo;s growth,
+              built to partner with you. Book a consultation to discuss your cooperative&rsquo;s growth,
               governance or capital objective.
             </p>
             <div className="mt-10">

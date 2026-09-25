@@ -35,7 +35,7 @@ const valueDimensions = [
     {
         n: "05",
         title: "Relationships and Continuity",
-        description: "We sustain access, community and long term ecosystem position through networks, recurring engagement and connected institutional relationships."
+        description: "We sustain access, community and long-term ecosystem position through networks, recurring engagement and connected institutional relationships."
     }
 ];
 
@@ -77,8 +77,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 md:py-24">
           <div className="bg-white p-6 md:p-12 lg:p-16 max-w-4xl shadow-2xl border-t-4 border-primary space-y-8 md:space-y-10">
             <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
-              Enabling the Institutions That Build Africa
-            </h1>
+              Enabling the institutions that build Africa</h1>
             
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-foreground/80">
               <div className="space-y-2 md:space-y-3">
@@ -86,7 +85,7 @@ export default function Home() {
                   Execution Systems
                 </p>
                 <p className="text-sm md:text-base leading-relaxed font-light">
-                  Credence Africa is a pan-African institution building enterprise enabling capital deployment, policy alignment, market entry and intelligence across growth markets.
+                  Credence Africa is a pan-African, institution-building enterprise that enables capital deployment, policy alignment, market entry and intelligence across Africa's growth markets.
                 </p>
               </div>
               <div className="hidden md:block md:space-y-3 md:border-l md:pl-8">
@@ -104,7 +103,7 @@ export default function Home() {
                 Book a Consultation <ArrowUpRight className="ml-2 size-5" />
               </ConsultationDialog>
               <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-none px-8 h-14 text-base font-light bg-white">
-                <Link href="#platforms" className="justify-center">
+                <Link href="/services" className="justify-center">
                   Explore Our Work
                 </Link>
               </Button>
@@ -145,7 +144,7 @@ export default function Home() {
         </div>
         <div className="border-t border-border flex justify-center md:justify-end px-6 md:px-8 py-4">
           <Link href="/services" className="inline-flex items-center gap-1.5 text-primary font-light text-xs md:text-sm uppercase tracking-widest transition-colors hover:text-primary/70">
-            View all services <ArrowRight className="size-4" />
+            View All Services <ArrowRight className="size-4" />
           </Link>
         </div>
       </div>
@@ -155,15 +154,15 @@ export default function Home() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Who We Work With</h2>
+              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Who we work with</h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-foreground/75">
-                We work with the institutions and organizations shaping Africa’s economic and social development.
+                We work with the institutions and organisations shaping Africa’s economic and social development.
               </p>
               <Link
                 href="/who-we-work-with"
                 className="mt-6 inline-flex items-center gap-1.5 text-xs font-light uppercase tracking-widest text-primary transition-colors hover:text-primary/70 md:text-sm"
               >
-                See how we work with each <ArrowRight className="size-4" />
+                See How We Work With Each <ArrowRight className="size-4" />
               </Link>
             </div>
             <div className="lg:col-span-8">
@@ -254,7 +253,7 @@ export default function Home() {
                 Book a Consultation
               </ConsultationDialog>
                <Button asChild size="lg" variant="outline" className="rounded-none px-8 h-14 text-base font-light bg-white border-primary text-primary">
-                <Link href="#platforms" className="justify-center">Explore Our Work</Link>
+                <Link href="/services" className="justify-center">Explore Our Work</Link>
               </Button>
             </div>
           </div>
@@ -272,10 +271,10 @@ export default function Home() {
             </p>
             <div className="mt-10 md:mt-12 flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                <ConsultationDialog size="lg" variant="secondary" triggerClassName="rounded-none px-8 h-14 text-base font-light bg-white text-primary hover:bg-white/90 border-none">
-                Book A Strategy Call
+                Book a Strategy Call
               </ConsultationDialog>
                <ConsultationDialog size="lg" variant="outline" triggerClassName="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary rounded-none px-8 h-14 text-base font-light">
-                Send An Inquiry
+                Send an Enquiry
               </ConsultationDialog>
             </div>
         </div>

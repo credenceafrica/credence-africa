@@ -27,7 +27,7 @@ const advisoryServices = [
   {
     title: "Government Relations and Institutional Engagement",
     description:
-      "We help institutions build disciplined and credible engagement with government and public institutions. This includes stakeholder identification, engagement planning, institutional positioning, issue framing and support across high value public sector interfaces.",
+      "We help institutions build disciplined and credible engagement with government and public institutions. This includes stakeholder identification, engagement planning, institutional positioning, issue framing and support across high-value public sector interfaces.",
     icon: Users,
   },
   {
@@ -51,7 +51,7 @@ const advisoryServices = [
   {
     title: "Public Sector Interface Management",
     description:
-      "We support the practical execution side of public affairs mandates. This includes preparation for meetings, submissions, follow up, approvals tracking, issue escalation and structured coordination across public institutions.",
+      "We support the practical execution side of public affairs mandates. This includes preparation for meetings, submissions, follow-up, approvals tracking, issue escalation and structured coordination across public institutions.",
     icon: Handshake,
   },
 ];
@@ -60,7 +60,7 @@ const productPathways = [
   {
     title: "Government Relations",
     description:
-      "For institutions that need structured, senior level engagement with ministries, regulators, counties, agencies and public sector stakeholders.",
+      "For institutions that need structured, senior-level engagement with ministries, regulators, counties, agencies and public sector stakeholders.",
     focus:
       "Supports relationship planning, issue management, institutional positioning and engagement strategy where commercial or strategic objectives depend on effective public sector alignment.",
     icon: Users,
@@ -69,7 +69,7 @@ const productPathways = [
   {
     title: "Regulatory Navigator",
     description:
-      "For institutions managing approvals, licensing pathways, regulatory change and compliance related decision environments.",
+      "For institutions managing approvals, licensing pathways, regulatory change and compliance-related decision environments.",
     focus:
       "Supports regulatory scanning, licensing strategy, approvals sequencing, issue identification and coordination across complex regulatory systems.",
     icon: Search,
@@ -78,38 +78,38 @@ const productPathways = [
   {
     title: "Policy Advocacy",
     description:
-      "For institutions engaging policy reform, sector dialogue, consultation processes and market shaping regulation.",
+      "For institutions engaging policy reform, sector dialogue, consultation processes and market-shaping regulation.",
     focus:
       "Supports policy analysis, institutional position development, advocacy strategy, reform participation, consultation response and coalition engagement.",
     icon: FileText,
     cta: "Discuss Policy Advocacy",
   },
   {
-    title: "POLICY & MARKETS™",
+    title: "Policy and Markets Series™",
     description:
       "For institutions that need forward visibility on emerging policy, upcoming regulation and the market implications of reform.",
     focus:
-      "Executive policy briefings, regulatory outlook sessions and sector specific reform roundtables designed to help you interpret regulatory direction early.",
+      "Executive policy briefings, regulatory outlook sessions and sector-specific reform roundtables designed to help you interpret regulatory direction early.",
     icon: Zap,
-    cta: "Join POLICY & MARKETS™",
+    cta: "Join Policy and Markets Series™",
   },
   {
     title: "Public Sector Interface",
     description:
       "For institutions requiring structured support across live approvals, submissions, meetings and public sector processes.",
     focus:
-      "Supports execution where progress depends on disciplined engagement, coordinated follow through and consistent management of public sector interactions.",
+      "Supports execution where progress depends on disciplined engagement, coordinated follow-through and consistent management of public sector interactions.",
     icon: Handshake,
     cta: "Discuss Public Sector Interface",
   },
 ];
 
 const whoWeAdvise = [
-  "Regulated businesses managing licensing, compliance exposure and multi agency interfaces",
+  "Regulated businesses managing licensing, compliance exposure and multi-agency interfaces",
   "Companies entering or expanding into sectors where approvals and regulatory clarity are critical",
-  "Investors, funds and project sponsors with public sector, infrastructure or market shaping interfaces",
+  "Investors, funds and project sponsors with public sector, infrastructure or market-shaping interfaces",
   "Industry associations, chambers and sector platforms engaging on reform and institutional alignment",
-  "Development actors and ecosystem institutions operating in policy sensitive sectors",
+  "Development actors and ecosystem institutions operating in policy-sensitive sectors",
   "Boards, founders and executive teams that need stronger public affairs capability to support growth",
 ];
 
@@ -128,22 +128,22 @@ const strategicApproach = [
   "Bring structure to government engagement and institutional positioning",
   "Anticipate reform risk before operational disruption",
   "Connect stakeholder mapping with execution pathways",
-  "Interpret change early through POLICY & MARKETS™",
+  "Interpret change early through Policy and Markets Series™",
 ];
 
 const policyMarketsFormats = [
   "Executive policy briefings",
   "Regulatory outlook sessions",
-  "Sector specific roundtables",
+  "Sector-specific roundtables",
   "Market implication discussions",
-  "Closed door briefings",
+  "Closed-door briefings",
   "Strategic response planning",
 ];
 
 const engagementSteps = [
   { step: "01", title: "Consultation", desc: "Understanding the issue, institutional context and strategic objective." },
-  { step: "02", title: "Mandate Structuring", desc: "Defining advisory pathway, scope, sequencing and delivery model." },
-  { step: "03", title: "Mapping & Positioning", desc: "Assessing institutions, decision pathways and reform signals." },
+  { step: "02", title: "Mandate Structuring", desc: "Defining the advisory pathway, scope, sequencing and delivery model." },
+  { step: "03", title: "Mapping and Positioning", desc: "Assessing institutions, decision pathways and reform signals." },
   { step: "04", title: "Execution", desc: "Support through meetings, submissions and advocacy engagement." },
   { step: "05", title: "Ongoing Advisory", desc: "Issue monitoring, regulatory tracking and executive support." },
 ];
@@ -155,18 +155,18 @@ const faqs = [
   },
   {
     q: "Do you support both government relations and regulatory approvals?",
-    a: "Yes. Credence Africa supports strategic engagement with public institutions and the practical coordination required across approvals, submissions, follow up and issue tracking.",
+    a: "Yes. Credence Africa supports strategic engagement with public institutions and the practical coordination required across approvals, submissions, follow-up and issue tracking.",
   },
   {
     q: "Can you support policy reform and advocacy?",
     a: "Yes. We support policy interpretation, position development, consultation engagement, advocacy strategy and structured participation in reform environments.",
   },
   {
-    q: "What is POLICY & MARKETS™?",
-    a: "POLICY & MARKETS™ is Credence Africa’s virtual and in person executive briefing platform focused on upcoming policy, regulation and the market implications of reform.",
+    q: "What is Policy and Markets Series™?",
+    a: "Policy and Markets Series™ is Credence Africa’s virtual and in person executive briefing platform focused on upcoming policy, regulation and the market implications of reform.",
   },
   {
-    q: "Can POLICY & MARKETS™ be delivered for a sector, institution or association?",
+    q: "Can Policy and Markets Series™ be delivered for a sector, institution or association?",
     a: "Yes. It can be delivered as a public session, a private institutional briefing, a sector roundtable, an executive forum or a closed dialogue depending on the audience and issue.",
   },
   {
@@ -175,13 +175,27 @@ const faqs = [
   },
   {
     q: "Can you provide ongoing public affairs support?",
-    a: "Yes. Ongoing support can be structured through retained advisory, issue monitoring, stakeholder engagement or recurring POLICY & MARKETS™ sessions.",
+    a: "Yes. Ongoing support can be structured through retained advisory, issue monitoring, stakeholder engagement or recurring Policy and Markets Series™ sessions.",
   },
 ];
 
 export default function PublicAffairsPage() {
   return (
     <div className="flex flex-col overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
           @keyframes pa-rise {
@@ -221,7 +235,7 @@ export default function PublicAffairsPage() {
         <div className="container relative z-10 mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8 lg:py-36">
           <div className="pa-rise max-w-3xl">
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-              Public Affairs &amp; Policy Advisory
+              Public Affairs and Policy Advisory
             </p>
             <h1 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Where policy shapes <span className="text-primary">markets</span>
@@ -258,14 +272,14 @@ export default function PublicAffairsPage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Public affairs, run as a discipline, not as fragmented engagement.
+                Public affairs run as a discipline, not as fragmented engagement.
               </h2>
               <div className="mt-8 max-w-2xl space-y-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
                 <p>
                   In African markets, commercial execution is often influenced by regulation,
                   institutional process and policy direction. Licensing determines speed to market.
                   Reform can alter sector economics. Government engagement can affect approvals,
-                  partnerships, market structure and long term operating certainty.
+                  partnerships, market structure and long-term operating certainty.
                 </p>
                 <p>
                   Credence Africa advises institutions that need more than fragmented engagement
@@ -288,8 +302,8 @@ export default function PublicAffairsPage() {
             <div className="lg:col-span-5">
               <figure className="flex h-full flex-col justify-between bg-primary p-8 md:p-10">
                 <blockquote className="text-balance font-normal leading-snug text-white [font-size:clamp(1.4rem,2.2vw,1.85rem)]">
-                  “Licensing determines speed to market. Reform can alter sector economics. We help
-                  institutions move with stronger foresight and better positioning.”
+                  “Where policy is decided long before it is published, foresight is the advantage.
+                  We help institutions move with better positioning and fewer surprises.”
                 </blockquote>
                 <figcaption className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-white/75">
                   The Credence Public Affairs Platform
@@ -436,7 +450,7 @@ export default function PublicAffairsPage() {
               Product <span className="text-primary">pathways</span>
             </h2>
             <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-foreground/75 md:text-lg">
-              Specialized tracks matching your institution&apos;s profile and strategic needs.
+              Specialised tracks matching your institution&apos;s profile and strategic needs.
             </p>
           </div>
 
@@ -477,7 +491,7 @@ export default function PublicAffairsPage() {
         </div>
       </section>
 
-      {/* ───────────── Why POLICY & MARKETS™ matters: deep navy feature ───────────── */}
+      {/* ───────────── Why Policy and Markets Series™ matters: deep navy feature ───────────── */}
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
@@ -486,7 +500,7 @@ export default function PublicAffairsPage() {
                 Early visibility
               </p>
               <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Why <span className="text-primary">POLICY &amp; MARKETS™</span> matters
+                Why <span className="text-primary">Policy and Markets Series™</span> matters
               </h2>
               <div className="mt-8 max-w-2xl space-y-5 text-lg font-light leading-relaxed text-background/80">
                 <p>
@@ -494,7 +508,7 @@ export default function PublicAffairsPage() {
                   because they interpret it too late, engage too late or respond without structure.
                 </p>
                 <p>
-                  POLICY &amp; MARKETS™ exists to solve that problem. It gives leadership teams,
+                  Policy and Markets Series™ exists to solve that problem. It gives leadership teams,
                   sector platforms, investors and regulated businesses a dedicated forum to
                   understand what is coming, why it matters and who is driving it.
                 </p>
@@ -526,7 +540,7 @@ export default function PublicAffairsPage() {
                   The shift it creates
                 </p>
                 <p className="mt-5 text-balance font-normal leading-snug text-background [font-size:clamp(1.4rem,2.2vw,1.9rem)]">
-                  “Move policy discussion out of the abstract and into decision making.”
+                  “Move policy discussion out of the abstract and into decision-making.”
                 </p>
                 <div className="mt-8 border-t border-white/15 pt-8">
                   <p className="text-sm font-light leading-relaxed text-background/80">
@@ -722,7 +736,7 @@ export default function PublicAffairsPage() {
                   <ConsultationDialog
                     triggerClassName="group inline-flex items-center gap-2 border-b-2 border-white pb-1 text-lg font-light text-white transition-opacity hover:opacity-80"
                   >
-                    Join POLICY &amp; MARKETS™
+                    Join Policy and Markets Series™
                     <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </ConsultationDialog>
                 </div>

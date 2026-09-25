@@ -51,14 +51,14 @@ function Block({ block }: { block: LegalBlock }) {
 
 function TableOfContents({ sections }: { sections: LegalPolicy["sections"] }) {
   return (
-    <ol className="space-y-2.5">
+    <ol className="list-none space-y-2.5">
       {sections.map((s, i) => (
         <li key={s.id}>
           <a
             href={`#${s.id}`}
             className="group flex gap-2.5 text-sm font-light leading-snug text-foreground/70 transition-colors hover:text-primary"
           >
-            <span className="tabular-nums text-primary/70">{i + 1}.</span>
+            <span className="tabular-nums text-primary/70" aria-hidden="true">{i + 1}.</span>
             <span>{s.heading}</span>
           </a>
         </li>
@@ -107,7 +107,7 @@ export function LegalPage({ policy }: { policy: LegalPolicy }) {
                 <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium text-foreground marker:hidden">
                   On this page
                 </summary>
-                <nav aria-label="On this page" className="border-t border-foreground/15 px-4 py-4">
+                <nav className="border-t border-foreground/15 px-4 py-4">
                   <TableOfContents sections={policy.sections} />
                 </nav>
               </details>
@@ -135,7 +135,7 @@ export function LegalPage({ policy }: { policy: LegalPolicy }) {
               <div className="mt-16 grid gap-10 border-t border-foreground/12 pt-10 sm:grid-cols-2">
                 <div>
                   <h2 className="font-normal leading-snug text-foreground [font-size:clamp(1.15rem,2vw,1.375rem)]">
-                    Questions about this policy?
+                    {policy.title.includes("Terms") ? "Questions about these Terms?" : "Questions about this policy?"}
                   </h2>
                   <p className="mt-3 max-w-[42ch] text-base font-light leading-relaxed text-foreground/80">
                     Email{" "}

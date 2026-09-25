@@ -31,7 +31,7 @@ const why = [
   "Public participation and stakeholder consultation support with documented, actionable outcomes",
   "Executive education and institutional strengthening for boards, management and staff of public bodies",
   "Investment promotion platforms, including the Nairobi Investment Summit, connecting government with investors and DFIs",
-  "Policy intelligence and sector analysis through Credible Perspectives and POLICY & MARKETS™",
+  "Policy intelligence and sector analysis through Credible Perspectives and Policy and Markets Series™",
 ];
 
 const support: { title: string; items: string[] }[] = [
@@ -51,7 +51,7 @@ const support: { title: string; items: string[] }[] = [
       "Board Governance Academy for boards of state corporations, agencies and public institutions",
       "Management and Leadership Academy for senior and middle managers in public service",
       "Staff Development Academy: productivity, service delivery, digital skills and professional effectiveness",
-      "Organizational Strengthening Academy: diagnostics, systems, compliance and performance frameworks",
+      "Organisational Strengthening Academy: diagnostics, systems, compliance and performance frameworks",
       "Professional credentials in financial regulation, regulatory compliance, cybersecurity, digital governance and data analysis",
     ],
   },
@@ -77,7 +77,7 @@ const support: { title: string; items: string[] }[] = [
     title: "Public Communication and Citizen Engagement",
     items: [
       "Public engagement campaigns and community activations",
-      "Program uptake campaigns: explaining services, driving registration and collecting feedback",
+      "Programme uptake campaigns: explaining services, driving registration and collecting feedback",
       "Media and social amplification for public initiatives",
     ],
   },
@@ -91,7 +91,7 @@ const sectors = [
   "Education and skills",
   "Transport and infrastructure",
   "Energy and climate",
-  "Trade and industrialization",
+  "Trade and industrialisation",
   "The digital economy",
 ];
 
@@ -124,8 +124,7 @@ export default function GovernmentsAndPublicInstitutionsPage() {
                 Who We Work With
               </p>
               <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Partnering with Public Institutions to Deliver Policy, Markets and Public Value
-              </h1>
+                Partnering with public institutions to deliver policy, markets and public value</h1>
             </div>
             <div className="lg:col-span-5 lg:self-end">
               <p className="max-w-2xl text-pretty text-lg font-light leading-relaxed text-background/80">
@@ -190,8 +189,7 @@ export default function GovernmentsAndPublicInstitutionsPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Public Institutions Work With Credence Africa
-          </h2>
+            Why public institutions work with Credence Africa</h2>
 
           <ul className="mt-10 grid grid-cols-1 border-b border-white/15 md:mt-12 md:grid-cols-2">
             {why.map((reason) => (
@@ -215,8 +213,7 @@ export default function GovernmentsAndPublicInstitutionsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Governments and Public Institutions
-            </h2>
+              How we support governments and public institutions</h2>
           </div>
 
           <div className="mt-10 border-t border-white/25 md:mt-14">
@@ -245,8 +242,7 @@ export default function GovernmentsAndPublicInstitutionsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We Serve You Across
-          </h2>
+            Sectors we serve</h2>
 
           <ul className="mt-10 grid grid-cols-1 border-b border-foreground/12 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
             {sectors.map((sector) => (

@@ -35,7 +35,7 @@ export default function WhoWeWorkWithPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Ten institutions. One system.
+                Ten kinds of institution. One system.
               </h2>
               <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-foreground/75">
                 Find the mandate that matches yours and see exactly how we work with institutions

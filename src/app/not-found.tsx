@@ -47,7 +47,7 @@ export default function NotFound() {
                 variant="outline"
                 className="h-14 rounded-none border-primary bg-white px-8 text-base font-light text-primary hover:bg-primary/5"
               >
-                <Link href="/services">View our platforms</Link>
+                <Link href="/services">View Our Services</Link>
               </Button>
             </div>
           </div>

@@ -28,7 +28,7 @@ import { ExternalEvent, getUpcomingEvents } from "@/lib/external-data";
 const conferenceServices = [
   {
     title: "Conferences and Summits",
-    desc: "Design and delivery of conferences that position organizations at the center of sector conversations, market visibility and executive engagement with partners and stakeholders.",
+    desc: "Design and delivery of conferences that position organisations at the center of sector conversations, market visibility and executive engagement with partners and stakeholders.",
   },
   {
     title: "Policy Forums and Sector Convenings",
@@ -36,7 +36,7 @@ const conferenceServices = [
   },
   {
     title: "Business Events and High Level Convenings",
-    desc: "Coordination of executive events where audience composition, flow and experience directly influence the quality of engagement and decision making.",
+    desc: "Coordination of executive events where audience composition, flow and experience directly influence the quality of engagement and decision-making.",
   },
 ];
 
@@ -103,11 +103,11 @@ const policyServices = [
 const roundtableServices = [
   {
     title: "Executive Roundtables",
-    desc: "Curated sessions that bring together decision makers for focused dialogue, insight exchange and relationship building.",
+    desc: "Curated sessions that bring together decision-makers for focused dialogue, insight exchange and relationship building.",
   },
   {
     title: "Board Retreats and Strategy Sessions",
-    desc: "Offsite environments designed to support leadership alignment, strategic reflection and structured decision making.",
+    desc: "Offsite environments designed to support leadership alignment, strategic reflection and structured decision-making.",
   },
   {
     title: "Private Leadership and High Trust Forums",
@@ -154,8 +154,7 @@ export default function ConvenePage() {
                 CREDENCE CONVENE™
               </p>
               <h1 className="text-foreground leading-tight text-3xl md:text-4xl lg:text-[2.5rem]">
-                Corporate Event Management Services in Kenya
-              </h1>
+                Corporate event management services in Kenya</h1>
               <p className="text-lg md:text-xl font-normal text-muted-foreground italic">
                 Corporate AGMs, Conferences, Investor Briefings and Policy Forums
               </p>
@@ -205,8 +204,7 @@ export default function ConvenePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal leading-tight">
-                Conference Planning and Event Management Services in Kenya
-              </h2>
+                Conference planning and event management services in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 We design conferences and summits as structured platforms for sector positioning, institutional visibility and stakeholder engagement.
               </p>
@@ -264,7 +262,7 @@ export default function ConvenePage() {
               />
             </div>
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal">Investor Briefing Events in Kenya</h2>
+              <h2 className="text-3xl md:text-4xl font-normal">Investor briefing events in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 Investor events are high stakes communication environments where perception, clarity and confidence shape stakeholder decisions.
               </p>
@@ -288,7 +286,7 @@ export default function ConvenePage() {
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-normal">SACCO Delegates and Sacco Members Meetings in Kenya</h2>
+            <h2 className="text-3xl md:text-4xl font-normal">SACCO delegates and Sacco members meetings in Kenya</h2>
             <p className="text-muted-foreground font-light leading-relaxed">
               Governance critical environments where participation, communication and trust directly affect institutional stability.
             </p>
@@ -309,7 +307,7 @@ export default function ConvenePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-normal">Policy Forums and Stakeholder Engagement Events in Kenya</h2>
+              <h2 className="text-3xl md:text-4xl font-normal">Policy forums and stakeholder engagement events in Kenya</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 Platforms that support multistakeholder dialogue and regulatory consultation while maintaining clarity, neutrality and direction.
               </p>
@@ -326,7 +324,7 @@ export default function ConvenePage() {
               </div>
             </div>
             <div className="bg-muted p-12 border-l-8 border-primary">
-              <h3 className="text-2xl font-normal mb-6">Executive Roundtables and Board Retreats in Kenya</h3>
+              <h3 className="text-2xl font-normal mb-6">Executive roundtables and board retreats in Kenya</h3>
               <p className="text-sm font-light text-muted-foreground mb-8 leading-relaxed">
                 Executive convenings operate in high trust environments where depth, alignment and strategic engagement determine value.
               </p>
@@ -346,10 +344,10 @@ export default function ConvenePage() {
       {/* Who We Work With */}
       <section className="py-24 bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-normal mb-12 text-center">Event Management Services for Institutions</h2>
+          <h2 className="text-3xl md:text-4xl font-normal mb-12 text-center">Event management services for institutions</h2>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-muted-foreground font-light text-center mb-12">
-              We support organizations operating in environments where stakeholder coordination, communication and institutional credibility influence outcomes.
+              We support organisations operating in environments where stakeholder coordination, communication and institutional credibility influence outcomes.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -357,7 +355,7 @@ export default function ConvenePage() {
                 "Listed companies and issuers",
                 "Financial institutions",
                 "SACCOs and cooperatives",
-                "Associations and organizations",
+                "Associations and organisations",
                 "Regulators and public sector",
                 "Development partners",
                 "Professional networks",
@@ -374,12 +372,12 @@ export default function ConvenePage() {
       {/* End to End */}
       <section className="py-24 bg-background border-y">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center">End to End Event Planning, Strategy and Delivery in Kenya</h2>
+          <h2 className="text-3xl md:text-4xl font-normal mb-16 text-center">End to end event planning, strategy and delivery in Kenya</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
                 title: "Event Strategy and Audience Architecture",
-                desc: "Definition of purpose, stakeholder mapping, invitation logic and program structure to ensure relevance and participation quality.",
+                desc: "Definition of purpose, stakeholder mapping, invitation logic and programme structure to ensure relevance and participation quality.",
               },
               {
                 title: "Event Execution and Delivery",
@@ -387,7 +385,7 @@ export default function ConvenePage() {
               },
               {
                 title: "Post Event Continuity and Reporting",
-                desc: "Structured follow through including reporting, stakeholder engagement and transition into advisory or institutional engagement.",
+                desc: "Structured follow-through including reporting, stakeholder engagement and transition into advisory or institutional engagement.",
               },
             ].map((item, idx) => (
               <div key={idx} className="space-y-4">
@@ -406,15 +404,15 @@ export default function ConvenePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-normal leading-tight">
-                Why Organizations Choose CREDENCE CONVENE™ in Kenya
+                Why organisations choose CREDENCE CONVENE™ in Kenya
               </h2>
               <p className="text-lg opacity-70 font-light leading-relaxed">
-                Organizations engage us where convenings must deliver alignment, credibility and institutional traction.
+                Organisations engage us where convenings must deliver alignment, credibility and institutional traction.
               </p>
               <div className="space-y-4">
                 {[
                   "Strategic stakeholder mapping and audience architecture",
-                  "Program design aligned to governance and sector priorities",
+                  "Programme design aligned to governance and sector priorities",
                   "High trust audience curation across institutions and leadership",
                   "Execution discipline across logistics, protocol and coordination",
                   "Continuity into advisory, research and institutional engagement",
@@ -427,7 +425,7 @@ export default function ConvenePage() {
               </div>
             </div>
             <div className="relative p-12 bg-white/5 border border-white/10 flex flex-col justify-center text-center space-y-8">
-              <h3 className="text-2xl font-normal">Plan a Corporate AGM, Conference or Stakeholder Forum</h3>
+              <h3 className="text-2xl font-normal">Plan a corporate AGM, conference or stakeholder forum</h3>
               <p className="text-sm font-light opacity-60">Identify the right event, audience and engagement model aligned to your objectives.</p>
               <Button asChild size="lg" className="rounded-none px-12 h-16 font-bold text-lg">
                 <Link href="/consult">Plan Your Event</Link>
@@ -442,7 +440,7 @@ export default function ConvenePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <div className="space-y-2">
-              <h2 className="text-2xl md:text-3xl font-normal text-foreground">Upcoming & Live Events</h2>
+              <h2 className="text-2xl md:text-3xl font-normal text-foreground">Upcoming and live events</h2>
               <p className="text-muted-foreground text-sm font-light">Real-time opportunities to engage across our institutional ecosystem.</p>
             </div>
             <Button asChild variant="outline" className="rounded-none border-2 border-primary text-primary hover:bg-primary hover:text-white h-12 px-8">
@@ -493,10 +491,10 @@ export default function ConvenePage() {
       <section className="bg-primary py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-normal leading-tight mb-8 text-white">
-            Plan a Corporate AGM, Conference, Investor Briefing or Stakeholder Forum in Kenya
+            Plan a corporate AGM, conference, investor briefing or stakeholder forum in Kenya
           </h2>
           <p className="text-lg text-white/90 font-light leading-relaxed mb-12">
-            If your organization is planning a corporate AGM, conference, investor briefing, policy forum, SACCO delegate meeting, board retreat or institutional convening, CREDENCE CONVENE™ provides the strategy, structure and execution required to deliver it with credibility and precision.
+            If your organisation is planning a corporate AGM, conference, investor briefing, policy forum, SACCO delegate meeting, board retreat or institutional convening, CREDENCE CONVENE™ provides the strategy, structure and execution required to deliver it with credibility and precision.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">

@@ -11,12 +11,12 @@ import { getInsights, type Insight } from "@/lib/insights";
 import { cn } from "@/lib/utils";
 
 const categories = [
-    { icon: <BarChart />, title: "Capital, Investment & Blended Finance", description: "Funding trends, investor mandates and catalytic finance models." },
-    { icon: <Scale />, title: "Regulatory, Compliance & Licensing", description: "Legislation updates, licensing pathways and compliance navigation." },
-    { icon: <Landmark />, title: "Policy, Public Affairs & Government Strategy", description: "Bills, policy reforms, ESG mandates and advocacy intelligence." },
-    { icon: <FileText />, title: "IP, Brand & Digital Asset Strategy", description: "IP monetization, NIL rights and influencer strategy." },
-    { icon: <Building />, title: "Corporate Structuring, Tax & Expansion", description: "Cross-border structuring, tax efficiency and jurisdictional risk." },
-    { icon: <Globe />, title: "Market Entry & Sector Intelligence", description: "Localization playbooks, sector outlooks and trade updates." },
+    { icon: <BarChart />, title: "Capital, Investment and Blended Finance", description: "Funding trends, investor mandates and catalytic finance models." },
+    { icon: <Scale />, title: "Regulatory, Compliance and Licensing", description: "Legislation updates, licensing pathways and compliance navigation." },
+    { icon: <Landmark />, title: "Policy, Public Affairs and Government Strategy", description: "Bills, policy reforms, ESG mandates and advocacy intelligence." },
+    { icon: <FileText />, title: "IP, Brand and Digital Asset Strategy", description: "IP monetisation, NIL rights and influencer strategy." },
+    { icon: <Building />, title: "Corporate Structuring, Tax and Expansion", description: "Cross-border structuring, tax efficiency and jurisdictional risk." },
+    { icon: <Globe />, title: "Market Entry and Sector Intelligence", description: "Localization playbooks, sector outlooks and trade updates." },
 ];
 
 export default function InsightsPage() {
@@ -118,7 +118,7 @@ export default function InsightsPage() {
             
             <section id="subscribe" className="bg-secondary py-16">
                 <div className="container mx-auto text-center">
-                    <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Subscribe to the Credence Insights Briefing</h2>
+                    <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground">Subscribe to the Credence insights briefing</h2>
                     <p className="mt-4 text-muted-foreground">Get strategic intelligence straight to your inbox.</p>
                     <form className="mt-8 max-w-md mx-auto flex flex-col sm:flex-row gap-2">
                         <Input type="email" placeholder="Enter your email" className="flex-grow" />

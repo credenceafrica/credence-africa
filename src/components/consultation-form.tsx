@@ -13,6 +13,7 @@ import { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { firestore } from "@/firebase";
 import { useToast } from "@/hooks/use-toast";
+import Link from "next/link";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -31,13 +32,13 @@ type FormValues = z.infer<typeof formSchema>;
  * the dialog with an area preselected via `?consult=<value>` (e.g. ?consult=institute).
  */
 export const consultationInterests = [
-  { value: "capital", label: "Capital Raising & Investment Structuring" },
+  { value: "capital", label: "Capital Raising and Investment Structuring" },
   { value: "engage", label: "Credence Engage" },
   { value: "institute", label: "Credence Institute: Executive Education" },
   { value: "perspectives", label: "Credible Perspectives" },
-  { value: "public-affairs", label: "Public Affairs & Policy Advisory" },
-  { value: "research", label: "Research & Market Intelligence" },
-  { value: "trade", label: "Trade & Growth Advisory" },
+  { value: "public-affairs", label: "Public Affairs and Policy Advisory" },
+  { value: "research", label: "Research and Market Intelligence" },
+  { value: "trade", label: "Trade and Growth Advisory" },
   { value: "other", label: "Other / Not sure yet" },
 ];
 
@@ -154,7 +155,7 @@ export function ConsultationForm({
               <FormItem>
                 <FormLabel className="text-foreground">Company (optional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your organization" className={fieldClass} {...field} />
+                  <Input placeholder="Your organisation" className={fieldClass} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -222,9 +223,20 @@ export function ConsultationForm({
           disabled={loading}
           className="h-14 w-full rounded-none border-none bg-primary text-base font-light text-foreground hover:bg-primary/90 sm:w-auto sm:px-10"
         >
-          {loading ? "Sending…" : "Submit request"}
+          {loading ? "Sending…" : "Submit Request"}
           {!loading && <ArrowRight className="ml-2 size-5" aria-hidden="true" />}
         </Button>
+
+        <p className="text-sm font-light leading-relaxed text-foreground/65">
+          By submitting this form you agree to our{" "}
+          <Link
+            href="/privacy-policy"
+            className="font-normal text-foreground underline decoration-primary decoration-1 underline-offset-2 hover:decoration-2"
+          >
+            Privacy Policy
+          </Link>
+          .
+        </p>
       </form>
     </Form>
   );

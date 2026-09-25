@@ -1,7 +1,7 @@
 import { ConsultationDialog } from "@/components/consultation-dialog";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-// Research & Market Intelligence: one service, two instruments working as a
+// Research and Market Intelligence: one service, two instruments working as a
 // single chain: the evidence base you can defend and the commercial visibility
 // you act on before you deploy. The page reads like a commissioned dossier that
 // carries both a study and a field brief, not two stitched pages. Signature
@@ -82,7 +82,7 @@ const method = [
   {
     step: "04",
     title: "Deliver to the decision",
-    body: "We hand over findings weighted by confidence with an explicit line to implication and keep a standing read where the landscape needs watching.",
+    body: "We hand over findings weighted by confidence, with an explicit line to implication, and keep a standing read where the landscape needs watching.",
   },
 ];
 
@@ -134,10 +134,10 @@ export default function ResearchPage() {
                 commercial visibility to make confident capital, market and governance calls.
               </p>
               <p className="mt-5 max-w-xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
-                Commissioned studies, sector and market sizing, policy analysis and institutional
-                diagnostics build the evidence. Ecosystem mapping, entry scans, capital intelligence
+                Commissioned studies, sector analysis, market sizing, policy analysis and
+                institutional diagnostics build the evidence. Ecosystem mapping, entry scans, capital intelligence
                 and standing subscriptions give you the read before you deploy. Distinct from
-                Credible Perspectives, our public media platform: this work is private, commissioned
+                Credible Perspectives, our public media platform. This work is private, commissioned
                 and built for your call.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -170,7 +170,7 @@ export default function ResearchPage() {
                 </div>
                 <dl className="space-y-6 py-8">
                   {[
-                    ["Object", "An institutional decision"],
+                    ["Subject", "An institutional decision"],
                     ["Output", "Evidence plus a commercial read"],
                     ["Scope", "Sector · Market · Policy · Capital"],
                     ["Reach", "Across Africa's growth markets"],
@@ -367,7 +367,7 @@ export default function ResearchPage() {
             </h2>
             <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-foreground/75">
               Four steps, run in order, whether the brief calls for a full study, a fast commercial
-              read or both. The discipline is in the sequence: we do not analyse what we have not
+              read or both. The discipline is in the sequence. We neither analyse what we have not
               framed nor report what we have not tested.
             </p>
           </div>

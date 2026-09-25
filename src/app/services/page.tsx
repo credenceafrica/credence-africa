@@ -5,7 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Platforms",
+  title: "Services",
   description:
     "The integrated platforms through which Credence Africa helps institutions raise capital, enter markets, navigate policy, build capability, generate intelligence and convene stakeholders across Africa.",
 };
@@ -20,13 +20,13 @@ const GROUPS: { label: string; blurb: string; ids: string[]; theme: ThemeKey }[]
     theme: "vermillion",
   },
   {
-    label: "Intelligence & Insight",
+    label: "Intelligence and Insight",
     blurb: "The evidence, intelligence and perspective behind confident decisions.",
     ids: ["perspectives", "research"],
     theme: "navy",
   },
   {
-    label: "Capability & Convening",
+    label: "Capability and Convening",
     blurb: "Institutional capacity and the platforms where it compounds.",
     ids: ["institute", "events"],
     theme: "light",
@@ -162,14 +162,14 @@ export default async function ServicesPage() {
         <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="cred-rise max-w-3xl">
             <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Our <span className="text-primary">Platforms</span>
+              Our <span className="text-primary">Services</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Eight integrated platforms: one execution system for institutions shaping Africa's growth.
+              Seven integrated platforms, one execution system for institutions shaping Africa's growth.
             </p>
             <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
               At Credence Africa we design the strategic infrastructure that turns ambition into
-              institution, for enterprises, cooperatives, nonprofits, public benefit actors and
+              institutions, for enterprises, cooperatives, nonprofits, public-benefit actors and
               governments navigating complexity, unlocking capital and driving sustainable
               transformation.
             </p>

@@ -25,7 +25,7 @@ const reasons: { title: string; desc?: string }[] = [
   { title: "Structured government relations and public sector interface management" },
   {
     title:
-      "Direct access to deal flow, partners and decision makers through flagship platforms and curated networks",
+      "Direct access to deal flow, partners and decision-makers through flagship platforms and curated networks",
   },
 ];
 
@@ -54,7 +54,7 @@ const supportGroups: { title: string; items: string[] }[] = [
     title: "Market Intelligence and Opportunity Assessment",
     items: [
       "Intelligence reports, market sizing and demand assessment (AFRICA INTEL™)",
-      "Jurisdiction selection and prioritization based on opportunity, regulation, timing and strategic fit",
+      "Jurisdiction selection and prioritisation based on opportunity, regulation, timing and strategic fit",
       "Political economy and risk analysis",
       "Stakeholder mapping and influence analysis",
       "Capital Intelligence Framework™ for investors evaluating expansion opportunities",
@@ -75,7 +75,7 @@ const supportGroups: { title: string; items: string[] }[] = [
     items: [
       "Licensing, approvals strategy and sequencing across multiple public bodies",
       "Government relations and institutional engagement planning",
-      "Regulatory scanning and forward visibility on reform (POLICY & MARKETS™)",
+      "Regulatory scanning and forward visibility on reform (Policy and Markets Series™)",
       "Public sector interface management: meetings, submissions, follow-up and escalation",
     ],
   },
@@ -151,8 +151,7 @@ export default function ForeignInvestorsPage() {
       <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Foreign Investors Work With Credence Africa
-          </h2>
+            Why foreign investors work with Credence Africa</h2>
           <div className="mt-10 border-y border-white/20 divide-y divide-white/20 md:mt-12">
             {reasons.map((reason) => (
               <div key={reason.title} className="py-6 md:py-7">
@@ -216,8 +215,7 @@ export default function ForeignInvestorsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Foreign Investors
-            </h2>
+              How we support foreign investors</h2>
             <p className="mt-4 text-base font-light leading-relaxed text-foreground/70">
               Market entry is one part of the mandate. Four further capabilities carry the work from
               intelligence through transaction, regulation and access.
@@ -255,8 +253,7 @@ export default function ForeignInvestorsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Sectors We Serve You Across
-              </h2>
+                Sectors we serve</h2>
             </div>
             <ul className="border-t border-white/15 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2">
               {sectors.map((sector) => (

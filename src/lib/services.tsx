@@ -20,9 +20,9 @@ const services: Service[] = [
     slug: "capital-raising",
     href: "/services/capital-raising",
     icon: <Coins className="size-8" />,
-    title: "Capital Raising & Investment Structuring",
-    description: "Become capital-ready and mobilize growth capital.",
-    longDescription: "We help enterprises, institutions and projects become investment-ready: structuring funding, engaging investors and mobilizing growth capital across equity, debt, blended finance and DFI pathways.",
+    title: "Capital Raising and Investment Structuring",
+    description: "Become capital-ready and mobilise growth capital.",
+    longDescription: "We help enterprises, institutions and projects become investment-ready: structuring funding, engaging investors and mobilising growth capital across equity, debt, blended finance and DFI pathways.",
     buttonText: "Learn More"
   },
   {
@@ -30,7 +30,7 @@ const services: Service[] = [
     slug: "trade-growth",
     href: "/services/trade-growth",
     icon: <Globe className="size-8" />,
-    title: "Trade & Growth Advisory",
+    title: "Trade and Growth Advisory",
     description: "Enter markets and scale across borders.",
     longDescription: "We help institutions select markets, design entry pathways, structure cross-border trade and scale across African and global markets with commercial precision.",
     buttonText: "Learn More"
@@ -40,7 +40,7 @@ const services: Service[] = [
     slug: "public-affairs",
     href: "/services/public-affairs",
     icon: <Landmark className="size-8" />,
-    title: "Public Affairs & Policy Advisory",
+    title: "Public Affairs and Policy Advisory",
     description: "Navigate policy, regulation and stakeholders.",
     longDescription: "We help institutions engage policy environments, navigate regulation and approvals, build government relations and shape public-interest outcomes with credibility.",
     buttonText: "Learn More"
@@ -53,14 +53,14 @@ const services: Service[] = [
     title: "Credence Institute",
     description: "Capability and institutional strengthening.",
     longDescription: "Executive education, professional credentials, leadership development and institutional strengthening, delivered through schools and academies serving sectors across Africa.",
-    buttonText: "Explore Programs"
+    buttonText: "Explore Programmes"
   },
   {
     id: "research",
     slug: "research",
     href: "/services/research",
     icon: <Microscope className="size-8" />,
-    title: "Research & Market Intelligence",
+    title: "Research and Market Intelligence",
     description: "Evidence and intelligence for decisions.",
     longDescription: "Commissioned research, sector studies, market sizing, ecosystem mapping and ongoing market intelligence that give institutions the evidence and commercial visibility to make confident capital, market and governance decisions.",
     buttonText: "Learn More",

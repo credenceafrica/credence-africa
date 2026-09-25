@@ -18,24 +18,25 @@ import {
   Phone,
 } from "lucide-react";
 import Image from "next/image";
+import { contact, contactLabels } from "@/lib/contact";
 
 const targetAudience = [
-  "Growth stage businesses preparing for equity, debt or hybrid capital",
+  "Growth-stage businesses preparing for equity, debt or hybrid capital",
   "Companies seeking expansion capital for regional or international growth",
-  "Project sponsors developing bankable infrastructure, energy, real asset or large scale commercial projects",
+  "Project sponsors developing bankable infrastructure, energy, real-asset or large-scale commercial projects",
   "Social enterprises and nonprofits seeking donor funding, grant readiness or blended finance",
-  "Cooperatives and SACCOs seeking institutional capital, member capital mobilization or diversified investment structures",
-  "Funds, investment platforms and portfolio companies requiring investor relations, reporting or post investment support",
+  "Cooperatives and SACCOs seeking institutional capital, member capital mobilisation or diversified investment structures",
+  "Funds, investment platforms and portfolio companies requiring investor relations, reporting or post-investment support",
   "Institutions preparing for mergers, acquisitions, strategic exits or secondary transactions",
 ];
 
 const capitalPathways = [
   { title: "Private Capital", desc: "Private equity, venture capital, angel investment, family office capital and strategic investment." },
   { title: "Private Debt", desc: "Structured debt, working capital facilities, trade finance, project finance and credit facilities." },
-  { title: "Development Finance", desc: "DFI aligned capital, concessional funding, catalytic capital and development focused finance structures." },
-  { title: "Grants and Donor Funding", desc: "Grant funding, technical assistance, donor aligned capital and institutional fundraising pathways." },
+  { title: "Development Finance", desc: "DFI-aligned capital, concessional funding, catalytic capital and development-focused finance structures." },
+  { title: "Grants and Donor Funding", desc: "Grant funding, technical assistance, donor-aligned capital and institutional fundraising pathways." },
   { title: "Blended Finance", desc: "Capital structures that combine grants, concessional capital, debt, equity or public sector support." },
-  { title: "Alternative and Diaspora Capital", desc: "Crowdfunding, diaspora capital, community investment and non traditional capital pathways." },
+  { title: "Alternative and Diaspora Capital", desc: "Crowdfunding, diaspora capital, community investment and non-traditional capital pathways." },
   { title: "Public and Institutional Capital", desc: "Alignment with sovereign, sub-sovereign, public or institutional financing structures." },
 ];
 
@@ -45,7 +46,7 @@ const coreServices = [
     desc: "Strengthening the foundations required for investor confidence.",
     items: [
       "Capital strategy design aligned to business stage and funding objective",
-      "Financial modeling, valuation logic and return frameworks",
+      "Financial modelling, valuation logic and return frameworks",
       "Corporate structuring and governance alignment",
       "Investment memoranda, pitch materials and institutional deal narrative",
       "Data room architecture and due diligence readiness",
@@ -56,22 +57,22 @@ const coreServices = [
     title: "Capital Raising and Transaction Support",
     desc: "Engaging capital providers and moving fundraising into execution.",
     items: [
-      "Investor targeting across PE, VC, Family Offices, DFIs and Banks",
+      "Investor targeting across private equity, venture capital, family offices, development finance institutions (DFIs) and banks",
       "Capital pipeline development and investor mapping",
       "Lender and investor engagement strategy",
       "Term sheet support and negotiation preparation",
       "Transaction documentation readiness",
-      "M&A support and strategic transaction positioning",
+      "Mergers and acquisitions (M&A) support and strategic transaction positioning",
     ],
   },
   {
     title: "Capital Structuring and Blended Finance Design",
-    desc: "Reflecting risk, return, impact and long term growth.",
+    desc: "Designing structures that reflect risk, return, impact and long-term growth.",
     items: [
       "Capital stack design across equity, debt, grants and concessional funding",
       "Blended finance structures for social enterprises and projects",
       "Donor capital integration and DFI positioning",
-      "Risk allocation and financing optimization",
+      "Risk allocation and financing optimisation",
       "Public-private capital alignment",
       "Structuring frameworks for scalable impact models",
     ],
@@ -100,12 +101,12 @@ const productPathways = [
     cta: "Discuss Enterprise Growth Capital",
   },
   {
-    title: "Grant Ready",
+    title: "Grant-Ready",
     desc: "For impact institutions seeking donor funding or blended capital.",
     tracks: ["Grant Funding and Donor Readiness", "Blended Finance Design", "Compliance and Reporting"],
-    bestFor: "Organizations pursuing grants, donor partnerships or catalytic funding.",
+    bestFor: "Organisations pursuing grants, donor partnerships or catalytic funding.",
     icon: HandCoins,
-    cta: "Explore Grant Ready",
+    cta: "Explore Grant-Ready",
   },
   {
     title: "Cooperative Finance",
@@ -117,7 +118,7 @@ const productPathways = [
   },
   {
     title: "Project Finance",
-    desc: "For infrastructure and real asset projects requiring bankability.",
+    desc: "For infrastructure and real-asset projects requiring bankability.",
     tracks: ["Project Bankability", "Capital Structuring", "Transaction Execution"],
     bestFor: "Infrastructure developers, energy sponsors and industrial projects.",
     icon: Building2,
@@ -126,7 +127,7 @@ const productPathways = [
 ];
 
 const approachValues = [
-  "Choose the right capital pathway intelligently",
+  "Choose the right capital pathway",
   "Bring structure to documentation and preparation",
   "Improve visibility across funding instruments",
   "Connect capital strategy with governance",
@@ -135,12 +136,12 @@ const approachValues = [
 ];
 
 const mandates = [
-  "Growth capital raises",
+  "Growth capital raising",
   "Regional expansion scale-up",
   "Debt and structured finance",
   "Project finance and bankability",
   "Blended finance structuring",
-  "Donor aligned funding",
+  "Donor-aligned funding",
   "Catalytic capital strategy",
   "Grant readiness systems",
   "Investor relations",
@@ -149,26 +150,40 @@ const mandates = [
 ];
 
 const engagement = [
-  { title: "Capital Consultation", desc: "Understanding funding objective, need and transaction context." },
+  { title: "Capital Consultation", desc: "Understanding the funding objective, needs and transaction context." },
   { title: "Mandate Structuring", desc: "Defining the advisory pathway, scope and workplan." },
   { title: "Readiness and Preparation", desc: "Strengthening financial, strategic and governance foundations." },
-  { title: "Engagement and Execution", desc: "Targeting investors and structuring negotiations." },
+  { title: "Engagement and Execution", desc: "Targeting investors and negotiating terms." },
   { title: "Post-Investment Support", desc: "Ongoing reporting, governance and follow-on readiness." },
 ];
 
 const faqs = [
   { q: "What is the first step before raising capital in Africa?", a: "The first step is to assess whether the institution is genuinely ready for capital. That means examining the business model, governance, financial clarity, transaction materials, capital objective and the type of funding that best fits the mandate." },
   { q: "How do I know whether I need equity, debt, grant funding or blended finance?", a: "The right capital structure depends on growth stage, cash flow profile, repayment ability, project nature, investor expectations, impact objectives and institutional readiness. Credence Africa helps clients determine the most suitable capital pathway before engagement begins." },
-  { q: "What does investor readiness include?", a: "Investor readiness includes financial modeling, governance alignment, capital structuring, diligence preparation, deal materials, management positioning, data room preparation and a capital narrative that makes commercial sense to the target capital provider." },
-  { q: "Do you support blended finance and development finance mandates?", a: "Yes. Credence Africa supports blended finance design, DFI positioning, donor aligned funding strategies, risk allocation frameworks and structures that combine grants, concessional capital, debt and equity." },
+  { q: "What does investor readiness include?", a: "Investor readiness includes financial modelling, governance alignment, capital structuring, diligence preparation, deal materials, management positioning, data room preparation and a capital narrative that makes commercial sense to the target capital provider." },
+  { q: "Do you support blended finance and development finance mandates?", a: "Yes. Credence Africa supports blended finance design, DFI positioning, donor-aligned funding strategies, risk allocation frameworks and structures that combine grants, concessional capital, debt and equity." },
   { q: "Can you support grant funding and donor readiness?", a: "Yes. We support donor mapping, proposal systems, funding pipeline development, compliance preparation, grant positioning, blended finance integration and reporting structures." },
-  { q: "Can you support institutions after capital has been raised?", a: "Yes. We support post investment reporting, governance, donor compliance, stakeholder communication, follow on funding readiness and investor relations." },
-  { q: "Do you work only with startups?", a: "No. This service supports growth stage businesses, established enterprises, social enterprises, cooperatives, project sponsors, funds and other institutions with capital mandates." },
+  { q: "Can you support institutions after capital has been raised?", a: "Yes. We support post-investment reporting, governance, donor compliance, stakeholder communication, follow on funding readiness and investor relations." },
+  { q: "Do you work only with startups?", a: "No. This service supports growth-stage businesses, established enterprises, social enterprises, cooperatives, project sponsors, funds and other institutions with capital mandates." },
 ];
 
 export default function CapitalRaisingPage() {
   return (
     <div className="overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
       <style>{`
         @keyframes crStackRise {
           from { opacity: 0; transform: translateY(14px); }
@@ -385,12 +400,12 @@ export default function CapitalRaisingPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Specialized tracks</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Specialised tracks</p>
             <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
               Fundraising pathways
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75">
-              Specialized tracks matching your institution&apos;s profile and readiness.
+              Specialised tracks matching your institution&apos;s profile and readiness.
             </p>
           </div>
 
@@ -594,23 +609,23 @@ export default function CapitalRaisingPage() {
               </h3>
               <div className="mt-8 space-y-5">
                 <a
-                  href="mailto:connect@credence.africa"
+                  href={`mailto:${contact.email}`}
                   className="group flex items-center gap-4 text-lg text-white transition-opacity hover:opacity-80"
                 >
                   <Mail className="size-6 shrink-0" aria-hidden="true" />
-                  connect@credence.africa
+                  <span className="sr-only">{contactLabels.email}</span>
+                  {contact.email}
                 </a>
                 <a
-                  href="tel:+254719468240"
+                  href={`tel:${contact.phoneHref}`}
                   className="group flex items-center gap-4 text-lg text-white transition-opacity hover:opacity-80"
                 >
                   <Phone className="size-6 shrink-0" aria-hidden="true" />
-                  +254 719 468 240
+                  <span className="sr-only">{contactLabels.phone}</span>
+                  {contact.phone}
                 </a>
                 <p className="pt-4 font-light leading-relaxed text-white/75">
-                  Applewood Adams, Ngong Road
-                  <br />
-                  Nairobi, Kenya
+                  {contact.address}
                 </p>
               </div>
             </div>

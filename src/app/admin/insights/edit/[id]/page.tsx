@@ -176,7 +176,7 @@ export default function EditInsightPage() {
               <FormItem>
                 <FormLabel>Category</FormLabel>
                 <FormControl>
-                  <Input placeholder="e.g., Capital & Investment" {...field} />
+                  <Input placeholder="e.g., Capital and Investment" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -190,7 +190,7 @@ export default function EditInsightPage() {
               <FormItem>
                 <FormLabel>Tags (comma-separated sector names)</FormLabel>
                 <FormControl>
-                  <Input placeholder="e.g., Agriculture & Food, SMEs & Startups" {...field} />
+                  <Input placeholder="e.g., Agriculture and Food, SMEs and Startups" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

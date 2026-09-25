@@ -18,7 +18,7 @@ const dependencies: { term: string; rests: string }[] = [
 
 const reasons: string[] = [
   "One integrated partner across capital, markets, policy, capability and stakeholder engagement",
-  "Structured market entry and regional expansion systems, including ACCESS AFRICA™, GROWTH HACKING™ and TRADE AFRICA™",
+  "Structured market entry and regional expansion systems, including ACCESS AFRICA™, SCALE AFRICA™ and TRADE AFRICA™",
   "Senior-level government relations and regulatory navigation support across ministries, regulators, counties and agencies",
   "Executive education and institutional strengthening for boards, management and staff",
   "Flagship platforms, from Capital Africa to Credence Business Week, that put your brand where policy, markets and capital meet",
@@ -28,7 +28,7 @@ const support: { group: string; lines: string[] }[] = [
   {
     group: "Capital and Transaction Support",
     lines: [
-      "Capital strategy, financial modeling and investment structuring",
+      "Capital strategy, financial modelling and investment structuring",
       "Investor targeting across private equity, DFIs, banks and strategic partners",
       "Term sheet support, negotiation preparation and transaction documentation readiness",
       "M&A support and strategic transaction positioning",
@@ -39,7 +39,7 @@ const support: { group: string; lines: string[] }[] = [
     group: "Trade, Market Entry and Regional Growth",
     lines: [
       "Market selection, sizing and entry pathway design (ACCESS AFRICA™)",
-      "Regional scaling across EAC, COMESA, ECOWAS and SADC (GROWTH HACKING™)",
+      "Regional scaling across EAC, COMESA, ECOWAS and SADC (SCALE AFRICA™)",
       "Route-to-market, channel, distribution and partnership models",
       "Cross-border trade structuring, supply chain systems and transaction execution (TRADE AFRICA™)",
       "Market intelligence and commercial visibility before deployment (AFRICA INTEL™)",
@@ -52,7 +52,7 @@ const support: { group: string; lines: string[] }[] = [
       "Regulatory navigation, licensing, approvals sequencing and multi-agency coordination",
       "Policy advocacy, reform participation and consultation response",
       "Political economy insight, stakeholder mapping and issue management",
-      "POLICY & MARKETS™: executive briefings and regulatory outlook sessions for forward visibility",
+      "Policy and Markets Series™: executive briefings and regulatory outlook sessions for forward visibility",
     ],
   },
   {
@@ -120,8 +120,7 @@ export default function CorporationsPage() {
           <div className="cred-rise">
             <p className="text-xs font-light uppercase tracking-[0.2em] text-primary">Who We Work With</p>
             <h1 className="mt-6 max-w-4xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Strategic Advisory and Execution Support for Corporates Operating and Growing Across Africa
-            </h1>
+              Strategic advisory and execution support for corporates operating and growing across Africa</h1>
             <p className="mt-8 max-w-3xl text-pretty text-lg font-light leading-relaxed text-background/80">
               Credence Africa helps corporations raise and deploy capital, enter and expand across markets, navigate
               policy and regulation, build leadership capability and engage stakeholders with credibility.
@@ -158,8 +157,7 @@ export default function CorporationsPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Why Corporations Work With Credence Africa
-              </h2>
+                Why corporations work with Credence Africa</h2>
               <p className="mt-6 max-w-prose text-pretty text-base font-light leading-relaxed text-foreground/70">
                 Credence Africa integrates strategic advisory, executive education, convenings, intelligence and
                 networks into one execution system for corporations shaping growth across the continent, whether you are
@@ -188,8 +186,7 @@ export default function CorporationsPage() {
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              How We Support Corporations
-            </h2>
+              How we support corporations</h2>
           </div>
 
           <div className="mt-12 border-t border-white/15 divide-y divide-white/15 md:mt-16">
@@ -219,8 +216,7 @@ export default function CorporationsPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We Serve You Across
-          </h2>
+            Sectors we serve</h2>
 
           <div className="mt-10 grid grid-cols-1 border-t border-foreground/12 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((sector) => (

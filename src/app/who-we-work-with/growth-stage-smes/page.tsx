@@ -25,7 +25,7 @@ const support: { group: string; lines: string[] }[] = [
   {
     group: "Capital Raising and Investor Readiness",
     lines: [
-      "Growth capital readiness: capital strategy, financial modeling, valuation logic and unit economics validation",
+      "Growth capital readiness: capital strategy, financial modelling, valuation logic and unit economics validation",
       "Investment memoranda, pitch materials and data room architecture",
       "Debt and structured finance advisory",
       "Investor targeting, engagement strategy and negotiation preparation",
@@ -90,8 +90,7 @@ export default function GrowthStageSmesPage() {
           <div className="cred-rise max-w-3xl">
             <p className="text-xs font-light uppercase tracking-[0.2em] text-white/70">Who We Work With</p>
             <h1 className="mt-6 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              From Growth Ambition to Structured, Investable, Scalable Enterprise
-            </h1>
+              From growth ambition to structured, investable, scalable enterprise</h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-white/85">
               Credence Africa helps growth-stage businesses become capital ready, expand into new markets, strengthen
               governance and systems and build long-term enterprise value.
@@ -120,8 +119,7 @@ export default function GrowthStageSmesPage() {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Why Growth-Stage SMEs Work With Credence Africa
-          </h2>
+            Why growth-stage SMEs work with Credence Africa</h2>
           <div className="mt-10 border-y border-foreground/12 divide-y divide-foreground/12 md:mt-12">
             {whyCredence.map((line, i) => (
               <div key={i} className="flex gap-4 py-6 md:gap-5 md:py-7">
@@ -140,8 +138,7 @@ export default function GrowthStageSmesPage() {
       <section className="bg-primary">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            How We Support Growth-Stage SMEs
-          </h2>
+            How we support growth-stage SMEs</h2>
 
           <div className="mt-10 border-t border-white/25 md:mt-14">
             {support.map((block) => (
@@ -178,8 +175,7 @@ export default function GrowthStageSmesPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We Serve You Across
-          </h2>
+            Sectors we serve</h2>
           <ul className="mt-10 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
             {sectors.map((sector) => (
               <li

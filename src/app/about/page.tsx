@@ -29,7 +29,7 @@ const model = [
   },
   {
     n: "04",
-    title: "Influence & Compliance",
+    title: "Influence and Compliance",
     desc: "Shaping the rules where it matters while keeping institutions credible and compliant.",
   },
   {
@@ -40,12 +40,12 @@ const model = [
 ];
 
 const partners = [
-  "Startups & Scale-Ups",
-  "SACCOs, Cooperatives & Financial Institutions",
-  "Development Finance Actors & NGOs",
-  "Family Offices & High Net-Worth Individuals",
+  "Startups and Scale-Ups",
+  "SACCOs, Cooperatives and Financial Institutions",
+  "Development Finance Actors and NGOs",
+  "Family Offices and High-Net-Worth Individuals",
   "Public Sector Entities",
-  "Industry Associations & Advocacy Platforms",
+  "Industry Associations and Advocacy Platforms",
 ];
 
 export default function AboutPage() {
@@ -76,7 +76,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision: light band */}
+      {/* Mission and Vision: light band */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="grid gap-12 md:grid-cols-2 md:gap-16">
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 The Credence Africa Model
               </h2>
               <p className="mt-5 max-w-sm text-base font-light leading-relaxed text-white/85">
-                Five disciplines that turn strategy into institution.
+                Five disciplines that turn strategy into institutions.
               </p>
             </div>
             <div className="lg:col-span-8">
@@ -145,8 +145,7 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Who We Work With
-              </h2>
+                Who we work with</h2>
               <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-foreground/75">
                 Institutions shaping Africa's economic and social development.
               </p>

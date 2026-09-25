@@ -77,7 +77,7 @@ const networks = [
     icon: <HandHeart className="size-8 text-primary" />,
     items: [
       "Institutional development and governance frameworks",
-      "Access to partnerships and community programs",
+      "Access to partnerships and community programmes",
       "Leadership development opportunities",
       "Participation in civic and social initiatives"
     ],
@@ -90,7 +90,7 @@ const networks = [
     items: [
       "Access to leadership and personal development frameworks",
       "Peer accountability and support structures",
-      "Curated learning and development programs",
+      "Curated learning and development programmes",
       "Integration with professional and business networks"
     ],
     cta: "Join the Life Network"
@@ -169,7 +169,7 @@ export default function NetworksPage() {
       <section className="py-16 md:py-24 bg-muted/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-4 mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Why Engage Credible Networks</h2>
+            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Why engage credible networks</h2>
             <p className="text-muted-foreground text-sm md:text-lg">Access curated professional networks, strategic partnerships and high-value communities.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -193,8 +193,8 @@ export default function NetworksPage() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Our Membership Communities</h2>
-            <p className="text-muted-foreground text-sm md:text-lg">Specialized networks reflecting key areas of leadership and enterprise.</p>
+            <h2 className="text-2xl md:text-4xl font-normal text-foreground">Our membership communities</h2>
+            <p className="text-muted-foreground text-sm md:text-lg">Specialised networks reflecting key areas of leadership and enterprise.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -229,13 +229,13 @@ export default function NetworksPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-2xl md:text-4xl font-normal">For Institutional Partners</h2>
+              <h2 className="text-2xl md:text-4xl font-normal">For institutional partners</h2>
               <p className="text-base md:text-lg font-light text-white/70 leading-relaxed">
                 Credible Networks enables institutions to access defined audiences and structured communities across multiple sectors.
               </p>
               <div className="grid gap-4 pt-4">
                 {[
-                  "Direct access to decision makers",
+                  "Direct access to decision-makers",
                   "Market entry and expansion platforms",
                   "Partnership development and ecosystem engagement",
                   "Product distribution and customer acquisition",
@@ -272,8 +272,7 @@ export default function NetworksPage() {
       <section className="bg-primary py-16 md:py-24 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-normal mb-8 max-w-4xl mx-auto text-white">
-            Join Africa’s Leading Professional Networks and Business Communities
-          </h2>
+            Join Africa’s leading professional networks and business communities</h2>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-12">
             <a href="mailto:connect@credence.africa" className="flex items-center gap-3 text-xl text-white hover:text-white/80 transition-colors">
               <Mail className="size-6" /> connect@credence.africa
