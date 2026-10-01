@@ -8,7 +8,7 @@ import { sectorList } from "@/lib/sectors-content";
 export const metadata: Metadata = {
   title: "Sectors We Cover",
   description:
-    "The sectors where Credence Africa builds institutions, from agribusiness and the green and blue economies to financial services, technology, trade and industrial development across Africa's growth markets.",
+    "The seven sectors where Credence Africa builds institutions, from agribusiness and energy to financial services, healthcare, mobility, technology and the consumer economy across Africa's growth markets.",
 };
 
 const clients = [
@@ -46,7 +46,7 @@ export default function SectorsPage() {
         </div>
       </section>
 
-      {/* The ten sectors: light ledger */}
+      {/* The seven sectors: light ledger */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="border-y border-foreground/12 divide-y divide-foreground/12">

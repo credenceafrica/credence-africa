@@ -48,7 +48,7 @@ const coreServices = [
       "Licensing pathways and approval mapping",
       "Entity establishment and operating model design",
       "Pricing and positioning planning",
-      "Route to market strategy",
+      "Route-to-market strategy",
       "Political economy and risk analysis",
     ],
   },
@@ -60,7 +60,7 @@ const coreServices = [
       "Trade structuring and transaction design",
       "Commercial contracting and deal support",
       "Trade finance and payment alignment",
-      "Cross border compliance coordination",
+      "Cross-border compliance coordination",
       "Logistics and supply chain planning",
       "Trade missions and transaction activation",
       "Buyer and seller engagement facilitation",
@@ -72,17 +72,17 @@ const coreServices = [
     desc: "We help institutions scale from one market into multiple jurisdictions through coordinated strategy and oversight.",
     items: [
       "Regional expansion strategy and sequencing",
-      "Multi country operating model design",
+      "Multi-country operating model design",
       "Distribution and partner ecosystem development",
       "Regional compliance mapping",
-      "Cross border tax and treasury coordination",
+      "Cross-border tax and treasury coordination",
       "Expansion dashboards and performance tracking",
       "Phased multi-market scaling support",
     ],
   },
   {
     no: "04",
-    title: "Global expansion from Africa",
+    title: "Global Expansion from Africa",
     desc: "We support African businesses entering international markets with stronger export readiness and global positioning.",
     items: [
       "Global market selection and prioritisation",
@@ -108,7 +108,7 @@ const productPathways = [
       "Market Command™",
     ],
     bestFor:
-      "Foreign companies, regulated businesses requiring set-up support and investors assessing establishment.",
+      "Foreign companies, regulated businesses requiring set-up support, and investors assessing establishment.",
     Icon: Building2,
     cta: "Discuss ACCESS AFRICA™",
   },
@@ -162,10 +162,10 @@ const productPathways = [
     tagline:
       "For institutions that need stronger intelligence and commercial visibility before entry or expansion.",
     tracks: [
-      "Intelligence Reports",
+      "Intelligence Reports™",
       "Ecosystem Access Engine™",
       "Capital Intelligence Framework™",
-      "Intelligence Subscription",
+      "Intelligence Subscription™",
     ],
     bestFor:
       "Investors, market entrants, growth teams and businesses requiring intelligence before deployment.",
@@ -190,7 +190,7 @@ const whyEngage = [
   "Improve visibility across regulation and execution risk",
   "Connect market intelligence with commercial decision-making",
   "Support stronger rollout discipline across jurisdictions",
-  "Productized pathways matching your growth cycle",
+  "Productised pathways matching your growth cycle",
 ];
 
 const sectors = [
@@ -578,7 +578,7 @@ export default function TradeGrowthPage() {
               Product pathways
             </p>
             <h2 className="mt-5 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Productized systems built for outcomes
+              Productised systems built for outcomes
             </h2>
             <p className="mt-5 text-base font-light leading-relaxed text-foreground/75 md:text-lg">
               We ground your expansion in a structured system matched to where you

@@ -62,7 +62,7 @@ const services: Service[] = [
     icon: <Microscope className="size-8" />,
     title: "Research and Market Intelligence",
     description: "Evidence and intelligence for decisions.",
-    longDescription: "Commissioned research, sector studies, market sizing, ecosystem mapping and ongoing market intelligence that give institutions the evidence and commercial visibility to make confident capital, market and governance decisions.",
+    longDescription: "Commissioned research, sector studies, market sizing, ecosystem mapping and ongoing intelligence for capital, market and governance decisions.",
     buttonText: "Learn More",
     details: [
       "Sector and market studies",

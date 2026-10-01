@@ -28,7 +28,7 @@ import { ExternalEvent, getUpcomingEvents } from "@/lib/external-data";
 const conferenceServices = [
   {
     title: "Conferences and Summits",
-    desc: "Design and delivery of conferences that position organisations at the center of sector conversations, market visibility and executive engagement with partners and stakeholders.",
+    desc: "Design and delivery of conferences that position organisations at the centre of sector conversations, market visibility and executive engagement with partners and stakeholders.",
   },
   {
     title: "Policy Forums and Sector Convenings",

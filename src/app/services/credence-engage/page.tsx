@@ -49,7 +49,7 @@ const digitalConferences = [
 
 // CONVENE: formal / institutional / policy convenings
 const conveneRows = [
-  { title: "Conferences and Summits", desc: "Sector platforms positioning organisations at the center of market visibility and executive engagement with partners and stakeholders." },
+  { title: "Conferences and Summits", desc: "Sector platforms positioning organisations at the centre of market visibility and executive engagement with partners and stakeholders." },
   { title: "Corporate AGMs and Shareholder Meetings", desc: "Formal governance platforms where accountability, reporting and shareholder communication are delivered with precision and protocol discipline." },
   { title: "Board Meetings and Retreats", desc: "Governance environments and off-site strategy sessions requiring executive coordination, discretion and institutional standards." },
   { title: "Investor Briefings and Analyst Sessions", desc: "High-stakes communication environments where clarity, structure and confidence shape stakeholder decisions and institutional credibility." },
@@ -106,19 +106,19 @@ const networks = [
 const sponsorshipTiers = [
   {
     tier: "Strategic Partner",
-    subtitle: "Brand leadership. Market activation",
+    subtitle: "Brand leadership · Market activation",
     focus: "For institutions seeking scale, category leadership and direct access.",
     benefits: ["Keynote speaking", "Category leadership", "Lead partner branding", "Pavilion ownership", "Branded forums", "Lead capture and analytics", "Deal room participation"],
   },
   {
     tier: "Influence Partner",
-    subtitle: "Thought leadership. Policy positioning",
+    subtitle: "Thought leadership · Policy positioning",
     focus: "For advisory firms, development partners and institutions shaping sectors.",
     benefits: ["Speaking and panel participation", "Authority positioning", "Publication inclusion", "Policy roundtables", "Executive briefings", "Institutional matching"],
   },
   {
     tier: "Visibility Partner",
-    subtitle: "Market entry. Product engagement",
+    subtitle: "Market entry · Product engagement",
     focus: "For companies launching products or entering markets.",
     benefits: ["Exhibition presence", "Product demonstrations", "Launch support", "Direct buyer engagement", "Campaign visibility", "Lead capture"],
   },
@@ -126,9 +126,9 @@ const sponsorshipTiers = [
 
 const ARMS = [
   { id: "convene", num: "01", name: "Convene", tag: "Formal and Policy Convenings" },
-  { id: "events", num: "02", name: "Events", tag: "Owned Flagship Platforms" },
+  { id: "events", num: "02", name: "Credence Events™", tag: "Owned Flagship Platforms" },
   { id: "engage", num: "03", name: "Engage", tag: "Market Activation" },
-  { id: "networks", num: "04", name: "Networks", tag: "Credible Communities" },
+  { id: "networks", num: "04", name: "Credible Networks", tag: "Credible Communities" },
 ];
 
 /* ------------------------------------------------------------------ */
