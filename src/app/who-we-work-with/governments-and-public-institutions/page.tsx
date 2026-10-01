@@ -158,7 +158,7 @@ export default function GovernmentsAndPublicInstitutionsPage() {
           <div className="mt-10 grid gap-10 border-t border-foreground/12 pt-10 lg:grid-cols-12 lg:gap-16">
             <div className="space-y-6 lg:col-span-7">
               <p className="max-w-prose text-pretty text-base font-light leading-relaxed text-foreground/75 md:text-lg">
-                Public institutions sit at the center of Africa&rsquo;s transformation, setting
+                Public institutions sit at the centre of Africa&rsquo;s transformation, setting
                 policy, regulating markets, delivering services and shaping the environment in which
                 enterprise and investment grow. Delivering on these mandates requires credible
                 stakeholder engagement, strong institutional capability, quality intelligence and

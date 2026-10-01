@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: "Credence Africa | Capital, Trade, Policy, Markets",
     template: `%s | Credence Africa`,
   },
-  description: "Credence Africa is a pan-African, institution-building enterprise that helps institutions raise capital, enter markets, navigate public affairs and build capability across Africa’s growth markets.",
+  description: "Credence Africa is a pan-African, institution-building enterprise that helps institutions raise capital, enter markets, navigate public affairs, build capability, convene stakeholders, access intelligence and strengthen strategic networks across Africa’s growth markets.",
   keywords: [
     "Strategic Advisory Africa",
     "Capital Raising Africa",

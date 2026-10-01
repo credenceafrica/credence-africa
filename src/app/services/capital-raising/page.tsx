@@ -25,7 +25,7 @@ const targetAudience = [
   "Companies seeking expansion capital for regional or international growth",
   "Project sponsors developing bankable infrastructure, energy, real-asset or large-scale commercial projects",
   "Social enterprises and nonprofits seeking donor funding, grant readiness or blended finance",
-  "Cooperatives and SACCOs seeking institutional capital, member capital mobilisation or diversified investment structures",
+  "Cooperatives and savings and credit cooperative organisations (SACCOs) seeking institutional capital, member capital mobilisation or diversified investment structures",
   "Funds, investment platforms and portfolio companies requiring investor relations, reporting or post-investment support",
   "Institutions preparing for mergers, acquisitions, strategic exits or secondary transactions",
 ];
@@ -33,7 +33,7 @@ const targetAudience = [
 const capitalPathways = [
   { title: "Private Capital", desc: "Private equity, venture capital, angel investment, family office capital and strategic investment." },
   { title: "Private Debt", desc: "Structured debt, working capital facilities, trade finance, project finance and credit facilities." },
-  { title: "Development Finance", desc: "DFI-aligned capital, concessional funding, catalytic capital and development-focused finance structures." },
+  { title: "Development Finance", desc: "Development finance institution (DFI)-aligned capital, concessional funding, catalytic capital and development-focused finance structures." },
   { title: "Grants and Donor Funding", desc: "Grant funding, technical assistance, donor-aligned capital and institutional fundraising pathways." },
   { title: "Blended Finance", desc: "Capital structures that combine grants, concessional capital, debt, equity or public sector support." },
   { title: "Alternative and Diaspora Capital", desc: "Crowdfunding, diaspora capital, community investment and non-traditional capital pathways." },

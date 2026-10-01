@@ -8,7 +8,7 @@ import { themeList } from "@/lib/themes-content";
 export const metadata: Metadata = {
   title: "Cross-Sector Themes",
   description:
-    "The cross-sector themes Credence Africa works across, from capital, trade and industrialisation to climate, policy, governance, inclusion and urban transformation in Kenya, Nigeria, South Africa and the wider continent.",
+    "The seven cross-sector themes Credence Africa works across, from climate resilience and governance integrity to gender, youth, consumer trust, economic inclusion and workforce productivity in Kenya, Nigeria, South Africa and the wider continent.",
   alternates: { canonical: "/themes" },
 };
 
@@ -23,9 +23,9 @@ export default function ThemesPage() {
               Cross-Sector <span className="text-primary">Themes</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Some agendas run through every sector. Capital, trade, industrialisation,
-              infrastructure, technology, climate, policy, governance, inclusion and skills shape
-              the decision whatever market a client operates in.
+              Some agendas run through every sector. Climate resilience, consumer trust, economic
+              inclusion, gender, governance integrity, workforce productivity and youth
+              opportunity shape the decision whatever market a client operates in.
             </p>
             <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
               Our themes apply that expertise across the economy, while our sector practices hold the
@@ -35,7 +35,7 @@ export default function ThemesPage() {
         </div>
       </section>
 
-      {/* The fourteen themes: light ledger */}
+      {/* The seven themes: light ledger */}
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="border-y border-foreground/12 divide-y divide-foreground/12">

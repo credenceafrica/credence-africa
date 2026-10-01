@@ -175,7 +175,7 @@ export default function StartupsAndInnovatorsPage() {
       <section className="bg-foreground">
         <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <h2 className="max-w-2xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Sectors We <span className="text-primary">Serve You Across</span>
+            Sectors We <span className="text-primary">Serve</span>
           </h2>
 
           <ul className="mt-10 grid gap-x-10 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">

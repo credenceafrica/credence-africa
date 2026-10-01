@@ -27,7 +27,7 @@ const advisoryServices = [
   {
     title: "Government Relations and Institutional Engagement",
     description:
-      "We help institutions build disciplined and credible engagement with government and public institutions. This includes stakeholder identification, engagement planning, institutional positioning, issue framing and support across high-value public sector interfaces.",
+      "We help institutions build disciplined and credible engagement with government and public institutions. This includes stakeholder identification, engagement planning, institutional positioning, issue framing and support across high-value public-sector interfaces.",
     icon: Users,
   },
   {
@@ -241,8 +241,8 @@ export default function PublicAffairsPage() {
               Where policy shapes <span className="text-primary">markets</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-relaxed text-background/85 md:text-xl">
-              Navigate regulation, policy and institutional complexity with strategic clarity
-              and engage government, manage regulatory exposure, secure approvals and shape policy
+              Navigate regulation, policy and institutional complexity with strategic clarity.
+              Engage government, manage regulatory exposure, secure approvals and shape policy
               positioning across African markets.
             </p>
 

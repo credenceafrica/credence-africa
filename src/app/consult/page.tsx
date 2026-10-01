@@ -19,7 +19,7 @@ export default function ConsultationPage() {
               Book a <span className="text-primary">Consultation</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Tell us the mandate. A senior advisor will map the fastest credible path to execution:
+              Tell us the mandate. A senior advisor will map the fastest credible path to execution
               across capital, markets, policy and capability.
             </p>
           </div>

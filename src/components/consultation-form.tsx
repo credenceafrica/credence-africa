@@ -8,41 +8,16 @@ import { ArrowRight } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { firestore } from "@/firebase";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
-
-const formSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(1, "Phone number is required"),
-  company: z.string().optional(),
-  country: z.string().min(1, "Country is required"),
-  interest: z.string().min(1, "Area of interest is required"),
-  message: z.string().min(1, "Message is required"),
-});
-
-type FormValues = z.infer<typeof formSchema>;
-
-/**
- * Area-of-interest options. `value` doubles as the deep-link key so a child site can open
- * the dialog with an area preselected via `?consult=<value>` (e.g. ?consult=institute).
- */
-export const consultationInterests = [
-  { value: "capital", label: "Capital Raising and Investment Structuring" },
-  { value: "engage", label: "Credence Engage" },
-  { value: "institute", label: "Credence Institute: Executive Education" },
-  { value: "perspectives", label: "Credible Perspectives" },
-  { value: "public-affairs", label: "Public Affairs and Policy Advisory" },
-  { value: "research", label: "Research and Market Intelligence" },
-  { value: "trade", label: "Trade and Growth Advisory" },
-  { value: "other", label: "Other / Not sure yet" },
-];
-
-export const consultationInterestValues = consultationInterests.map((i) => i.value);
+import {
+  consultationInterests,
+  consultationSchema,
+  type ConsultationValues,
+} from "@/lib/consultation";
 
 const fieldClass =
   "h-12 rounded-none border-foreground/20 bg-white text-base text-foreground placeholder:text-foreground/55 focus-visible:ring-primary";
@@ -57,8 +32,8 @@ export function ConsultationForm({
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<ConsultationValues>({
+    resolver: zodResolver(consultationSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -70,7 +45,7 @@ export function ConsultationForm({
     },
   });
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: ConsultationValues) => {
     if (!firestore) {
       toast({
         variant: "destructive",
@@ -81,10 +56,19 @@ export function ConsultationForm({
     }
     setLoading(true);
     try {
-      await addDoc(collection(firestore, "consultations"), {
+      const submission = await addDoc(collection(firestore, "consultations"), {
         ...data,
         createdAt: serverTimestamp(),
       });
+      // Also send it to the Power Automate flow. Best-effort by design: not awaited,
+      // so it never delays or fails the request, and keepalive lets it finish even if
+      // the dialog closes or the visitor leaves the page straight away.
+      void fetch("/api/consultations/forward", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, submissionId: submission.id, pageUrl: window.location.href }),
+        keepalive: true,
+      }).catch(() => {});
       toast({
         title: "Request sent",
         description: "Thank you. A senior advisor will be in touch within 24 hours.",

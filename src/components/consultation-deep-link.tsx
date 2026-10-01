@@ -8,7 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { ConsultationForm, consultationInterestValues } from "./consultation-form";
+import { ConsultationForm } from "./consultation-form";
+import { consultationInterestValues } from "@/lib/consultation";
 
 /**
  * Opens the consultation dialog on load when the URL carries `?consult=<area>`, with that
