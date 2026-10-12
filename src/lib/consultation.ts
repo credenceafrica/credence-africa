@@ -11,17 +11,20 @@ import * as z from "zod";
 /**
  * Area-of-interest options. `value` doubles as the deep-link key so a child site can open
  * the dialog with an area preselected via `?consult=<value>` (e.g. ?consult=institute).
- * Never rename a value: child sites link to these keys.
+ * Never rename a value: child sites link to these keys. Labels and order follow the Consult
+ * form; `group` puts an option under that <optgroup>.
  */
-export const consultationInterests = [
-  { value: "capital", label: "Capital Raising and Investment Structuring" },
-  { value: "engage", label: "Credence Engage" },
-  { value: "institute", label: "Credence Institute: Executive Education" },
-  { value: "perspectives", label: "Credible Perspectives" },
-  { value: "public-affairs", label: "Public Affairs and Policy Advisory" },
+export const consultationInterests: { value: string; label: string; group?: "Advisory" }[] = [
+  { value: "capital", label: "Capital Raising and Investment Structuring", group: "Advisory" },
+  { value: "public-affairs", label: "Public Affairs and Policy Advisory", group: "Advisory" },
+  { value: "trade", label: "Trade and Growth Advisory", group: "Advisory" },
+  { value: "institute", label: "Training (Credence Institute)" },
+  { value: "engage", label: "Client Event Management (Credence Engage)" },
   { value: "research", label: "Research and Market Intelligence" },
-  { value: "trade", label: "Trade and Growth Advisory" },
-  { value: "other", label: "Other / Not sure yet" },
+  // Credible Perspectives produces the podcasts; the key predates the label.
+  { value: "perspectives", label: "Podcast Production" },
+  { value: "profile", label: "Company profile request" },
+  { value: "other", label: "Other" },
 ];
 
 export const consultationInterestValues = consultationInterests.map((i) => i.value);
@@ -36,11 +39,13 @@ export function consultationInterestLabel(value: string): string {
 export const consultationSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(200, "Name is too long"),
   email: z.string().trim().email("Invalid email address").max(254, "Email is too long"),
-  phone: z.string().trim().min(1, "Phone number is required").max(50, "Phone number is too long"),
+  phone: z.string().trim().max(50, "Phone number is too long"),
   company: z.string().trim().max(200, "Company name is too long").optional(),
   country: z.string().trim().min(1, "Country is required").max(100, "Country is too long"),
   interest: z.string().trim().min(1, "Area of interest is required").max(50),
   message: z.string().trim().min(1, "Message is required").max(5000, "Message is too long"),
+  /** Opt-in to insights and event updates, separate from the reply to the enquiry. */
+  newsletter: z.boolean().default(false),
 });
 
 export type ConsultationValues = z.infer<typeof consultationSchema>;

@@ -1,14 +1,10 @@
-import type { LucideIcon } from "lucide-react";
-
 /**
- * Shared shape for the sector and theme landing pages.
+ * Shared shape for the sector and theme landing pages, which render through one
+ * template (`LandingDetail`):
  *
- * Both modules publish the same section order, so one content type and one
- * detail component cover all of them:
- *
- *   hero -> positioning -> where clients need support -> how Credence Africa
- *   helps (three blocks) -> priority mandates -> who we work with -> geography
- *   -> why Credence Africa -> FAQ -> closing CTA
+ *   hero -> overview -> where clients need support -> how Credence Africa helps
+ *   (three blocks) -> priority mandates and who we work with -> regional
+ *   priorities and why Credence Africa -> related services -> FAQ -> closing band
  */
 
 /** One of the three "How Credence Africa helps" blocks. */
@@ -35,11 +31,12 @@ export type LandingAction = {
 export type LandingPage = {
   slug: string;
   kind: "sector" | "theme";
-  /** Short label used in navigation and index listings. */
+  /** Name used in navigation and index listings. */
   name: string;
-  /** One-line summary for index listings and card descriptions. */
+  /** One-line summary for the index listing. */
   scope: string;
-  icon: LucideIcon;
+  /** Current-page label in the hero breadcrumb. */
+  crumb: string;
   /** Kept deliberately distinct from `h1`, per the SEO brief. */
   seoTitle: string;
   metaDescription: string;
@@ -49,44 +46,21 @@ export type LandingPage = {
   intro: string;
   /** Two hero actions. */
   actions: [LandingAction, LandingAction];
+  /** The overview statement and its two paragraphs. */
   positioning: { heading: string; paragraphs: string[] };
   needs: { lead: string; items: string[] };
-  /** Always three blocks: training, research, advisory. */
-  helps: [HelpBlock, HelpBlock, HelpBlock];
+  /** Training, research and advisory, in that order. */
+  helps: HelpBlock[];
   mandates: string[];
   audiences: string[];
-  /** Body of the "Africa, Kenya, Nigeria and South Africa" section. */
+  /** Body of the "Africa, Kenya, Nigeria and South Africa" row. */
   geography: string;
   why: string;
   faqs: Faq[];
   closing: { heading: string; body: string } & LandingAction;
-  /** Related service pages, per the brief's internal-link direction. */
+  /** Related service pages shown as chips. */
   links: { label: string; href: string }[];
 };
 
-/** Service pages the landing copy links to, keyed for terse content entries. */
-export const SERVICE_LINKS = {
-  capital: { label: "Capital Raising and Investment Structuring", href: "/services/capital-raising" },
-  trade: { label: "Trade and Growth Advisory", href: "/services/trade-growth" },
-  publicAffairs: { label: "Public Affairs and Policy Advisory", href: "/services/public-affairs" },
-  research: { label: "Research and Market Intelligence", href: "/services/research" },
-  institute: { label: "Credence Institute", href: "https://institute.credence.africa" },
-  engage: { label: "Credence Engage", href: "/services/credence-engage" },
-} as const;
-
-export type ServiceLinkKey = keyof typeof SERVICE_LINKS;
-
-/** Expands the shorthand used in content files into the link objects the page renders. */
-export function serviceLinks(...keys: ServiceLinkKey[]) {
-  return keys.map((k) => SERVICE_LINKS[k]);
-}
-
-/** Heading for the geography section — identical across every landing page. */
-export const GEOGRAPHY_HEADING = "Africa, Kenya, Nigeria and South Africa";
-
-/** Headings for the three "How Credence Africa helps" blocks. */
-export const HELP_HEADINGS = {
-  training: "Training, Capability and Convening",
-  research: "Research, Media and Intelligence",
-  advisory: "Advisory",
-} as const;
+/** Consultation page link that preselects an area of interest in its form. */
+export const consultHref = (consult?: string) => (consult ? `/consult?consult=${consult}` : "/consult");

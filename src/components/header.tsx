@@ -1,415 +1,209 @@
-
 "use client";
 
 import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Button } from "./ui/button";
-import { ConsultationDialog } from "./consultation-dialog";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Menu, Phone, ChevronRight } from "lucide-react";
-import { Logo } from "./logo";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import React from "react";
-import type { Insight } from "@/lib/insights";
-import type { Service } from "@/lib/services";
-import { audiences } from "@/lib/audiences";
+import { Arrow, SmartLink } from "./site/primitives";
 
-import { sectorList } from "@/lib/sectors-content";
-import { themeList } from "@/lib/themes-content";
+export type NavMenu = {
+  key: "services" | "sectors" | "themes" | "who";
+  label: string;
+  href: string;
+  /** Label of the menu's first row, which links to the index page. */
+  all: string;
+  items: { label: string; href: string }[];
+};
 
-// Derived from the content files so the menu can never drift from the routes.
-const sectors = sectorList.map((s) => ({ name: s.name, href: `/sectors/${s.slug}` }));
-const themes = themeList.map((t) => ({ name: t.name, href: `/themes/${t.slug}` }));
+type Section = NavMenu["key"] | "about" | "events" | "insights" | "home" | "none";
 
-// Header services dropdown, explicit columns.
-// Left column: Capital Raising, Public Affairs, Trade and Growth, Research.
-// Right column: Credible Perspectives, Credence Engage, Credence Institute.
-const serviceLeftColumnIds = ["capital", "public-affairs", "trade", "research"];
-const serviceRightColumnIds = ["perspectives", "events", "institute"];
+/** Which nav item a route belongs to. The Engage page lists its events, so it lights Events. */
+function sectionOf(path: string): Section {
+  if (path === "/") return "home";
+  if (path.startsWith("/about")) return "about";
+  if (path.startsWith("/events") || path.startsWith("/services/credence-engage/")) return "events";
+  if (path.startsWith("/services")) return "services";
+  if (path.startsWith("/sectors")) return "sectors";
+  if (path.startsWith("/themes")) return "themes";
+  if (path.startsWith("/who-we-work-with")) return "who";
+  if (path.startsWith("/insights")) return "insights";
+  return "none";
+}
 
-export function Header({ insights, services }: { insights: Insight[], services: Service[] }) {
+const ON = "#FF4820";
+const OFF = "rgba(255,255,255,0.9)";
+
+// Insights is Credible Perspectives, opened in a new tab as the header did before the redesign.
+const perspectives = { href: "https://perspectives.credence.africa", target: "_blank", rel: "noopener noreferrer" };
+
+/** Transparent header laid over each page's photographic hero. */
+export function Header({ menus }: { menus: NavMenu[] }) {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const active = sectionOf(pathname);
+  const [open, setOpen] = useState<NavMenu["key"] | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  // Below 1180px pages run long, so the header returns as a bar when the reader scrolls up.
+  const [bar, setBar] = useState<"top" | "shown" | "hidden">("top");
+  const mobileOpenRef = useRef(false);
 
-  const isAdminPage = pathname.startsWith('/admin');
+  // Close menus on navigation, on Escape and on a click outside the nav.
+  useEffect(() => {
+    setOpen(null);
+    setMobileOpen(false);
+    setBar("top");
+  }, [pathname]);
+  useEffect(() => {
+    mobileOpenRef.current = mobileOpen;
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileOpen(false);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y <= 0) {
+        setBar("top");
+        last = 0;
+        return;
+      }
+      if (mobileOpenRef.current || Math.abs(y - last) < 8) return;
+      const down = y > last;
+      last = y;
+      // While the header is still in view at the top of the page it simply scrolls with it.
+      setBar((b) => (b === "top" && y < 84 ? "top" : down ? "hidden" : "shown"));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
+    const onClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpen(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [open]);
 
-  const pickServices = (ids: string[]) =>
-    ids.map((id) => services.find((s) => s.id === id)).filter(Boolean) as Service[];
-  const leftServices = pickServices(serviceLeftColumnIds);
-  const rightServices = pickServices(serviceRightColumnIds);
-  const mobileServices = [...leftServices, ...rightServices];
-
-  const isNavActive = (href: string) =>
-    !href.startsWith("http") && (pathname === href || pathname.startsWith(href + "/"));
-
-  // One shared class set for every top-level nav item (plain links AND dropdown triggers) so
-  // they share an exact height, baseline and hover/active treatment. The underline is a
-  // scale-x transform (no layout shift, no stray slivers) shown on hover, on an open dropdown,
-  // or when the section is active.
-  const navItemClass = (active = false) =>
-    cn(
-      "group relative inline-flex h-10 items-center px-3 text-sm font-medium text-foreground/85 transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent hover:text-primary data-[state=open]:text-primary",
-      "after:pointer-events-none after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 motion-reduce:after:transition-none hover:after:scale-x-100 data-[state=open]:after:scale-x-100",
-      active && "text-primary after:scale-x-100"
-    );
-
-  if (isAdminPage) {
-    return null;
-  }
+  const linkColor = (s: Section) => ({ color: active === s ? ON : OFF });
 
   return (
-    <header className="w-full bg-white border-b shadow-sm h-16 sm:h-20 xl:h-24 z-50 pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Logo className="h-5 w-auto sm:h-6 xl:h-7" />
+    <header
+      className={cn(
+        "cr-hdr absolute inset-x-0 top-0 z-50 w-full border-b border-white/[0.16] bg-[rgba(10,10,10,0.28)] text-white backdrop-blur-[6px] transition-[transform,background-color] duration-300 ease-out focus-within:translate-y-0",
+        bar !== "top" && "max-[1180px]:fixed max-[1180px]:bg-[rgba(10,10,10,0.94)]",
+        bar === "hidden" && "max-[1180px]:-translate-y-full",
+      )}
+    >
+      <div className="mx-auto flex min-h-[84px] max-w-[1400px] items-center justify-between gap-6 px-10 py-[18px] max-[720px]:px-5">
+        <Link href="/" aria-label="Credence Africa home" className="cr-logo hit flex shrink-0 items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-light.png"
+            alt="Credence Africa — Enabling institutions that build Africa"
+            className="block h-7 w-auto max-w-[62vw]"
+          />
         </Link>
 
-        <div className="hidden xl:flex flex-grow items-center justify-center">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/about"
-                    className={navItemClass(isNavActive('/about'))}
-                  >
-                    About Us
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className={navItemClass(isNavActive('/services'))}>
-                  Services
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[400px] p-4 md:w-[520px] lg:w-[600px]">
-                    <div className="grid gap-x-6 md:grid-cols-2">
-                      {[leftServices, rightServices].map((column, ci) => (
-                        <ul key={ci} className="space-y-1">
-                          {column.map((service) => (
-                            <li key={service.id}>
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  href={service.href}
-                                  target={service.href.startsWith('http') ? "_blank" : undefined}
-                                  rel={service.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                >
-                                  <div className="text-sm font-bold leading-none flex items-center gap-2">
-                                    {service.title}
-                                  </div>
-                                  <p className="line-clamp-2 text-xs leading-snug text-muted-foreground mt-1">
-                                    {service.description}
-                                  </p>
-                                </Link>
-                              </NavigationMenuLink>
-                            </li>
-                          ))}
-                        </ul>
-                      ))}
-                    </div>
-                    <div className="mt-2 border-t pt-2">
-                      <NavigationMenuLink asChild>
-                        <Link href="/services" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
-                          View All Services <ChevronRight className="size-4" />
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className={navItemClass(isNavActive('/sectors'))}>
-                  Sectors
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                   <div className="w-[400px] p-4 md:w-[600px]">
-                    <ul className="columns-2 gap-x-6 md:columns-3">
-                      {sectors.map((sector) => (
-                        <li key={sector.href} className="break-inside-avoid">
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={sector.href}
-                              className="block select-none rounded-md p-2 text-xs font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-                            >
-                              {sector.name}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-2 border-t pt-2">
-                      <NavigationMenuLink asChild>
-                        <Link href="/sectors" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
-                          All Sectors <ChevronRight className="size-4" />
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className={navItemClass(isNavActive('/themes'))}>
-                  Themes
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                   <div className="w-[400px] p-4 md:w-[600px]">
-                    <ul className="columns-2 gap-x-6 md:columns-3">
-                      {themes.map((theme) => (
-                        <li key={theme.href} className="break-inside-avoid">
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={theme.href}
-                              className="block select-none rounded-md p-2 text-xs font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-                            >
-                              {theme.name}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-2 border-t pt-2">
-                      <NavigationMenuLink asChild>
-                        <Link href="/themes" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
-                          All Themes <ChevronRight className="size-4" />
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className={navItemClass(isNavActive('/who-we-work-with'))}>
-                  Who We Work With
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[400px] p-5 md:w-[660px]">
-                    <ul className="columns-2 gap-x-8">
-                      {audiences.map((audience) => (
-                        <li key={audience.slug} className="mb-1 break-inside-avoid">
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={`/who-we-work-with/${audience.slug}`}
-                              className="block select-none rounded-md px-3 py-3 text-sm font-medium leading-snug no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-                            >
-                              {audience.name}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-4 border-t pt-3">
-                      <NavigationMenuLink asChild>
-                        <Link href="/who-we-work-with" className="flex items-center justify-center text-sm font-bold text-primary hover:underline p-2">
-                          See Everyone We Work With <ChevronRight className="size-4" />
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="https://engage.credence.africa"
-                    target="_blank"
-                    className={navItemClass()}
-                  >
-                    Events
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="https://perspectives.credence.africa"
-                    target="_blank"
-                    className={navItemClass()}
-                  >
-                    Insights
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        <div className="hidden xl:flex items-center gap-2">
-          <ConsultationDialog triggerClassName="bg-primary hover:bg-primary/90 text-white border-none rounded-none px-6 shadow-md">
-            Book a Consultation <Phone className="size-4" />
-          </ConsultationDialog>
-        </div>
-
-        <div className="xl:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="size-11 bg-transparent border-none">
-                <Menu className="size-6" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] overflow-y-auto pr-[max(1.5rem,env(safe-area-inset-right))]">
-              <SheetHeader>
-                <SheetTitle className="text-left">Menu</SheetTitle>
-              </SheetHeader>
-              <div className="mt-8 flex flex-col gap-2">
-                <Link 
-                  href="/about" 
-                  className="text-lg font-medium py-3 border-b"
-                  onClick={() => setIsMobileMenuOpen(false)}
+        <nav ref={navRef} aria-label="Main" className="flex items-center gap-0.5 whitespace-nowrap text-[14.5px] max-[1180px]:hidden">
+          <Link href="/about" className="cr-nl px-3 py-2.5 font-medium" style={linkColor("about")}>
+            About Us
+          </Link>
+          {menus.map((m) => {
+            const isOpen = open === m.key;
+            return (
+              <div key={m.key} className="relative">
+                <button
+                  type="button"
+                  className="cr-nl flex min-h-11 cursor-pointer items-center gap-[5px] whitespace-nowrap border-0 bg-transparent px-3 py-2.5 font-medium"
+                  style={linkColor(m.key)}
+                  aria-expanded={isOpen}
+                  aria-controls={`menu-${m.key}`}
+                  onClick={() => setOpen(isOpen ? null : m.key)}
                 >
-                  About Us
-                </Link>
-                
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="services" className="border-b">
-                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Services</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="flex flex-col gap-2 pl-4 pt-2">
-                        {mobileServices.map((service) => (
-                          <Link
-                            key={service.id}
-                            href={service.href}
-                            className="text-sm py-3 text-muted-foreground hover:text-primary"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {service.title}
-                          </Link>
-                        ))}
-                        <Link 
-                          href="/services" 
-                          className="text-sm font-bold text-primary py-3"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          View All Services
-                        </Link>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="sectors" className="border-b">
-                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Sectors</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="grid grid-cols-1 gap-2 pl-4 pt-2">
-                        {sectors.map((sector) => (
-                          <Link
-                            key={sector.href}
-                            href={sector.href}
-                            className="text-sm py-3 text-muted-foreground hover:text-primary"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {sector.name}
-                          </Link>
-                        ))}
-                        <Link
-                          href="/sectors"
-                          className="text-sm font-bold text-primary py-3"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          All Sectors
-                        </Link>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="themes" className="border-b">
-                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Themes</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="grid grid-cols-1 gap-2 pl-4 pt-2">
-                        {themes.map((theme) => (
-                          <Link
-                            key={theme.href}
-                            href={theme.href}
-                            className="text-sm py-3 text-muted-foreground hover:text-primary"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {theme.name}
-                          </Link>
-                        ))}
-                        <Link
-                          href="/themes"
-                          className="text-sm font-bold text-primary py-3"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          All Themes
-                        </Link>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="audiences" className="border-b">
-                    <AccordionTrigger className="text-lg font-medium py-2 hover:no-underline">Who We Work With</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="grid grid-cols-1 gap-2 pl-4 pt-2">
-                        {audiences.map((audience) => (
-                          <Link
-                            key={audience.slug}
-                            href={`/who-we-work-with/${audience.slug}`}
-                            className="text-sm py-3 text-muted-foreground hover:text-primary"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {audience.name}
-                          </Link>
-                        ))}
-                        <Link
-                          href="/who-we-work-with"
-                          className="text-sm font-bold text-primary py-3"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          See Everyone We Work With
-                        </Link>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-
-                <Link 
-                  href="https://engage.credence.africa" 
-                  target="_blank"
-                  className="text-lg font-medium py-3 border-b"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Events
-                </Link>
-                <Link 
-                  href="https://perspectives.credence.africa" 
-                  target="_blank"
-                  className="text-lg font-medium py-3 border-b"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Insights
-                </Link>
-                
-                <div className="mt-6">
-                  <ConsultationDialog triggerClassName="w-full h-14 rounded-none text-base font-light bg-primary hover:bg-primary/90 text-white">
-                    Book a Consultation
-                  </ConsultationDialog>
-                </div>
+                  {m.label}
+                  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                {isOpen && (
+                  <div
+                    id={`menu-${m.key}`}
+                    className="cr-drop absolute left-0 top-[calc(100%+18px)] z-[60] flex min-w-[340px] flex-col border border-line-dark bg-panel p-2 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+                  >
+                    <SmartLink
+                      href={m.href}
+                      className="mb-1 flex items-center justify-between border-b border-line-dark px-3.5 py-3 font-semibold text-primary"
+                    >
+                      {m.all}
+                      <Arrow />
+                    </SmartLink>
+                    {m.items.map((it) => (
+                      <SmartLink key={it.href} href={it.href} className="cr-di whitespace-normal px-3.5 py-2.5 font-normal text-[#E5E5E5]">
+                        {it.label}
+                      </SmartLink>
+                    ))}
+                  </div>
+                )}
               </div>
-            </SheetContent>
-          </Sheet>
+            );
+          })}
+          <Link href="/events" className="cr-nl px-3 py-2.5 font-medium" style={linkColor("events")}>
+            Events
+          </Link>
+          <a {...perspectives} className="cr-nl px-3 py-2.5 font-medium" style={linkColor("insights")}>
+            Insights
+          </a>
+        </nav>
+
+        <div className="flex items-center gap-2.5">
+          <Link
+            href="/consult"
+            className="pill inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-3 text-[14.5px] font-semibold text-ink max-[1180px]:hidden"
+          >
+            Book a Consultation
+            <Arrow />
+          </Link>
+          <button
+            type="button"
+            className="hidden size-11 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-transparent text-white max-[1180px]:inline-flex"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            onClick={() => {
+              setMobileOpen(!mobileOpen);
+              setOpen(null);
+            }}
+          >
+            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
+              <path d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {mobileOpen && (
+        <div
+          id="mobile-menu"
+          className="cr-drop flex max-h-[calc(100dvh-85px)] flex-col overflow-y-auto overscroll-contain border-t border-line-dark bg-ink px-10 pb-6 pt-3 max-[720px]:px-5"
+        >
+          {[{ label: "About Us", href: "/about" }, ...menus.map((m) => ({ label: m.label, href: m.href })), { label: "Events", href: "/events" }, { label: "Insights", ...perspectives }].map(({ label, ...l }) => (
+            <SmartLink key={l.href} {...l} onClick={() => setMobileOpen(false)} className="border-b border-line-dark py-3.5 text-[18px] text-white">
+              {label}
+            </SmartLink>
+          ))}
+          <Link href="/consult" className="pill mt-[18px] rounded-full bg-primary px-5 py-3.5 text-center font-semibold text-ink">
+            Book a Consultation
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

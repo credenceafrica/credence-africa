@@ -12,7 +12,7 @@ export default async function EventShortLinkPage({
   const resolution = await resolveEventShortLink(code);
 
   if (!resolution) {
-    redirect("/services/credence-engage#portfolio");
+    redirect("/events");
   }
 
   redirect(`/services/credence-engage/${resolution.eventId}`);

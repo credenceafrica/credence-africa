@@ -16,7 +16,8 @@ import { consultationInterestValues } from "@/lib/consultation";
  * area preselected. Lets the child sites (Credence Engage, Credible Perspectives, Credence
  * Institute) deep-link a pre-filled contact request to the main site:
  *   https://credence.africa/?consult=institute
- * A bare `?consult` opens the dialog with nothing preselected. Mounted once in the layout.
+ * A bare `?consult` opens the dialog with nothing preselected. Never opens on /consult, whose
+ * own form reads the param. Mounted once in the layout.
  */
 export function ConsultationDeepLink() {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,8 @@ export function ConsultationDeepLink() {
   useEffect(() => {
     const url = new URL(window.location.href);
     const param = url.searchParams.get("consult");
-    if (param === null) return; // param absent: do nothing
+    // Param absent: do nothing. On /consult the page itself preselects the area in its form.
+    if (param === null || url.pathname === "/consult") return;
 
     setInterest(consultationInterestValues.includes(param) ? param : undefined);
     setOpen(true);
@@ -37,10 +39,10 @@ export function ConsultationDeepLink() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-none border-foreground/15 sm:max-w-2xl">
+      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-none border-line-dark bg-ink text-white sm:max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-normal text-foreground">Book a Consultation</DialogTitle>
-          <DialogDescription className="text-foreground/70">
+          <DialogTitle className="text-2xl font-normal text-white">Book a Consultation</DialogTitle>
+          <DialogDescription className="text-body-dark">
             Tell us the mandate. A senior advisor will map the fastest credible path to execution.
           </DialogDescription>
         </DialogHeader>

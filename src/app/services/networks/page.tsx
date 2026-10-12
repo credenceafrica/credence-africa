@@ -112,6 +112,8 @@ const networks = [
 export default function NetworksPage() {
   return (
     <div className="flex flex-col">
+      {/* Outside the 2026 design: an ink bar under the overlay header keeps it legible. */}
+      <div aria-hidden="true" className="h-[84px] bg-ink" />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center bg-muted overflow-hidden">
         <div className="absolute inset-0 z-0">

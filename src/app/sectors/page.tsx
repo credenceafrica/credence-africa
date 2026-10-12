@@ -1,9 +1,8 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ConsultationDialog } from "@/components/consultation-dialog";
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { Hero } from "@/components/site/hero";
+import { Arrow, CtaBand, IconTile, Pill, SmartLink, num } from "@/components/site/primitives";
 import { sectorList } from "@/lib/sectors-content";
+import { audiencesBySlug } from "@/lib/audiences";
 
 export const metadata: Metadata = {
   title: "Sectors We Cover",
@@ -11,131 +10,93 @@ export const metadata: Metadata = {
     "The seven sectors where Credence Africa builds institutions, from agribusiness and energy to financial services, healthcare, mobility, technology and the consumer economy across Africa's growth markets.",
 };
 
-const clients = [
-  "Cooperatives",
-  "Corporations",
-  "Growth-Stage SMEs and Enterprises",
-  "Foreign Investors",
-  "Startups and Innovators",
-  "Nonprofits and Development Organisations",
-  "Faith-Based Institutions",
-  "Governments and Public Institutions",
-  "Investors and Capital Platforms",
-  "Industry Associations and Ecosystem Actors",
+/** The design's order for the "Who we work with" band on this page. */
+const AUDIENCE_ORDER = [
+  "cooperatives",
+  "corporations",
+  "growth-stage-smes",
+  "foreign-investors",
+  "startups-and-innovators",
+  "non-profits",
+  "faith-based-institutions",
+  "governments-and-public-institutions",
+  "investors-and-capital-platforms",
+  "industry-associations",
 ];
+
+const h2 = "h2 m-0 max-w-[1000px] text-[clamp(34px,3.7vw,54px)] font-normal leading-[1.1] tracking-[-0.035em]";
 
 export default function SectorsPage() {
   return (
-    <div className="overflow-x-hidden">
-      {/* Hero: navy */}
-      <section className="bg-foreground">
-        <div className="container mx-auto px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-          <div className="cred-rise max-w-3xl">
-            <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              Sectors we <span className="text-primary">cover</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              Our work spans the sectors driving Africa's economic and social transformation, where
-              capital, policy and enterprise intersect.
-            </p>
-            <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-background/70 md:text-base">
-              Each engagement builds resilient institutions, drives inclusive growth and creates
-              measurable impact.
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      <Hero
+        title="Expertise for the sector you operate in"
+        intro="Our work spans the sectors driving Africa's economic and social transformation, where capital, policy and enterprise intersect."
+        crumbs={[{ label: "Sectors" }]}
+        btn1={{ label: "Book a Consultation", href: "/consult" }}
+        btn2={{ label: "Explore Our Themes", href: "/themes" }}
+      />
 
-      {/* The seven sectors: light ledger */}
-      <section className="bg-background">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="border-y border-foreground/12 divide-y divide-foreground/12">
-            {sectorList.map((s) => {
-              const Icon = s.icon;
-              return (
-                <Link
-                  key={s.slug}
-                  href={`/sectors/${s.slug}`}
-                  className="group flex items-start gap-5 py-7 transition-colors duration-300 hover:bg-foreground/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:gap-6 md:py-8"
-                >
-                  <Icon className="mt-1 size-7 shrink-0 text-primary md:size-8" aria-hidden="true" />
-                  <div className="min-w-0 flex-1">
-                    <h2 className="relative inline-block break-words text-balance font-normal leading-[1.1] tracking-[-0.01em] text-foreground [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                      {s.name}
-                      <span
-                        className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100"
-                        aria-hidden="true"
-                      />
-                    </h2>
-                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-foreground/70 md:text-base">
-                      {s.scope}
-                    </p>
-                  </div>
-                  <ArrowRight
-                    className="mt-1 size-6 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1.5"
-                    aria-hidden="true"
-                  />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Work With: navy hairline grid */}
-      <section className="bg-foreground">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] text-primary [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-                Who we work with</h2>
-              <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-background/70">
-                Credence Africa works with institutions and organisations shaping Africa's economic
-                and social development.
-              </p>
-            </div>
-            <div className="lg:col-span-8">
-              <ul className="grid gap-px border border-white/15 bg-white/15 sm:grid-cols-2">
-                {clients.map((client) => (
-                  <li key={client} className="flex items-center gap-3 bg-foreground p-5 md:p-6">
-                    <span className="size-1.5 shrink-0 bg-primary" aria-hidden="true" />
-                    <span className="text-base font-normal text-background md:text-lg">{client}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA: deep-red + white */}
-      <section className="bg-primary">
-        <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <h2 className="mx-auto max-w-3xl text-balance font-normal leading-[1.1] tracking-[-0.01em] text-white [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-            Not sure which sector frames your mandate?
+      <section className="bg-white py-32 text-ink">
+        <div className="wrap">
+          <div className="eb mb-5 text-[13.5px]">Sectors</div>
+          <h2 className={`${h2} mb-16 text-mute`}>
+            Each engagement builds resilient institutions, drives inclusive growth and creates measurable impact.
           </h2>
-          <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/85">
-            Tell us the objective. We will map the fastest credible path to execution.
-          </p>
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <ConsultationDialog
-              size="lg"
-              triggerClassName="h-14 rounded-none border-none bg-white px-8 text-base font-light text-primary hover:bg-white/90"
-            >
-              Book a Consultation
-              <ArrowRight className="ml-2 size-5" aria-hidden="true" />
-            </ConsultationDialog>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-14 rounded-none border-2 border-white bg-transparent px-8 text-base font-light text-white hover:bg-white hover:text-primary"
-            >
-              <Link href="/themes">Explore Our Themes</Link>
-            </Button>
+          <div className="bgrid grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] border-l border-t border-line">
+            {sectorList.map((s, i) => (
+              <SmartLink key={s.slug} href={`/sectors/${s.slug}`} className="cell flex min-h-[300px] flex-col gap-3 bg-white p-7 text-ink">
+                <div className="flex items-start justify-between">
+                  <IconTile path={s.icon} />
+                  <span className="text-[15px] text-mute">{num(i)}</span>
+                </div>
+                <h3 className="mb-0 mt-10 text-[21px] font-medium leading-[1.25] tracking-[-0.01em]">{s.name}</h3>
+                <p className="m-0 text-[14.5px] text-body-2">{s.scope}</p>
+                <span className="mt-1.5 inline-flex items-center gap-2 text-[14px] font-semibold">
+                  Explore sector
+                  <Arrow />
+                </span>
+              </SmartLink>
+            ))}
           </div>
         </div>
       </section>
-    </div>
+
+      <section className="on-dark bg-ink py-32 text-white">
+        <div className="wrap">
+          <div className="eb mb-5 text-[13.5px]">Who we work with</div>
+          <h2 className={`${h2} mb-14 text-[#7A7A7A]`}>
+            We work with the institutions and organisations shaping Africa&apos;s economic and social development.
+          </h2>
+          <div className="bgrid grid grid-cols-[repeat(auto-fit,minmax(min(250px,100%),1fr))] border-l border-t border-line-dark">
+            {AUDIENCE_ORDER.map((slug) => (
+              <SmartLink
+                key={slug}
+                href={`/who-we-work-with/${slug}`}
+                className="flex min-h-[92px] items-center justify-between gap-3 bg-panel px-6 py-[22px] text-[16px] text-white hover:text-primary"
+              >
+                {audiencesBySlug[slug].name}
+                <Arrow className="text-primary" />
+              </SmartLink>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBand
+        heading="Not sure which sector frames your mandate?"
+        text="Tell us the objective. We will map the fastest credible path to execution."
+        textWidth="max-w-[600px]"
+      >
+        <div className="flex flex-wrap justify-center gap-3">
+          <Pill href="/consult" variant="light">
+            Book a Consultation
+          </Pill>
+          <Pill href="/themes" variant="outlineAccent">
+            Explore Our Themes
+          </Pill>
+        </div>
+      </CtaBand>
+    </>
   );
 }

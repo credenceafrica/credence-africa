@@ -1,26 +1,49 @@
-
 "use client";
 
 import { useParams } from "next/navigation";
-import { getInsight, type Insight } from "@/lib/insights";
+import { getInsight, getInsights, type Insight } from "@/lib/insights";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Heart, Eye, MessageSquare, Share, Copy } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Heart } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { firestore } from "@/firebase";
 import { collection, addDoc, query, where, onSnapshot, doc, updateDoc, increment, serverTimestamp, orderBy } from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Arrow, Chip, Pill, SmartLink } from "@/components/site/primitives";
+import { cn } from "@/lib/utils";
 
 interface Comment {
-    id: string;
-    author: string;
-    text: string;
-    createdAt: any;
+  id: string;
+  author: string;
+  text: string;
+  createdAt: any;
 }
 
+/** The design's article typography, applied to the editor's HTML. The opening paragraph is the lead. */
+const bodyCls = [
+  "prose max-w-none text-[18px] leading-[1.75] text-[#2E2E33] [&>:first-child]:mt-0",
+  "[&_p]:mb-[22px] [&_p]:mt-0",
+  "[&>p:first-child]:mb-8 [&>p:first-child]:text-[22px] [&>p:first-child]:leading-[1.55] [&>p:first-child]:tracking-[-0.01em] [&>p:first-child]:text-ink max-[720px]:[&>p:first-child]:text-[19px]",
+  "[&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:scroll-mt-6 [&_h2]:text-[28px] [&_h2]:font-medium [&_h2]:leading-[1.25] [&_h2]:tracking-[-0.02em] [&_h2]:text-ink [&_h2_*]:font-medium",
+  "[&_blockquote]:my-10 [&_blockquote]:border-l-[3px] [&_blockquote]:border-primary [&_blockquote]:py-1 [&_blockquote]:pl-7 [&_blockquote]:text-[26px] [&_blockquote]:font-normal [&_blockquote]:not-italic [&_blockquote]:leading-[1.35] [&_blockquote]:tracking-[-0.015em] [&_blockquote]:text-ink [&_blockquote_p]:m-0 [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none",
+  "[&_ul]:mb-6 [&_ul]:mt-0 [&_ul]:flex [&_ul]:list-none [&_ul]:flex-col [&_ul]:gap-2.5 [&_ul]:p-0",
+  "[&_ul>li]:relative [&_ul>li]:my-0 [&_ul>li]:pl-7 [&_ul>li]:leading-[1.6]",
+  "[&_ul>li::before]:absolute [&_ul>li::before]:left-0 [&_ul>li::before]:top-3 [&_ul>li::before]:size-1.5 [&_ul>li::before]:bg-primary [&_ul>li::before]:content-['']",
+  "[&_a]:text-ink [&_a:hover]:text-primary-deep",
+].join(" ");
+
+const metaLabel = "block text-[12px] uppercase tracking-[0.08em] text-[#7A7A7A]";
+const shareCls =
+  "inline-flex size-[38px] items-center justify-center rounded-full border border-white/[0.22] text-white hover:border-primary hover:text-primary";
+const fieldCls =
+  "w-full rounded-none border-0 border-b border-chip bg-transparent py-3 text-[16px] text-ink placeholder:text-mute focus:border-primary focus:outline-none";
+
+function ShareIcon({ d, size = 15 }: { d: string; size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={d} />
+    </svg>
+  );
+}
 
 export default function InsightPage() {
   const params = useParams();
@@ -32,8 +55,8 @@ export default function InsightPage() {
   const [newComment, setNewComment] = useState("");
   const [commentAuthor, setCommentAuthor] = useState("");
   const [likes, setLikes] = useState(0);
-  const [views, setViews] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
+  const [related, setRelated] = useState<Insight[]>([]);
   const { toast } = useToast();
   const [currentUrl, setCurrentUrl] = useState("");
 
@@ -48,20 +71,17 @@ export default function InsightPage() {
       setLoading(false);
       return;
     }
-    
+
     async function fetchInsight() {
       const insightData = await getInsight(slug);
       if (insightData) {
         setInsight(insightData);
         setLikes(insightData.likes || 0);
-        
+
         try {
-            const insightRef = doc(firestore, "insights", insightData.id);
-            await updateDoc(insightRef, { views: increment(1) });
-            setViews((insightData.views || 0) + 1);
+            if (firestore) await updateDoc(doc(firestore, "insights", insightData.id), { views: increment(1) });
         } catch (e) {
             console.error("Failed to increment view count", e);
-            setViews(insightData.views || 0);
         }
       }
       setLoading(false);
@@ -75,8 +95,14 @@ export default function InsightPage() {
 
   }, [slug]);
 
+  // "More insights": the three most recent others.
   useEffect(() => {
-    if (!insight) return;
+    if (!slug) return;
+    getInsights().then((all) => setRelated(all.filter((i) => i.slug !== slug).slice(0, 3)));
+  }, [slug]);
+
+  useEffect(() => {
+    if (!insight || !firestore) return;
 
     const commentsQuery = query(collection(firestore, `insights/${insight.id}/comments`), where("approved", "==", true));
     const unsubscribe = onSnapshot(commentsQuery, (snapshot) => {
@@ -95,17 +121,35 @@ export default function InsightPage() {
     return () => unsubscribe();
   }, [insight, toast]);
 
+  // Editor HTML, prepared for the design: blank spacer lines dropped (the design sets the rhythm),
+  // each h2 anchored for the "In this article" rail, and the dek taken from the opening paragraph.
+  // The insight only ever loads in the browser, so DOMParser is available here.
+  const article = useMemo(() => {
+    if (!insight) return null;
+    const body = new DOMParser().parseFromString(insight.content || "", "text/html").body;
+    body.querySelectorAll("p, h2, h3").forEach((el) => {
+      if (!el.textContent?.trim() && !el.querySelector("img")) el.remove();
+    });
+    const toc = Array.from(body.querySelectorAll("h2"), (h, i) => {
+      h.id = `s${i + 1}`;
+      return { id: h.id, label: h.textContent?.trim() ?? "" };
+    });
+    const first = body.querySelector("p")?.textContent?.replace(/\s+/g, " ").trim() ?? "";
+    const dek = first.length > 160 ? `${first.slice(0, 160).replace(/\s+\S*$/, "")}…` : first;
+    return { html: body.innerHTML, toc, dek };
+  }, [insight]);
+
 
   const handleLike = async () => {
-    if (!insight || !slug) return;
-    
+    if (!insight || !slug || !firestore) return;
+
     const likedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
     const isAlreadyLiked = likedPosts.includes(slug);
     const incrementValue = isAlreadyLiked ? -1 : 1;
 
     setLikes(likes + incrementValue);
     setHasLiked(!isAlreadyLiked);
-    
+
     if (isAlreadyLiked) {
         const index = likedPosts.indexOf(slug);
         if (index > -1) {
@@ -124,7 +168,7 @@ export default function InsightPage() {
         console.error("Failed to update likes", e);
         setLikes(likes - incrementValue);
         setHasLiked(isAlreadyLiked);
-        
+
         const revertedLikedPosts = JSON.parse(localStorage.getItem('likedInsights') || '[]');
         if(isAlreadyLiked) {
           revertedLikedPosts.push(slug);
@@ -146,7 +190,7 @@ export default function InsightPage() {
 
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!insight || !newComment.trim()) return;
+    if (!insight || !firestore || !newComment.trim()) return;
 
     try {
         await addDoc(collection(firestore, `insights/${insight.id}/comments`), {
@@ -180,120 +224,267 @@ export default function InsightPage() {
         });
     };
 
-  if (loading) {
-    return <div className="text-center py-24">Loading insight...</div>;
+  // The global header is white over a dark ground, so these states keep the masthead's ink.
+  if (loading || !insight || !article) {
+    return (
+      <section className="bg-ink pb-24 pt-[168px] text-white">
+        <p className="wrap text-[17px] text-body-dark">{loading ? "Loading insight..." : "Insight not found."}</p>
+      </section>
+    );
   }
 
-  if (!insight) {
-    return <div className="text-center py-24">Insight not found.</div>;
-  }
-  
+  const url = encodeURIComponent(currentUrl);
+  const title = encodeURIComponent(insight.title);
+  const share = [
+    { label: "Share on LinkedIn", href: `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`, d: "M6 10v9M6 6v.01M10 19v-9M10 14a4 4 0 0 1 8 0v5" },
+    { label: "Share on X", href: `https://twitter.com/intent/tweet?url=${url}&text=${title}`, d: "M4 4l16 16M20 4L4 20", size: 13 },
+  ];
+
   return (
-    <article className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <header className="mb-8 text-center">
-          <p className="text-sm text-muted-foreground">{insight.date} | {insight.category} | By {insight.author}</p>
-          <h1 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground mt-2 break-words">{insight.title}</h1>
-           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground mt-4">
-                <span className="flex items-center gap-1"><Eye className="size-4" /> {views} views</span>
-                <span className="flex items-center gap-1"><Heart className="size-4" /> {likes} likes</span>
-                <span className="flex items-center gap-1"><MessageSquare className="size-4" /> {comments.length} comments</span>
-                <span>{insight.wordCount} words</span>
-            </div>
-        </header>
-        
-        {insight.image && (
-          <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden mb-8">
-              <Image 
-                  src={insight.image}
-                  alt={insight.title}
-                  fill
-                  className="object-cover"
-                  data-ai-hint="article header"
-              />
+    <div className="bg-white leading-[1.7] text-ink">
+      {/* Masthead */}
+      <section className="on-dark bg-ink pt-[168px] text-white">
+        <div className="wrap">
+          <nav className="cr-in cr-d1 mb-10" aria-label="Breadcrumb">
+            <ol className="m-0 flex list-none flex-wrap items-center gap-2 p-0 text-[14px] text-white/[0.65]">
+              <li>
+                <SmartLink href="/" className="hit text-white/[0.65]">Home</SmartLink>
+              </li>
+              <li aria-hidden="true" className="text-white/[0.35]">/</li>
+              <li>
+                <SmartLink href="/insights" className="hit text-white/[0.65]">Insights</SmartLink>
+              </li>
+              {insight.category && (
+                <>
+                  <li aria-hidden="true" className="text-white/[0.35]">/</li>
+                  <li aria-current="page" className="eb text-white">{insight.category}</li>
+                </>
+              )}
+            </ol>
+          </nav>
+          <div className="cr-in cr-d2 max-w-[980px]">
+            <h1 className="mb-6 mt-0 text-balance break-words text-[clamp(38px,4.6vw,66px)] font-normal leading-[1.04] tracking-[-0.035em]">
+              {insight.title}
+            </h1>
+            {article.dek && <p className="m-0 max-w-[720px] text-[19px] leading-[1.55] text-body-dark">{article.dek}</p>}
           </div>
-        )}
-
-        <div
-          className="prose lg:prose-xl max-w-none mx-auto"
-          dangerouslySetInnerHTML={{ __html: insight.content }}
-        />
-
-        <div className="mt-12 flex justify-center gap-4">
-            <Button onClick={handleLike} variant={hasLiked ? "secondary" : "outline"}>
-                <Heart className={`mr-2 h-5 w-5 ${hasLiked ? 'text-red-500 fill-current' : ''}`} />
-                {hasLiked ? 'Unlike' : 'Like'} ({likes})
-            </Button>
-            <Popover>
-                <PopoverTrigger asChild>
-                    <Button variant="outline">
-                        <Share className="mr-2 h-5 w-5" />
-                        Share
-                    </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-2">
-                    <div className="flex gap-1">
-                        <Button variant="outline" size="icon" asChild>
-                            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-                            </a>
-                        </Button>
-                        <Button variant="outline" size="icon" asChild>
-                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(insight.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 0 1 2.063-2.065 2.064 2.064 0 0 1 2.063 2.065c0 1.14-.925 2.065-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-                            </a>
-                        </Button>
-                        <Button variant="outline" size="icon" asChild>
-                            <a href={`https://wa.me/?text=${encodeURIComponent(insight.title + " " + currentUrl)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current"><title>WhatsApp</title><path d="M12.061 0C5.425 0 0 5.373 0 12.001c0 2.101.548 4.103 1.547 5.861L0 24l6.335-1.524a11.93 11.93 0 0 0 5.726 1.525C18.698 24.001 24.12 18.628 24.12 12.001S18.697 0 12.061 0zm.001 2.16c5.434 0 9.855 4.382 9.855 9.841 0 5.458-4.42 9.84-9.855 9.84a9.78 9.78 0 0 1-4.987-1.38l-.357-.21-3.704.895.91-3.585-.232-.37C2.694 15.617 2.16 13.845 2.16 12.002c0-5.458 4.42-9.84 9.9-9.84zm4.566 12.285c-.249-.124-1.474-.727-1.703-.808-.229-.081-.396-.124-.562.124-.167.248-.644.808-.79.973-.145.166-.29.186-.539.062-.249-.124-.925-.34-1.92-1.18-.775-.653-1.29-1.46-1.444-1.708-.155-.248-.016-.38.11-.504.111-.11.249-.289.373-.434.125-.145.167-.248.249-.414.083-.167.042-.31-.021-.434-.063-.124-.562-1.353-.77-1.852-.2-.49-.405-.424-.562-.432-.146-.008-.313-.008-.479-.008a.956.956 0 0 0-.687.31c-.229.289-.875.851-.875 2.071 0 1.22.896 2.399 1.01 2.565.115.166 1.745 2.64 4.23 3.72.58.257 1.043.411 1.4.527.538.172.955.147 1.306.09.395-.064 1.22-.5 1.391-.973.172-.473.172-.875.125-1.04-.047-.165-.171-.248-.42-.372z"/></svg>
-                            </a>
-                        </Button>
-                        <Button variant="outline" size="icon" onClick={handleCopyLink}>
-                            <Copy className="h-4 w-4" />
-                        </Button>
-                    </div>
-                </PopoverContent>
-            </Popover>
+          <div className="cr-in mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-white/[0.16] pb-[120px] pt-6 ![animation-delay:0.5s]">
+            <div className="flex flex-wrap items-center gap-7 text-[14.5px] text-body-dark">
+              {insight.author && (
+                <span className="inline-flex items-center gap-3">
+                  <span aria-hidden="true" className="inline-flex size-10 items-center justify-center rounded-full border border-[#333] bg-tile text-[13px] text-primary">
+                    CA
+                  </span>
+                  <span className="font-medium text-white">{insight.author}</span>
+                </span>
+              )}
+              <span>
+                <span className={metaLabel}>Published</span>
+                {insight.date}
+              </span>
+              <span>
+                <span className={metaLabel}>Reading time</span>
+                {Math.max(1, Math.ceil(insight.wordCount / 200))} min read
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="mr-1 text-[13px] text-[#7A7A7A]">Share</span>
+              {share.map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className={shareCls}>
+                  <ShareIcon d={s.d} size={s.size} />
+                </a>
+              ))}
+              <a href={`mailto:?subject=${title}&body=${url}`} aria-label="Share by email" className={shareCls}>
+                <ShareIcon d="M3 6h18v12H3zM3 7l9 6 9-6" />
+              </a>
+              <button type="button" onClick={handleCopyLink} aria-label="Copy link" className={shareCls}>
+                <ShareIcon d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      <section className="mt-16 pt-12 border-t max-w-3xl mx-auto">
-        <h2 className="text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)] text-foreground mb-6">Comments ({comments.length})</h2>
-        <div className="space-y-6">
-            {comments.length > 0 ? (
-                comments.map(comment => (
-                    <div key={comment.id} className="border-b pb-4 break-words">
-                        <p className="font-semibold">{comment.author}</p>
-                        <p className="text-sm text-muted-foreground mb-2">
-                           {comment.createdAt ? new Date(comment.createdAt.seconds * 1000).toLocaleString() : ''}
-                        </p>
-                        <p>{comment.text}</p>
-                    </div>
-                ))
-            ) : (
-                <p>No comments yet. Be the first to comment!</p>
-            )}
-        </div>
-
-         <form onSubmit={handleCommentSubmit} className="mt-10 space-y-4">
-            <h3 className="text-2xl font-bold">Leave a Comment</h3>
-             <Input 
-                placeholder="Your Name (optional)"
-                value={commentAuthor}
-                onChange={(e) => setCommentAuthor(e.target.value)}
-            />
-            <Textarea
-                placeholder="Write your comment here..."
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-                required
-                rows={4}
-            />
-            <Button type="submit">Submit Comment</Button>
-         </form>
-
       </section>
 
-    </article>
+      {/* Featured image, half over the masthead */}
+      <section className="bg-[linear-gradient(#0A0A0A_0_50%,#FFFFFF_50%_100%)]">
+        <div className="wrap">
+          <div className="ph cr-in relative -mt-[72px] h-[clamp(280px,38vw,560px)] ![animation-delay:0.7s]">
+            {insight.image && (
+              <Image src={insight.image} alt={insight.title} fill className="object-cover" data-ai-hint="article header" />
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Body */}
+      <section className="pb-28 pt-[72px]">
+        <div className="wrap grid grid-cols-[240px_minmax(0,1fr)] items-start gap-20 max-[960px]:grid-cols-1 max-[960px]:gap-10">
+          <aside className="max-[960px]:hidden">
+            <div className="sticky top-8 flex flex-col gap-7">
+              {article.toc.length > 0 && (
+                <div>
+                  <div className="mb-3 text-[12px] uppercase tracking-[0.1em] text-mute">In this article</div>
+                  <ol className="m-0 list-none border-l border-line p-0">
+                    {article.toc.map((t, i) => (
+                      <li key={t.id}>
+                        <a
+                          href={`#${t.id}`}
+                          className={cn(
+                            "-ml-px block border-l-2 py-2 pl-4 text-[14.5px] leading-[1.4] hover:border-l-ink hover:text-ink",
+                            i === 0 ? "border-l-primary text-ink" : "border-l-transparent text-body-3",
+                          )}
+                        >
+                          {t.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+              <div className="flex flex-col gap-3.5 border-t border-line pt-6">
+                <span className="text-[14.5px] leading-[1.45]">Need this analysed for your institution?</span>
+                <Pill href="/services/research" variant="dark" arrow={false} className="self-start px-[18px] py-[11px] text-[14px]">
+                  Commission research
+                  <Arrow size={13} />
+                </Pill>
+              </div>
+            </div>
+          </aside>
+
+          <article className="min-w-0 max-w-[720px]">
+            <div className={bodyCls} dangerouslySetInnerHTML={{ __html: article.html }} />
+
+            <div className="mt-10 flex flex-wrap items-center gap-2">
+              <Chip href="/insights" className="px-3.5 py-[7px] text-[13.5px]">Insights</Chip>
+              {insight.category && (
+                <Chip href="/insights" className="px-3.5 py-[7px] text-[13.5px]">{insight.category}</Chip>
+              )}
+              <button
+                type="button"
+                onClick={handleLike}
+                className="chip ml-auto inline-flex items-center gap-2 rounded-full border border-chip px-3.5 py-[7px] text-[13.5px] font-medium"
+              >
+                <Heart aria-hidden="true" className={cn("size-4", hasLiked && "fill-current text-primary-deep")} />
+                {hasLiked ? 'Unlike' : 'Like'} ({likes})
+              </button>
+            </div>
+
+            <div className="on-dark mt-12 flex flex-wrap items-center justify-between gap-5 bg-ink p-8 text-white">
+              <p className="m-0 max-w-[380px] text-[24px] leading-[1.25] tracking-[-0.02em]">Discuss what this means for your institution.</p>
+              <div className="flex flex-wrap gap-2.5">
+                <Pill href="/consult" variant="accent">Book a consultation</Pill>
+                <Pill href="/services/research" variant="outlineAccent">Commission research</Pill>
+              </div>
+            </div>
+
+            <section aria-labelledby="comments-title" className="mt-16 border-t border-line pt-10">
+              <h2 id="comments-title" className="mb-6 mt-0 text-[28px] font-medium leading-[1.25] tracking-[-0.02em]">
+                Comments ({comments.length})
+              </h2>
+              {comments.length > 0 ? (
+                <div className="border-t border-line">
+                  {comments.map(comment => (
+                    <div key={comment.id} className="break-words border-b border-line py-5">
+                      <p className="m-0 font-medium">{comment.author}</p>
+                      <p className="mb-2 mt-0 text-[13px] text-mute">
+                        {comment.createdAt ? new Date(comment.createdAt.seconds * 1000).toLocaleString() : ''}
+                      </p>
+                      <p className="m-0 text-[16px] text-[#2E2E33]">{comment.text}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="m-0 text-[15.5px] text-body-2">No comments yet. Be the first to comment!</p>
+              )}
+
+              <form onSubmit={handleCommentSubmit} className="mt-10 flex flex-col gap-4">
+                <h3 className="m-0 text-[21px] font-medium leading-[1.25] tracking-[-0.01em]">Leave a Comment</h3>
+                <label htmlFor="comment-author" className="sr-only">Your name (optional)</label>
+                <input
+                  id="comment-author"
+                  autoComplete="name"
+                  placeholder="Your Name (optional)"
+                  value={commentAuthor}
+                  onChange={(e) => setCommentAuthor(e.target.value)}
+                  className={fieldCls}
+                />
+                <label htmlFor="comment-text" className="sr-only">Comment</label>
+                <textarea
+                  id="comment-text"
+                  placeholder="Write your comment here..."
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  required
+                  rows={4}
+                  className={fieldCls}
+                />
+                <button
+                  type="submit"
+                  className="pill inline-flex items-center gap-2 self-start rounded-full bg-ink px-[22px] py-[13px] text-[14.5px] font-semibold text-white"
+                >
+                  Submit Comment
+                  <Arrow />
+                </button>
+              </form>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      {/* Related */}
+      {related.length > 0 && (
+        <section className="pb-32">
+          <div className="wrap">
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-5 border-t border-line pt-10">
+              <h2 className="h2 m-0 text-[clamp(30px,3vw,42px)] font-normal leading-[1.1] tracking-[-0.035em]">More insights</h2>
+              <Pill href="/insights" variant="outlineDark" className="px-5 py-[11px] hover:text-primary-deep">
+                All insights
+              </Pill>
+            </div>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-7">
+              {related.map((r) => (
+                <SmartLink key={r.id} href={`/insights/${r.slug}`} className="group flex flex-col gap-4 text-ink">
+                  <div className="overflow-hidden">
+                    {/* Zooms on card hover; `!` beats the shared `a .ph` filter transition. */}
+                    <div className="ph relative h-[240px] ![transition:transform_0.8s_cubic-bezier(0.2,0.7,0.2,1),filter_0.6s_ease] group-hover:scale-[1.04]">
+                      {r.image && <Image src={r.image} alt="" fill sizes="(max-width: 720px) 100vw, 33vw" className="object-cover" />}
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-[13px] text-mute">
+                    {r.category && <span className="font-semibold text-primary-deep">{r.category}</span>}
+                    <span>{r.date}</span>
+                  </div>
+                  <h3 className="m-0 text-[20px] font-medium leading-[1.3] tracking-[-0.01em] group-hover:text-primary-deep">{r.title}</h3>
+                </SmartLink>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Newsletter */}
+      <section className="on-dark bg-ink py-24 text-white">
+        <div className="wrap grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] items-end gap-10">
+          <div>
+            <h2 className="h2 mb-3 mt-0 text-[clamp(30px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]">
+              Subscribe to the Credence insights briefing
+            </h2>
+            <p className="m-0 text-[16.5px] text-body-dark">Receive strategic intelligence straight to your inbox.</p>
+          </div>
+          {/* No newsletter backend yet: method="dialog" runs the browser's email check, then neither reloads nor sends. */}
+          <form method="dialog" className="flex flex-wrap items-end gap-4">
+            <label htmlFor="art-email" className="sr-only">Email address</label>
+            <input id="art-email" type="email" required autoComplete="email" placeholder="Email" className="fld flex-[1_1_240px]" />
+            <button
+              type="submit"
+              className="pill inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14.5px] font-semibold text-ink"
+            >
+              Subscribe
+              <Arrow />
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
   );
 }

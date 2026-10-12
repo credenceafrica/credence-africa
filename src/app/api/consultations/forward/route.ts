@@ -53,6 +53,7 @@ export async function POST(request: Request) {
     interest: data.interest,
     interestLabel: consultationInterestLabel(data.interest),
     message: data.message,
+    newsletter: data.newsletter ? "yes" : "no",
     pageUrl: data.pageUrl ?? "",
     source: "credence.africa consultation form",
   };

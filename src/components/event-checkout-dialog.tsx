@@ -27,6 +27,7 @@ import {
   sendRegistrationEmail,
 } from "@/lib/external-data";
 import { payWithPaystack, PaystackClosedError } from "@/lib/paystack";
+import { track } from "@/lib/analytics";
 import Link from "next/link";
 
 interface Props {
@@ -161,6 +162,7 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
         currency: CURRENCY,
         paystackReference,
       });
+      track("generate_lead", { lead_source: "event_registration", event_id: event.id, value: total, currency: CURRENCY });
 
       sendRegistrationEmail({
         email,
@@ -278,6 +280,7 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
               <Label htmlFor="name">Full name</Label>
               <Input
                 id="name"
+                autoComplete="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 disabled={submitting}
@@ -289,6 +292,7 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
+                autoComplete="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -301,6 +305,7 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
               <Label htmlFor="phone">Phone</Label>
               <Input
                 id="phone"
+                autoComplete="tel"
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -315,6 +320,7 @@ export function EventCheckoutDialog({ open, onOpenChange, event, ticket }: Props
                   <Label htmlFor="companyName">Company name</Label>
                   <Input
                     id="companyName"
+                    autoComplete="organization"
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
                     disabled={submitting}

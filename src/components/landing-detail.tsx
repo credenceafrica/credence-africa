@@ -1,314 +1,183 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ConsultationDialog } from "@/components/consultation-dialog";
-import { ArrowRight } from "lucide-react";
-import {
-  GEOGRAPHY_HEADING,
-  type LandingAction,
-  type LandingPage,
-} from "@/lib/landing-content";
+import { consultHref, type LandingPage } from "@/lib/landing-content";
+import { Hero } from "./site/hero";
+import { Check, Chip, CtaBand, FaqJsonLd, FaqList, IconTile, Pill, SmartLink, num } from "./site/primitives";
 
-/** Canonical title treatment: one size site-wide, no hero tier. */
-const TITLE =
-  "text-balance font-normal leading-[1.1] tracking-[-0.01em] [font-size:clamp(1.75rem,3.5vw,2.5rem)]";
+/** Target, chart and compass: the three "How Credence Africa helps" tiles, in order. */
+const HELP_ICONS = [
+  "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",
+  "M4 20V10M10 20V4M16 20v-7M22 20H2",
+  "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM15.5 8.5l-2 5-5 2 2-5z",
+];
 
-/** Canonical button treatment: one size site-wide. */
-const BTN = "h-14 rounded-none px-8 text-base font-light";
+const h2Lg = "h2 m-0 text-[clamp(32px,3.4vw,50px)] font-normal leading-[1.1] tracking-[-0.035em]";
+const h2Md = "h2 m-0 text-[clamp(32px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]";
 
-const SOLID_ON_RED = `${BTN} border-none bg-white text-primary hover:bg-white/90`;
-const OUTLINE_ON_RED = `${BTN} border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary`;
-const SOLID_ON_NAVY = `${BTN} border-none bg-primary text-white hover:bg-primary/90`;
-const OUTLINE_ON_NAVY = `${BTN} border-2 border-white/40 bg-transparent text-background hover:bg-background hover:text-foreground`;
-
-function Actions({
-  actions,
-  primaryClass,
-  secondaryClass,
-}: {
-  actions: readonly LandingAction[];
-  primaryClass: string;
-  secondaryClass: string;
-}) {
-  const [primary, secondary] = actions;
-  return (
-    <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-      <ConsultationDialog size="lg" interest={primary.consult} triggerClassName={primaryClass}>
-        {primary.label}
-        <ArrowRight className="ml-2 size-5" aria-hidden="true" />
-      </ConsultationDialog>
-      <ConsultationDialog size="lg" interest={secondary.consult} triggerClassName={secondaryClass}>
-        {secondary.label}
-      </ConsultationDialog>
-    </div>
-  );
-}
-
-/** A bulleted ledger list on any ground. */
-function Ledger({
-  items,
-  frame,
-  divide,
-  marker,
-  text,
-}: {
-  items: string[];
-  frame: string;
-  divide: string;
-  marker: string;
-  text: string;
-}) {
-  return (
-    <ul className={`border-y ${frame} divide-y ${divide}`}>
-      {items.map((item) => (
-        <li key={item} className="flex gap-4 py-5 md:gap-5 md:py-6">
-          <span className={`mt-[0.55rem] size-1.5 shrink-0 ${marker}`} aria-hidden="true" />
-          <span className={`text-pretty text-base font-light leading-relaxed md:text-lg ${text}`}>
-            {item}
-          </span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
+/** Sector and theme landing page: one template for both modules. */
 export function LandingDetail({ page }: { page: LandingPage }) {
-  const Icon = page.icon;
-  const indexHref = page.kind === "sector" ? "/sectors" : "/themes";
-  const indexLabel = page.kind === "sector" ? "All Sectors" : "All Themes";
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: page.faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const sector = page.kind === "sector";
+  const eyebrow = sector ? "Sectors" : "Themes";
+  const back = sector ? { label: "All Sectors", href: "/sectors" } : { label: "All Themes", href: "/themes" };
+  const [p1 = "", p2 = ""] = page.positioning.paragraphs;
+  const [primary, secondary] = page.actions;
 
   return (
-    <div className="overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    <div className="w-full bg-white text-ink">
+      <FaqJsonLd items={page.faqs} />
+
+      <Hero
+        title={page.h1}
+        intro={page.intro}
+        crumbs={[{ label: eyebrow, href: back.href }, { label: page.crumb }]}
+        btn1={{ label: primary.label, href: consultHref(primary.consult) }}
+        btn2={{ label: secondary.label, href: consultHref(secondary.consult) }}
+        mobileTitle={42}
       />
 
-      {/* Hero: navy */}
-      <section className="bg-foreground">
-        <div className="container mx-auto px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <div className="cred-rise max-w-3xl">
-            <Icon className="size-10 text-primary" aria-hidden="true" />
-            <h1 className={`mt-6 text-background ${TITLE}`}>{page.h1}</h1>
-            <p className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-background/80 md:text-xl">
-              {page.intro}
-            </p>
-            <Actions
-              actions={page.actions}
-              primaryClass={SOLID_ON_NAVY}
-              secondaryClass={OUTLINE_ON_NAVY}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Positioning + where clients need support: light */}
-      <section className="bg-background">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <h2 className={`text-foreground ${TITLE}`}>{page.positioning.heading}</h2>
-            </div>
-            <div className="space-y-5 lg:col-span-8">
-              {page.positioning.paragraphs.map((p) => (
-                <p key={p} className="max-w-2xl text-pretty text-lg font-light leading-relaxed text-foreground/80">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-16 md:mt-24">
-            <div className="lg:col-span-4">
-              <h2 className={`text-foreground ${TITLE}`}>Where clients need support</h2>
-              <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-foreground/70">
-                {page.needs.lead}
-              </p>
-            </div>
-            <div className="lg:col-span-8">
-              <Ledger
-                items={page.needs.items}
-                frame="border-foreground/12"
-                divide="divide-foreground/12"
-                marker="bg-primary"
-                text="text-foreground/80"
-              />
+      {/* Overview */}
+      <section className="pb-28 pt-32">
+        <div className="wrap">
+          <h2 className="h2 m-0 max-w-[1080px] text-[clamp(32px,3.4vw,50px)] font-normal leading-[1.12] tracking-[-0.035em]">
+            {page.positioning.heading}. <span className="text-mute">{p1}</span>
+          </h2>
+          <div className="mt-16 grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] items-start gap-8">
+            <SmartLink href={back.href} className="eb hit text-[13.5px] hover:text-primary-deep">
+              {eyebrow}
+            </SmartLink>
+            <div className="flex max-w-[560px] flex-col gap-6">
+              <p className="m-0 text-[17px] font-medium leading-[1.6]">{p2}</p>
+              <div className="flex flex-wrap gap-3">
+                <Pill href={consultHref(primary.consult)} variant="dark">
+                  {primary.label}
+                </Pill>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How Credence Africa helps: navy */}
-      <section className="bg-foreground">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <h2 className={`text-primary ${TITLE}`}>How Credence Africa helps</h2>
-          <div className="mt-12 space-y-14 md:mt-16 md:space-y-16">
-            {page.helps.map((block) => (
-              <div key={block.heading} className="grid gap-8 lg:grid-cols-12 lg:gap-16">
-                <div className="lg:col-span-4">
-                  <h3 className="text-xl font-normal leading-snug text-background md:text-2xl">
-                    {block.heading}
-                  </h3>
-                  <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-background/70">
-                    {block.blurb}
-                  </p>
-                </div>
-                <div className="lg:col-span-8">
-                  <Ledger
-                    items={block.items}
-                    frame="border-white/15"
-                    divide="divide-white/15"
-                    marker="bg-primary"
-                    text="text-background/85"
-                  />
-                </div>
+      {/* Where clients need support */}
+      <section className="pb-32">
+        <div className="wrap grid grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] gap-14 border-t border-line pt-[72px]">
+          <div>
+            <div className="eb mb-[18px] text-[13.5px]">{eyebrow}</div>
+            <h2 className={`${h2Md} mb-[18px]`}>Where clients need support</h2>
+            <p className="m-0 max-w-[420px] text-[16px] text-body-2">{page.needs.lead}</p>
+          </div>
+          <div className="flex flex-col">
+            {page.needs.items.map((text, i) => (
+              <div key={text} className="grid grid-cols-[72px_1fr] items-baseline gap-4 border-b border-line py-6">
+                <span className="text-[44px] font-light leading-none text-[#B5B5B5]">{num(i)}</span>
+                <span className="text-[17px] font-medium leading-[1.45]">{text}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Priority mandates: red */}
-      <section className="bg-primary">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <h2 className={`text-white ${TITLE}`}>Priority mandates</h2>
-              <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-white/85">
-                The engagements this work is most often built around.
-              </p>
+      {/* How Credence Africa helps */}
+      <section className="pb-32">
+        <div className="wrap">
+          <div className="eb mb-[18px] text-[13.5px]">{eyebrow}</div>
+          <h2 className={`${h2Lg} mb-14 text-mute`}>How Credence Africa helps</h2>
+          <div className="bgrid grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] border-l border-t border-line">
+            {page.helps.map((h, i) => (
+              <div key={h.heading} className="flex flex-col gap-3.5 bg-white px-7 pb-[34px] pt-[30px]">
+                <IconTile path={HELP_ICONS[i % HELP_ICONS.length]} className="mb-10" />
+                <h3 className="m-0 text-[21px] font-medium leading-[1.25] tracking-[-0.01em]">{h.heading}</h3>
+                <p className="mb-1.5 mt-0 text-[14.5px] text-body-2">{h.blurb}</p>
+                <ul className="m-0 flex list-none flex-col p-0">
+                  {h.items.map((item) => (
+                    <li key={item} className="flex gap-2.5 border-t border-line-soft py-2.5 text-[14.5px]">
+                      <Check className="text-ink" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Priority mandates and who we work with */}
+      <section className="on-dark bg-ink py-32 text-white">
+        <div className="wrap">
+          <div className="eb mb-[18px] text-[13.5px]">{eyebrow}</div>
+          <h2 className={`${h2Lg} mb-14 max-w-[900px]`}>
+            Priority mandates <span className="text-[#7A7A7A]">The engagements this work is most often built around.</span>
+          </h2>
+          <div className="bgrid grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] border-l border-t border-line-dark">
+            <div className="bg-panel px-[30px] pb-5 pt-[30px]">
+              <h3 className="mb-1 mt-0 text-[15px] font-medium tracking-[-0.01em] text-[#A3A3A3]">Priority mandates</h3>
+              <p className="mb-[18px] mt-0 text-[14px] text-[#A3A3A3]">The engagements this work is most often built around.</p>
+              {page.mandates.map((m) => (
+                <div key={m} className="flex gap-3.5 border-t border-line-dark py-4 text-[17px]">
+                  <span className="mt-2.5 size-1.5 shrink-0 bg-primary" />
+                  {m}
+                </div>
+              ))}
             </div>
-            <div className="lg:col-span-8">
-              <Ledger
-                items={page.mandates}
-                frame="border-white/25"
-                divide="divide-white/25"
-                marker="bg-white"
-                text="text-white/90"
-              />
+            <div className="bg-panel px-[30px] pb-5 pt-[30px]">
+              <h3 className="mb-1 mt-0 text-[15px] font-medium tracking-[-0.01em] text-[#A3A3A3]">Who we work with</h3>
+              <div className="h-[18px]" />
+              {page.audiences.map((w) => (
+                <div key={w} className="flex gap-3.5 border-t border-line-dark py-4 text-[17px]">
+                  <span className="mt-2.5 size-1.5 shrink-0 bg-primary" />
+                  {w}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Who we work with, geography, why: light */}
-      <section className="bg-background">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <h2 className={`text-foreground ${TITLE}`}>Who we work with</h2>
+      {/* Regional priorities, why Credence Africa, related services */}
+      <section className="py-32">
+        <div className="wrap">
+          {[
+            { n: "1", h: "Africa, Kenya, Nigeria and South Africa", p: page.geography, last: false },
+            { n: "2", h: "Why Credence Africa", p: page.why, last: true },
+          ].map((row) => (
+            <div key={row.n} className={`grid grid-cols-[96px_1fr] gap-6 border-t border-line py-10 ${row.last ? "border-b" : ""}`}>
+              <span className="text-[72px] font-light leading-[0.9] text-[#C9C6C2]">{row.n}</span>
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-8">
+                <h2 className="h2 m-0 text-[34px] font-normal leading-[1.15] tracking-[-0.03em]">{row.h}</h2>
+                <p className="m-0 text-[16.5px] text-body">{row.p}</p>
+              </div>
             </div>
-            <div className="lg:col-span-8">
-              <ul className="grid gap-px border border-foreground/12 bg-foreground/12">
-                {page.audiences.map((a) => (
-                  <li key={a} className="flex items-center gap-3 bg-background p-5 md:p-6">
-                    <span className="size-1.5 shrink-0 bg-primary" aria-hidden="true" />
-                    <span className="text-base font-normal text-foreground md:text-lg">{a}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-10 md:mt-24 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <h2 className={`text-foreground ${TITLE}`}>{GEOGRAPHY_HEADING}</h2>
-              <p className="mt-6 text-pretty text-lg font-light leading-relaxed text-foreground/80">
-                {page.geography}
-              </p>
-            </div>
-            <div>
-              <h2 className={`text-foreground ${TITLE}`}>Why Credence Africa</h2>
-              <p className="mt-6 text-pretty text-lg font-light leading-relaxed text-foreground/80">
-                {page.why}
-              </p>
-            </div>
-          </div>
-
-          {page.links.length > 0 && (
-            <div className="mt-16 border-t border-foreground/12 pt-8 md:mt-24">
-              <h2 className="text-sm font-normal uppercase tracking-[0.12em] text-foreground/60">
-                Related
-              </h2>
-              <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
-                {page.links.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      target={l.href.startsWith("http") ? "_blank" : undefined}
-                      rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="group inline-flex items-center gap-2 text-base font-light text-foreground/80 transition-colors hover:text-primary md:text-lg"
-                    >
-                      {l.label}
-                      <ArrowRight
-                        className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* FAQ: navy */}
-      <section className="bg-foreground">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <h2 className={`text-primary ${TITLE}`}>Frequently asked questions</h2>
-            </div>
-            <div className="lg:col-span-8">
-              <dl className="border-y border-white/15 divide-y divide-white/15">
-                {page.faqs.map((f) => (
-                  <div key={f.q} className="py-6 md:py-7">
-                    <dt className="text-lg font-normal leading-snug text-background md:text-xl">
-                      {f.q}
-                    </dt>
-                    <dd className="mt-2 text-pretty text-base font-light leading-relaxed text-background/75">
-                      {f.a}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+          ))}
+          <div className="mt-10 flex flex-wrap items-center gap-2.5">
+            <span className="eb mr-3 text-[13.5px]">Related</span>
+            {page.links.map((l) => (
+              <Chip key={l.href} href={l.href}>
+                {l.label}
+              </Chip>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Closing CTA: red */}
-      <section className="bg-primary">
-        <div className="container mx-auto space-y-6 px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
-          <h2 className={`mx-auto max-w-3xl text-white ${TITLE}`}>{page.closing.heading}</h2>
-          <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-white/85">
-            {page.closing.body}
-          </p>
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <ConsultationDialog
-              size="lg"
-              interest={page.closing.consult}
-              triggerClassName={SOLID_ON_RED}
-            >
-              {page.closing.label}
-              <ArrowRight className="ml-2 size-5" aria-hidden="true" />
-            </ConsultationDialog>
-            <Button asChild size="lg" variant="outline" className={OUTLINE_ON_RED}>
-              <Link href={indexHref}>{indexLabel}</Link>
-            </Button>
+      {/* FAQ */}
+      <section className="pb-32">
+        <div className="wrap grid grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] gap-14">
+          <div>
+            <div className="eb mb-[18px] text-[13.5px]">{eyebrow}</div>
+            <h2 className={h2Md}>Frequently asked questions</h2>
           </div>
+          <FaqList items={page.faqs} variant="sector" />
         </div>
       </section>
+
+      <CtaBand heading={page.closing.heading} text={page.closing.body}>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Pill href={consultHref(page.closing.consult)} variant="light">
+            {page.closing.label}
+          </Pill>
+          <Pill href={back.href} variant="outlineAccent">
+            {back.label}
+          </Pill>
+        </div>
+      </CtaBand>
     </div>
   );
 }

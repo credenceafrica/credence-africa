@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  // hover: utilities apply only where a pointer can hover, so a tap doesn't leave them stuck on.
+  future: { hoverOnlyWhenSupported: true },
   darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -25,6 +27,14 @@ export default {
         sans: ["var(--font-outfit)", "sans-serif"],
       },
       colors: {
+        // 2026 site design palette (canvas "Credence Africa Website").
+        ink: "#0A0A0A",
+        panel: "#111111",
+        tile: "#1E1E1E",
+        line: { DEFAULT: "#E7E5E2", soft: "#EEEBE7", dark: "#262626" },
+        chip: "#D9D6D2",
+        body: { DEFAULT: "#3F3F46", 2: "#4A4A52", 3: "#5C5C63", dark: "#BDBDBD" },
+        mute: "#8C8C8C",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -33,6 +43,8 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          // Vermillion is below 4.5:1 on white, so accent text on light grounds uses this.
+          deep: "#C42D0A",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

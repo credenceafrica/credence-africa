@@ -4,11 +4,11 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 import { FloatingActions } from './floating-actions';
 
-export function LayoutWrapper({ 
-    children, 
-    header, 
-    footer 
-}: { 
+export function LayoutWrapper({
+    children,
+    header,
+    footer
+}: {
     children: React.ReactNode,
     header: React.ReactNode,
     footer: React.ReactNode,
@@ -20,8 +20,9 @@ export function LayoutWrapper({
     return <>{children}</>;
   }
 
+  // `site` scopes the design's hover and reveal rules; the header sits absolutely over each hero.
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="site relative flex min-h-screen flex-col">
       {header}
       <main className="flex-grow">
         {children}
