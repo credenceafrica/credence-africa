@@ -194,11 +194,34 @@ export function Header({ menus }: { menus: NavMenu[] }) {
           id="mobile-menu"
           className="cr-drop flex max-h-[calc(100dvh-85px)] flex-col overflow-y-auto overscroll-contain border-t border-line-dark bg-ink px-10 pb-6 pt-3 max-[720px]:px-5"
         >
-          {[{ label: "About Us", href: "/about" }, ...menus.map((m) => ({ label: m.label, href: m.href })), { label: "Events", href: "/events" }, { label: "Insights", ...perspectives }].map(({ label, ...l }) => (
-            <SmartLink key={l.href} {...l} onClick={() => setMobileOpen(false)} className="border-b border-line-dark py-3.5 text-[18px] text-white">
-              {label}
-            </SmartLink>
-          ))}
+          {[{ label: "About Us", href: "/about" }, ...menus, { label: "Events", href: "/events" }, { label: "Insights", ...perspectives }].map(({ label, ...l }) =>
+            "items" in l ? (
+              // The desktop dropdowns as native accordions: the index page first, then its pages.
+              <details key={l.key} name="mobile-nav" className="group border-b border-line-dark">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-3.5 text-[18px] text-white [&::-webkit-details-marker]:hidden">
+                  {label}
+                  <svg className="transition-transform group-open:rotate-180" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </summary>
+                <div className="flex flex-col pb-2 pl-4">
+                  <SmartLink href={l.href} onClick={() => setMobileOpen(false)} className="flex items-center justify-between py-3 text-[16px] font-semibold text-primary">
+                    {l.all}
+                    <Arrow />
+                  </SmartLink>
+                  {l.items.map((it) => (
+                    <SmartLink key={it.href} href={it.href} onClick={() => setMobileOpen(false)} className="py-3 text-[16px] text-[#E5E5E5]">
+                      {it.label}
+                    </SmartLink>
+                  ))}
+                </div>
+              </details>
+            ) : (
+              <SmartLink key={l.href} {...l} onClick={() => setMobileOpen(false)} className="border-b border-line-dark py-3.5 text-[18px] text-white">
+                {label}
+              </SmartLink>
+            ),
+          )}
           <Link href="/consult" className="pill mt-[18px] rounded-full bg-primary px-5 py-3.5 text-center font-semibold text-ink">
             Book a Consultation
           </Link>
