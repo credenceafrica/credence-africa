@@ -133,7 +133,7 @@ export const homePage: CopyPage = {
       "h2": "Evidence and media for informed decisions",
       "paras": [
         "Credible Perspectives helps readers interpret policy, capital and markets through analysis, interviews and editorial content. Institutions can also commission research and intelligence built around a specific question: a sector study, market assessment, ecosystem map or recurring briefing.",
-        "For organizations developing their own voice, a scoped podcast or interview series can connect research, editorial planning, guest coordination, production and distribution. The brief should identify the audience, publication rights, approval process and intended use of each episode. Published insight and private commissioned work have different purposes, and each should be selected accordingly."
+        "For organizations developing their own voice, a scoped podcast or interview series can connect research, editorial planning, guest coordination, production and distribution. The brief should identify the audience, publication rights, approval process and intended use of each episode. Published insight and private commissioned work have different purposes and each should be selected accordingly."
       ],
       "links": [
         {
@@ -357,7 +357,7 @@ export const aboutPage: CopyPage = {
       "cards": [
         {
           "t": "Advisory",
-          "b": "Advisory helps organizations frame commercial and policy challenges, prepare options and plan implementation. Our principal advisory services cover capital raising and investment structuring, public affairs and policy, and trade and growth.",
+          "b": "Advisory helps organizations frame commercial and policy challenges, prepare options and plan implementation. Our principal advisory services cover capital raising and investment structuring, public affairs and policy and trade and growth.",
           "href": "/services",
           "cta": "Explore our services"
         },
@@ -492,7 +492,7 @@ export const aboutPage: CopyPage = {
         },
         {
           "q": "Is advisory still a core service",
-          "a": "Yes. Capital Raising and Investment Structuring, Public Affairs and Policy Advisory, and Trade and Growth Advisory remain principal commercial services."
+          "a": "Yes. Capital Raising and Investment Structuring, Public Affairs and Policy Advisory and Trade and Growth Advisory remain principal commercial services."
         },
         {
           "q": "What is Credence Institute",
@@ -545,7 +545,7 @@ export const aboutPage: CopyPage = {
 export const servicesPage: CopyPage = {
   "hero": {
     "title": "Our services",
-    "intro": "Choose the support that fits the work your institution needs to do. Credence Africa connects advisory, professional learning, events, research and intelligence for organizations operating in Kenya and African markets. Each service has a clear purpose, and each commissioned mandate should have a defined scope, delivery plan and commercial agreement.",
+    "intro": "Choose the support that fits the work your institution needs to do. Credence Africa connects advisory, professional learning, events, research and intelligence for organizations operating in Kenya and African markets. Each service has a clear purpose and each commissioned mandate should have a defined scope, delivery plan and commercial agreement.",
     "crumbs": [
       {
         "label": "Services"
@@ -663,7 +663,7 @@ export const servicesPage: CopyPage = {
       "h2": "Credence Institute",
       "paras": [
         "Develop the capability required to lead, manage and deliver institutional work. Credence Institute provides professional learning, executive education and commissioned training for individuals, employers and institutional partners.",
-        "Explore public programs for a professional development goal. Request corporate training for a team or department. Discuss a funded cohort where a donor, NGO, association or public institution needs a defined group to build practical capability. Review each program's learning outcomes, schedule, assessment and credential, and request a proposal for commissioned delivery."
+        "Explore public programs for a professional development goal. Request corporate training for a team or department. Discuss a funded cohort where a donor, NGO, association or public institution needs a defined group to build practical capability. Review each program's learning outcomes, schedule, assessment and credential and request a proposal for commissioned delivery."
       ],
       "links": [
         {

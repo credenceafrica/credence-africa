@@ -306,12 +306,12 @@ a .ph {
 }
 
 /* Touch: grows a small control's tap area to at least 44px without changing how it looks.
-   Only for controls with no ::after of their own and room around them. */
+   Only for controls with no ::before of their own and room around them (::after is the sister-site arrow). */
 @media (pointer: coarse) {
   .hit {
     position: relative;
   }
-  .hit::after {
+  .hit::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -319,6 +319,26 @@ a .ph {
     width: max(100%, 44px);
     height: max(100%, 44px);
     transform: translate(-50%, -50%);
+  }
+}
+
+/* Links to the sister platforms carry a vermillion arrow, unless they draw their own. */
+a[href*="institute.credence.africa"]:not(:has(svg))::after,
+a[href*="perspectives.credence.africa"]:not(:has(svg))::after,
+a[href*="engage.credence.africa"]:not(:has(svg))::after {
+  content: "\2197";
+  color: #ff4820;
+  margin-left: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (hover: hover) {
+  a[href*="institute.credence.africa"]:hover::after,
+  a[href*="perspectives.credence.africa"]:hover::after,
+  a[href*="engage.credence.africa"]:hover::after {
+    transform: translate(2px, -2px);
   }
 }
 
@@ -334,7 +354,8 @@ a .ph {
 .cr-nl {
   position: relative;
 }
-.cr-nl::after {
+/* The underline is ::before so a link to a sister site keeps its ::after arrow. */
+.cr-nl::before {
   content: "";
   position: absolute;
   left: 12px;
@@ -346,7 +367,7 @@ a .ph {
   transform-origin: left;
   transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.cr-nl[aria-expanded="true"]::after {
+.cr-nl[aria-expanded="true"]::before {
   transform: scaleX(1);
 }
 .cr-nl svg {
@@ -363,7 +384,7 @@ a .ph {
   transition: opacity 0.3s ease;
 }
 @media (hover: hover) {
-  .cr-nl:hover::after {
+  .cr-nl:hover::before {
     transform: scaleX(1);
   }
   .cr-nl:hover {
@@ -373,6 +394,9 @@ a .ph {
     background: #1a1a1a;
     color: #ffffff !important;
     padding-left: 20px !important;
+  }
+  .cr-di.cr-sub:hover {
+    padding-left: 34px !important;
   }
   .cr-logo:hover img {
     opacity: 0.85;

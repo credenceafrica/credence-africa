@@ -130,34 +130,21 @@ export function Check({ size = 16, className }: { size?: number; className?: str
 /** Two-digit index, as the design numbers cards, needs and steps. */
 export const num = (i: number) => String(i + 1).padStart(2, "0");
 
-const faqStyles = {
-  copy: { summary: "py-6 text-[17px] leading-[1.4]", answer: "mb-6 max-w-[640px]" },
-  sector: { summary: "py-6 text-[17px]", answer: "mb-6 max-w-[620px]" },
-  service: { summary: "py-[22px] text-[16.5px]", answer: "mb-[22px] max-w-[620px]" },
-} as const;
-
 /** Native details/summary accordion. Keyboard and screen-reader support come with the elements. */
-export function FaqList({
-  items,
-  variant = "copy",
-}: {
-  items: { q: string; a: string }[];
-  variant?: keyof typeof faqStyles;
-}) {
-  const s = faqStyles[variant];
+export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <div className="faq border-t border-line">
+    <div className="faq min-w-0 border-t border-line">
       {items.map((f) => (
         <details key={f.q} className="border-b border-line">
-          <summary className={cn("flex items-center justify-between gap-4 font-medium", s.summary)}>
-            {variant === "copy" ? <h3 className="m-0 text-[17px] font-medium leading-[1.4]">{f.q}</h3> : f.q}
+          <summary className="flex items-center justify-between gap-4 py-6 font-medium">
+            <h3 className="m-0 text-[17px] font-medium leading-[1.4]">{f.q}</h3>
             <span className="faq-plus flex size-8 shrink-0 items-center justify-center rounded-full border border-chip">
               <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true">
                 <path d="M12 5v14M5 12h14" />
               </svg>
             </span>
           </summary>
-          <p className={cn("text-[15.5px] text-body-2", s.answer)}>{f.a}</p>
+          <p className="mb-6 max-w-[600px] text-[15.5px] text-body-2">{f.a}</p>
         </details>
       ))}
     </div>
@@ -195,7 +182,7 @@ export function CtaBand({
   children,
 }: {
   heading: string;
-  text: string;
+  text?: string;
   size?: keyof typeof ctaHeading;
   textWidth?: string;
   padding?: string;
@@ -205,7 +192,7 @@ export function CtaBand({
     <section className={cn("ph-city relative overflow-hidden text-white", padding)}>
       <div className="wrap relative flex max-w-[1000px] flex-col items-center gap-6 text-center">
         <h2 className={cn("h2 m-0 text-balance font-normal tracking-[-0.045em]", ctaHeading[size])}>{heading}</h2>
-        <p className={cn("m-0 text-[17px] text-[#D4D4D4]", textWidth)}>{text}</p>
+        {text && <p className={cn("m-0 text-[17px] text-[#D4D4D4]", textWidth)}>{text}</p>}
         {children}
       </div>
     </section>

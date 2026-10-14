@@ -1,6 +1,10 @@
-import { ServicePageView } from "@/components/site/service-page";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
 import { servicePages } from "@/lib/service-pages";
 
-export default function CredenceEngagePage() {
-  return <ServicePageView page={servicePages["credence-engage"]} consult="engage" />;
+const page = servicePages["credence-engage"];
+
+export const metadata = pageMetadata(page);
+
+export default function Page() {
+  return <CopyPageView page={page} />;
 }

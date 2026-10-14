@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
-import { LandingDetail } from "@/components/landing-detail";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
 import { themesBySlug } from "@/lib/themes-content";
 
-const theme = themesBySlug["consumer-trust"];
+const page = themesBySlug["consumer-trust"];
 
-export const metadata: Metadata = {
-  title: theme.seoTitle,
-  description: theme.metaDescription,
-  keywords: theme.keywords,
-  alternates: { canonical: "/themes/consumer-trust" },
-};
+export const metadata = pageMetadata(page);
 
 export default function Page() {
-  return <LandingDetail page={theme} />;
+  return <CopyPageView page={page} />;
 }
