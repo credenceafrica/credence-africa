@@ -1,6 +1,10 @@
-import { ServicePageView } from "@/components/site/service-page";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
 import { servicePages } from "@/lib/service-pages";
 
-export default function CapitalRaisingPage() {
-  return <ServicePageView page={servicePages["capital-raising"]} consult="capital" />;
+const page = servicePages["capital-raising"];
+
+export const metadata = pageMetadata(page);
+
+export default function Page() {
+  return <CopyPageView page={page} />;
 }

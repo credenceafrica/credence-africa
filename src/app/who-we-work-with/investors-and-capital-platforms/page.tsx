@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
-import { AudiencePageView } from "@/components/site/audience-page";
-import { audiencePages } from "@/lib/audience-pages";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
+import { audiencesBySlug } from "@/lib/audience-pages";
 
-export const metadata: Metadata = {
-  title: "Investors and Capital Platforms",
-  description:
-    "Credence Africa works with private equity, venture capital, family offices, DFIs, banks, funds and investment platforms to source opportunity, manage risk, support portfolios and stay ahead of policy and market shifts.",
-};
+const page = audiencesBySlug["investors-and-capital-platforms"];
 
-export default function InvestorsAndCapitalPlatformsPage() {
-  return <AudiencePageView page={audiencePages["investors-and-capital-platforms"]} />;
+export const metadata = pageMetadata(page);
+
+export default function Page() {
+  return <CopyPageView page={page} />;
 }

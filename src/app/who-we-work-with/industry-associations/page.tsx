@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
-import { AudiencePageView } from "@/components/site/audience-page";
-import { audiencePages } from "@/lib/audience-pages";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
+import { audiencesBySlug } from "@/lib/audience-pages";
 
-export const metadata: Metadata = {
-  title: "Industry Associations and Ecosystem Actors",
-  description:
-    "Credence Africa helps industry associations, chambers, professional bodies, sector platforms and ecosystem builders strengthen their institutions, serve members better, shape policy and convene their sectors with credibility.",
-};
+const page = audiencesBySlug["industry-associations"];
 
-export default function IndustryAssociationsPage() {
-  return <AudiencePageView page={audiencePages["industry-associations"]} />;
+export const metadata = pageMetadata(page);
+
+export default function Page() {
+  return <CopyPageView page={page} />;
 }

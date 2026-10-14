@@ -1,12 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
-import type { HeroProps } from "./hero";
-import { Arrow, Chip, CtaBand, FaqList, IconTile, Pill, SmartLink, num } from "./primitives";
+import { Hero, type HeroProps } from "./hero";
+import { Arrow, Chip, CtaBand, FaqJsonLd, FaqList, IconTile, Pill, SmartLink, num } from "./primitives";
 
 export type CopyLink = { label: string; href: string };
 
-/** A body section of the long-form pages (Home, About, Services). */
+/** A body section of the copy template, which every content page uses. */
 export type CopySection = {
   type: "statement" | "split" | "cards" | "steps" | "directory" | "faq" | "cta";
   id?: string;
@@ -33,6 +34,24 @@ export type CopySection = {
 };
 
 export type CopyPage = { hero: HeroProps; sections: CopySection[] };
+
+/** A copy-template page with the design's search title and description. */
+export type SitePage = CopyPage & { title: string; description: string };
+
+/** The design's titles are complete, so they skip the layout's " | Credence Africa" suffix. */
+export const pageMetadata = (page: SitePage): Metadata => ({ title: { absolute: page.title }, description: page.description });
+
+/** A whole copy-template page: hero, body sections and the FAQ's structured data. */
+export function CopyPageView({ page }: { page: CopyPage }) {
+  const faqs = page.sections.find((s) => s.type === "faq")?.faqs;
+  return (
+    <>
+      {faqs && <FaqJsonLd items={faqs} />}
+      <Hero {...page.hero} />
+      <CopySections sections={page.sections} />
+    </>
+  );
+}
 
 const h2Section = "h2 m-0 text-balance text-[clamp(32px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]";
 
@@ -252,21 +271,26 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
               </section>
             );
 
-          case "faq":
+          case "faq": {
+            const faqs = s.faqs ?? [];
+            const half = Math.ceil(faqs.length / 2);
             return (
               <section key={i} className="bg-white py-32 text-ink">
                 <div className="wrap">
-                  <div className={split}>
-                    <h2 className="h2 m-0 text-[clamp(32px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]">{s.h2}</h2>
-                    <FaqList items={s.faqs ?? []} variant="copy" />
+                  <h2 className="h2 mb-12 mt-0 text-[clamp(32px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]">{s.h2}</h2>
+                  {/* Questions in two columns; under 900px they stack and the second column drops its top rule. */}
+                  <div className="grid grid-cols-2 items-start gap-x-14 max-[900px]:grid-cols-1 max-[900px]:[&>*+*]:border-t-0">
+                    <FaqList items={faqs.slice(0, half)} />
+                    <FaqList items={faqs.slice(half)} />
                   </div>
                 </div>
               </section>
             );
+          }
 
           case "cta":
             return (
-              <CtaBand key={i} heading={s.h2 ?? ""} text={s.p ?? ""} size="copy">
+              <CtaBand key={i} heading={s.h2 ?? ""} text={s.p} size="copy">
                 <div className="flex flex-wrap justify-center gap-3">
                   {s.links?.map((l, j) => (
                     <Pill key={l.href + j} href={l.href} variant={j === 0 ? "light" : "outline"}>

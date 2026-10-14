@@ -132,12 +132,21 @@ and bottom, so there is never a gap between cells.
   their card is hovered.
 - **Hero** (`Hero`): photo, gradient, breadcrumb, title, base row with scroll cue, intro,
   buttons and an optional white feature card or key/value panel.
+- **Copy template** (`CopyPageView`, `CopySections`): every content page (home, about, services
+  and their product pages, sectors, themes, who we work with) is the hero followed by statement,
+  split, cards, steps, directory, FAQ and closing sections. The copy lives in `src/lib/*-content.ts`,
+  `audience-pages.ts`, `service-pages.ts` and `copy-pages.ts`, generated from the canvas, with each
+  page's search title and description.
 - **Header**: absolute over the hero, translucent ink with a 6px blur, dropdown menus on
-  `#111111`, a white "Book a Consultation" pill; collapses to a menu button at 1180px.
+  `#111111`, a white "Book a Consultation" pill; collapses to a menu button at 1180px. Services
+  lists the four trade programmes under Trade and Growth, indented, 13px and `#A3A3A3`.
+- **Sister-site links**: a link to Credence Institute, Credible Perspectives or Credence Engage
+  that has no icon of its own ends in a vermillion ↗ (`::after`), nudging up-right on hover.
 - **Footer**: black, a bordered four-cell grid, vermillion headings; floating WhatsApp and call
   buttons sit bottom-right on every page.
-- **Closing band** (`CtaBand`): the city photograph darkened, centred heading, text and pills.
-- **FAQ** (`FaqList`): native details/summary rows with a round plus that turns into a cross.
+- **Closing band** (`CtaBand`): the city photograph darkened, centred heading, optional text and pills.
+- **FAQ** (`FaqList`): the heading across the top and the questions in two columns (one under
+  900px); native details/summary rows with a round plus that turns into a cross.
 
 ## 6. Motion
 
@@ -162,7 +171,7 @@ The canvas is drawn at desktop and 390px. These rules adapt it to the sizes betw
   scrolls within the screen. Desktop keeps the canvas behaviour (no pinning).
 - **Touch:** hover effects apply only where hovering exists (`(hover: hover)`; Tailwind's
   `hoverOnlyWhenSupported`); touch gets a press state instead. Small controls carry `.hit`,
-  which grows the tap area to 44px on coarse pointers without changing their look; footer link
+  which grows the tap area to 44px on coarse pointers (`::before`) without changing their look; footer link
   rows open to 44px apart on touch so those areas never overlap.
 - **Images:** photos in sections use `next/image` (sized WebP per device); the `.ph` and
   `.ph-city` grounds switch to 960px copies at 720px and below. Floating buttons sit in a row

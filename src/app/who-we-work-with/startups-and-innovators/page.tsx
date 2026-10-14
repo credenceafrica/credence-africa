@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
-import { AudiencePageView } from "@/components/site/audience-page";
-import { audiencePages } from "@/lib/audience-pages";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
+import { audiencesBySlug } from "@/lib/audience-pages";
 
-export const metadata: Metadata = {
-  title: "Startups and Innovators",
-  description:
-    "Credence Africa helps startups, founders and innovators become investor-ready, navigate regulation, access markets and build the systems and credibility that growth demands.",
-};
+const page = audiencesBySlug["startups-and-innovators"];
 
-export default function StartupsAndInnovatorsPage() {
-  return <AudiencePageView page={audiencePages["startups-and-innovators"]} />;
+export const metadata = pageMetadata(page);
+
+export default function Page() {
+  return <CopyPageView page={page} />;
 }

@@ -12,7 +12,8 @@ export type NavMenu = {
   href: string;
   /** Label of the menu's first row, which links to the index page. */
   all: string;
-  items: { label: string; href: string }[];
+  /** `sub` items are programmes of the item above them, drawn indented. */
+  items: { label: string; href: string; sub?: boolean }[];
 };
 
 type Section = NavMenu["key"] | "about" | "events" | "insights" | "home" | "none";
@@ -146,7 +147,14 @@ export function Header({ menus }: { menus: NavMenu[] }) {
                       <Arrow />
                     </SmartLink>
                     {m.items.map((it) => (
-                      <SmartLink key={it.href} href={it.href} className="cr-di whitespace-normal px-3.5 py-2.5 font-normal text-[#E5E5E5]">
+                      <SmartLink
+                        key={it.href}
+                        href={it.href}
+                        className={cn(
+                          "cr-di whitespace-normal font-normal",
+                          it.sub ? "cr-sub py-1.5 pl-7 pr-3.5 text-[13px] text-[#A3A3A3]" : "px-3.5 py-2.5 text-[#E5E5E5]",
+                        )}
+                      >
                         {it.label}
                       </SmartLink>
                     ))}
@@ -210,7 +218,12 @@ export function Header({ menus }: { menus: NavMenu[] }) {
                     <Arrow />
                   </SmartLink>
                   {l.items.map((it) => (
-                    <SmartLink key={it.href} href={it.href} onClick={() => setMobileOpen(false)} className="py-3 text-[16px] text-[#E5E5E5]">
+                    <SmartLink
+                      key={it.href}
+                      href={it.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={it.sub ? "py-3 pl-4 text-[14px] text-[#A3A3A3]" : "py-3 text-[16px] text-[#E5E5E5]"}
+                    >
                       {it.label}
                     </SmartLink>
                   ))}
