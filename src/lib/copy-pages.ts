@@ -20,7 +20,7 @@ export const homePage: CopyPage = {
       "href": "/services"
     },
     "size": "full",
-    "imgAlt": "Nairobi skyline above the city's tree canopy at golden hour"
+    "imgAlt": "Professionals in discussion on a terrace overlooking a modern African city skyline"
   },
   "sections": [
     {
