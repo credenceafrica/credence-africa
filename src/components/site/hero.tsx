@@ -42,7 +42,7 @@ export function Hero({
   side,
   size = "default",
   mobileTitle,
-  imgAlt = "Nairobi skyline above the city's tree canopy at golden hour",
+  imgAlt = "Professionals in discussion on a terrace overlooking a modern African city skyline",
 }: HeroProps) {
   const tall = size !== "default";
   const trail = crumbs?.length ? [{ label: "Home", href: "/" }, ...crumbs] : [];
@@ -50,16 +50,21 @@ export function Hero({
   return (
     <section className={cn("relative w-full overflow-hidden bg-ink text-white", minH[size])}>
       <Image
-        src="/hero-nairobi-skyline.jpg"
+        src="/hero-terrace.jpg"
         alt={imgAlt}
         fill
         priority
         sizes="100vw"
-        className="cr-hero-img object-cover [object-position:center_40%]"
+        className="cr-hero-img object-cover [object-position:72%_center]"
       />
       <div
         aria-hidden="true"
-        className="cr-hero-shade absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,0.7)_0%,rgba(10,10,10,0.45)_40%,rgba(10,10,10,0.85)_100%)]"
+        className="cr-hero-shade absolute inset-0"
+        // Darkens the top, bottom and left (where the text sits) and leaves the people on the right clear.
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0) 28%, rgba(10,10,10,0) 52%, rgba(10,10,10,0.82) 100%), linear-gradient(90deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.45) 45%, rgba(10,10,10,0.12) 100%)",
+        }}
       />
 
       <div className={cn("relative mx-auto flex max-w-[1400px] flex-col px-10 pb-10 pt-[196px] max-[720px]:px-5", minH[size])}>
