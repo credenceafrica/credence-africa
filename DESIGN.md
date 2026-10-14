@@ -91,8 +91,9 @@ summarises it so new work stays consistent. The code lives in `src/components/si
 
 ## 1. Overview
 
-A photographic, editorial system. Every page opens on a full-bleed Nairobi photograph under a
-dark gradient, with a translucent header laid over it and a very large, light, tightly tracked
+A photographic, editorial system. Every page opens on one full-bleed photograph (professionals
+on a terrace above the city, set at 72% across) under a shade that darkens the top, bottom and
+left where the text sits, with a translucent header laid over it and a very large, light, tightly tracked
 title. Below the hero, white sections alternate with ink (#0A0A0A) bands; content sits in
 hairline grids and numbered ledger rows rather than floating cards. A single vermillion
 (#FF4820) marks emphasis: kickers, numbers, tile icons, rules and the primary call to action on
