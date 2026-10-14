@@ -42,6 +42,9 @@ export default async function ServicePage({ params }: { params: { slug: string }
   const otherServices = allServices.filter(s => s.id !== service.id && s.href.startsWith("/")).slice(0, 3);
 
   return (
+    <>
+    {/* Outside the 2026 design: an ink bar under the overlay header keeps it legible. */}
+    <div aria-hidden="true" className="h-[84px] bg-ink" />
     <div className="py-16 lg:py-24 space-y-24 mx-auto lg:w-85">
         <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-8">
@@ -97,5 +100,6 @@ export default async function ServicePage({ params }: { params: { slug: string }
             </aside>
         </div>
     </div>
+    </>
   );
 }

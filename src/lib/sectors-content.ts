@@ -1,940 +1,1081 @@
-import { Sprout, Leaf, Palette, Landmark, HeartPulse, Truck, Cpu } from "lucide-react";
-import { HELP_HEADINGS, serviceLinks, type LandingPage } from "./landing-content";
+// Generated from the 2026 design canvas copy. Edit freely; it is plain data.
+import type { SitePage } from "@/components/site/copy-sections";
 
-/**
- * Sector landing pages.
- *
- * These are Credence Africa's seven sector portfolios, per the Consultant
- * Onboarding Guide (September 2026 edition): Agribusiness and Food Systems,
- * Consumer, Creative and Services Economy, Energy and Natural Resources,
- * Financial Services, Healthcare and Wellness, Mobility, Transport and
- * Logistics, and Technology and Digital Economy. Blue Economy and Marine
- * Resources, Education, Skills and Workforce Development, and Trade,
- * Infrastructure and Industrial Development were retired from the sector
- * list in October 2026 to match that structure; see the redirects in
- * next.config.ts.
- */
-export type Sector = LandingPage;
+/** The sectors index. */
+export const sectorsPage: SitePage = {
+  "title": "Sectors: Advisory, Training and Intelligence | Credence Africa",
+  "description": "Explore Credence Africa's seven sectors and find advisory, professional learning, events and research for institutions in Kenya and African markets.",
+  "hero": {
+    "title": "Expertise for the sector you operate in",
+    "intro": "Credence Africa connects institutional advisory, professional learning, convening and evidence across seven sectors. Start with the sector closest to your business, portfolio or public mandate. The relevant sector context helps us understand your operating model; the service brief defines the decision, outputs and work required.",
+    "crumbs": [
+      {
+        "label": "Sectors"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "statement",
+      "lead": "Kenya provides a practical starting point for institutions entering or expanding in African markets.",
+      "rest": "A regional ambition still needs country-specific demand, distribution, capital and stakeholder knowledge. Our sector pages connect these questions with the relevant advisory service, Credence Institute programs, Credence Engage opportunities and Credible Perspectives intelligence."
+    },
+    {
+      "type": "cards",
+      "pad": "128px 0",
+      "h2": "Explore our seven sectors",
+      "cards": [
+        {
+          "t": "Agribusiness and Food Systems",
+          "b": "Inputs, primary production, livestock, fisheries, aggregation, post-harvest handling, packhouses, produce preservation, food processing and manufacturing and food markets and trade.",
+          "href": "/sectors/agriculture",
+          "cta": "Explore"
+        },
+        {
+          "t": "Consumer, Creative and Services Economy",
+          "b": "Tourism, hospitality, creative industries, consumer businesses, retail, leisure, entertainment, sports business, education, training and professional services.",
+          "href": "/sectors/consumer",
+          "cta": "Explore"
+        },
+        {
+          "t": "Energy and Natural Resources",
+          "b": "Energy, extractives, resource value chains, water, sanitation, waste, recycling and commercial environmental services.",
+          "href": "/sectors/energy",
+          "cta": "Explore"
+        },
+        {
+          "t": "Financial Services",
+          "b": "Banking, lending, payments, insurance, pensions, investment services, capital markets and financial cooperatives.",
+          "href": "/sectors/finance",
+          "cta": "Explore"
+        },
+        {
+          "t": "Healthcare and Wellness",
+          "b": "Healthcare providers, diagnostics, pharmaceuticals, medical products, preventive care, nutrition and wellness services.",
+          "href": "/sectors/healthcare",
+          "cta": "Explore"
+        },
+        {
+          "t": "Mobility, Transport and Logistics",
+          "b": "Passenger mobility, vehicles, freight, fleets, shipping, aviation, distribution and transport infrastructure, including cold storage, cold chain logistics and temperature-controlled transport for food and pharmaceutical supply chains.",
+          "href": "/sectors/mobility",
+          "cta": "Explore"
+        },
+        {
+          "t": "Technology and Digital Economy",
+          "b": "Software, AI products, telecommunications, connectivity, cloud computing, data infrastructure and ICT services.",
+          "href": "/sectors/technology",
+          "cta": "Explore"
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "eb": "01",
+      "h2": "Choose the support your decision needs",
+      "paras": [
+        "Discuss a dedicated mandate through our advisory services. Develop your team through Credence Institute. Participate, sponsor or commission convening through Credence Engage. Read public analysis through Credible Perspectives or commission private research.",
+        "Tell us the business model, market and decision deadline. We will assess the brief and identify the appropriate delivery route, including specialist inputs where the assignment requires them."
+      ],
+      "links": [
+        {
+          "label": "Discuss your sector requirement",
+          "href": "/consult"
+        }
+      ],
+      "chips": [
+        {
+          "label": "advisory services",
+          "href": "/services"
+        },
+        {
+          "label": "Credence Institute",
+          "href": "https://institute.credence.africa"
+        },
+        {
+          "label": "Credence Engage",
+          "href": "/services/credence-engage"
+        },
+        {
+          "label": "Credible Perspectives",
+          "href": "https://perspectives.credence.africa"
+        },
+        {
+          "label": "commission private research",
+          "href": "/services/research"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "h2": "Book a consultation",
+      "links": [
+        {
+          "label": "Book a consultation",
+          "href": "/consult"
+        }
+      ]
+    }
+  ]
+};
+
+/** Credence Africa's seven sectors, in the order the design lists them. `name` is the navigation label. */
+export type Sector = SitePage & { slug: string; name: string };
 
 export const sectorList: Sector[] = [
   {
-    slug: "finance",
-    kind: "sector",
-    name: "Financial Services",
-    scope:
-      "Banking, lending, payments, insurance, pensions, investment services, capital markets and financial cooperatives.",
-    icon: Landmark,
-    seoTitle: "Financial Services Consulting in Africa",
-    metaDescription:
-      "Financial services consulting, market intelligence and executive training across Africa, with priority coverage in Kenya, Nigeria and South Africa.",
-    keywords: [
-      "financial services consulting Africa",
-      "financial services advisory Africa",
-      "fintech consulting Africa",
-      "banking advisory Kenya",
-      "financial services consulting Nigeria",
-      "capital markets advisory South Africa",
-      "financial sector research Africa",
-    ],
-    h1: "Financial Services Advisory Across Africa",
-    intro:
-      "Credence Africa helps financial institutions, investors and market builders turn complex African financial markets into clear strategic decisions. We combine sector intelligence, executive capability and advisory support across banking, lending, payments, insurance, pensions, investment services, capital markets and financial cooperatives.",
-    actions: [
-      { label: "Discuss a Financial Services Mandate", consult: "capital" },
-      { label: "Commission Financial Sector Intelligence", consult: "research" },
-    ],
-    positioning: {
-      heading: "Strategy, intelligence and capability for stronger financial markets",
-      paragraphs: [
-        "Financial services institutions operate inside fast changing commercial, regulatory and technology environments. Growth requires disciplined market choices, credible governance, strong stakeholder relationships and a clear understanding of customer behaviour, capital needs and policy direction.",
-        "Credence Africa supports established financial institutions, emerging financial technology businesses, investors, industry associations, development partners and public institutions. Our work converts market complexity into practical decisions, stronger institutions and investable growth pathways.",
+    "slug": "agriculture",
+    "name": "Agribusiness and Food Systems",
+    "title": "Agribusiness and Food Systems Advisory in Kenya | Credence Africa",
+    "description": "Connect agribusiness finance, market access and institutional capability through advisory, training, events and research in Kenya and African markets.",
+    "hero": {
+      "title": "Agribusiness and Food Systems build a stronger value chain",
+      "intro": "Agribusiness decisions depend on how the whole value chain works. Production capacity means little without aggregation, reliable quality, storage, working capital and a route to the buyer. Credence Africa supports institutions connecting these elements: producers, cooperatives, processors, input providers, distributors, investors and development partners.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Agribusiness and Food Systems"
+        }
       ],
+      "btn1": {
+        "label": "Discuss an agribusiness mandate",
+        "href": "/consult?consult=trade"
+      },
+      "btn2": {
+        "label": "Explore team learning",
+        "href": "https://institute.credence.africa/corporate-training"
+      }
     },
-    needs: {
-      lead: "We are engaged when leaders need grounded answers to questions such as:",
-      items: [
-        "Which financial market, product or customer segment offers the strongest growth case?",
-        "What regulatory, competitive and stakeholder conditions will shape entry or expansion?",
-        "How should an institution prepare for capital, partnership or transaction discussions?",
-        "What evidence should guide a new financial inclusion, digital finance or market development initiative?",
-        "What capability must boards, executives and teams build to execute the strategy responsibly?",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we build the leadership, commercial and institutional capability required to compete in African financial markets.",
-        items: [
-          "Executive education for banking, insurance, fintech, SACCO and investment leaders",
-          "Board and governance programmes for regulated and member based financial institutions",
-          "Digital finance, payments, financial inclusion and responsible innovation training",
-          "Capital readiness and investor engagement programmes for financial services businesses",
-          "Policy dialogues, industry roundtables and executive forums for market leaders",
+        "type": "statement",
+        "lead": "For a board or management team, the useful starting point is a specific commercial choice.",
+        "rest": "You may be evaluating a processing investment, a new commodity market, a supplier network, an export route or a financing proposition. We connect the question with the advisory, evidence, learning and industry engagement needed to make the next step credible."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Turn sector knowledge into an investment or market decision",
+        "paras": [
+          "An agricultural business needs assumptions that reflect its operating cycle. Seasonal procurement, crop variability, spoilage, collection distances, customer concentration and payment terms can change the financing requirement. A mandate can examine those commercial drivers and organize the evidence behind an investment or expansion case.",
+          "Capital Raising and Investment Structuring supports funding preparation and capital decisions. Trade and Growth Advisory addresses market selection, entry and distribution. The scope identifies whether your immediate requirement is a readiness review, a market assessment, financing materials or support with a defined implementation decision."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our research and intelligence work gives decision-makers a reliable view of markets, customers, competitors, regulation and investment activity.",
-        items: [
-          "Financial market assessments and sector outlooks",
-          "Fintech, payments, banking, insurance and capital markets research",
-          "Customer, channel and competitor intelligence",
-          "Regulatory and policy monitoring",
-          "Investment landscape, ecosystem and stakeholder mapping",
-          "Commissioned publications, executive briefs and thought leadership",
+        "chips": [
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          },
+          {
+            "label": "Trade and Growth Advisory",
+            "href": "/services/trade-growth"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work connects strategy to execution. We support growth, capital, market entry, investment facilitation and policy engagement.",
-        items: [
-          "Growth strategy and business model development",
-          "Market entry and expansion across African jurisdictions",
-          "Capital raising preparation and investment structuring",
-          "Investor, partner and stakeholder engagement",
-          "Public affairs, regulatory strategy and industry advocacy",
-          "Institutional strategy, governance and operating model improvement",
-        ],
-      },
-    ],
-    mandates: [
-      "A fintech assessing entry into Kenya, Nigeria or South Africa",
-      "A bank or insurer developing a growth, distribution or partnership strategy",
-      "A SACCO or cooperative strengthening governance, capital and member value",
-      "An investor seeking commercial and regulatory intelligence on an African financial market",
-      "An industry body developing a policy position, market study or executive forum",
-    ],
-    audiences: [
-      "Banks, fintechs, payment companies and digital lenders",
-      "Insurance companies, pension institutions and investment managers",
-      "SACCOs, cooperatives and member based financial institutions",
-      "Capital market institutions, private capital firms and development finance institutions",
-      "Regulators, governments, associations, foundations and development partners",
-    ],
-    geography:
-      "Kenya is central to our East African financial services work. Nigeria is a priority market for scale, innovation and West African expansion. South Africa is a priority market for capital markets, institutional finance, insurance and regional investment. We also support clients entering other African markets through local research, partner identification, stakeholder intelligence and market entry planning.",
-    why:
-      "A financial services decision often requires commercial research, regulatory intelligence, stakeholder engagement, capital planning and executive capability at the same time. Credence Africa brings these disciplines into one mandate. This creates a clearer decision process and a stronger route from strategy to execution.",
-    faqs: [
-      {
-        q: "What financial services consulting does Credence Africa provide?",
-        a: "We provide growth strategy, market entry, capital raising preparation, investment facilitation, regulatory strategy, policy advisory, market intelligence, institutional strengthening, executive training and sector convening.",
+        "type": "split",
+        "eb": "02",
+        "h2": "Strengthen the people and institutions behind the chain",
+        "paras": [
+          "Credence Institute can develop learning for cooperative leaders, enterprise managers and commercial teams. Subjects may include governance, financial understanding, operating controls, distribution, procurement and market development. Team learning works best when participants use a real organizational challenge and management agrees how the new capability will be applied.",
+          "Credence Engage offers a separate route for convening buyers, suppliers, financiers and public institutions. A roundtable or industry event should have a defined audience and purpose, such as testing a market constraint, discussing a supply relationship or presenting an investment theme. Attendance and sponsorship are selected against that purpose."
+        ]
       },
       {
-        q: "Can Credence Africa support fintech expansion into Kenya, Nigeria or South Africa?",
-        a: "Yes. We can assess market attractiveness, regulation, competition, customer segments, partnership options and stakeholder requirements. We can also design the entry pathway and support partner and institutional engagement.",
+        "type": "split",
+        "eb": "03",
+        "h2": "Commission evidence before committing resources",
+        "paras": [
+          "Private research can examine demand, value-chain economics, competitor positioning, stakeholder relationships or an institutional bottleneck. A brief identifies the commodity, geography, buyer segment and decision being supported. Field access, seasonal timing and the quality of existing data determine the research method and timetable.",
+          "Credible Perspectives provides public analysis for wider context. A commissioned study goes further into your question, with agreed sources, outputs and publication rights. Keep these routes distinct when your institution needs confidential findings, a board paper or evidence for a funding proposal."
+        ]
       },
       {
-        q: "Does Credence Africa conduct financial sector research?",
-        a: "Yes. We conduct commissioned research, market assessments, competitor studies, policy analysis, stakeholder mapping, investment landscape reviews and sector intelligence.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Which agribusiness institutions can work with Credence",
+            "a": "The relevant audience includes producer organizations, cooperatives, processors, input businesses, logistics providers, investors and institutions funding food-system development. Describe your role in the chain so the scope addresses the decisions you actually control."
+          },
+          {
+            "q": "Can you support a cooperative that also operates a commercial enterprise",
+            "a": "Yes. Member priorities and enterprise economics should be considered together. A brief can distinguish governance and leadership learning from market, finance or operating decisions, while keeping a clear accountable owner for the assignment."
+          },
+          {
+            "q": "What information is useful for a financing discussion",
+            "a": "Start with the funding purpose, operating cycle, available accounts, supply arrangements, customers and intended investment. The initial review identifies missing evidence and the work needed to present a credible financing proposition."
+          },
+          {
+            "q": "Can you assess a new product or export market",
+            "a": "A market brief can examine the customer segment, distribution channel, demand evidence and practical entry conditions. Define the product specification and target geography before deciding how extensive the assessment needs to be."
+          },
+          {
+            "q": "Can training include our own value chain challenge",
+            "a": "An employer or institutional program can use an agreed organizational case. Explain the participants' roles and the management decision the learning should support so exercises are relevant to the institution."
+          },
+          {
+            "q": "Is a convening suitable for finding buyers",
+            "a": "It can create useful engagement where the audience and participation design fit the commercial objective. The event brief should explain which buyers matter and how introductions or discussions will be organized; participation alone does not establish a sale."
+          },
+          {
+            "q": "Can research be kept confidential",
+            "a": "Yes. A commissioned research agreement identifies the audience, access and publication rights. If a partner funds the study, agree reporting and public-release expectations before fieldwork begins."
+          },
+          {
+            "q": "How do we begin",
+            "a": "Send the commodity or value chain, institution, target market, decision and timing. Include the information already available and the output you need. We will assess the requirement and propose the relevant route and scope."
+          }
+        ]
       },
       {
-        q: "Can you help a financial services business raise capital?",
-        a: "We help institutions prepare for capital by clarifying the strategy, investment case, financial requirements, governance, materials and investor engagement plan. Funding outcomes depend on the opportunity, market conditions and investor decisions. We do not guarantee capital.",
-      },
-    ],
-    closing: {
-      heading: "Build a stronger financial services strategy",
-      body:
-        "Whether you are entering a market, raising capital, responding to regulation, launching a product or building institutional capability, Credence Africa can structure the mandate around the decision you need to make.",
-      label: "Book a Financial Services Consultation",
-      consult: "capital",
-    },
-    links: serviceLinks("capital", "publicAffairs", "trade", "research", "institute", "engage"),
+        "type": "cta",
+        "h2": "Discuss an agribusiness mandate",
+        "links": [
+          {
+            "label": "Discuss an agribusiness mandate",
+            "href": "/consult?consult=trade"
+          },
+          {
+            "label": "Explore team learning",
+            "href": "https://institute.credence.africa/corporate-training"
+          },
+          {
+            "label": "Commission research",
+            "href": "/services/research"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "healthcare",
-    kind: "sector",
-    name: "Healthcare and Wellness",
-    scope:
-      "Healthcare providers, diagnostics, pharmaceuticals, medical products, preventive care, nutrition and wellness services.",
-    icon: HeartPulse,
-    seoTitle: "Healthcare Consulting in Africa",
-    metaDescription:
-      "Healthcare consulting, market intelligence and executive training across Africa, including Kenya, Nigeria and South Africa.",
-    keywords: [
-      "healthcare consulting Africa",
-      "healthcare advisory Africa",
-      "healthcare market entry Africa",
-      "healthcare consulting Kenya",
-      "healthcare consulting Nigeria",
-      "healthcare advisory South Africa",
-      "healthcare market research Africa",
-    ],
-    h1: "Healthcare and Wellness Advisory Across Africa",
-    intro:
-      "Credence Africa helps healthcare providers, pharmaceutical and medical product businesses, investors and public interest actors make stronger decisions across African health markets. We support growth, capital, market entry, policy, research, institutional capability and sector collaboration.",
-    actions: [
-      { label: "Discuss a Healthcare Mandate", consult: "capital" },
-      { label: "Commission Healthcare Market Research", consult: "research" },
-    ],
-    positioning: {
-      heading: "Commercial growth and institutional strength for African healthcare",
-      paragraphs: [
-        "Healthcare organisations face a demanding combination of patient needs, workforce pressures, capital constraints, regulation, technology change and complex supply chains. Sound decisions require commercial evidence and a clear understanding of the institutions that influence market access and service delivery.",
-        "Credence Africa works across healthcare providers, diagnostics, pharmaceuticals, medical products, preventive care, nutrition and wellness services. We support businesses and institutions that need to grow, enter new markets, attract capital, understand policy, strengthen leadership or build credible sector platforms.",
+    "slug": "consumer",
+    "name": "Consumer, Creative and Services Economy",
+    "title": "Consumer and Creative Economy Advisory | Credence Africa",
+    "description": "Build consumer, creative and service businesses through growth advisory, professional learning, industry engagement and commissioned market intelligence.",
+    "hero": {
+      "title": "Consumer, Creative and Services Economy turn demand into durable growth",
+      "intro": "Consumer, creative and service businesses grow when customer demand, delivery capability and commercial discipline develop together. A strong brand or promising audience can create interest but recurring revenue depends on pricing, distribution, customer experience and the systems behind the offer. Credence Africa works with institutions examining these choices in Kenya and wider African markets.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Consumer, Creative and Services Economy"
+        }
       ],
+      "btn1": {
+        "label": "Discuss your growth decision",
+        "href": "/consult?consult=trade"
+      },
+      "btn2": {
+        "label": "Explore Institute programs",
+        "href": "https://institute.credence.africa/programs"
+      }
     },
-    needs: {
-      lead: "Our work addresses practical questions that affect healthcare growth and impact:",
-      items: [
-        "Where is the strongest commercial or service delivery opportunity?",
-        "What market, regulatory and stakeholder conditions will shape the opportunity?",
-        "How should a provider, health business or project prepare for investment?",
-        "What partnerships are required for distribution, clinical access, technology adoption or public sector engagement?",
-        "What evidence and capability will allow the institution to scale with discipline?",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we strengthen leadership, governance, commercial capability and collaboration across the healthcare ecosystem.",
-        items: [
-          "Executive education for healthcare founders, facility leaders and senior managers",
-          "Governance and board programmes for hospitals, health businesses and associations",
-          "Commercial growth, investment readiness and market entry training",
-          "Policy, regulatory and stakeholder engagement programmes",
-          "Healthcare leadership forums, investor conversations and sector roundtables",
+        "type": "statement",
+        "lead": "This sector includes businesses whose value comes from products, services, experiences, content and relationships.",
+        "rest": "The management question may be how to enter a market, build a channel, strengthen a service model, prepare for investment or understand changing consumer behavior. We frame the work around that question rather than treating every enterprise as the same growth case."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Test the growth model before scaling it",
+        "paras": [
+          "An expansion plan needs to show how demand becomes income. Customer acquisition cost, repeat purchase, channel margins, capacity, service quality and working capital can change as an enterprise grows. A defined advisory mandate can review the assumptions, identify missing evidence and organize the next commercial decision.",
+          "Trade and Growth Advisory addresses market selection and entry routes. Capital Raising and Investment Structuring supports preparation for a funding discussion. For a creative or service business, this may involve explaining revenue sources, customer concentration, distribution relationships and the economic value of the assets that support delivery."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our research gives healthcare decision-makers a commercially useful view of demand, competition, regulation, investment and service delivery conditions.",
-        items: [
-          "Healthcare market assessments and opportunity studies",
-          "Facility, provider, product and ecosystem mapping",
-          "Patient, consumer, purchaser and channel intelligence",
-          "Pharmaceutical, diagnostics, medical device and health technology research",
-          "Health financing, policy and regulatory analysis",
-          "Commissioned reports, sector outlooks and executive intelligence",
+        "chips": [
+          {
+            "label": "Trade and Growth Advisory",
+            "href": "/services/trade-growth"
+          },
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work supports institutions from strategic choice through market engagement and execution planning.",
-        items: [
-          "Growth strategy for healthcare providers and health businesses",
-          "Market entry and expansion in African health markets",
-          "Capital readiness, investment structuring and investor engagement",
-          "Trade, distribution and partnership strategy",
-          "Policy, regulatory and public affairs advisory",
-          "Institutional strategy, governance and operating model development",
+        "type": "split",
+        "eb": "02",
+        "h2": "Build capability across the customer journey",
+        "paras": [
+          "Credence Institute provides a route for learning in business development, leadership, operating systems, client management and commercial understanding. A team program can focus on the roles that shape conversion, delivery and retention. Management should identify the behavior it wants to improve and the evidence it will use to assess application.",
+          "Credence Engage connects institutions through events, industry platforms and commissioned convenings. A commercial brief can define the target audience, participation format and intended conversation. Sponsorship or an activation needs an audience fit and an agreed deliverable, rather than an assumption that visibility automatically produces sales."
+        ]
+      },
+      {
+        "type": "split",
+        "eb": "03",
+        "h2": "Understand customers and the market with useful evidence",
+        "paras": [
+          "Commissioned research can examine customer segments, purchasing behavior, competitor positioning, channel choices or an unfamiliar market. State the decision first: a pricing change, product launch, distribution investment or regional expansion. The research design can then distinguish what needs fieldwork from what existing information already answers.",
+          "Public analysis through Credible Perspectives offers broader context. Private Research and Market Intelligence can produce a customer or market brief for your management team. Commissioned media and podcasts have a separate editorial and production scope, including audience, format, approvals and distribution."
         ],
-      },
-    ],
-    mandates: [
-      "A hospital group planning expansion into a new city or country",
-      "A pharmaceutical, diagnostics or medical technology company entering an African market",
-      "A health technology business preparing for investment and institutional partnerships",
-      "An investor assessing a healthcare segment, company or project",
-      "An association, government or development partner commissioning research or a sector initiative",
-    ],
-    audiences: [
-      "Hospitals, clinics, laboratories and diagnostic networks",
-      "Pharmaceutical, medical device and health technology companies",
-      "Health insurers, investors and development finance institutions",
-      "Government agencies, regulators and public health institutions",
-      "Associations, universities, foundations and development partners",
-    ],
-    geography:
-      "Kenya is a priority market for East African healthcare delivery, health technology and regional growth. Nigeria is a priority market for scale, distribution and healthcare investment. South Africa is a priority market for life sciences, institutional healthcare, private capital and regional partnerships. We support work in other African markets through targeted research, stakeholder mapping and locally grounded market entry strategy.",
-    why:
-      "Healthcare growth cannot be separated from capital, regulation, workforce, trust and market access. Credence Africa brings these elements into one decision framework. We assemble qualified clinical, scientific, legal and technical partners when a mandate requires specialist disciplines.",
-    faqs: [
-      {
-        q: "What healthcare consulting services does Credence Africa provide?",
-        a: "We provide growth strategy, market entry, capital readiness, investment facilitation, market research, policy and regulatory advisory, institutional strengthening, executive training and sector convening.",
+        "chips": [
+          {
+            "label": "Research and Market Intelligence",
+            "href": "/services/research"
+          }
+        ]
       },
       {
-        q: "Can Credence Africa help a healthcare company enter Kenya, Nigeria or South Africa?",
-        a: "Yes. We can assess demand, competition, regulation, distribution, partnerships, investment conditions and stakeholder requirements. We then translate the findings into a practical market entry and engagement plan.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Does this sector cover service businesses as well as consumer products",
+            "a": "Yes. The relevant context includes consumer-facing businesses, creative enterprises and service organizations. Explain what you sell, who pays and how the service is delivered so we can identify the commercial question."
+          },
+          {
+            "q": "Can you help evaluate a new distribution channel",
+            "a": "A defined assessment can compare customer reach, channel economics, operating demands and market evidence. Begin with the product or service, current route to customers and the alternative channel being considered."
+          },
+          {
+            "q": "What does investment readiness mean for a creative enterprise",
+            "a": "It means organizing a credible growth case, financial information, commercial assumptions and supporting materials. Recurring income, customer relationships, production capacity and ownership of relevant assets should be explained in a way a funder can assess."
+          },
+          {
+            "q": "Can learning address client acquisition and retention",
+            "a": "Yes. Employer learning can focus on business development, client management and the systems that support repeat business. The team brief should identify the roles involved and the practical outcome management wants to improve."
+          },
+          {
+            "q": "Can an event be designed around a product launch",
+            "a": "A commissioned event can be scoped for a defined audience and launch objective. Agree the guest profile, format, production responsibilities and follow-up arrangements before making expenditure commitments."
+          },
+          {
+            "q": "Can you research customer behavior",
+            "a": "A commissioned study can examine an identified segment and purchasing question. The method depends on customer access, data availability and the decisions the evidence must support; it is agreed before research begins."
+          },
+          {
+            "q": "How does public intelligence differ from a private market brief",
+            "a": "Public intelligence addresses topics of wider interest. A private brief answers your institution's specific question and states the method, outputs and permitted circulation in the engagement terms."
+          },
+          {
+            "q": "What should we include in an inquiry",
+            "a": "Share the business model, customer segment, current market, proposed change and deadline. Add the output required, such as a market assessment, training program, investment-readiness review or event brief."
+          }
+        ]
       },
       {
-        q: "Does Credence Africa conduct healthcare market research?",
-        a: "Yes. Our work can cover market size, service demand, facility mapping, customer and purchaser behaviour, competitive positioning, regulation, supply chains, investment activity and ecosystem structure.",
-      },
-      {
-        q: "Does Credence Africa provide clinical or medical advice?",
-        a: "No. Our role is commercial, strategic, institutional, investment and policy focused. We work with qualified clinical, scientific and technical specialists when a mandate requires those disciplines.",
-      },
-    ],
-    closing: {
-      heading: "Turn a healthcare opportunity into an executable mandate",
-      body:
-        "Credence Africa can help you assess the opportunity, define the strategy, prepare the institution and engage the market with stronger evidence.",
-      label: "Book a Healthcare Consultation",
-      consult: "capital",
-    },
-    links: serviceLinks("capital", "trade", "publicAffairs", "research", "institute", "engage"),
+        "type": "cta",
+        "h2": "Discuss your growth decision",
+        "links": [
+          {
+            "label": "Discuss your growth decision",
+            "href": "/consult?consult=trade"
+          },
+          {
+            "label": "Explore Institute programs",
+            "href": "https://institute.credence.africa/programs"
+          },
+          {
+            "label": "Discuss industry engagement",
+            "href": "/services/credence-engage"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "agriculture",
-    kind: "sector",
-    name: "Agribusiness and Food Systems",
-    scope:
-      "Inputs, primary production, livestock, fisheries, aggregation, post-harvest handling, packhouses, produce preservation, food processing and manufacturing, food markets and trade.",
-    icon: Sprout,
-    seoTitle: "Agribusiness Consulting in Africa",
-    metaDescription:
-      "Agribusiness consulting, food systems research and executive training across Africa, including Kenya, Nigeria and South Africa.",
-    keywords: [
-      "agribusiness consulting Africa",
-      "agriculture advisory Africa",
-      "food systems consulting Africa",
-      "agribusiness consulting Kenya",
-      "agriculture consulting Nigeria",
-      "agribusiness advisory South Africa",
-      "agriculture market research Africa",
-    ],
-    h1: "Agribusiness and Food Systems Advisory Across Africa",
-    intro:
-      "Credence Africa helps agribusinesses, food companies, fisheries, cooperatives, investors and public institutions build stronger agricultural markets and enterprises. We support capital, trade, market entry, value chain growth, research, policy and institutional capability across Africa.",
-    actions: [
-      { label: "Discuss an Agribusiness Mandate", consult: "trade" },
-      { label: "Commission Agriculture Market Intelligence", consult: "research" },
-    ],
-    positioning: {
-      heading: "Stronger enterprises and value chains across African food systems",
-      paragraphs: [
-        "Agriculture is a connected system of production, finance, processing, storage, logistics, distribution, trade and consumption. Commercial success depends on the strength of the full value chain. It also depends on policy, infrastructure, climate resilience, market access and the institutions that organise producers and buyers.",
-        "Credence Africa works across inputs, primary production, livestock, fisheries, aggregation, post-harvest handling, packhouses, produce preservation, food processing and manufacturing, and food markets and trade. We help clients identify where value can be created, what capital and partnerships are required and how an enterprise or initiative can move from concept to execution.",
+    "slug": "energy",
+    "name": "Energy and Natural Resources",
+    "title": "Energy and Natural Resources Advisory | Credence Africa",
+    "description": "Connect energy and resource project decisions with capital preparation, market intelligence, professional learning and stakeholder convening in African markets.",
+    "hero": {
+      "title": "Energy and Natural Resources connect the project with its market",
+      "intro": "Energy and natural-resource decisions bring technical, commercial and institutional questions together. An asset may be attractive yet its viability depends on demand, capital, infrastructure, counterparties and the operating environment. Credence Africa supports institutions organizing those questions before they commit to a project, market or expansion plan.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Energy and Natural Resources"
+        }
       ],
+      "btn1": {
+        "label": "Discuss your project or market",
+        "href": "/consult?consult=capital"
+      },
+      "btn2": {
+        "label": "Explore capital services",
+        "href": "/services/capital-raising"
+      }
     },
-    needs: {
-      lead: "We support leaders who need answers to questions such as:",
-      items: [
-        "Which agricultural value chain or market offers the strongest commercial opportunity?",
-        "Where are the constraints in production, aggregation, processing, storage, logistics or distribution?",
-        "What will make an agribusiness, cooperative or food enterprise ready for capital?",
-        "How can a product reach domestic, regional or international markets?",
-        "What policy, institutional or capability intervention will improve market performance?",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we build enterprise, cooperative and institutional capability across agricultural value chains.",
-        items: [
-          "Agribusiness management and growth programmes",
-          "Cooperative governance, leadership and member value training",
-          "Investment readiness and financial management for agricultural enterprises",
-          "Export readiness, trade and market access programmes",
-          "Value chain forums, buyer conversations and sector roundtables",
+        "type": "statement",
+        "lead": "The sector includes energy businesses, project sponsors, investors, resource enterprises and institutions shaping enabling markets.",
+        "rest": "Kenya is a practical starting point for local knowledge and regional opportunity assessment. Each mandate still identifies the actual project, country, technology or resource and decision being supported."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Develop a coherent capital and project case",
+        "paras": [
+          "A project proposition needs to connect the proposed investment with credible revenue, cost and delivery assumptions. The relevant questions may include customer demand, supply arrangements, operating costs, development milestones and the intended funding mix. Preparation should expose the assumptions that need further evidence, rather than hiding them in a polished presentation.",
+          "Capital Raising and Investment Structuring provides a route for funding preparation and project capital analysis. The accepted scope determines the outputs and specialist inputs required. A sponsor can begin with a project brief and existing information, then establish whether the next step is a readiness review, focused research, capital materials or a broader mandate."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our research and intelligence work connects farm level realities to commercial demand, investment and policy decisions.",
-        items: [
-          "Agricultural value chain and market systems studies",
-          "Demand, pricing, buyer and competitor intelligence",
-          "Production, processing, storage and distribution mapping",
-          "Trade, export and regional market analysis",
-          "Agricultural finance, investment and policy research",
-          "Sector publications, opportunity briefs and ecosystem intelligence",
+        "chips": [
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work helps agricultural and food system actors structure growth, capital, trade and institutional partnerships.",
-        items: [
-          "Agribusiness and food enterprise growth strategy",
-          "Capital readiness and investment structuring",
-          "Trade, export and market access strategy",
-          "Market entry and distribution development",
-          "Value chain development and partnership design",
-          "Policy, public affairs and institutional engagement",
+        "type": "split",
+        "eb": "02",
+        "h2": "Read the market and institutional environment",
+        "paras": [
+          "Research and Market Intelligence can examine demand, market participants, supply relationships, infrastructure conditions or an investment landscape. A defined country and project question makes the study useful. Research findings should distinguish strong evidence, assumptions and areas requiring further technical assessment.",
+          "Public Affairs and Policy Advisory offers a separate route for understanding policy context and stakeholder engagement. Institutions can identify the public decision or market issue they need to address, the relevant stakeholders and the output expected from the engagement. The mandate defines responsibilities and the relationship with specialist technical work."
         ],
-      },
-    ],
-    mandates: [
-      "A processor seeking supply, distribution and investment strategy",
-      "A cooperative strengthening governance, finance and market access",
-      "An investor assessing an agricultural value chain or food business",
-      "An exporter planning entry into a regional or international market",
-      "A government or development partner designing a market systems, enterprise or food security initiative",
-    ],
-    audiences: [
-      "Agribusinesses, food processors, exporters and distributors",
-      "Fisheries, aquaculture and other primary producers",
-      "Producer organisations, cooperatives and SACCOs",
-      "Investors, banks and development finance institutions",
-      "Governments, associations, research institutions and development partners",
-    ],
-    geography:
-      "Kenya is a priority market for East African value chains, horticulture, agritech, cooperatives and regional trade. Nigeria is a priority market for scale, food processing, distribution and agricultural investment. South Africa is a priority market for commercial agriculture, food manufacturing, finance and regional supply chains. We also support cross-border value chains and expansion into other African markets.",
-    why:
-      "We follow the economics of the value chain. We examine production, processing, finance, infrastructure, trade and consumer demand together. This allows clients to identify the binding constraints and direct capital and capability toward the highest-value interventions.",
-    faqs: [
-      {
-        q: "What agribusiness consulting services does Credence Africa provide?",
-        a: "We provide growth strategy, value chain analysis, capital readiness, investment facilitation, trade and export strategy, market entry, policy advisory, research, training and stakeholder convening.",
+        "chips": [
+          {
+            "label": "Research and Market Intelligence",
+            "href": "/services/research"
+          },
+          {
+            "label": "Public Affairs and Policy Advisory",
+            "href": "/services/public-affairs"
+          }
+        ]
       },
       {
-        q: "Can Credence Africa support food processing and manufacturing projects?",
-        a: "Yes. Food processing sits within our Agribusiness and Food Systems sector. We can support market analysis, value chain strategy, capital readiness, investment facilitation, distribution, trade and institutional engagement.",
+        "type": "split",
+        "eb": "03",
+        "h2": "Develop leadership and convene relevant institutions",
+        "paras": [
+          "Credence Institute can organize learning for management, governance, commercial and institutional teams. Topics may include project economics, financial understanding, leadership, market development or responsible-business practice. The team's roles and current decisions should determine the learning brief.",
+          "Credence Engage can bring project sponsors, capital providers, industry participants and public institutions together around a defined issue. A roundtable, forum or commissioned event needs an explicit audience and purpose. Credible Perspectives adds public analysis, while commissioned studies remain a distinct route for confidential project or market questions."
+        ]
       },
       {
-        q: "Does Credence Africa work with cooperatives?",
-        a: "Yes. We support cooperatives with governance, strategy, member value, enterprise growth, finance, market access, leadership development and institutional strengthening.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Which institutions is this page intended for",
+            "a": "It is relevant to energy enterprises, project sponsors, investors, natural-resource businesses, associations and institutions supporting market development. Tell us the asset, business model or institutional role so the brief is appropriately framed."
+          },
+          {
+            "q": "Can an early stage sponsor request support",
+            "a": "Yes. The initial scope can examine the information available, the project decision and readiness gaps. Early-stage work should identify what needs to be established before more extensive financing or market engagement is justified."
+          },
+          {
+            "q": "Does project support include every technical study",
+            "a": "The mandate states the work and expertise included. Engineering, resource assessment, environmental and other specialist studies require their own appropriate expertise. We identify required inputs and agree how they connect with the commercial decision."
+          },
+          {
+            "q": "Can you assess a new African energy market",
+            "a": "A country-specific market brief can examine demand, participants, counterparties and institutional context. Define the technology, customer or project type; a broad regional overview may not answer the actual investment question."
+          },
+          {
+            "q": "Can development or blended finance be considered",
+            "a": "The capital discussion can assess whether different funding sources fit the project purpose and stage. Preparation depends on the project evidence and the requirements of the specific financing route being considered."
+          },
+          {
+            "q": "Can training be designed for a board or management team",
+            "a": "Yes. State the decisions the team oversees and the capability to strengthen. A learning program can connect financial, leadership and institutional subjects with the organization's project or operating context."
+          },
+          {
+            "q": "What makes a sector convening useful",
+            "a": "A clear question, suitable participants and defined discussion or participation outputs. Begin with the issue and audience, then choose the forum format, sponsorship arrangement or commissioned event scope."
+          },
+          {
+            "q": "How do we commission a first assessment",
+            "a": "Send the project or market, stage of development, available studies, decision deadline and intended output. We will assess the work required and confirm a scope, delivery team and commercial basis."
+          }
+        ]
       },
       {
-        q: "Does this sector cover fisheries and aquaculture?",
-        a: "Yes. Fisheries sit within Agribusiness and Food Systems alongside livestock and other primary production. We can support value chain strategy, capital readiness, trade and market access for fisheries and aquaculture businesses on the same basis as the rest of the sector.",
-      },
-      {
-        q: "Can Credence Africa help an agribusiness enter Kenya, Nigeria or South Africa?",
-        a: "Yes. We assess demand, supply conditions, competition, regulation, trade requirements, distribution, partnerships and investment conditions. We then design a market entry and execution pathway.",
-      },
-    ],
-    closing: {
-      heading: "Build a more investable and market connected agriculture mandate",
-      body:
-        "Credence Africa can help you understand the value chain, structure the commercial case, prepare for capital and build the partnerships required for growth.",
-      label: "Book an Agribusiness Consultation",
-      consult: "trade",
-    },
-    links: serviceLinks("capital", "trade", "research", "publicAffairs", "institute", "engage"),
+        "type": "cta",
+        "h2": "Discuss your project or market",
+        "links": [
+          {
+            "label": "Discuss your project or market",
+            "href": "/consult?consult=capital"
+          },
+          {
+            "label": "Explore capital services",
+            "href": "/services/capital-raising"
+          },
+          {
+            "label": "Commission sector evidence",
+            "href": "/services/research"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "energy",
-    kind: "sector",
-    name: "Energy and Natural Resources",
-    scope:
-      "Energy, extractives, resource value chains, water, sanitation, waste, recycling and commercial environmental services.",
-    icon: Leaf,
-    seoTitle: "Energy and Natural Resources Consulting in Africa",
-    metaDescription:
-      "Energy, extractives and natural resources advisory across Africa, with priority coverage in Kenya, Nigeria and South Africa.",
-    keywords: [
-      "energy consulting Africa",
-      "natural resources advisory Africa",
-      "extractives consulting Africa",
-      "energy consulting Kenya",
-      "energy advisory Nigeria",
-      "waste and recycling consulting South Africa",
-      "water and sanitation advisory Africa",
-    ],
-    h1: "Energy and Natural Resources Advisory Across Africa",
-    intro:
-      "Credence Africa supports energy companies, extractives operators, resource value chain businesses, project developers, investors and public institutions across African energy and natural resource markets. We connect investment, policy, market intelligence and institutional capability to help clients move opportunities toward credible execution.",
-    actions: [
-      { label: "Discuss an Energy or Natural Resources Mandate", consult: "capital" },
-      { label: "Commission Energy Market Intelligence", consult: "research" },
-    ],
-    positioning: {
-      heading: "Investment and institutional strategy for Africa's energy and natural resource economy",
-      paragraphs: [
-        "Energy and natural resource opportunities sit inside complex systems. Projects depend on policy, infrastructure, finance, public institutions, land, resource rights, customers and long-term stakeholder confidence. Strong strategy must account for all of these conditions.",
-        "Credence Africa works across energy, extractives, resource value chains, water, sanitation, waste, recycling and commercial environmental services. We help clients evaluate opportunities, prepare projects and institutions, engage capital and navigate market and policy environments. Where a mandate is specifically about climate exposure, adaptation or climate finance rather than the underlying energy or resource business, our Climate Resilience and Environmental Sustainability theme carries that work.",
+    "slug": "finance",
+    "name": "Financial Services",
+    "title": "Financial Services Advisory and Training | Credence Africa",
+    "description": "Support financial institutions with capital preparation, institutional learning, policy engagement and market intelligence in Kenya and African markets.",
+    "hero": {
+      "title": "Financial Services strengthen the institution behind the proposition",
+      "intro": "Financial institutions need commercial growth to work alongside sound governance, capable people and a clear view of their market. A new product, capital proposal or distribution channel affects more than revenue. It changes operating responsibilities, customer relationships and the evidence management needs to oversee the institution. Credence Africa connects advisory, learning, convening and research around these decisions.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Financial Services"
+        }
       ],
+      "btn1": {
+        "label": "Discuss your institution's priority",
+        "href": "/consult?consult=capital"
+      },
+      "btn2": {
+        "label": "Explore Institute programs",
+        "href": "https://institute.credence.africa/programs"
+      }
     },
-    needs: {
-      lead: "We support clients when the central questions include:",
-      items: [
-        "Is the opportunity commercially and institutionally viable?",
-        "What policy, licensing, resource rights and market conditions will shape execution?",
-        "How should a project, platform or company prepare for capital?",
-        "Which partners, customers, investors and public institutions must be engaged?",
-        "What research and capability will strengthen the investment or policy case?",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we build practical capability around energy and natural resource investment, policy and project leadership.",
-        items: [
-          "Executive education on energy and natural resource markets and investment",
-          "Project preparation and capital readiness programmes",
-          "Board, governance and stakeholder leadership programmes",
-          "Policy and regulatory capability for energy and natural resource institutions",
-          "Investor forums, policy dialogues and sector roundtables",
+        "type": "statement",
+        "lead": "Our relevant audiences include banks, SACCOs, financial technology businesses, credit providers, capital platforms and institutions supporting financial-sector development.",
+        "rest": "The starting point is the business model and decision: preparing for funding, assessing demand, strengthening capability or engaging an institutional issue. The agreed mandate defines the actual outputs and delivery team."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Connect capital decisions with institutional readiness",
+        "paras": [
+          "A financing proposition needs a credible explanation of how the institution earns, deploys capital and manages its obligations. A preparation scope can organize commercial assumptions, financial information, governance material and investor reporting. The work should identify gaps management can address and the information a prospective capital provider will need to assess.",
+          "Capital Raising and Investment Structuring is the route for a defined capital discussion. For a cooperative institution, the brief should reflect member purpose as well as enterprise economics. For a digital business, it should explain the customer model, operating capacity and growth assumptions. A single generic funding presentation will rarely answer both contexts well."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our research helps investors, companies and institutions understand market structure, policy direction, project pipelines and commercial opportunity.",
-        items: [
-          "Energy and natural resource market and opportunity assessments",
-          "Extractives and resource value chain research",
-          "Water, sanitation, waste and recycling market studies",
-          "Commercial environmental services research",
-          "Policy, regulation and stakeholder intelligence",
-          "Project pipeline, ecosystem and partner mapping",
+        "chips": [
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work supports strategic choices, investment preparation, market entry and institutional engagement.",
-        items: [
-          "Growth and market entry strategy",
-          "Capital readiness and investment structuring",
-          "Project and investment facilitation",
-          "Public affairs, policy and regulatory strategy",
-          "Trade, technology and partnership strategy",
-          "Institutional development and stakeholder engagement",
+        "type": "split",
+        "eb": "02",
+        "h2": "Build capability where decisions are made",
+        "paras": [
+          "Credence Institute offers professional and institutional learning. Boards, managers, credit teams and commercial functions can identify capability needs in governance, financial understanding, leadership, data use and institutional operations. Program-level pages state the available format and credential; employer learning starts with the team and the outcomes required.",
+          "An effective learning brief identifies what participants must do differently in their roles. Credit leadership, management reporting and customer growth require different examples and exercises. Management can connect the program to a relevant internal challenge and agree how application will be assessed after learning."
+        ]
+      },
+      {
+        "type": "split",
+        "eb": "03",
+        "h2": "Combine market evidence with relevant engagement",
+        "paras": [
+          "Private Research and Market Intelligence can examine customer segments, competitors, distribution, capital landscapes or ecosystem relationships. Public analysis from Credible Perspectives provides wider context. Keep a confidential institutional research brief separate from a public editorial discussion so the output and permitted use remain clear.",
+          "Public Affairs and Policy Advisory addresses a defined policy or institutional engagement need. Credence Engage creates a separate participation and convening route for industry discussion, sponsor visibility and commissioned forums. Each route needs the appropriate audience, evidence and accountable decision owner."
         ],
-      },
-    ],
-    mandates: [
-      "An energy developer preparing a project or market entry strategy",
-      "An extractives or resource value chain business structuring growth and investment",
-      "A water, sanitation, waste or recycling operator preparing for capital or expansion",
-      "An investor assessing an energy, extractives or environmental services opportunity",
-      "A government or industry body developing policy research or stakeholder engagement",
-    ],
-    audiences: [
-      "Energy companies, utilities, project developers and technology providers",
-      "Extractives operators and resource value chain businesses",
-      "Water, sanitation, waste and recycling companies",
-      "Investors, banks, funds and development finance institutions",
-      "Governments, regulators, municipalities and public agencies",
-    ],
-    geography:
-      "Kenya is a priority market for power, distributed energy and resource value chains. Nigeria is a priority market for energy access, extractives, infrastructure and large-scale commercial demand. South Africa is a priority market for power reform, mining, resource value chains and industrial capital. Our work can extend to other African markets through targeted research, local partnerships and stakeholder strategy.",
-    why:
-      "We bring commercial, capital, policy and institutional analysis into one mandate. We focus on the decisions that determine whether an opportunity can attract support and move forward. Engineering, environmental science and other technical disciplines are delivered with qualified specialist partners when required.",
-    faqs: [
-      {
-        q: "What energy and natural resources consulting services does Credence Africa provide?",
-        a: "We provide market research, growth strategy, market entry, capital readiness, investment facilitation, policy and regulatory advisory, stakeholder engagement, executive training and sector convening.",
+        "chips": [
+          {
+            "label": "Research and Market Intelligence",
+            "href": "/services/research"
+          },
+          {
+            "label": "Public Affairs and Policy Advisory",
+            "href": "/services/public-affairs"
+          }
+        ]
       },
       {
-        q: "Can Credence Africa help an energy or resources project raise capital?",
-        a: "We can strengthen the investment case, clarify the capital strategy, coordinate investment materials, map suitable investors and support engagement. We do not guarantee financing. Technical and financial due diligence remains subject to investor and specialist review.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Do you work with both established and emerging institutions",
+            "a": "The scope depends on the institution's model, stage and objective. An established institution may need capital planning or team capability, while a growing platform may first need to clarify its customer proposition and supporting evidence."
+          },
+          {
+            "q": "Can a SACCO use both learning and capital services",
+            "a": "Yes. Learning and a capital mandate address different outputs. Define the board or team capability requirement separately from the financing question so responsibilities, information and delivery expectations are clear."
+          },
+          {
+            "q": "What should a capital brief contain",
+            "a": "Include the funding purpose, institution type, financial information, current capital position, intended growth and timing. The initial scope can identify readiness gaps and the materials required for the chosen funding discussion."
+          },
+          {
+            "q": "Can you investigate demand for a financial product",
+            "a": "A research brief can examine an identified customer segment, use case and market. The method depends on data access and the decision being supported, including whether primary fieldwork or existing evidence is sufficient."
+          },
+          {
+            "q": "Are Institute qualifications all issued by an external body",
+            "a": "No. The awarding and assessment arrangements vary by program. Consult the specific course record for the actual credential, issuing body and approval status rather than inferring them from a general program category."
+          },
+          {
+            "q": "Can we commission a financial sector roundtable",
+            "a": "Yes. Explain the issue, desired participants and intended outputs. The event scope identifies the format, production responsibilities, stakeholder participation and any publication or sponsorship arrangements."
+          },
+          {
+            "q": "Does this page offer a ready made regulatory approval process",
+            "a": "A public affairs mandate is scoped for the specific institution and issue. The brief identifies required specialist inputs and institutional engagement; the actual responsible authority determines its own decisions and requirements."
+          },
+          {
+            "q": "How do we choose the first service",
+            "a": "Start with the decision that cannot wait and the output management needs. Share the institution's role, deadline and available information. We will identify whether the first step is advisory, training, evidence or convening."
+          }
+        ]
       },
       {
-        q: "How is this different from the Climate Resilience and Environmental Sustainability theme?",
-        a: "This sector serves energy, extractives, water, sanitation, waste, recycling and environmental services businesses directly, on their own growth, capital and market decisions. Climate Resilience and Environmental Sustainability addresses climate exposure, adaptation and climate finance as a cross-sector theme, and often informs work in this sector.",
-      },
-      {
-        q: "Can you support market entry in Kenya, Nigeria or South Africa?",
-        a: "Yes. We assess market structure, policy, customers, competition, partnerships, investment conditions and stakeholder requirements. The output is a practical entry and engagement plan.",
-      },
-    ],
-    closing: {
-      heading: "Move an energy or natural resources opportunity toward credible execution",
-      body:
-        "Credence Africa can help you test the market case, prepare for capital, understand policy and build the partnerships required for progress.",
-      label: "Book an Energy and Natural Resources Consultation",
-      consult: "capital",
-    },
-    links: serviceLinks("capital", "publicAffairs", "trade", "research", "institute", "engage"),
+        "type": "cta",
+        "h2": "Discuss your institution's priority",
+        "links": [
+          {
+            "label": "Discuss your institution's priority",
+            "href": "/consult?consult=capital"
+          },
+          {
+            "label": "Explore Institute programs",
+            "href": "https://institute.credence.africa/programs"
+          },
+          {
+            "label": "Read Credible Perspectives",
+            "href": "https://perspectives.credence.africa"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "technology",
-    kind: "sector",
-    name: "Technology and Digital Economy",
-    scope:
-      "Software, AI products, telecommunications, connectivity, cloud, computing, data infrastructure and ICT services.",
-    icon: Cpu,
-    seoTitle: "Technology and AI Consulting in Africa",
-    metaDescription:
-      "Technology, AI and digital economy consulting across Africa, including market entry, research and training in Kenya, Nigeria and South Africa.",
-    keywords: [
-      "technology consulting Africa",
-      "AI consulting Africa",
-      "digital economy advisory Africa",
-      "technology consulting Kenya",
-      "technology advisory Nigeria",
-      "AI consulting South Africa",
-      "technology market research Africa",
-    ],
-    h1: "Technology and Digital Economy Advisory Across Africa",
-    intro:
-      "Credence Africa helps technology companies, investors, corporations and public institutions make informed decisions in Africa's digital economy. We support market entry, growth, capital, policy, artificial intelligence, digital transformation, research and executive capability.",
-    actions: [
-      { label: "Discuss a Technology Mandate", consult: "trade" },
-      { label: "Commission Digital Economy Intelligence", consult: "research" },
-    ],
-    positioning: {
-      heading: "Commercial strategy and institutional capability for Africa's digital economy",
-      paragraphs: [
-        "Technology markets move quickly. Commercial opportunity can change faster than institutional readiness. Businesses must understand customer demand, regulation, infrastructure, competition, talent and capital before they commit to a product, partnership or new market.",
-        "Credence Africa works across software, AI products, telecommunications, connectivity, cloud, computing, data infrastructure and ICT services. We support technology businesses entering or scaling in Africa. We also help established institutions adopt technology with a clear strategic and governance framework.",
+    "slug": "healthcare",
+    "name": "Healthcare and Wellness",
+    "title": "Healthcare and Wellness Advisory in Kenya | Credence Africa",
+    "description": "Connect healthcare and wellness growth decisions with advisory, institutional learning, sector engagement and commissioned research in African markets.",
+    "hero": {
+      "title": "Healthcare and Wellness build institutions that serve their market",
+      "intro": "Healthcare and wellness enterprises operate where service quality, institutional capability and commercial sustainability meet. Expanding a facility, introducing a service or entering a new market requires an understanding of demand, delivery capacity, financing and stakeholder expectations. Credence Africa helps institutions organize these questions and choose a practical next step.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Healthcare and Wellness"
+        }
       ],
+      "btn1": {
+        "label": "Discuss your healthcare or wellness requirement",
+        "href": "/consult?consult=capital"
+      },
+      "btn2": {
+        "label": "Explore employer learning",
+        "href": "https://institute.credence.africa/for-employers"
+      }
     },
-    needs: {
-      lead: "Our work is designed around questions such as:",
-      items: [
-        "Which African market, customer segment or use case should receive priority?",
-        "What regulation, infrastructure and partnership conditions affect adoption?",
-        "How should a technology company prepare for growth capital or strategic investment?",
-        "What AI and digital transformation priorities will create measurable institutional value?",
-        "How should leaders manage data, governance, risk and stakeholder trust?",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we help leaders and teams build the capability required to use technology responsibly and commercially.",
-        items: [
-          "Executive AI literacy and responsible AI programmes",
-          "Digital transformation and technology leadership training",
-          "Capital readiness and market entry programmes for technology businesses",
-          "Data governance, digital policy and cyber risk awareness",
-          "Technology forums, innovation roundtables and executive communities",
+        "type": "statement",
+        "lead": "This sector includes providers, wellness businesses, suppliers, investors and institutions supporting health-market development.",
+        "rest": "Our work is framed around organizational decisions and capability. A mandate can address an expansion proposition, market evidence, leadership learning, capital preparation or a sector convening, with the specific output and expertise agreed in advance."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Make expansion decisions with a clear commercial basis",
+        "paras": [
+          "An expansion case should connect the intended customer or service population with capacity, operating costs, delivery arrangements and cash flow. Management may need to understand the economics of a new location, the market for a service, a distribution relationship or the timing of investment. The assignment should identify the assumptions requiring evidence before resources are committed.",
+          "Trade and Growth Advisory supports market and entry decisions. Capital Raising and Investment Structuring provides a route for preparing the institutional and commercial case for funding. Specialist clinical, technical and regulatory inputs are identified according to the assignment rather than assumed to be part of every scope."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our intelligence work gives clients a grounded view of technology demand, adoption, regulation, competition and investment.",
-        items: [
-          "Technology market and opportunity assessments",
-          "AI adoption, digital transformation and enterprise technology studies",
-          "Customer, competitor and channel intelligence",
-          "Digital policy, data governance and regulatory analysis",
-          "Technology investment, ecosystem and talent mapping",
-          "Commissioned reports, executive briefs and media platforms",
+        "chips": [
+          {
+            "label": "Trade and Growth Advisory",
+            "href": "/services/trade-growth"
+          },
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work supports technology growth and institutional transformation from strategic choice through implementation planning.",
-        items: [
-          "Market entry and expansion strategy",
-          "Growth, partnership and commercialisation strategy",
-          "Capital readiness and investment structuring",
-          "AI and digital transformation strategy",
-          "Public affairs, policy and regulatory engagement",
-          "Innovation ecosystem and institutional partnership development",
+        "type": "split",
+        "eb": "02",
+        "h2": "Develop capable leadership and teams",
+        "paras": [
+          "Credence Institute can organize professional learning in governance, leadership, financial understanding, operating systems and business development. A team brief should identify participants' responsibilities and the practical challenge being addressed. Executive and organizational learning can support the people who manage services, oversee investment and coordinate institutional performance.",
+          "Employer training is scoped differently from individual enrollment. An organization can explain the team size, roles, delivery constraints and outcomes it needs. The program's actual format, assessment and credential are confirmed through the Institute rather than inferred from the sector page."
+        ]
+      },
+      {
+        "type": "split",
+        "eb": "03",
+        "h2": "Understand the ecosystem and convene with purpose",
+        "paras": [
+          "Private Research and Market Intelligence can examine demand, provider or supplier landscapes, distribution, investment themes and institutional capacity. State whether the decision requires a market scan, primary study or ongoing intelligence, then agree coverage, method and outputs.",
+          "Credence Engage offers participation and commissioned convening for relevant institutions. The brief may concern a market challenge, partnership theme or industry development question. Credible Perspectives supplies public analysis; confidential organizational research and public editorial content retain distinct audiences and publication rights."
         ],
-      },
-    ],
-    mandates: [
-      "A global technology company assessing entry into an African market",
-      "An African technology business preparing for capital and regional expansion",
-      "A corporation developing an AI or digital transformation roadmap",
-      "An investor evaluating a technology segment, company or ecosystem",
-      "A government, association or development partner commissioning digital economy research or capability building",
-    ],
-    audiences: [
-      "Technology companies, startups and scale businesses",
-      "Telecommunications, digital infrastructure and platform companies",
-      "Corporations and institutions pursuing digital transformation",
-      "Investors, funds and development finance institutions",
-      "Governments, regulators, associations, universities and development partners",
-    ],
-    geography:
-      "Kenya is central to our East African technology and innovation work. Nigeria is a priority market for scale, digital commerce, financial technology and consumer platforms. South Africa is a priority market for enterprise technology, institutional adoption, capital and digital infrastructure. We support broader African expansion through country research, stakeholder intelligence and partner development.",
-    why:
-      "We connect technology strategy to commercial, policy and institutional realities. We focus on the decision, not the trend. This means identifying where technology creates value, what the market can support, what governance is required and how the institution will execute.",
-    faqs: [
-      {
-        q: "What technology consulting services does Credence Africa provide?",
-        a: "We provide market entry, growth strategy, AI and digital transformation advisory, capital readiness, investment facilitation, policy and regulatory support, market research, executive training and ecosystem convening.",
+        "chips": [
+          {
+            "label": "Research and Market Intelligence",
+            "href": "/services/research"
+          }
+        ]
       },
       {
-        q: "Can Credence Africa help a technology company enter Kenya, Nigeria or South Africa?",
-        a: "Yes. We assess demand, competition, pricing, regulation, infrastructure, customers, partners and investment conditions. We then design the market entry and stakeholder engagement plan.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Which healthcare and wellness institutions can approach Credence",
+            "a": "Providers, wellness enterprises, suppliers, investors, associations and development partners can discuss organizational requirements. Tell us the business or institutional role and the decision the work should support."
+          },
+          {
+            "q": "Can you assess demand before we open a new location",
+            "a": "A scoped market assessment can examine the target population or customer segment, alternatives and relevant commercial evidence. Identify the service, geography and investment choice so the study answers a usable management question."
+          },
+          {
+            "q": "What does capital preparation involve for a provider",
+            "a": "It connects the intended investment with financial information, commercial assumptions, operating capability and supporting materials. The agreed scope identifies readiness gaps and outputs suitable for the financing discussion being considered."
+          },
+          {
+            "q": "Is this a clinical advisory service",
+            "a": "This page concerns institutional, commercial and capability support. Clinical and other specialist work requires the relevant expertise. The scope specifies required inputs and delivery responsibilities for the actual assignment."
+          },
+          {
+            "q": "Can a management team receive customized learning",
+            "a": "Yes. Explain the team's roles, capability needs and operational constraints. The Institute can assess a program brief and confirm content, delivery format, assessment and the credential that applies."
+          },
+          {
+            "q": "Can we commission research for internal planning",
+            "a": "Yes. Agree the research question, sources, method, deliverable and permitted circulation. If the study involves sensitive or restricted information, access and handling arrangements are part of the brief before collection begins."
+          },
+          {
+            "q": "Can partners sponsor a sector forum",
+            "a": "A sponsorship discussion starts with the audience, theme and available participation format. A commissioned forum defines its purpose, guest profile, production scope and agreed sponsor or publication deliverables."
+          },
+          {
+            "q": "What is the next step for a mixed requirement",
+            "a": "Share the institutional decision and the outputs needed. We can identify a coherent assignment with an accountable lead and the required learning, research, advisory or convening components, each with clear responsibilities."
+          }
+        ]
       },
       {
-        q: "Does Credence Africa provide technical software development?",
-        a: "Our core role is strategy, market, investment, policy, governance and institutional capability. We work with technology implementation partners when a mandate requires software engineering, systems integration or technical delivery.",
-      },
-      {
-        q: "Can you train boards and executives on artificial intelligence?",
-        a: "Yes. Credence Institute develops executive AI literacy, responsible AI, governance, risk and sector-specific adoption programmes for boards, leadership teams and institutions.",
-      },
-    ],
-    closing: {
-      heading: "Make a clearer technology decision in Africa",
-      body:
-        "Credence Africa can help you identify the opportunity, test the market, prepare the institution and build a practical route to growth or transformation.",
-      label: "Book a Technology Consultation",
-      consult: "trade",
-    },
-    links: serviceLinks("trade", "capital", "publicAffairs", "research", "institute", "engage"),
+        "type": "cta",
+        "h2": "Discuss your healthcare or wellness requirement",
+        "links": [
+          {
+            "label": "Discuss your healthcare or wellness requirement",
+            "href": "/consult?consult=capital"
+          },
+          {
+            "label": "Explore employer learning",
+            "href": "https://institute.credence.africa/for-employers"
+          },
+          {
+            "label": "Commission a market study",
+            "href": "/services/research"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "mobility",
-    kind: "sector",
-    name: "Mobility, Transport and Logistics",
-    scope:
-      "Passenger mobility, vehicles, freight, fleets, shipping, aviation, distribution and transport infrastructure, including cold storage, cold chain logistics and temperature controlled transport for food and pharmaceutical supply chains.",
-    icon: Truck,
-    seoTitle: "Transport and Logistics Advisory in Africa",
-    metaDescription:
-      "Transport, logistics and mobility consulting across Africa, with research and advisory support in Kenya, Nigeria and South Africa.",
-    keywords: [
-      "transport and logistics consulting Africa",
-      "mobility consulting Africa",
-      "logistics advisory Africa",
-      "transport consulting Kenya",
-      "logistics consulting Nigeria",
-      "mobility advisory South Africa",
-      "e-mobility consulting Africa",
-    ],
-    h1: "Mobility, Transport and Logistics Advisory Across Africa",
-    intro:
-      "Credence Africa supports transport operators, logistics companies, mobility ventures, cold chain and warehousing operators, infrastructure actors, investors and public institutions across African markets. We help clients understand demand, structure growth, prepare for capital, navigate policy and build the partnerships required for movement at scale.",
-    actions: [
-      { label: "Discuss a Mobility or Logistics Mandate", consult: "capital" },
-      { label: "Commission Transport Market Intelligence", consult: "research" },
-    ],
-    positioning: {
-      heading: "Strategy and intelligence for the systems that move Africa",
-      paragraphs: [
-        "Transport and logistics connect every productive sector. The commercial case depends on routes, customers, infrastructure, regulation, fleet economics, technology, energy and regional trade. Each decision affects the wider supply chain.",
-        "Credence Africa works across passenger mobility, vehicles, freight, fleets, shipping, aviation, distribution and transport infrastructure, as well as cold storage, refrigerated, ambient and bonded warehousing, cold chain logistics and temperature controlled transport, including food and pharmaceutical supply chains. We help businesses and institutions evaluate opportunities and design credible pathways for growth, investment and market development.",
+    "slug": "mobility",
+    "name": "Mobility, Transport and Logistics",
+    "title": "Transport and Logistics Advisory in Kenya | Credence Africa",
+    "description": "Support mobility, transport and logistics decisions with growth advisory, capital preparation, professional learning and market intelligence across African markets.",
+    "hero": {
+      "title": "Mobility, Transport and Logistics make the route work commercially",
+      "intro": "Transport and logistics connect markets but a viable route depends on more than movement. Utilization, pricing, reliability, infrastructure, counterparties and working capital determine whether the operating model can sustain itself. Credence Africa works with institutions examining these commercial and institutional choices in Kenya and wider African markets.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Mobility, Transport and Logistics"
+        }
       ],
+      "btn1": {
+        "label": "Discuss your route or expansion",
+        "href": "/consult?consult=capital"
+      },
+      "btn2": {
+        "label": "Explore trade services",
+        "href": "/services/trade-growth"
+      }
     },
-    needs: {
-      lead: "We support clients when they need to understand:",
-      items: [
-        "Where demand, route economics and customer needs create a viable opportunity",
-        "What infrastructure, energy, policy and licensing conditions affect execution",
-        "How a transport or logistics business should prepare for capital and scale",
-        "Where cold chain, temperature controlled transport or bonded warehousing is required to serve food or pharmaceutical supply chains",
-        "Which partners, fleet models, technologies and channels can improve performance",
-        "What institutional and workforce capability is required for reliable delivery",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we strengthen leadership, operational thinking and sector collaboration.",
-        items: [
-          "Executive programmes for transport, logistics and supply chain leaders",
-          "Cold chain, warehousing and temperature controlled transport operations training",
-          "E-mobility, fleet transition and charging ecosystem learning programmes",
-          "Capital readiness and project preparation training",
-          "Policy, governance and stakeholder engagement programmes",
-          "Transport forums, trade corridor roundtables and investor conversations",
+        "type": "statement",
+        "lead": "The sector includes mobility businesses, transport operators, logistics providers, distribution platforms, project sponsors and ecosystem institutions.",
+        "rest": "Your decision may concern a new corridor, service, customer segment, fleet investment or regional expansion. We frame the brief around the operating model and the output management needs to evaluate it."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Connect the expansion case with operating economics",
+        "paras": [
+          "An expansion plan should explain how the service will reach customers and earn income. Route demand, delivery capacity, asset utilization, operating costs and payment cycles need to fit together. A defined advisory scope can review the assumptions, identify missing evidence and organize materials for a commercial or capital decision.",
+          "Trade and Growth Advisory supports country, channel and expansion choices. Capital Raising and Investment Structuring provides a route for preparing a funding proposition. The specific brief determines whether the next output is a market scan, readiness review, investment case or support with an accepted implementation task."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our research connects infrastructure and operational realities to commercial demand and investment decisions.",
-        items: [
-          "Transport, logistics and mobility market assessments",
-          "Freight, route, corridor, warehousing and supply chain studies",
-          "Cold chain, temperature controlled transport and bonded warehousing studies",
-          "Fleet, customer and competitor intelligence",
-          "E-mobility, charging and energy ecosystem research",
-          "Transport policy, regulation and infrastructure analysis",
-          "Project, investor, partner and stakeholder mapping",
+        "chips": [
+          {
+            "label": "Trade and Growth Advisory",
+            "href": "/services/trade-growth"
+          },
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work supports market entry, growth, investment and institutional engagement.",
-        items: [
-          "Growth and operating strategy",
-          "Market entry and regional expansion",
-          "Capital readiness and investment structuring",
-          "Cold chain and temperature controlled transport strategy",
-          "Project and investment facilitation",
-          "Trade corridor, logistics and partnership strategy",
-          "Public affairs, policy and regulatory engagement",
+        "type": "split",
+        "eb": "02",
+        "h2": "Develop the team behind reliable delivery",
+        "paras": [
+          "Credence Institute offers professional and employer learning that can address leadership, commercial understanding, distribution, systems and institutional capability. A logistics business may need different learning for operations managers, sales teams and directors. Explain the roles and the performance issue so the program uses relevant cases and outputs.",
+          "Training can help a team understand market and trade context but the course is distinct from an operational assignment. Confirm program content, delivery arrangements and actual assessment through the Institute. Internal technical requirements and site-specific practice should be identified within the organizational learning brief."
+        ]
+      },
+      {
+        "type": "split",
+        "eb": "03",
+        "h2": "Read the corridor, channel and stakeholder landscape",
+        "paras": [
+          "Research and Market Intelligence can assess demand, competitors, distribution networks, ecosystem participants or an unfamiliar country market. The research question should identify the cargo or service type, customer segment, route and decision. This allows the method to focus on evidence that matters to your business.",
+          "Credence Engage provides a convening route for operators, buyers, suppliers, investors and public institutions. A forum or commissioned event can address a shared market issue or participation opportunity. Public intelligence through Credible Perspectives offers context; private commissioned work goes deeper into your institution's commercial question and reporting needs."
         ],
-      },
-    ],
-    mandates: [
-      "A logistics company entering a new African market or corridor",
-      "A food or pharmaceutical business building out cold chain and temperature controlled distribution",
-      "An e-mobility company assessing fleet, charging and partnership opportunities",
-      "An investor evaluating transport infrastructure, fleet or logistics assets",
-      "A public institution developing a transport, trade corridor or urban mobility initiative",
-      "An industry association commissioning research, policy engagement or executive training",
-    ],
-    audiences: [
-      "Transport operators, logistics companies and fleet businesses",
-      "Cold chain, refrigerated and bonded warehousing operators",
-      "E-mobility, charging and mobility technology companies",
-      "Ports, aviation, rail, warehousing and supply chain institutions",
-      "Infrastructure investors, funds and development finance institutions",
-      "Governments, regulators, cities, associations and development partners",
-    ],
-    geography:
-      "Kenya is a priority market for East African logistics, regional corridors, urban mobility and e-mobility. Nigeria is a priority market for large-scale transport demand, ports, distribution and urban logistics. South Africa is a priority market for freight, fleet, infrastructure, advanced logistics and regional trade. Credence Africa also supports mandates involving other African markets and cross-border corridors.",
-    why:
-      "We link transport economics to trade, capital, policy, energy and infrastructure. Mobility decisions rarely sit inside one institution. Credence Africa helps clients map the full system, identify the critical dependencies and build a mandate that can move through commercial and institutional decision points.",
-    faqs: [
-      {
-        q: "What transport and logistics consulting services does Credence Africa provide?",
-        a: "We provide market research, growth strategy, market entry, capital readiness, investment facilitation, project support, trade and corridor strategy, policy advisory, executive training and sector convening.",
+        "chips": [
+          {
+            "label": "Research and Market Intelligence",
+            "href": "/services/research"
+          }
+        ]
       },
       {
-        q: "Does Credence Africa cover cold chain and temperature controlled transport?",
-        a: "Yes. Cold storage, refrigerated, ambient and bonded warehousing, cold chain logistics and temperature controlled transport sit within this sector, including for food and pharmaceutical supply chains. We can support demand assessment, investment readiness, partner identification and market entry on the same basis as the rest of the sector.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Does this sector include digital mobility and delivery platforms",
+            "a": "Yes. The relevant context includes traditional operators and platforms connecting transport, distribution and customers. Describe the business model and where the organization earns revenue so the assignment addresses its actual economics."
+          },
+          {
+            "q": "Can you assess a proposed new route or market",
+            "a": "A defined study can examine demand, alternatives, operating assumptions and relevant counterparties. Specify the route, service and customer segment before deciding how much fieldwork or market analysis is needed."
+          },
+          {
+            "q": "What should a fleet or asset financing brief include",
+            "a": "Explain the assets, funding purpose, utilization assumptions, customers, operating costs and payment cycle. Preparation identifies the information and commercial materials needed for the funding route under consideration."
+          },
+          {
+            "q": "Can employer training address distribution networks",
+            "a": "Yes. Describe the team's responsibilities and the channel challenge. The Institute can assess learning in commercial management, distribution, leadership and related capability, using an agreed organizational case where suitable."
+          },
+          {
+            "q": "Can research consider a regional corridor",
+            "a": "The coverage can include an identified corridor or connected country markets. The scope states the geography, actors, data sources and outputs, rather than assuming all countries can be assessed through the same evidence."
+          },
+          {
+            "q": "How does public affairs fit a transport mandate",
+            "a": "Where a policy or stakeholder issue shapes the decision, a separate public affairs scope can define the institutional question, participants and engagement output. Required specialist inputs are identified for that issue."
+          },
+          {
+            "q": "Can we commission a buyer or industry forum",
+            "a": "A convening brief can identify the audience, purpose, format and participation requirements. Discuss the relevant buyers or industry stakeholders and the outputs expected before selecting a production or sponsorship package."
+          },
+          {
+            "q": "How should we request support",
+            "a": "Send the business or project, current operating markets, proposed route or investment, timing and required output. Include existing financial or market information so we can scope the work around the unresolved decision."
+          }
+        ]
       },
       {
-        q: "Can Credence Africa support an e-mobility business?",
-        a: "Yes. We can assess market demand, fleet segments, charging models, energy relationships, regulation, partnerships, capital requirements and market entry options. Technical engineering work is delivered with specialist partners.",
-      },
-      {
-        q: "Does Credence Africa advise on transport infrastructure projects?",
-        a: "We support project strategy, market assessment, stakeholder engagement, investment readiness, capital strategy and institutional coordination. Engineering, design and technical due diligence remain the responsibility of qualified specialists.",
-      },
-      {
-        q: "Can you support regional expansion across Kenya, Nigeria and South Africa?",
-        a: "Yes. We can compare the markets, identify priority segments, assess regulation and partners and design an expansion pathway that reflects the operating conditions in each country.",
-      },
-    ],
-    closing: {
-      heading: "Build a stronger route to mobility and logistics growth",
-      body:
-        "Credence Africa can help you assess the market, structure the opportunity, prepare for investment and engage the institutions that determine execution.",
-      label: "Book a Mobility and Logistics Consultation",
-      consult: "capital",
-    },
-    links: serviceLinks("capital", "trade", "publicAffairs", "research", "institute", "engage"),
+        "type": "cta",
+        "h2": "Discuss your route or expansion",
+        "links": [
+          {
+            "label": "Discuss your route or expansion",
+            "href": "/consult?consult=capital"
+          },
+          {
+            "label": "Explore trade services",
+            "href": "/services/trade-growth"
+          },
+          {
+            "label": "Discuss a sector convening",
+            "href": "/services/credence-engage"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "consumer",
-    kind: "sector",
-    name: "Consumer, Creative and Services Economy",
-    scope:
-      "Tourism, hospitality, creative industries, consumer businesses, retail, leisure, entertainment, sports business, education, training and professional services.",
-    icon: Palette,
-    seoTitle: "Consumer and Creative Economy Consulting in Africa",
-    metaDescription:
-      "Consumer, creative and services economy consulting across Africa, including market research in Kenya, Nigeria and South Africa.",
-    keywords: [
-      "consumer market consulting Africa",
-      "creative economy consulting Africa",
-      "consumer research Africa",
-      "retail consulting Kenya",
-      "creative industry advisory Nigeria",
-      "consumer market advisory South Africa",
-      "sports and entertainment consulting Africa",
-    ],
-    h1: "Consumer, Creative and Services Economy Advisory Across Africa",
-    intro:
-      "Credence Africa helps consumer businesses, creative enterprises, service companies, education and training providers, investors and public institutions understand African markets and build commercially disciplined growth. We support market entry, capital, consumer intelligence, policy, capability and ecosystem development.",
-    actions: [
-      { label: "Discuss a Consumer or Creative Economy Mandate", consult: "trade" },
-      { label: "Commission Consumer Market Intelligence", consult: "research" },
-    ],
-    positioning: {
-      heading: "Commercial intelligence for the markets shaping African demand and culture",
-      paragraphs: [
-        "Consumer and service markets are shaped by income, culture, distribution, trust, regulation, digital behaviour and changing expectations. Creative industries add intellectual property, audiences, talent, platforms and complex commercial models. Growth requires evidence, institutional discipline and a clear route to revenue.",
-        "Credence Africa works across tourism, hospitality, creative industries, consumer businesses, retail, leisure, entertainment, sports business, education, training and professional services. We help clients understand demand, structure growth, attract capital, enter markets and develop stronger industry institutions.",
+    "slug": "technology",
+    "name": "Technology and Digital Economy",
+    "title": "Technology and Digital Economy Advisory | Credence Africa",
+    "description": "Connect technology growth, capital readiness and digital capability with advisory, professional training, market research and industry engagement in African markets.",
+    "hero": {
+      "title": "Technology and Digital Economy build a business around the innovation",
+      "intro": "Technology creates opportunity when a useful product meets a viable market and an institution capable of delivering it. A promising solution still needs evidence of demand, commercial discipline, capital planning and people who can operate at the next stage. Credence Africa supports organizations making these choices in Kenya and across African markets.",
+      "crumbs": [
+        {
+          "label": "Sectors",
+          "href": "/sectors"
+        },
+        {
+          "label": "Technology and Digital Economy"
+        }
       ],
+      "btn1": {
+        "label": "Discuss your digital-economy decision",
+        "href": "/consult?consult=trade"
+      },
+      "btn2": {
+        "label": "Explore Institute programs",
+        "href": "https://institute.credence.africa/programs"
+      }
     },
-    needs: {
-      lead: "We support leaders who need to determine:",
-      items: [
-        "Which market, customer segment, audience or channel offers the strongest opportunity",
-        "How culture, pricing, regulation and distribution affect commercial performance",
-        "What revenue, partnership and capital model will support sustainable growth",
-        "How intellectual property, brand, talent and platforms can be commercialised",
-        "What sector institutions and policy conditions are required for market development",
-      ],
-    },
-    helps: [
+    "sections": [
       {
-        heading: HELP_HEADINGS.training,
-        blurb:
-          "Through Credence Institute and Credence Engage, we build management, commercialisation and institutional capability.",
-        items: [
-          "Executive education for consumer, hospitality and service business leaders",
-          "Commercialisation, governance and investment readiness for creative enterprises",
-          "Audience, sponsorship, media and sports business programmes",
-          "Market entry, sales and distribution capability",
-          "Industry forums, buyer conversations and creative economy roundtables",
+        "type": "statement",
+        "lead": "The sector includes technology enterprises, digital platforms, investors, corporate innovation teams and institutions supporting the digital economy.",
+        "rest": "Start with the business model and decision. You may need to assess a market, prepare for investment, develop leadership capability, understand an ecosystem or convene institutions around a digital issue."
+      },
+      {
+        "type": "split",
+        "eb": "01",
+        "h2": "Make growth and funding assumptions explicit",
+        "paras": [
+          "A technology proposition should explain the customer problem, route to users, revenue model and operating requirements. Expansion can change acquisition costs, support demands, infrastructure expenditure and working capital. A defined advisory scope can organize those assumptions and identify the evidence a management team or funder needs to assess.",
+          "Capital Raising and Investment Structuring supports readiness and capital decisions. Trade and Growth Advisory addresses entry and expansion. For a digital business, a country strategy should distinguish customer demand, local distribution and institutional conditions rather than assuming online delivery removes market differences."
         ],
-      },
-      {
-        heading: HELP_HEADINGS.research,
-        blurb:
-          "Our research helps clients understand customers, audiences, demand, channels, competitors and market structure.",
-        items: [
-          "Consumer market and category studies",
-          "Audience, culture, media and entertainment intelligence",
-          "Retail, tourism, hospitality and service market assessments",
-          "Gaming, sports and creator economy research",
-          "Pricing, channel, competitor and distribution intelligence",
-          "Sector mapping, investment analysis and commissioned publications",
+        "chips": [
+          {
+            "label": "Capital Raising and Investment Structuring",
+            "href": "/services/capital-raising"
+          },
+          {
+            "label": "Trade and Growth Advisory",
+            "href": "/services/trade-growth"
+          }
         ],
+        "img": {
+          "src": "/partners-handshake.jpg",
+          "alt": "Two professionals shaking hands"
+        }
       },
       {
-        heading: HELP_HEADINGS.advisory,
-        blurb:
-          "Our advisory work helps businesses and institutions convert market insight into growth and investment action.",
-        items: [
-          "Market entry and expansion strategy",
-          "Growth, revenue and commercialisation strategy",
-          "Capital readiness and investment structuring",
-          "Trade, distribution and partnership development",
-          "Public affairs, policy and regulatory strategy",
-          "Industry platform and ecosystem development",
+        "type": "split",
+        "eb": "02",
+        "h2": "Develop technical and organizational capability",
+        "paras": [
+          "Credence Institute offers professional and employer learning. Relevant needs may include data use, digital systems, governance, business development, leadership and institutional operations. Program pages identify the available course, actual credential and delivery format; a team learning brief connects those subjects with participants' roles.",
+          "The learning requirement should be specific. A board needs a different level of technical detail from analysts or operations managers. An employer can identify the decisions participants must make, existing skills and practical application expected, then discuss a suitable program and assessment approach with the Institute."
+        ]
+      },
+      {
+        "type": "split",
+        "eb": "03",
+        "h2": "Build evidence and relationships around the market",
+        "paras": [
+          "Private Research and Market Intelligence can examine customer segments, competitors, distribution partners, investor landscapes or an emerging digital market. Agree the question, method and outputs so the study provides a usable basis for investment or product decisions.",
+          "Credence Engage connects institutions through events, networks and commissioned convenings. A product, policy or investment discussion needs a defined audience and purpose. Credible Perspectives supplies public analysis and editorial formats; commissioned research or corporate media has a distinct scope, approval process and permitted use."
         ],
-      },
-    ],
-    mandates: [
-      "A consumer company entering Kenya, Nigeria, South Africa or another African market",
-      "A media, gaming, sports or entertainment business developing a commercial strategy",
-      "A tourism or hospitality company assessing growth and investment options",
-      "A private school, training provider or edtech business preparing for growth or capital",
-      "An investor evaluating consumer demand or a creative industry opportunity",
-      "A government, association or development partner building a sector platform or policy initiative",
-    ],
-    audiences: [
-      "Consumer goods, retail, tourism and hospitality companies",
-      "Media, entertainment, film, music, gaming and sports businesses",
-      "Private schools, training providers and education businesses",
-      "Creator enterprises, cultural institutions and professional service firms",
-      "Investors, brands, sponsors and distribution platforms",
-      "Governments, associations, foundations, universities and development partners",
-    ],
-    geography:
-      "Kenya is a priority market for East African consumer growth, tourism, media, technology enabled services and creative enterprise. Nigeria is a priority market for scale, culture, entertainment, consumer demand and distribution. South Africa is a priority market for retail, institutional services, media, sports, tourism and investment. We support broader African expansion through market research, partner development and locally grounded entry strategy.",
-    why:
-      "We combine consumer intelligence with business, capital, policy and institutional strategy. This is especially important in creative and service markets where strong ideas often outpace governance, revenue systems and investment readiness. We help build the commercial and institutional structure required for durable growth.",
-    faqs: [
-      {
-        q: "What consumer and creative economy consulting services does Credence Africa provide?",
-        a: "We provide consumer research, market entry, growth strategy, commercialisation, capital readiness, investment facilitation, policy advisory, executive training and ecosystem convening.",
+        "chips": [
+          {
+            "label": "Research and Market Intelligence",
+            "href": "/services/research"
+          }
+        ]
       },
       {
-        q: "Can Credence Africa support media, gaming, sports and entertainment businesses?",
-        a: "Yes. We can support market intelligence, audience strategy, commercialisation, partnerships, sponsorship strategy, investment readiness, policy engagement and institutional development.",
+        "type": "faq",
+        "h2": "Frequently asked questions",
+        "faqs": [
+          {
+            "q": "Does the sector include both startups and established technology businesses",
+            "a": "Yes. An early-stage enterprise may need a clearer market and funding proposition, while an established platform may be assessing a new geography or institutional capability. The scope follows the business's stage and decision."
+          },
+          {
+            "q": "Can you help test an expansion market",
+            "a": "A market brief can examine customers, competitors, channels and relevant ecosystem participants. Define the product and geography first so the work tests your entry assumptions rather than producing a broad technology overview."
+          },
+          {
+            "q": "What does a funding readiness review examine",
+            "a": "The review can organize the business model, financial information, growth assumptions and investor materials. The mandate identifies readiness gaps, expected outputs and the information needed for the funding route being considered."
+          },
+          {
+            "q": "Can employers commission data or digital learning",
+            "a": "Yes. Explain participants' roles, current skills and the outcome required. The Institute assesses the program fit, delivery arrangements and assessment and confirms the actual credential for the selected learning format."
+          },
+          {
+            "q": "Can research focus on an emerging technology",
+            "a": "A study can address an identified technology, use case and market decision. The findings should distinguish evidence from assumptions and explain the limits of what the available data can support."
+          },
+          {
+            "q": "Can we convene investors or institutional buyers",
+            "a": "A convening brief can define the audience, purpose and participation format. Identify the decision-makers relevant to the proposition and the planned discussion or demonstration before selecting the event approach."
+          },
+          {
+            "q": "How should an institution address a digital policy question",
+            "a": "State the policy issue, affected business model and desired engagement output. A public affairs mandate can organize the evidence and stakeholders, with specialist input scoped where the subject requires it."
+          },
+          {
+            "q": "What information do you need to start",
+            "a": "Share the product, customers, operating markets, institution stage and immediate decision. Add timing, available evidence and the output you want, such as a market assessment, readiness review, training program or convening brief."
+          }
+        ]
       },
       {
-        q: "Does Credence Africa work with education and training providers?",
-        a: "Yes. Education and training businesses, such as private schools, training providers and edtech platforms, sit within this sector. We support growth strategy, capital readiness, market entry and institutional development on the same basis as the rest of the sector.",
-      },
-      {
-        q: "Does Credence Africa conduct consumer market research in Kenya, Nigeria and South Africa?",
-        a: "Yes. Research can cover demand, customer segments, pricing, distribution, competitors, cultural context, channels, regulation and investment conditions.",
-      },
-      {
-        q: "Can you help a creative business raise capital?",
-        a: "We help clarify the business model, revenue case, governance, capital requirement, investor materials and engagement plan. Funding decisions remain with investors and Credence Africa does not guarantee capital.",
-      },
-    ],
-    closing: {
-      heading: "Convert market attention into structured growth",
-      body:
-        "Credence Africa can help you understand the customer, strengthen the commercial model, prepare for capital and build the partnerships required to scale.",
-      label: "Book a Consumer and Creative Economy Consultation",
-      consult: "trade",
-    },
-    links: serviceLinks("trade", "capital", "publicAffairs", "research", "institute", "engage"),
-  },
+        "type": "cta",
+        "h2": "Discuss your digital-economy decision",
+        "links": [
+          {
+            "label": "Discuss your digital-economy decision",
+            "href": "/consult?consult=trade"
+          },
+          {
+            "label": "Explore Institute programs",
+            "href": "https://institute.credence.africa/programs"
+          },
+          {
+            "label": "Commission market intelligence",
+            "href": "/services/research"
+          }
+        ]
+      }
+    ]
+  }
 ];
 
-export const sectorsBySlug: Record<string, Sector> = Object.fromEntries(
-  sectorList.map((s) => [s.slug, s]),
-);
+export const sectorsBySlug: Record<string, Sector> = Object.fromEntries(sectorList.map((p) => [p.slug, p]));

@@ -1,17 +1,10 @@
-import { getInsights } from '@/lib/insights';
-import { getServices } from '@/lib/services';
-import { Header } from './header';
+import { navMenus } from "@/lib/site-map";
+import { Header } from "./header";
 
-// Revalidate every hour
-export const revalidate = 3600;
-
-export async function SiteHeader() {
-  const insights = await getInsights();
-  const services = await getServices();
-  
-  return (
-    <div className="flex flex-col w-full z-50 sticky top-0">
-      <Header insights={insights} services={services} />
-    </div>
-  );
+/**
+ * Builds the menus on the server so the page copy in the content modules stays
+ * out of the client bundle; only labels and links reach the browser.
+ */
+export function SiteHeader() {
+  return <Header menus={navMenus} />;
 }

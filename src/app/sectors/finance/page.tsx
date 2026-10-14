@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
-import { LandingDetail } from "@/components/landing-detail";
+import { CopyPageView, pageMetadata } from "@/components/site/copy-sections";
 import { sectorsBySlug } from "@/lib/sectors-content";
 
-const sector = sectorsBySlug["finance"];
+const page = sectorsBySlug["finance"];
 
-export const metadata: Metadata = {
-  title: sector.seoTitle,
-  description: sector.metaDescription,
-  keywords: sector.keywords,
-  alternates: { canonical: "/sectors/finance" },
-};
+export const metadata = pageMetadata(page);
 
 export default function Page() {
-  return <LandingDetail page={sector} />;
+  return <CopyPageView page={page} />;
 }

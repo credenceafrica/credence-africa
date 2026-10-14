@@ -3,35 +3,37 @@
 @tailwind utilities;
  
 @layer base {
+  /* Values follow the 2026 site design: white ground, #0A0A0A ink, #FF4820 vermillion
+     with ink text on it, warm #E7E5E2 hairlines. */
   :root {
-    --background: 0 0% 95%;
-    --foreground: 222.2 84% 3%;
- 
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 3%;
- 
+    --card-foreground: 0 0% 3.9%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 3%;
- 
-    --primary: 10 83% 54%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 20% 90%;
-    --secondary-foreground: 222.2 84% 3%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 215.4 16.3% 46.9%;
- 
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 10.8 100% 56.3%;
+    --primary-foreground: 0 0% 3.9%;
+
+    --secondary: 36 12% 94%;
+    --secondary-foreground: 0 0% 3.9%;
+
+    --muted: 60 9% 98%;
+    --muted-foreground: 240 4% 37%;
+
+    --accent: 60 9% 98%;
+    --accent-foreground: 0 0% 3.9%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
- 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 10 83% 54%;
- 
+
+    --border: 36 9% 90%;
+    --input: 36 9% 90%;
+    --ring: 10.8 100% 56.3%;
+
     --radius: 0rem;
   }
  
@@ -70,8 +72,12 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+    line-height: 1.6;
     /* Guard against phantom horizontal scroll on mobile. `clip` (not `hidden`)
        prevents a scroll container from forming, so the sticky header still works. */
     overflow-x: clip;
@@ -94,40 +100,396 @@
   }
 }
 
-/* Services page signature entrance — content is visible by default; motion only
-   enhances when the user has no reduced-motion preference. Not gated by JS, so
-   it never ships a blank section. */
-.cred-rise {
-  opacity: 1;
+/* ==========================================================================
+   2026 site design — shared rules ported from the design canvas stylesheet.
+   Component markup carries the exact measurements as utilities; these rules
+   hold what utilities cannot: kickers, hairline grids, hover states and motion.
+   ========================================================================== */
+
+@layer components {
+  /* Page container: 1400px, 40px gutters, 20px at phone width. */
+  .wrap {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 720px) {
+    .wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  /* Kicker: a 6px vermillion square before a short label. */
+  .eb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eb::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #ff4820;
+    flex-shrink: 0;
+  }
+
+  /* Hairline grid: the container draws the top and left rules, each cell its right and bottom. */
+  .bgrid > * {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: inherit;
+  }
+
+  /* Photographic grounds: the default editorial photo, its darkened form, and the city band. */
+  .ph {
+    background: url(/partners-handshake.jpg) center 35% / cover no-repeat;
+  }
+  .ph-dark {
+    background: linear-gradient(rgba(10, 10, 10, 0.74), rgba(10, 10, 10, 0.74)),
+      url(/partners-handshake.jpg) center 35% / cover no-repeat;
+  }
+  .ph-city {
+    background: linear-gradient(rgba(10, 10, 10, 0.62), rgba(10, 10, 10, 0.7)),
+      url(/cta-city.jpg) center 40% / cover no-repeat;
+  }
+  /* Phones get 960px copies: a third of the bytes on mobile data, still sharp at three times density. */
+  @media (max-width: 720px) {
+    .ph {
+      background-image: url(/partners-handshake-960.jpg);
+    }
+    .ph-dark {
+      background-image: linear-gradient(rgba(10, 10, 10, 0.74), rgba(10, 10, 10, 0.74)),
+        url(/partners-handshake-960.jpg);
+    }
+    .ph-city {
+      background-image: linear-gradient(rgba(10, 10, 10, 0.62), rgba(10, 10, 10, 0.7)),
+        url(/cta-city-960.jpg);
+    }
+  }
+
+  /* Section headings drop to 32px at phone width. */
+  @media (max-width: 720px) {
+    .h2 {
+      font-size: 32px !important;
+    }
+  }
+
+  /* Underlined form field on a dark ground. */
+  .fld {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #4a4a4a;
+    padding: 12px 0;
+    font: inherit;
+    font-size: 16px;
+    color: #ffffff;
+    background: transparent;
+    min-height: 48px;
+    border-radius: 0;
+  }
+  .fld:focus {
+    outline: none;
+    border-bottom-color: #ff4820;
+  }
+  select.fld option,
+  select.fld optgroup {
+    color: #0a0a0a;
+  }
 }
-.cred-rule {
-  transform: scaleX(1);
+
+/* --- Hover and state ---------------------------------------------------- */
+.site a,
+.site button,
+.site summary,
+.site .cell,
+.site h3 {
+  transition: color 0.25s ease, background-color 0.3s ease, border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s ease, filter 0.5s ease;
+}
+.site a svg,
+.site button svg,
+.site summary span,
+.site .tile {
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.3s ease;
+}
+a .ph {
+  transition: filter 0.6s ease;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq details[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
+/* Hover only where a pointer can hover: on touch screens a tap would leave these stuck on. */
+@media (hover: hover) {
+  .site a:hover .arrow,
+  .site button:hover .arrow {
+    transform: translate(3px, -3px);
+  }
+  .pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(10, 10, 10, 0.16);
+  }
+  .pill:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  .chip:hover {
+    border-color: #0a0a0a;
+    color: #c42d0a;
+  }
+  .bgrid > a:hover h3 {
+    color: #c42d0a;
+  }
+  .on-dark .bgrid > a:hover h3 {
+    color: #ff4820;
+  }
+  .bgrid > a:hover .tile {
+    transform: translateY(-4px);
+  }
+  .cell:hover {
+    background: #fafaf9 !important;
+  }
+  a:hover .ph {
+    filter: brightness(1.07) saturate(1.05);
+  }
+  .faq summary:hover {
+    color: #c42d0a;
+  }
+  .faq summary:hover .faq-plus {
+    border-color: #0a0a0a;
+  }
+  .fab:hover {
+    transform: translateY(-3px) scale(1.04);
+  }
+  .social:hover {
+    border-color: #ff4820 !important;
+    color: #ff4820 !important;
+  }
+  .foot-link:hover {
+    color: #ff4820 !important;
+  }
+}
+
+/* Touch: a short press state stands in for hover. */
+@media (hover: none) {
+  .pill:active,
+  .chip:active,
+  .fab:active,
+  .social:active {
+    transform: scale(0.97);
+  }
+  .bgrid > a:active h3,
+  .faq summary:active {
+    color: #c42d0a;
+  }
+  .on-dark .bgrid > a:active h3 {
+    color: #ff4820;
+  }
+  .cell:active {
+    background: #fafaf9 !important;
+  }
+  .foot-link:active,
+  .social:active {
+    color: #ff4820 !important;
+  }
+}
+
+/* Touch: grows a small control's tap area to at least 44px without changing how it looks.
+   Only for controls with no ::before of their own and room around them (::after is the sister-site arrow). */
+@media (pointer: coarse) {
+  .hit {
+    position: relative;
+  }
+  .hit::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Links to the sister platforms carry a vermillion arrow, unless they draw their own. */
+a[href*="institute.credence.africa"]:not(:has(svg))::after,
+a[href*="perspectives.credence.africa"]:not(:has(svg))::after,
+a[href*="engage.credence.africa"]:not(:has(svg))::after {
+  content: "\2197";
+  color: #ff4820;
+  margin-left: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (hover: hover) {
+  a[href*="institute.credence.africa"]:hover::after,
+  a[href*="perspectives.credence.africa"]:hover::after,
+  a[href*="engage.credence.africa"]:hover::after {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* --- Header --------------------------------------------------------------- */
+@keyframes cr-down {
+  from { opacity: 0; transform: translateY(-14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes cr-pop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.cr-nl {
+  position: relative;
+}
+/* The underline is ::before so a link to a sister site keeps its ::after arrow. */
+.cr-nl::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 1px;
+  background: #ff4820;
+  transform: scaleX(0);
   transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.cr-nl[aria-expanded="true"]::before {
+  transform: scaleX(1);
+}
+.cr-nl svg {
+  transition: transform 0.3s ease;
+}
+.cr-nl[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.cr-di {
+  transition: background-color 0.25s ease, color 0.25s ease,
+    padding-left 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.cr-logo img {
+  transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .cr-nl:hover::before {
+    transform: scaleX(1);
+  }
+  .cr-nl:hover {
+    color: #ffffff !important;
+  }
+  .cr-di:hover {
+    background: #1a1a1a;
+    color: #ffffff !important;
+    padding-left: 20px !important;
+  }
+  .cr-di.cr-sub:hover {
+    padding-left: 34px !important;
+  }
+  .cr-logo:hover img {
+    opacity: 0.85;
+  }
+}
+
+/* --- Hero ------------------------------------------------------------------ */
+@keyframes cr-in {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes cr-settle {
+  from { transform: scale(1.07); }
+  to { transform: scale(1); }
+}
+@keyframes cr-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.cr-card {
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease;
+}
+.cr-card img {
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.cr-card .cr-bar {
+  transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (hover: hover) {
+  .cr-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45) !important;
+  }
+  .cr-card:hover img {
+    transform: scale(1.04);
+  }
+  .cr-card:hover .cr-bar {
+    width: 44px !important;
+  }
+}
+
+/* --- Motion: load entrances and scroll-driven reveals ---------------------- */
+@keyframes cr-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes cred-rise {
-    from {
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  .cr-hdr {
+    animation: cr-down 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
   }
-  @keyframes cred-rule {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
+  .cr-drop {
+    animation: cr-pop 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    transform-origin: top left;
   }
-  .cred-rise {
-    animation: cred-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  .cr-hero-img {
+    animation: cr-settle 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
-  .cred-rule {
-    animation: cred-rule 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
-    transform-origin: left;
+  .cr-hero-shade {
+    animation: cr-fade 1.2s ease both;
+  }
+  .cr-in {
+    animation: cr-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+  .cr-d1 { animation-delay: 0.15s; }
+  .cr-d2 { animation-delay: 0.3s; }
+  .cr-d3 { animation-delay: 0.55s; }
+  .cr-d4 { animation-delay: 0.75s; }
+  .site details[open] > p {
+    animation: cr-up 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  /* Reveals only where scroll timelines exist; elsewhere content is simply visible. */
+  @supports (animation-timeline: view()) {
+    .site section h2,
+    .site section p.h2,
+    .site section .eb,
+    .site .bgrid > *,
+    .site details,
+    .site .cr-rv {
+      animation: cr-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+    .site .bgrid > :nth-child(4n + 2) { animation-range: entry 4% cover 26%; }
+    .site .bgrid > :nth-child(4n + 3) { animation-range: entry 8% cover 30%; }
+    .site .bgrid > :nth-child(4n + 4) { animation-range: entry 12% cover 34%; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
   }
 }

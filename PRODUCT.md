@@ -81,5 +81,6 @@ This must NOT look like any of the following:
 Target **WCAG 2.1 AA** on the public site: body text ≥4.5:1 contrast (large/bold text
 ≥3:1), full keyboard navigation, visible focus states, semantic landmarks and headings, and
 a `prefers-reduced-motion` alternative for every animation. Note the vermillion primary
-(`hsl(10 83% 54%)`) is below 4.5:1 on white for small text — reserve it for large text,
-buttons, and accents, and use the dark foreground for body copy.
+(`#FF4820`) is below 4.5:1 on white for small text — reserve it for large text, icons and
+accents, use `#C42D0A` for small accent text on white, and put ink (`#0A0A0A`) text on
+vermillion.

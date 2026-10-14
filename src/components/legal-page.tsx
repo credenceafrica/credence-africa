@@ -1,173 +1,64 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import {
-  type LegalBlock,
-  type LegalPolicy,
-  legalContact,
-  legalLastUpdated,
-  legalPolicies,
-} from "@/lib/legal";
+import { Hero } from "@/components/site/hero";
+import { Pill, num } from "@/components/site/primitives";
+import { type LegalPolicy, legalContact, legalLastUpdated } from "@/lib/legal";
 
-// Turns any email address inside body text into a mailto link. Ink text with a vermillion
-// underline keeps it AA-legible (vermillion text on white would fail small-text contrast).
-const EMAIL_SPLIT = /([\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,})/g;
-const EMAIL_TEST = /^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
-
-function renderText(text: string) {
-  return text.split(EMAIL_SPLIT).map((part, i) =>
-    EMAIL_TEST.test(part) ? (
-      <a
-        key={i}
-        href={`mailto:${part}`}
-        className="font-normal text-foreground underline decoration-primary decoration-1 underline-offset-2 transition-[text-decoration-thickness] hover:decoration-2"
-      >
-        {part}
-      </a>
-    ) : (
-      <span key={i}>{part}</span>
-    )
-  );
-}
-
-function Block({ block }: { block: LegalBlock }) {
-  if (block.type === "p") {
-    return (
-      <p className="max-w-[68ch] text-base font-light leading-relaxed text-foreground/80">
-        {renderText(block.text)}
-      </p>
-    );
-  }
-  return (
-    <ul className="max-w-[68ch] space-y-3">
-      {block.items.map((item, i) => (
-        <li key={i} className="flex gap-3 text-base font-light leading-relaxed text-foreground/80">
-          <span className="mt-[0.55rem] size-1.5 shrink-0 bg-primary" aria-hidden="true" />
-          <span>{renderText(item)}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function TableOfContents({ sections }: { sections: LegalPolicy["sections"] }) {
-  return (
-    <ol className="list-none space-y-2.5">
-      {sections.map((s, i) => (
-        <li key={s.id}>
-          <a
-            href={`#${s.id}`}
-            className="group flex gap-2.5 text-sm font-light leading-snug text-foreground/70 transition-colors hover:text-primary"
-          >
-            <span className="tabular-nums text-primary/70" aria-hidden="true">{i + 1}.</span>
-            <span>{s.heading}</span>
-          </a>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
+/** Legal template: the client's numbered sections beside the lead statement, then a contact box. */
 export function LegalPage({ policy }: { policy: LegalPolicy }) {
-  const others = legalPolicies.filter((p) => p.slug !== policy.slug);
-
   return (
-    <div className="overflow-x-hidden">
-      {/* Hero: navy */}
-      <section className="bg-foreground">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-light text-background/60">Last updated {legalLastUpdated}</p>
-            <h1 className="mt-4 text-balance font-normal leading-[1.1] tracking-[-0.01em] text-background [font-size:clamp(1.75rem,3.5vw,2.5rem)]">
-              {policy.title}
-            </h1>
-            <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-background/80 md:text-lg">
-              {policy.intro}
-            </p>
+    <div className="w-full bg-white leading-[1.7] text-ink">
+      <Hero
+        crumbs={[{ label: "Legal" }, { label: policy.title }]}
+        title={policy.title}
+        intro={`Last updated: ${legalLastUpdated}`}
+        mobileTitle={40}
+      />
+
+      <section className="pb-32 pt-28">
+        <div className="wrap grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-12">
+          <div>
+            <div className="eb mb-[18px] text-[13.5px]">Last updated: {legalLastUpdated}</div>
+            <p className="m-0 max-w-[420px] text-[26px] leading-[1.3] tracking-[-0.02em]">{policy.intro}</p>
           </div>
-        </div>
-      </section>
 
-      {/* Body: light band, TOC rail + prose */}
-      <section className="bg-background">
-        <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            {/* Desktop TOC: sticky rail */}
-            <aside className="hidden lg:col-span-3 lg:block">
-              <nav aria-label="On this page" className="lg:sticky lg:top-28">
-                <p className="text-sm font-medium text-foreground/50">On this page</p>
-                <div className="mt-4">
-                  <TableOfContents sections={policy.sections} />
-                </div>
-              </nav>
-            </aside>
-
-            <div className="lg:col-span-9">
-              {/* Mobile TOC: collapsible */}
-              <details className="mb-10 border border-foreground/15 lg:hidden">
-                <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium text-foreground marker:hidden">
-                  On this page
-                </summary>
-                <nav className="border-t border-foreground/15 px-4 py-4">
-                  <TableOfContents sections={policy.sections} />
-                </nav>
-              </details>
-
-              <article className="space-y-10">
-                {policy.sections.map((section, i) => (
-                  <section
-                    key={section.id}
-                    id={section.id}
-                    className="scroll-mt-28 border-t border-foreground/12 pt-10 first:border-t-0 first:pt-0"
-                  >
-                    <h2 className="font-normal leading-snug tracking-[-0.005em] text-foreground [font-size:clamp(1.15rem,2vw,1.375rem)]">
-                      <span className="text-primary">{i + 1}.</span> {section.heading}
-                    </h2>
-                    <div className="mt-4 space-y-4">
-                      {section.blocks.map((block, bi) => (
-                        <Block key={bi} block={block} />
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </article>
-
-              {/* Contact + cross-links */}
-              <div className="mt-16 grid gap-10 border-t border-foreground/12 pt-10 sm:grid-cols-2">
+          {/* Spans 2 only from 768px: below that the grid is one column and `span 2` would add a phantom column that overflows. */}
+          <div className="min-w-0 border-t border-line md:col-span-2">
+            {policy.sections.map((s, i) => (
+              <div key={s.id} id={s.id} className="grid grid-cols-[64px_1fr] gap-4 border-b border-line py-7">
+                <span className="text-[36px] font-light leading-none text-[#B5B5B5]">{num(i)}</span>
                 <div>
-                  <h2 className="font-normal leading-snug text-foreground [font-size:clamp(1.15rem,2vw,1.375rem)]">
-                    {policy.title.includes("Terms") ? "Questions about these Terms?" : "Questions about this policy?"}
-                  </h2>
-                  <p className="mt-3 max-w-[42ch] text-base font-light leading-relaxed text-foreground/80">
-                    Email{" "}
-                    <a
-                      href={`mailto:${legalContact.email}`}
-                      className="font-normal text-foreground underline decoration-primary decoration-1 underline-offset-2 hover:decoration-2"
-                    >
-                      {legalContact.email}
-                    </a>{" "}
-                    or write to us at {legalContact.address}.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground/50">More legal</p>
-                  <ul className="mt-4 divide-y divide-foreground/12 border-y border-foreground/12">
-                    {others.map((p) => (
-                      <li key={p.slug}>
-                        <Link
-                          href={`/${p.slug}`}
-                          className="group flex items-center gap-3 py-3.5 text-base font-light text-foreground transition-colors hover:text-primary"
-                        >
-                          <span>{p.title}</span>
-                          <ArrowUpRight
-                            className="ml-auto size-4 shrink-0 text-primary opacity-0 transition-opacity group-hover:opacity-100"
-                            aria-hidden="true"
-                          />
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <h2 className="mb-2.5 mt-0 text-[20px] font-medium tracking-[-0.01em]">{s.heading}</h2>
+                  {s.blocks.map((b, j) =>
+                    b.type === "p" ? (
+                      <p key={j} className="mb-2.5 mt-0 text-[16px] text-body">
+                        {b.text}
+                      </p>
+                    ) : (
+                      <ul key={j} className="m-0 flex list-none flex-col p-0 text-[16px] text-body">
+                        {b.items.map((item) => (
+                          <li key={item} className="flex gap-2.5 py-1.5">
+                            <span aria-hidden="true" className="mt-[11px] size-1.5 shrink-0 bg-primary" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    ),
+                  )}
                 </div>
               </div>
+            ))}
+
+            <div className="mt-10 flex flex-wrap items-center justify-between gap-5 bg-ink p-9 text-white">
+              <div>
+                <h2 className="mb-2 mt-0 text-[30px] font-normal tracking-[-0.03em]">
+                  {policy.title.includes("Terms") ? "Questions about these Terms?" : "Questions about this policy?"}
+                </h2>
+                <p className="m-0 max-w-[560px] text-[15px] text-body-dark">
+                  Email {legalContact.email} or write to Credence Africa, {legalContact.address}.
+                </p>
+              </div>
+              <Pill href={`mailto:${legalContact.email}`} variant="light">
+                {legalContact.email}
+              </Pill>
             </div>
           </div>
         </div>

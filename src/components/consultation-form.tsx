@@ -1,33 +1,52 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Arrow } from "@/components/site/primitives";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { firestore } from "@/firebase";
+import { track } from "@/lib/analytics";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import {
   consultationInterests,
   consultationSchema,
   type ConsultationValues,
 } from "@/lib/consultation";
 
-const fieldClass =
-  "h-12 rounded-none border-foreground/20 bg-white text-base text-foreground placeholder:text-foreground/55 focus-visible:ring-primary";
+const countries = ["Kenya", "Nigeria", "South Africa", "Uganda", "Tanzania", "Rwanda", "Ghana", "Other"];
 
+const inputs = [
+  { name: "name", label: "Name", type: "text", autoComplete: "name" },
+  { name: "email", label: "Email", type: "email", autoComplete: "email" },
+  { name: "phone", label: "Phone number (optional)", type: "tel", autoComplete: "tel" },
+  { name: "company", label: "Company (optional)", type: "text", autoComplete: "organization" },
+] as const;
+
+const item = "flex flex-col space-y-0";
+const label = "text-[13px] font-normal leading-[1.6] text-body-dark";
+
+/**
+ * The consultation request form: underlined fields for a dark ground. The Consult page makes it
+ * the design's ink panel through `id`, `className` and a heading passed as `children`; the dialogs
+ * render it bare on their ink content.
+ */
 export function ConsultationForm({
   defaultInterest = "",
   onSuccess,
+  id,
+  className,
+  children,
 }: {
   defaultInterest?: string;
   onSuccess?: () => void;
+  id?: string;
+  className?: string;
+  /** Rendered first, full width, inside the form grid. */
+  children?: ReactNode;
 }) {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -39,9 +58,10 @@ export function ConsultationForm({
       email: "",
       phone: "",
       company: "",
-      country: "",
+      country: "Kenya",
       interest: defaultInterest,
       message: "",
+      newsletter: false,
     },
   });
 
@@ -69,6 +89,7 @@ export function ConsultationForm({
         body: JSON.stringify({ ...data, submissionId: submission.id, pageUrl: window.location.href }),
         keepalive: true,
       }).catch(() => {});
+      track("generate_lead", { lead_source: "consultation", interest: data.interest });
       toast({
         title: "Request sent",
         description: "Thank you. A senior advisor will be in touch within 24 hours.",
@@ -89,138 +110,117 @@ export function ConsultationForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground">Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Full name" className={fieldClass} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="grid gap-6 sm:grid-cols-2">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="you@example.com" className={fieldClass} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Phone number</FormLabel>
-                <FormControl>
-                  <Input placeholder="+254 712 345678" className={fieldClass} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <FormField
-            control={form.control}
-            name="company"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Company (optional)</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your organisation" className={fieldClass} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      <form
+        id={id}
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn("grid grid-cols-2 gap-x-7 gap-y-[22px]", className)}
+      >
+        {children}
+        <div className="col-span-full grid grid-cols-2 gap-x-7 gap-y-[22px] max-[720px]:grid-cols-1">
+          {inputs.map((f) => (
+            <FormField
+              key={f.name}
+              control={form.control}
+              name={f.name}
+              render={({ field }) => (
+                <FormItem className={item}>
+                  <FormLabel className={label}>{f.label}</FormLabel>
+                  <FormControl>
+                    <input type={f.type} autoComplete={f.autoComplete} className="fld" {...field} />
+                  </FormControl>
+                  <FormMessage className="mt-2" />
+                </FormItem>
+              )}
+            />
+          ))}
           <FormField
             control={form.control}
             name="country"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Country</FormLabel>
+              <FormItem className={item}>
+                <FormLabel className={label}>Country</FormLabel>
                 <FormControl>
-                  <Input placeholder="Kenya" className={fieldClass} {...field} />
+                  <select className="fld" {...field}>
+                    {countries.map((c) => (
+                      <option key={c}>{c}</option>
+                    ))}
+                  </select>
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="interest"
+            render={({ field }) => (
+              <FormItem className={item}>
+                <FormLabel className={label}>Area of interest</FormLabel>
+                <FormControl>
+                  <select className="fld" {...field}>
+                    <option value="">Select an area</option>
+                    <optgroup label="Advisory">
+                      {consultationInterests
+                        .filter((i) => i.group)
+                        .map((i) => (
+                          <option key={i.value} value={i.value}>
+                            {i.label}
+                          </option>
+                        ))}
+                    </optgroup>
+                    {consultationInterests
+                      .filter((i) => !i.group)
+                      .map((i) => (
+                        <option key={i.value} value={i.value}>
+                          {i.label}
+                        </option>
+                      ))}
+                  </select>
+                </FormControl>
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
         </div>
         <FormField
           control={form.control}
-          name="interest"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground">Area of interest</FormLabel>
-              <Select onValueChange={field.onChange} value={field.value}>
-                <FormControl>
-                  <SelectTrigger className={fieldClass}>
-                    <SelectValue placeholder="Select an area" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent className="rounded-none">
-                  {consultationInterests.map((item) => (
-                    <SelectItem key={item.value} value={item.value}>
-                      {item.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground">Message</FormLabel>
+            <FormItem className={cn(item, "col-span-full")}>
+              <FormLabel className={label}>Message</FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Tell us about your mandate, project or challenge."
-                  rows={5}
-                  className="resize-none rounded-none border-foreground/20 bg-white text-base text-foreground placeholder:text-foreground/55 focus-visible:ring-primary"
-                  {...field}
-                />
+                <textarea rows={5} className="fld" {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="mt-2" />
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          size="lg"
-          disabled={loading}
-          className="h-14 w-full rounded-none border-none bg-primary text-base font-light text-foreground hover:bg-primary/90 sm:w-auto sm:px-10"
-        >
-          {loading ? "Sending…" : "Submit Request"}
-          {!loading && <ArrowRight className="ml-2 size-5" aria-hidden="true" />}
-        </Button>
-
-        <p className="text-sm font-light leading-relaxed text-foreground/65">
-          By submitting this form you agree to our{" "}
-          <Link
-            href="/privacy-policy"
-            className="font-normal text-foreground underline decoration-primary decoration-1 underline-offset-2 hover:decoration-2"
+        <label className="col-span-full flex cursor-pointer items-start gap-3 text-[14px] text-body-dark">
+          <input
+            type="checkbox"
+            className="mt-0.5 size-[18px] shrink-0 accent-primary"
+            {...form.register("newsletter")}
+          />
+          Optional: send me occasional Credence Africa insights and event updates. This is separate from our
+          response to your enquiry.
+        </label>
+        <div className="col-span-full mt-2 flex flex-wrap items-center justify-between gap-4">
+          <p className="m-0 text-[13.5px] text-body-dark">
+            We use these details to respond to your enquiry. See our{" "}
+            <Link href="/privacy-policy" className="text-white underline hover:text-primary">
+              Privacy Policy
+            </Link>
+            .
+          </p>
+          <button
+            type="submit"
+            disabled={loading}
+            className="pill inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14.5px] font-semibold text-ink disabled:pointer-events-none disabled:opacity-50"
           >
-            Privacy Policy
-          </Link>
-          .
-        </p>
+            {loading ? "Sending…" : "Submit Request"}
+            {!loading && <Arrow />}
+          </button>
+        </div>
       </form>
     </Form>
   );
