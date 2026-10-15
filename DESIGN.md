@@ -132,7 +132,10 @@ and bottom, so there is never a gap between cells.
 - **Icon tiles** (`IconTile`): 44px ink squares with a vermillion stroke icon; they lift when
   their card is hovered.
 - **Hero** (`Hero`): photo, gradient, breadcrumb, title, base row with scroll cue, intro,
-  buttons and an optional white feature card or key/value panel.
+  buttons and an optional white feature card or key/value panel. Home departs from the canvas (at
+  the user's request): the intro and buttons sit on the left with the scroll cue under them, the
+  card on the far right, and the gap between the title and the rule stops at 96px (a taller screen
+  adds the extra above the title).
 - **Copy template** (`CopyPageView`, `CopySections`): every content page (home, about, services
   and their product pages, sectors, themes, who we work with) is the hero followed by statement,
   split, cards, steps, directory, FAQ and closing sections. The copy lives in `src/lib/*-content.ts`,
@@ -142,7 +145,8 @@ and bottom, so there is never a gap between cells.
   `#111111`, a white "Book a Consultation" pill; collapses to a menu button at 1180px. Services
   lists the four trade programmes under Trade and Growth, indented, 13px and `#A3A3A3`.
 - **Sister-site links**: a link to Credence Institute, Credible Perspectives or Credence Engage
-  that has no icon of its own ends in a vermillion ↗ (`::after`), nudging up-right on hover.
+  that has no icon of its own ends in a vermillion ↗ (`::after`), nudging up-right on hover. It is
+  written `\2197\FE0E` and the body sets `font-variant-emoji: text`, so iOS never swaps in the emoji.
 - **Footer**: black, a bordered four-cell grid, vermillion headings; floating WhatsApp and call
   buttons sit bottom-right on every page.
 - **Closing band** (`CtaBand`): the city photograph darkened, centred heading, optional text and pills.

@@ -45,7 +45,18 @@ export function Hero({
   imgAlt = "Professionals in discussion on a terrace overlooking a modern African city skyline",
 }: HeroProps) {
   const tall = size !== "default";
+  // Home (deviation from the canvas, at the user's request): no scroll-cue column; the intro sits on
+  // the left with the cue under it and the card on the far right.
+  const home = size === "full";
   const trail = crumbs?.length ? [{ label: "Home", href: "/" }, ...crumbs] : [];
+  const scrollCue = (
+    <div className="flex items-center gap-2 self-start text-[12px] uppercase tracking-[0.12em] text-white/75 max-[983px]:hidden">
+      Scroll down
+      <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </div>
+  );
 
   return (
     <section className={cn("relative w-full overflow-hidden bg-ink text-white", minH[size])}>
@@ -67,7 +78,7 @@ export function Hero({
         }}
       />
 
-      <div className={cn("relative mx-auto flex max-w-[1400px] flex-col px-10 pb-10 pt-[196px] max-[720px]:px-5", minH[size])}>
+      <div className={cn("relative mx-auto flex max-w-[1400px] flex-col px-10 pb-10 pt-[196px] max-[720px]:px-5", minH[size], home && "justify-end")}>
         {trail.length > 0 && (
           <nav className="cr-in cr-d1 mb-6" aria-label="Breadcrumb">
             <ol className="m-0 flex list-none flex-wrap items-center gap-2 p-0 text-[14px] text-white/[0.72]">
@@ -110,16 +121,17 @@ export function Hero({
           {title}
         </h1>
 
-        <div className="min-h-14 grow" />
+        {/* On Home the title-to-divider gap stops at 96px; a taller screen adds the extra above the title. */}
+        <div className={cn("min-h-14 grow", home && "max-h-24")} />
 
-        {/* Three columns from 984px. Below that it stacks: two columns would give the scroll cue a column of its own. */}
-        <div className="cr-in cr-d3 grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] items-end gap-8 border-t border-white/20 pt-7 max-[983px]:grid-cols-1">
-          <div className="flex items-center gap-2 self-start text-[12px] uppercase tracking-[0.12em] text-white/75 max-[983px]:hidden">
-            Scroll down
-            <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </div>
+        {/* Three columns from 984px (two on Home). Below that it stacks: two columns would give the scroll cue a column of its own. */}
+        <div
+          className={cn(
+            "cr-in cr-d3 grid items-end gap-8 border-t border-white/20 pt-7 max-[983px]:grid-cols-1",
+            home ? "grid-cols-[minmax(0,460px)_minmax(0,420px)] justify-between" : "grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))]",
+          )}
+        >
+          {!home && scrollCue}
 
           <div className="flex flex-col gap-6 self-start">
             {intro && <p className="m-0 max-w-[460px] text-[16px] leading-[1.6] text-white/[0.86]">{intro}</p>}
@@ -142,6 +154,7 @@ export function Hero({
                 )}
               </div>
             )}
+            {home && scrollCue}
           </div>
 
           {card && (
