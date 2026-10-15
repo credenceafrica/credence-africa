@@ -81,6 +81,8 @@
     /* Guard against phantom horizontal scroll on mobile. `clip` (not `hidden`)
        prevents a scroll container from forming, so the sticky header still works. */
     overflow-x: clip;
+    /* Symbols such as ↗ have an emoji form that iOS swaps in; ask for the plain glyph. */
+    font-variant-emoji: text;
   }
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
@@ -326,7 +328,8 @@ a .ph {
 a[href*="institute.credence.africa"]:not(:has(svg))::after,
 a[href*="perspectives.credence.africa"]:not(:has(svg))::after,
 a[href*="engage.credence.africa"]:not(:has(svg))::after {
-  content: "\2197";
+  /* U+FE0E keeps the arrow a text glyph on iOS, which otherwise draws the emoji. */
+  content: "\2197\FE0E";
   color: #ff4820;
   margin-left: 6px;
   font-size: 0.9em;
