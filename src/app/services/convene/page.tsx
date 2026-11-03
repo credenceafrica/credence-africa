@@ -502,7 +502,7 @@ export default function ConvenePage() {
             <Button asChild size="lg" variant="secondary" className="rounded-none bg-white text-primary hover:bg-white/90 h-14 px-10">
               <Link href="/consult">Plan Your Event</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary h-14 px-10">
+            <Button asChild size="lg" variant="outline" className="rounded-none border-2 border-white bg-ink text-white hover:bg-white hover:text-primary h-14 px-10">
               <Link href="/consult">Discuss Your Event</Link>
             </Button>
           </div>

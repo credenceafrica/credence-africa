@@ -27,6 +27,9 @@ export function SmartLink({ href, ...props }: ComponentProps<"a"> & { href: stri
   return <a href={href} {...props} />;
 }
 
+/** Makes a button span its column on phones. */
+export const phoneFull = "max-[720px]:w-full max-[720px]:justify-center max-[720px]:text-center";
+
 const pillVariants = {
   /** White on a dark or photo ground. */
   light: "bg-white py-[13px] font-semibold text-ink",
@@ -34,10 +37,10 @@ const pillVariants = {
   dark: "bg-ink py-[13px] font-semibold text-white",
   /** Vermillion with ink text. */
   accent: "bg-primary py-[13px] font-semibold text-ink",
-  /** Outline on a dark ground; text stays white. */
-  outline: "border border-white/70 py-3 font-medium text-white",
-  /** Outline on a dark ground whose text warms to vermillion on hover. */
-  outlineAccent: "border border-white/70 py-3 font-medium text-white hover:text-primary",
+  /** Outline on a dark or photo ground, filled black so it stays legible over a photograph. */
+  outline: "border border-white/70 bg-ink py-3 font-medium text-white",
+  /** The same, with text that warms to vermillion on hover. */
+  outlineAccent: "border border-white/70 bg-ink py-3 font-medium text-white hover:text-primary",
   /** Outline on a light ground. */
   outlineDark: "border border-ink py-3 font-medium text-ink",
 } as const;
