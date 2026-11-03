@@ -4,7 +4,8 @@ import type { CopyPage } from "@/components/site/copy-sections";
 export const homePage: CopyPage = {
   "hero": {
     "title": "Enabling the institutions that build Africa",
-    "intro": "Credence Africa supports the people and institutions making decisions about capital, markets, policy and capability. From Nairobi, we connect advisory, professional learning, events and intelligence with the practical work a mandate requires. Our services are designed for enterprises, investors, cooperatives, nonprofits, development organizations and public institutions working in Kenya and across African markets.",
+    "intro": "Credence Africa supports the people and institutions making decisions about capital, markets, policy and capability. From Nairobi, we connect advisory, professional learning, events and intelligence with the practical work a mandate requires.",
+    "introMore": "Our services are designed for enterprises, investors, cooperatives, nonprofits, development organizations and public institutions working in Kenya and across African markets.",
     "btn1": {
       "label": "Explore our services",
       "href": "/services"
@@ -72,6 +73,7 @@ export const homePage: CopyPage = {
     {
       "type": "split",
       "id": "advisory",
+      "compact": true,
       "pad": "128px 0 0",
       "eb": "01 · Advisory",
       "h2": "Advisory for consequential business decisions",
@@ -89,6 +91,7 @@ export const homePage: CopyPage = {
     {
       "type": "split",
       "id": "learning",
+      "compact": true,
       "eb": "02 · Credence Institute",
       "h2": "Learning that strengthens institutional capability",
       "paras": [
@@ -109,6 +112,7 @@ export const homePage: CopyPage = {
     {
       "type": "split",
       "id": "events",
+      "compact": true,
       "eb": "03 · Credence Engage",
       "h2": "Events planned around your purpose",
       "paras": [
@@ -129,6 +133,7 @@ export const homePage: CopyPage = {
     {
       "type": "split",
       "id": "evidence",
+      "compact": true,
       "eb": "04 · Credible Perspectives",
       "h2": "Evidence and media for informed decisions",
       "paras": [

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Arrow, SmartLink } from "./primitives";
+import { Arrow, SmartLink, phoneFull } from "./primitives";
 
 export type Crumb = { label: string; href?: string };
 export type HeroLink = { label: string; href: string };
@@ -8,6 +8,8 @@ export type HeroLink = { label: string; href: string };
 export type HeroProps = {
   title: string;
   intro?: string;
+  /** The rest of the intro, dropped on phones where the whole text runs too long. */
+  introMore?: string;
   /** Trail after Home; the last entry is the current page. */
   crumbs?: Crumb[];
   btn1?: HeroLink;
@@ -35,6 +37,7 @@ const mobileTitleCls = {
 export function Hero({
   title,
   intro,
+  introMore,
   crumbs,
   btn1,
   btn2,
@@ -134,12 +137,17 @@ export function Hero({
           {!home && scrollCue}
 
           <div className="flex flex-col gap-6 self-start">
-            {intro && <p className="m-0 max-w-[460px] text-[16px] leading-[1.6] text-white/[0.86]">{intro}</p>}
+            {intro && (
+              <p className="m-0 max-w-[460px] text-[16px] leading-[1.6] text-white/[0.86]">
+                {intro}
+                {introMore && <span className="max-[720px]:hidden"> {introMore}</span>}
+              </p>
+            )}
             {btn1 && (
               <div className="flex flex-wrap gap-3">
                 <SmartLink
                   href={btn1.href}
-                  className="pill inline-flex items-center gap-2 rounded-full bg-white px-[22px] py-[13px] text-[14.5px] font-semibold text-ink"
+                  className={cn("pill inline-flex items-center gap-2 rounded-full bg-white px-[22px] py-[13px] text-[14.5px] font-semibold text-ink", phoneFull)}
                 >
                   {btn1.label}
                   <Arrow />
@@ -147,7 +155,7 @@ export function Hero({
                 {btn2 && (
                   <SmartLink
                     href={btn2.href}
-                    className="pill inline-flex items-center rounded-full border border-white/70 px-[22px] py-3 text-[14.5px] font-medium text-white"
+                    className={cn("pill inline-flex items-center rounded-full border border-white/70 bg-ink px-[22px] py-3 text-[14.5px] font-medium text-white", phoneFull)}
                   >
                     {btn2.label}
                   </SmartLink>

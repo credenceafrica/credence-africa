@@ -260,7 +260,7 @@ export default function NetworksPage() {
                   <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none py-6">
                     <Link href="/consult">Apply for Membership</Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black rounded-none py-6">
+                  <Button asChild size="lg" variant="outline" className="border-white bg-ink text-white hover:bg-white hover:text-black rounded-none py-6">
                     <Link href="/consult">Become a Partner</Link>
                   </Button>
                 </div>
@@ -287,7 +287,7 @@ export default function NetworksPage() {
             <Button asChild size="lg" variant="secondary" className="rounded-none px-10 h-14 text-base font-bold bg-white text-primary hover:bg-white/90">
               <Link href="/consult">Apply for Membership</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary rounded-none px-10 h-14 text-base font-bold">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white bg-ink text-white hover:bg-white hover:text-primary rounded-none px-10 h-14 text-base font-bold">
               <Link href="/consult">Explore All Communities</Link>
             </Button>
           </div>

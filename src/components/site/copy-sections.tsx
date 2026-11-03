@@ -3,7 +3,8 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { Hero, type HeroProps } from "./hero";
-import { Arrow, Chip, CtaBand, FaqJsonLd, FaqList, IconTile, Pill, SmartLink, num } from "./primitives";
+import { Arrow, Chip, CtaBand, FaqJsonLd, FaqList, IconTile, Pill, SmartLink, num, phoneFull } from "./primitives";
+import { ReadMore } from "./read-more";
 
 export type CopyLink = { label: string; href: string };
 
@@ -23,6 +24,8 @@ export type CopySection = {
   /** Closing band text. */
   p?: string;
   paras?: string[];
+  /** Split, on phones: the first paragraph with the rest behind Read more, and full-width buttons. */
+  compact?: boolean;
   links?: CopyLink[];
   chips?: CopyLink[];
   chipsLabel?: string;
@@ -58,16 +61,17 @@ const h2Section = "h2 m-0 text-balance text-[clamp(32px,3.2vw,46px)] font-normal
 /** Heading left, copy right; one column under 900px. */
 const split = "grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-start gap-14 max-[900px]:grid-cols-1 max-[900px]:gap-7";
 
-function Links({ links, dark }: { links: CopyLink[]; dark: boolean }) {
+function Links({ links, dark, full }: { links: CopyLink[]; dark: boolean; full?: boolean }) {
+  const className = full ? phoneFull : undefined;
   return (
     <div className="mt-2.5 flex flex-wrap gap-3">
       {links.map((l, j) =>
         j === 0 ? (
-          <Pill key={l.href + j} href={l.href} variant={dark ? "light" : "dark"}>
+          <Pill key={l.href + j} href={l.href} variant={dark ? "light" : "dark"} className={className}>
             {l.label}
           </Pill>
         ) : (
-          <Pill key={l.href + j} href={l.href} variant={dark ? "outline" : "outlineDark"}>
+          <Pill key={l.href + j} href={l.href} variant={dark ? "outline" : "outlineDark"} className={className}>
             {l.label}
           </Pill>
         ),
@@ -115,11 +119,20 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                       <h2 className={h2Section}>{s.h2}</h2>
                     </div>
                     <div className="flex max-w-[720px] flex-col gap-[18px]">
-                      {s.paras?.map((p) => (
+                      {(s.compact ? s.paras?.slice(0, 1) : s.paras)?.map((p) => (
                         <p key={p} className={cn("m-0 text-[17px]", theme.body)}>
                           {p}
                         </p>
                       ))}
+                      {s.compact && (
+                        <ReadMore>
+                          {s.paras?.slice(1).map((p) => (
+                            <p key={p} className={cn("m-0 text-[17px]", theme.body)}>
+                              {p}
+                            </p>
+                          ))}
+                        </ReadMore>
+                      )}
                       {s.chips?.length ? (
                         <div className="mt-2 flex flex-wrap gap-2.5">
                           {s.chips.map((c) =>
@@ -135,7 +148,7 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                           )}
                         </div>
                       ) : null}
-                      {s.links?.length ? <Links links={s.links} dark={dark} /> : null}
+                      {s.links?.length ? <Links links={s.links} dark={dark} full={s.compact} /> : null}
                     </div>
                   </div>
                   {s.img && (
