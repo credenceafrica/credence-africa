@@ -202,7 +202,7 @@ export default async function EventPage({ params }: Props) {
   const ctaPill =
     "pill flex w-full items-center justify-center gap-2 rounded-full bg-primary px-[22px] py-[15px] text-[15px] font-semibold text-ink";
   const outlinePill =
-    "pill mt-2.5 flex items-center justify-center gap-2 rounded-full border border-white/30 px-[22px] py-[13px] text-[14.5px] font-medium text-white hover:text-primary";
+    "pill mt-2.5 flex items-center justify-center gap-2 rounded-full border border-white/30 bg-ink px-[22px] py-[13px] text-[14.5px] font-medium text-white hover:text-primary";
   const h2Sub = "m-0 text-[clamp(28px,2.6vw,36px)] font-normal leading-[1.15] tracking-[-0.035em]";
 
   return (

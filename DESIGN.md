@@ -79,7 +79,8 @@ components:
   pill-light: { backgroundColor: "{colors.surface}", textColor: "{colors.ink}", rounded: "{rounded.pill}", padding: "13px 22px" }
   pill-dark: { backgroundColor: "{colors.ink}", textColor: "{colors.surface}", rounded: "{rounded.pill}", padding: "13px 22px" }
   pill-accent: { backgroundColor: "{colors.primary}", textColor: "{colors.ink}", rounded: "{rounded.pill}", padding: "13px 22px" }
-  pill-outline: { backgroundColor: "transparent", textColor: "currentColor", rounded: "{rounded.pill}", padding: "12px 22px" }
+  pill-outline: { backgroundColor: "{colors.ink}", textColor: "{colors.surface}", rounded: "{rounded.pill}", padding: "12px 22px" }
+  pill-outline-on-white: { backgroundColor: "transparent", textColor: "{colors.ink}", rounded: "{rounded.pill}", padding: "12px 22px" }
 ---
 
 # Design System: Credence Africa
@@ -127,7 +128,9 @@ and bottom, so there is never a gap between cells.
 ## 5. Components
 
 - **Pills** (`Pill`): light, dark, accent and outline variants, 14.5px, fully rounded, with the
-  up-right arrow on primary variants. Hover lifts 2px with a soft shadow.
+  up-right arrow on primary variants. Hover lifts 2px with a soft shadow. Outline pills on a dark
+  or photo ground are filled ink so they stay legible (the canvas leaves them transparent; this is
+  the user's call); on white they stay transparent.
 - **Chips** (`Chip`): bordered pills for tags and related links; hover darkens the border.
 - **Icon tiles** (`IconTile`): 44px ink squares with a vermillion stroke icon; they lift when
   their card is hovered.
@@ -170,7 +173,12 @@ The canvas is drawn at desktop and 390px. These rules adapt it to the sizes betw
   cells 24px), so every left edge lines up on a phone.
 - **Hero:** the base row has three columns from 984px. Below that it stacks into one column
   without the "Scroll down" cue, and the feature card or key/value panel caps at 560px. The
-  canvas's phone title sizes (38/40/42px) scale down below about 400px so long words fit.
+  canvas's phone title sizes (38/40/42px) scale down below about 400px so long words fit. At
+  720px and below the hero's buttons are full width and `introMore` is hidden, which ends Home's
+  intro after its second sentence.
+- **Home's numbered sections:** Advisory, Credence Institute, Credence Engage and Credible
+  Perspectives (`compact`) show one paragraph with a Read more button and full-width buttons at
+  720px and below.
 - **Header:** at 1180px and below it returns as a near-opaque bar when the reader scrolls up and
   slides away on scroll down; at the top of the page it is the canvas header. The menu panel
   scrolls within the screen. Desktop keeps the canvas behaviour (no pinning).

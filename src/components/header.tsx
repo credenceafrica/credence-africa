@@ -181,7 +181,7 @@ export function Header({ menus }: { menus: NavMenu[] }) {
           </Link>
           <button
             type="button"
-            className="hidden size-11 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-transparent text-white max-[1180px]:inline-flex"
+            className="hidden size-11 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-ink text-white max-[1180px]:inline-flex"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
