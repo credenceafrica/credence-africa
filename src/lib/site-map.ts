@@ -28,7 +28,7 @@ export const navMenus: NavMenu[] = [
       service("research"),
       { label: "Credible Perspectives", href: "https://perspectives.credence.africa" },
       { label: "Credence Institute", href: "https://www.credenceinstitute.ac" },
-      service("credence-engage"),
+      { label: "Credence Engage", href: "https://www.credenceengage.com" },
     ],
   },
   {
@@ -76,7 +76,9 @@ export const legalPages: SiteLink[] = [
 /** Each service page followed by its product pages, most of which are not in the header. */
 const servicePageLinks: SiteLink[] = Object.keys(servicePages)
   .filter((key) => !key.includes("/"))
-  .flatMap((key) => [service(key), ...Object.keys(servicePages).filter((k) => k.startsWith(`${key}/`)).map(service)]);
+  .flatMap((key) => [service(key), ...Object.keys(servicePages).filter((k) => k.startsWith(`${key}/`)).map(service)])
+  // Credence Engage's own copy is the events page now (listed under Main pages); its product page stays.
+  .filter((l) => l.href !== "/services/credence-engage");
 
 /** Every page on the site, grouped as the site groups them, with the live insights and events. */
 export async function getSiteGroups(): Promise<{ label: string; items: SiteLink[] }[]> {

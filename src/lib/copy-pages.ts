@@ -122,7 +122,7 @@ export const homePage: CopyPage = {
       "links": [
         {
           "label": "Commission an event",
-          "href": "/services/credence-engage"
+          "href": "/events"
         },
         {
           "label": "Explore events",
@@ -375,7 +375,7 @@ export const aboutPage: CopyPage = {
         {
           "t": "Credence Engage",
           "b": "Credence Engage plans events for clients and develops convening platforms of its own. Corporate conferences, launches, institutional forums and exhibitions can be commissioned around an organization's purpose. Owned events create separate opportunities to participate, sponsor or exhibit under their published arrangements.",
-          "href": "/services/credence-engage",
+          "href": "/events",
           "cta": "Credence Engage"
         },
         {
@@ -691,7 +691,7 @@ export const servicesPage: CopyPage = {
       "links": [
         {
           "label": "Explore Credence Engage services",
-          "href": "/services/credence-engage"
+          "href": "/events"
         },
         {
           "label": "Browse events",

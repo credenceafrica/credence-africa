@@ -81,7 +81,9 @@ const nextConfig: NextConfig = {
       { source: '/themes/urbanization', destination: '/themes', permanent: true },
 
       { source: '/services/market-intelligence', destination: '/services/research', permanent: true },
-      { source: '/services/events', destination: '/services/credence-engage', permanent: true },
+      // Credence Engage's page moved onto /events in November 2026; its event pages stay put.
+      { source: '/services/credence-engage', destination: '/events', permanent: true },
+      { source: '/services/events', destination: '/events', permanent: true },
       { source: '/services/events/:id*', destination: '/services/credence-engage/:id*', permanent: true },
     ];
   },

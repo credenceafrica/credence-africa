@@ -82,7 +82,7 @@ export const themesPage: SitePage = {
         },
         {
           "label": "Explore convening",
-          "href": "/services/credence-engage"
+          "href": "/events"
         },
         {
           "label": "Commission evidence",
@@ -493,7 +493,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Discuss convening",
-            "href": "/services/credence-engage"
+            "href": "/events"
           }
         ]
       }

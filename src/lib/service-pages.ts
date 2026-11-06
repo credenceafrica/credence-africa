@@ -146,7 +146,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Engage",
-            "href": "/services/credence-engage"
+            "href": "/events"
           },
           {
             "label": "Research and Market Intelligence",
@@ -303,7 +303,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Engage",
-            "href": "/services/credence-engage"
+            "href": "/events"
           },
           {
             "label": "Industry Associations and Ecosystem Actors",
@@ -486,7 +486,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Engage",
-            "href": "/services/credence-engage"
+            "href": "/events"
           },
           {
             "label": "Research and Market Intelligence",
@@ -1171,7 +1171,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Engage",
-            "href": "/services/credence-engage"
+            "href": "/events"
           }
         ]
       },
@@ -2232,7 +2232,7 @@ export const servicePages: Record<string, ServicePage> = {
         },
         {
           "label": "Credence Engage",
-          "href": "/services/credence-engage"
+          "href": "/events"
         },
         {
           "label": "Corporate Event Planning"
@@ -2299,7 +2299,7 @@ export const servicePages: Record<string, ServicePage> = {
         "chips": [
           {
             "label": "Credence Engage",
-            "href": "/services/credence-engage"
+            "href": "/events"
           },
           {
             "label": "Credence Engage events",
@@ -3302,7 +3302,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Engage",
-            "href": "/services/credence-engage"
+            "href": "/events"
           },
           {
             "label": "Credence Institute",

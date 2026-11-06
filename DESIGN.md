@@ -141,12 +141,15 @@ and bottom, so there is never a gap between cells.
   adds the extra above the title).
 - **Copy template** (`CopyPageView`, `CopySections`): every content page (home, about, services
   and their product pages, sectors, themes, who we work with) is the hero followed by statement,
-  split, cards, steps, directory, FAQ and closing sections. The copy lives in `src/lib/*-content.ts`,
+  split, cards, steps, directory, FAQ and closing sections. The events page carries Credence
+  Engage's copy (at the user's request; /services/credence-engage redirects there): its hero and
+  statement, then the live event listings, then the rest of its sections. The copy lives in `src/lib/*-content.ts`,
   `audience-pages.ts`, `service-pages.ts` and `copy-pages.ts`, generated from the canvas, with each
   page's search title and description.
 - **Header**: absolute over the hero, translucent ink with a 6px blur, dropdown menus on
   `#111111`, a white "Book a Consultation" pill; collapses to a menu button at 1180px. Services
-  lists the four trade programmes under Trade and Growth, indented, 13px and `#A3A3A3`.
+  lists the four trade programmes under Trade and Growth, indented, 13px and `#A3A3A3`, and sends
+  Credible Perspectives, Credence Institute and Credence Engage to their own sites.
 - **Sister-site links**: a link to Credence Institute, Credible Perspectives or Credence Engage
   that has no icon of its own ends in a vermillion ↗ (`::after`), nudging up-right on hover. It is
   written `\2197\FE0E` and the body sets `font-variant-emoji: text`, so iOS never swaps in the emoji.
