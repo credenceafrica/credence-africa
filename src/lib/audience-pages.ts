@@ -383,7 +383,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Discuss corporate convening",
-            "href": "/services/credence-engage"
+            "href": "/events"
           }
         ]
       }
@@ -956,7 +956,7 @@ export const audienceList: Audience[] = [
       },
       "btn2": {
         "label": "Explore convening",
-        "href": "/services/credence-engage"
+        "href": "/events"
       }
     },
     "sections": [
@@ -1054,7 +1054,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore convening",
-            "href": "/services/credence-engage"
+            "href": "/events"
           },
           {
             "label": "Commission research",

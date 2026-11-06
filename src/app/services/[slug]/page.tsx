@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 export async function generateStaticParams() {
   const services = await getServices();
   return services
-    // Only prerender on-site services; external arms (Institute, Perspectives) link off to subdomains.
+    // Only prerender on-site services; external arms (Institute, Perspectives, Engage) link off to their own sites.
     .filter((service) => service.href.startsWith("/"))
     .map((service) => ({
       slug: service.slug,
