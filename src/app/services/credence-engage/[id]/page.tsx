@@ -383,7 +383,7 @@ export default async function EventPage({ params }: Props) {
                 )}
                 <p className="mb-0 mt-[18px] text-[13px] text-mute">
                   Programme, ticket options and participation terms are confirmed on the{" "}
-                  <a href="https://engage.credence.africa/" className="text-white underline hover:text-primary">
+                  <a href="https://www.credenceengage.com/" className="text-white underline hover:text-primary">
                     event platform
                   </a>
                   .

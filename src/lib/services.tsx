@@ -48,7 +48,7 @@ const services: Service[] = [
   {
     id: "institute",
     slug: "institute",
-    href: "https://institute.credence.africa",
+    href: "https://www.credenceinstitute.ac",
     icon: <GraduationCap className="size-8" />,
     title: "Credence Institute",
     description: "Capability and institutional strengthening.",

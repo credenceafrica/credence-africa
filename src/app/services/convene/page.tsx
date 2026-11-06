@@ -446,7 +446,7 @@ export default function ConvenePage() {
               <p className="text-muted-foreground text-sm font-light">Real-time opportunities to engage across our institutional ecosystem.</p>
             </div>
             <Button asChild variant="outline" className="rounded-none border-2 border-primary text-primary hover:bg-primary hover:text-white h-12 px-8">
-              <Link href="https://engage.credence.africa" target="_blank" className="flex items-center gap-2">
+              <Link href="https://www.credenceengage.com" target="_blank" className="flex items-center gap-2">
                 View All Events <ExternalLink className="size-4" />
               </Link>
             </Button>

@@ -140,7 +140,7 @@ export const audienceList: Audience[] = [
       },
       "btn2": {
         "label": "Explore institutional learning",
-        "href": "https://institute.credence.africa/for-institutions"
+        "href": "https://www.credenceinstitute.ac/for-institutions"
       }
     },
     "sections": [
@@ -238,7 +238,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore institutional learning",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           },
           {
             "label": "Explore capital services",
@@ -271,7 +271,7 @@ export const audienceList: Audience[] = [
       },
       "btn2": {
         "label": "Request employer learning",
-        "href": "https://institute.credence.africa/corporate-training"
+        "href": "https://www.credenceinstitute.ac/corporate-training"
       }
     },
     "sections": [
@@ -379,7 +379,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Request employer learning",
-            "href": "https://institute.credence.africa/corporate-training"
+            "href": "https://www.credenceinstitute.ac/corporate-training"
           },
           {
             "label": "Discuss corporate convening",
@@ -412,7 +412,7 @@ export const audienceList: Audience[] = [
       },
       "btn2": {
         "label": "Explore institutional learning",
-        "href": "https://institute.credence.africa/for-institutions"
+        "href": "https://www.credenceinstitute.ac/for-institutions"
       }
     },
     "sections": [
@@ -510,7 +510,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore institutional learning",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           },
           {
             "label": "Commission a study",
@@ -790,7 +790,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore institutional learning",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           }
         ]
       }
@@ -819,7 +819,7 @@ export const audienceList: Audience[] = [
       },
       "btn2": {
         "label": "Explore Institute programs",
-        "href": "https://institute.credence.africa/programs"
+        "href": "https://www.credenceinstitute.ac/programs"
       }
     },
     "sections": [
@@ -923,7 +923,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore Institute programs",
-            "href": "https://institute.credence.africa/programs"
+            "href": "https://www.credenceinstitute.ac/programs"
           },
           {
             "label": "Explore trade and growth",
@@ -1220,7 +1220,7 @@ export const audienceList: Audience[] = [
       },
       "btn2": {
         "label": "Explore institutional learning",
-        "href": "https://institute.credence.africa"
+        "href": "https://www.credenceinstitute.ac"
       }
     },
     "sections": [
@@ -1314,7 +1314,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore institutional learning",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Commission research",
@@ -1451,7 +1451,7 @@ export const audienceList: Audience[] = [
           },
           {
             "label": "Explore learning",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       }

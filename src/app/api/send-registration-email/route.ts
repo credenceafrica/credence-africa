@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ENGAGE_EMAIL_ENDPOINT = "https://engage.credence.africa/api/send-email";
+const ENGAGE_EMAIL_ENDPOINT = "https://www.credenceengage.com/api/send-email";
 
 export async function POST(request: NextRequest) {
     try {

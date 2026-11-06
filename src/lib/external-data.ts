@@ -154,7 +154,7 @@ export async function getUpcomingEvents(): Promise<ExternalEvent[]> {
                 title: data.name || 'Untitled Event',
                 date: data.startDate || 'Date TBA',
                 description: data.description || '',
-                url: `https://engage.credence.africa/events/Mg3sDYJiOvb4FN1Woqk8yehdB703/${doc.id}`,
+                url: `https://www.credenceengage.com/events/Mg3sDYJiOvb4FN1Woqk8yehdB703/${doc.id}`,
                 image: data.thumbnail
             };
         }).sort((a, b) => new Date(b.date || new Date()).getTime() - new Date(a.date || new Date()).getTime())
@@ -332,7 +332,7 @@ export async function getEventTickets(eventId: string): Promise<Ticket[]> {
     }
 }
 
-export const CREDENCE_ENGAGE_URL = 'https://engage.credence.africa';
+export const CREDENCE_ENGAGE_URL = 'https://www.credenceengage.com';
 
 function generateTicketNumber(): string {
     const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
@@ -433,7 +433,7 @@ export async function getFeaturedCourses(): Promise<ExternalCourse[]> {
                 title: docData.name,
                 description: docData.description,
                 tag: docData.category || 'Programme',
-                url: `https://institute.credence.africa/programs/${doc.id}`,
+                url: `https://www.credenceinstitute.ac/programs/${doc.id}`,
                 image: docData.image || docData.thumbnail || docData.imageUrl
             }
         });
@@ -478,7 +478,7 @@ function getFallbackEvents(): ExternalEvent[] {
             title: "Africa Strategy Summit 2026", 
             date: "May 15, 2026", 
             description: "Convening leaders to shape the future of African enterprise and policy.", 
-            url: "https://engage.credence.africa",
+            url: "https://www.credenceengage.com",
             image: "https://picsum.photos/seed/event1/800/450"
         },
         { 
@@ -486,7 +486,7 @@ function getFallbackEvents(): ExternalEvent[] {
             title: "Venture Capital Intensive 2025", 
             date: "June 10, 2025", 
             description: "Deep dive into investment readiness and capital structuring for growth.", 
-            url: "https://engage.credence.africa",
+            url: "https://www.credenceengage.com",
             image: "https://picsum.photos/seed/event2/800/450"
         },
         { 
@@ -494,7 +494,7 @@ function getFallbackEvents(): ExternalEvent[] {
             title: "Public Affairs Roundtable 2025", 
             date: "July 22, 2025", 
             description: "Navigating regulatory intelligence and government relations.", 
-            url: "https://engage.credence.africa",
+            url: "https://www.credenceengage.com",
             image: "https://picsum.photos/seed/event3/800/450"
         }
     ];
@@ -507,7 +507,7 @@ function getFallbackCourses(): ExternalCourse[] {
             title: "Strategic Governance for Boards", 
             tag: "Executive Education", 
             description: "Strengthening decision quality and institutional capacity.", 
-            url: "https://institute.credence.africa",
+            url: "https://www.credenceinstitute.ac",
             image: "https://picsum.photos/seed/course1/800/450"
         },
         { 
@@ -515,7 +515,7 @@ function getFallbackCourses(): ExternalCourse[] {
             title: "Blended Finance Masterclass", 
             tag: "Finance", 
             description: "Advanced strategies for catalytic capital and impact investment.", 
-            url: "https://institute.credence.africa",
+            url: "https://www.credenceinstitute.ac",
             image: "https://picsum.photos/seed/course2/800/450"
         },
         { 
@@ -523,7 +523,7 @@ function getFallbackCourses(): ExternalCourse[] {
             title: "Regulatory Compliance in Africa", 
             tag: "Legal", 
             description: "Mastering multi-agency compliance in complex jurisdictions.", 
-            url: "https://institute.credence.africa",
+            url: "https://www.credenceinstitute.ac",
             image: "https://picsum.photos/seed/course3/800/450"
         }
     ];
