@@ -27,7 +27,7 @@ export const navMenus: NavMenu[] = [
       ...["access-africa", "scale-africa", "trade-africa", "go-global"].map((k) => ({ ...service(`trade-growth/${k}`), sub: true })),
       service("research"),
       { label: "Credible Perspectives", href: "https://perspectives.credence.africa" },
-      { label: "Credence Institute", href: "https://institute.credence.africa" },
+      { label: "Credence Institute", href: "https://www.credenceinstitute.ac" },
       service("credence-engage"),
     ],
   },

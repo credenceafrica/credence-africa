@@ -90,7 +90,7 @@ export const sectorsPage: SitePage = {
         },
         {
           "label": "Credence Institute",
-          "href": "https://institute.credence.africa"
+          "href": "https://www.credenceinstitute.ac"
         },
         {
           "label": "Credence Engage",
@@ -146,7 +146,7 @@ export const sectorList: Sector[] = [
       },
       "btn2": {
         "label": "Explore team learning",
-        "href": "https://institute.credence.africa/corporate-training"
+        "href": "https://www.credenceinstitute.ac/corporate-training"
       }
     },
     "sections": [
@@ -244,7 +244,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Explore team learning",
-            "href": "https://institute.credence.africa/corporate-training"
+            "href": "https://www.credenceinstitute.ac/corporate-training"
           },
           {
             "label": "Commission research",
@@ -277,7 +277,7 @@ export const sectorList: Sector[] = [
       },
       "btn2": {
         "label": "Explore Institute programs",
-        "href": "https://institute.credence.africa/programs"
+        "href": "https://www.credenceinstitute.ac/programs"
       }
     },
     "sections": [
@@ -381,7 +381,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Explore Institute programs",
-            "href": "https://institute.credence.africa/programs"
+            "href": "https://www.credenceinstitute.ac/programs"
           },
           {
             "label": "Discuss industry engagement",
@@ -551,7 +551,7 @@ export const sectorList: Sector[] = [
       },
       "btn2": {
         "label": "Explore Institute programs",
-        "href": "https://institute.credence.africa/programs"
+        "href": "https://www.credenceinstitute.ac/programs"
       }
     },
     "sections": [
@@ -655,7 +655,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Explore Institute programs",
-            "href": "https://institute.credence.africa/programs"
+            "href": "https://www.credenceinstitute.ac/programs"
           },
           {
             "label": "Read Credible Perspectives",
@@ -688,7 +688,7 @@ export const sectorList: Sector[] = [
       },
       "btn2": {
         "label": "Explore employer learning",
-        "href": "https://institute.credence.africa/for-employers"
+        "href": "https://www.credenceinstitute.ac/for-employers"
       }
     },
     "sections": [
@@ -792,7 +792,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Explore employer learning",
-            "href": "https://institute.credence.africa/for-employers"
+            "href": "https://www.credenceinstitute.ac/for-employers"
           },
           {
             "label": "Commission a market study",
@@ -962,7 +962,7 @@ export const sectorList: Sector[] = [
       },
       "btn2": {
         "label": "Explore Institute programs",
-        "href": "https://institute.credence.africa/programs"
+        "href": "https://www.credenceinstitute.ac/programs"
       }
     },
     "sections": [
@@ -1066,7 +1066,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Explore Institute programs",
-            "href": "https://institute.credence.africa/programs"
+            "href": "https://www.credenceinstitute.ac/programs"
           },
           {
             "label": "Commission market intelligence",
