@@ -325,9 +325,9 @@ a .ph {
 }
 
 /* Links to the sister platforms carry a vermillion arrow, unless they draw their own. */
-a[href*="institute.credence.africa"]:not(:has(svg))::after,
+a[href*="credenceinstitute.ac"]:not(:has(svg))::after,
 a[href*="perspectives.credence.africa"]:not(:has(svg))::after,
-a[href*="engage.credence.africa"]:not(:has(svg))::after {
+a[href*="credenceengage.com"]:not(:has(svg))::after {
   /* U+FE0E keeps the arrow a text glyph on iOS, which otherwise draws the emoji. */
   content: "\2197\FE0E";
   color: #ff4820;
@@ -338,9 +338,9 @@ a[href*="engage.credence.africa"]:not(:has(svg))::after {
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 @media (hover: hover) {
-  a[href*="institute.credence.africa"]:hover::after,
+  a[href*="credenceinstitute.ac"]:hover::after,
   a[href*="perspectives.credence.africa"]:hover::after,
-  a[href*="engage.credence.africa"]:hover::after {
+  a[href*="credenceengage.com"]:hover::after {
     transform: translate(2px, -2px);
   }
 }

@@ -101,11 +101,11 @@ export const homePage: CopyPage = {
       "links": [
         {
           "label": "Explore Credence Institute",
-          "href": "https://institute.credence.africa"
+          "href": "https://www.credenceinstitute.ac"
         },
         {
           "label": "Request corporate training",
-          "href": "https://institute.credence.africa/corporate-training"
+          "href": "https://www.credenceinstitute.ac/corporate-training"
         }
       ]
     },
@@ -126,7 +126,7 @@ export const homePage: CopyPage = {
         },
         {
           "label": "Explore events",
-          "href": "https://engage.credence.africa"
+          "href": "https://www.credenceengage.com"
         }
       ]
     },
@@ -369,7 +369,7 @@ export const aboutPage: CopyPage = {
         {
           "t": "Credence Institute",
           "b": "Credence Institute develops individual and organizational capability through professional learning, executive education and commissioned training. Its routes serve working professionals, employers and institutions delivering programs for defined cohorts.",
-          "href": "https://institute.credence.africa",
+          "href": "https://www.credenceinstitute.ac",
           "cta": "Credence Institute"
         },
         {
@@ -673,7 +673,7 @@ export const servicesPage: CopyPage = {
       "links": [
         {
           "label": "Explore Credence Institute",
-          "href": "https://institute.credence.africa"
+          "href": "https://www.credenceinstitute.ac"
         }
       ]
     },
@@ -695,7 +695,7 @@ export const servicesPage: CopyPage = {
         },
         {
           "label": "Browse events",
-          "href": "https://engage.credence.africa"
+          "href": "https://www.credenceengage.com"
         }
       ]
     },

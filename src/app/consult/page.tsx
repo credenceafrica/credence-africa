@@ -13,12 +13,12 @@ const routes = [
   {
     t: "Programs and courses",
     b: "Explore individual programs and enrolment routes on Credence Institute.",
-    href: "https://institute.credence.africa/",
+    href: "https://www.credenceinstitute.ac/",
   },
   {
     t: "Events and registration",
     b: "Find current events, dates and participation terms on the event platform.",
-    href: "https://engage.credence.africa/",
+    href: "https://www.credenceengage.com/",
   },
 ];
 

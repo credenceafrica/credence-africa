@@ -142,7 +142,7 @@ export const servicePages: Record<string, ServicePage> = {
         "chips": [
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Credence Engage",
@@ -279,7 +279,7 @@ export const servicePages: Record<string, ServicePage> = {
         "links": [
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -299,7 +299,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Credence Engage",
@@ -482,7 +482,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Credence Engage",
@@ -727,7 +727,7 @@ export const servicePages: Record<string, ServicePage> = {
       },
       "btn2": {
         "label": "Explore events",
-        "href": "https://engage.credence.africa"
+        "href": "https://www.credenceengage.com"
       }
     },
     "sections": [
@@ -886,7 +886,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "View the event platform",
-            "href": "https://engage.credence.africa"
+            "href": "https://www.credenceengage.com"
           }
         ]
       }
@@ -971,7 +971,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1131,7 +1131,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1163,7 +1163,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Public Affairs and Policy Advisory",
@@ -1317,7 +1317,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ],
         "chips": [
@@ -1471,7 +1471,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1503,7 +1503,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1640,7 +1640,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1668,7 +1668,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Growth-Stage SMEs and Enterprises",
@@ -1809,7 +1809,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1837,7 +1837,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -1974,7 +1974,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -2010,7 +2010,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -2303,7 +2303,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Engage events",
-            "href": "https://engage.credence.africa"
+            "href": "https://www.credenceengage.com"
           },
           {
             "label": "Corporate Podcast Production",
@@ -2758,7 +2758,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -2794,7 +2794,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -2940,7 +2940,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ],
         "chips": [
@@ -2962,7 +2962,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Growth-Stage SMEs and Enterprises",
@@ -3112,7 +3112,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ],
         "chips": [
@@ -3138,7 +3138,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ]
       },
@@ -3284,7 +3284,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Explore Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           }
         ],
         "chips": [
@@ -3306,7 +3306,7 @@ export const servicePages: Record<string, ServicePage> = {
           },
           {
             "label": "Credence Institute",
-            "href": "https://institute.credence.africa"
+            "href": "https://www.credenceinstitute.ac"
           },
           {
             "label": "Research and Market Intelligence",

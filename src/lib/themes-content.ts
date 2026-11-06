@@ -78,7 +78,7 @@ export const themesPage: SitePage = {
         },
         {
           "label": "Explore Institute learning",
-          "href": "https://institute.credence.africa"
+          "href": "https://www.credenceinstitute.ac"
         },
         {
           "label": "Explore convening",
@@ -231,7 +231,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Discuss institutional learning",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           }
         ]
       }
@@ -260,7 +260,7 @@ export const themeList: Theme[] = [
       },
       "btn2": {
         "label": "Explore team learning",
-        "href": "https://institute.credence.africa/corporate-training"
+        "href": "https://www.credenceinstitute.ac/corporate-training"
       }
     },
     "sections": [
@@ -358,7 +358,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Explore team learning",
-            "href": "https://institute.credence.africa/corporate-training"
+            "href": "https://www.credenceinstitute.ac/corporate-training"
           },
           {
             "label": "Commission an institutional study",
@@ -391,7 +391,7 @@ export const themeList: Theme[] = [
       },
       "btn2": {
         "label": "Explore funded learning partnerships",
-        "href": "https://institute.credence.africa/for-institutions"
+        "href": "https://www.credenceinstitute.ac/for-institutions"
       }
     },
     "sections": [
@@ -489,7 +489,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Explore funded learning partnerships",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           },
           {
             "label": "Discuss convening",
@@ -518,11 +518,11 @@ export const themeList: Theme[] = [
       ],
       "btn1": {
         "label": "Discuss employer capability",
-        "href": "https://institute.credence.africa/for-employers"
+        "href": "https://www.credenceinstitute.ac/for-employers"
       },
       "btn2": {
         "label": "Request organizational learning",
-        "href": "https://institute.credence.africa/corporate-training"
+        "href": "https://www.credenceinstitute.ac/corporate-training"
       }
     },
     "sections": [
@@ -616,11 +616,11 @@ export const themeList: Theme[] = [
         "links": [
           {
             "label": "Discuss employer capability",
-            "href": "https://institute.credence.africa/for-employers"
+            "href": "https://www.credenceinstitute.ac/for-employers"
           },
           {
             "label": "Request organizational learning",
-            "href": "https://institute.credence.africa/corporate-training"
+            "href": "https://www.credenceinstitute.ac/corporate-training"
           },
           {
             "label": "Discuss institutional research",
@@ -653,7 +653,7 @@ export const themeList: Theme[] = [
       },
       "btn2": {
         "label": "Explore institutional learning",
-        "href": "https://institute.credence.africa/for-institutions"
+        "href": "https://www.credenceinstitute.ac/for-institutions"
       }
     },
     "sections": [
@@ -751,7 +751,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Explore institutional learning",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           },
           {
             "label": "Commission evidence",
@@ -784,7 +784,7 @@ export const themeList: Theme[] = [
       },
       "btn2": {
         "label": "Explore employer learning",
-        "href": "https://institute.credence.africa/for-employers"
+        "href": "https://www.credenceinstitute.ac/for-employers"
       }
     },
     "sections": [
@@ -882,7 +882,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Explore employer learning",
-            "href": "https://institute.credence.africa/for-employers"
+            "href": "https://www.credenceinstitute.ac/for-employers"
           },
           {
             "label": "Commission research",
@@ -915,7 +915,7 @@ export const themeList: Theme[] = [
       },
       "btn2": {
         "label": "Explore institutional learning",
-        "href": "https://institute.credence.africa/for-institutions"
+        "href": "https://www.credenceinstitute.ac/for-institutions"
       }
     },
     "sections": [
@@ -1013,7 +1013,7 @@ export const themeList: Theme[] = [
           },
           {
             "label": "Explore institutional learning",
-            "href": "https://institute.credence.africa/for-institutions"
+            "href": "https://www.credenceinstitute.ac/for-institutions"
           },
           {
             "label": "Commission participant research",
