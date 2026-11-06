@@ -94,7 +94,7 @@ export const sectorsPage: SitePage = {
         },
         {
           "label": "Credence Engage",
-          "href": "/services/credence-engage"
+          "href": "/events"
         },
         {
           "label": "Credible Perspectives",
@@ -385,7 +385,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Discuss industry engagement",
-            "href": "/services/credence-engage"
+            "href": "/events"
           }
         ]
       }
@@ -933,7 +933,7 @@ export const sectorList: Sector[] = [
           },
           {
             "label": "Discuss a sector convening",
-            "href": "/services/credence-engage"
+            "href": "/events"
           }
         ]
       }

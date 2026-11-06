@@ -476,7 +476,7 @@ export default async function EventPage({ params }: Props) {
         padding="py-[150px]"
       >
         <div className="flex flex-wrap justify-center gap-3">
-          <Pill href="/services/credence-engage" variant="light">
+          <Pill href="/events" variant="light">
             Commission an event
           </Pill>
           <Pill href={consultHref("engage")} variant="outlineAccent">
