@@ -20,22 +20,22 @@ interface Comment {
 
 /** The design's article typography, applied to the editor's HTML. The opening paragraph is the lead. */
 const bodyCls = [
-  "prose max-w-none text-[18px] leading-[1.75] text-[#2E2E33] [&>:first-child]:mt-0",
+  "prose max-w-none text-[16px] leading-[1.75] text-[#2E2E33] [&>:first-child]:mt-0",
   "[&_p]:mb-[22px] [&_p]:mt-0",
-  "[&>p:first-child]:mb-8 [&>p:first-child]:text-[22px] [&>p:first-child]:leading-[1.55] [&>p:first-child]:tracking-[-0.01em] [&>p:first-child]:text-ink max-[720px]:[&>p:first-child]:text-[19px]",
-  "[&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:scroll-mt-6 [&_h2]:text-[28px] [&_h2]:font-medium [&_h2]:leading-[1.25] [&_h2]:tracking-[-0.02em] [&_h2]:text-ink [&_h2_*]:font-medium",
-  "[&_blockquote]:my-10 [&_blockquote]:border-l-[3px] [&_blockquote]:border-primary [&_blockquote]:py-1 [&_blockquote]:pl-7 [&_blockquote]:text-[26px] [&_blockquote]:font-normal [&_blockquote]:not-italic [&_blockquote]:leading-[1.35] [&_blockquote]:tracking-[-0.015em] [&_blockquote]:text-ink [&_blockquote_p]:m-0 [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none",
+  "[&>p:first-child]:mb-8 [&>p:first-child]:text-[20px] [&>p:first-child]:leading-[1.55] [&>p:first-child]:tracking-[-0.01em] [&>p:first-child]:text-ink max-[720px]:[&>p:first-child]:text-[17px]",
+  "[&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:scroll-mt-6 [&_h2]:text-[25px] [&_h2]:font-medium [&_h2]:leading-[1.25] [&_h2]:tracking-[-0.02em] [&_h2]:text-ink [&_h2_*]:font-medium",
+  "[&_blockquote]:my-10 [&_blockquote]:border-l-[3px] [&_blockquote]:border-primary [&_blockquote]:py-1 [&_blockquote]:pl-7 [&_blockquote]:text-[23.5px] [&_blockquote]:font-normal [&_blockquote]:not-italic [&_blockquote]:leading-[1.35] [&_blockquote]:tracking-[-0.015em] [&_blockquote]:text-ink [&_blockquote_p]:m-0 [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none",
   "[&_ul]:mb-6 [&_ul]:mt-0 [&_ul]:flex [&_ul]:list-none [&_ul]:flex-col [&_ul]:gap-2.5 [&_ul]:p-0",
   "[&_ul>li]:relative [&_ul>li]:my-0 [&_ul>li]:pl-7 [&_ul>li]:leading-[1.6]",
   "[&_ul>li::before]:absolute [&_ul>li::before]:left-0 [&_ul>li::before]:top-3 [&_ul>li::before]:size-1.5 [&_ul>li::before]:bg-primary [&_ul>li::before]:content-['']",
   "[&_a]:text-ink [&_a:hover]:text-primary-deep",
 ].join(" ");
 
-const metaLabel = "block text-[12px] uppercase tracking-[0.08em] text-[#7A7A7A]";
+const metaLabel = "block text-[11px] uppercase tracking-[0.08em] text-[#7A7A7A]";
 const shareCls =
   "inline-flex size-[38px] items-center justify-center rounded-full border border-white/[0.22] text-white hover:border-primary hover:text-primary";
 const fieldCls =
-  "w-full rounded-none border-0 border-b border-chip bg-transparent py-3 text-[16px] text-ink placeholder:text-mute focus:border-primary focus:outline-none";
+  "w-full rounded-none border-0 border-b border-chip bg-transparent py-3 text-[14.5px] text-ink placeholder:text-mute focus:border-primary focus:outline-none";
 
 function ShareIcon({ d, size = 15 }: { d: string; size?: number }) {
   return (
@@ -228,7 +228,7 @@ export default function InsightPage() {
   if (loading || !insight || !article) {
     return (
       <section className="bg-ink pb-24 pt-[168px] text-white">
-        <p className="wrap text-[17px] text-body-dark">{loading ? "Loading insight..." : "Insight not found."}</p>
+        <p className="wrap text-[15.5px] text-body-dark">{loading ? "Loading insight..." : "Insight not found."}</p>
       </section>
     );
   }
@@ -246,7 +246,7 @@ export default function InsightPage() {
       <section className="on-dark bg-ink pt-[168px] text-white">
         <div className="wrap">
           <nav className="cr-in cr-d1 mb-10" aria-label="Breadcrumb">
-            <ol className="m-0 flex list-none flex-wrap items-center gap-2 p-0 text-[14px] text-white/[0.65]">
+            <ol className="m-0 flex list-none flex-wrap items-center gap-2 p-0 text-[12.5px] text-white/[0.65]">
               <li>
                 <SmartLink href="/" className="hit text-white/[0.65]">Home</SmartLink>
               </li>
@@ -263,16 +263,16 @@ export default function InsightPage() {
             </ol>
           </nav>
           <div className="cr-in cr-d2 max-w-[980px]">
-            <h1 className="mb-6 mt-0 text-balance break-words text-[clamp(38px,4.6vw,66px)] font-normal leading-[1.04] tracking-[-0.035em]">
+            <h1 className="mb-6 mt-0 text-balance break-words text-[clamp(34px,4.14vw,59.5px)] font-normal leading-[1.04] tracking-[-0.035em]">
               {insight.title}
             </h1>
-            {article.dek && <p className="m-0 max-w-[720px] text-[19px] leading-[1.55] text-body-dark">{article.dek}</p>}
+            {article.dek && <p className="m-0 max-w-[720px] text-[17px] leading-[1.55] text-body-dark">{article.dek}</p>}
           </div>
           <div className="cr-in mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-white/[0.16] pb-[120px] pt-6 ![animation-delay:0.5s]">
-            <div className="flex flex-wrap items-center gap-7 text-[14.5px] text-body-dark">
+            <div className="flex flex-wrap items-center gap-7 text-[13px] text-body-dark">
               {insight.author && (
                 <span className="inline-flex items-center gap-3">
-                  <span aria-hidden="true" className="inline-flex size-10 items-center justify-center rounded-full border border-[#333] bg-tile text-[13px] text-primary">
+                  <span aria-hidden="true" className="inline-flex size-10 items-center justify-center rounded-full border border-[#333] bg-tile text-[11.5px] text-primary">
                     CA
                   </span>
                   <span className="font-medium text-white">{insight.author}</span>
@@ -288,7 +288,7 @@ export default function InsightPage() {
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="mr-1 text-[13px] text-[#7A7A7A]">Share</span>
+              <span className="mr-1 text-[11.5px] text-[#7A7A7A]">Share</span>
               {share.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className={shareCls}>
                   <ShareIcon d={s.d} size={s.size} />
@@ -323,14 +323,14 @@ export default function InsightPage() {
             <div className="sticky top-8 flex flex-col gap-7">
               {article.toc.length > 0 && (
                 <div>
-                  <div className="mb-3 text-[12px] uppercase tracking-[0.1em] text-mute">In this article</div>
+                  <div className="mb-3 text-[11px] uppercase tracking-[0.1em] text-mute">In this article</div>
                   <ol className="m-0 list-none border-l border-line p-0">
                     {article.toc.map((t, i) => (
                       <li key={t.id}>
                         <a
                           href={`#${t.id}`}
                           className={cn(
-                            "-ml-px block border-l-2 py-2 pl-4 text-[14.5px] leading-[1.4] hover:border-l-ink hover:text-ink",
+                            "-ml-px block border-l-2 py-2 pl-4 text-[13px] leading-[1.4] hover:border-l-ink hover:text-ink",
                             i === 0 ? "border-l-primary text-ink" : "border-l-transparent text-body-3",
                           )}
                         >
@@ -342,8 +342,8 @@ export default function InsightPage() {
                 </div>
               )}
               <div className="flex flex-col gap-3.5 border-t border-line pt-6">
-                <span className="text-[14.5px] leading-[1.45]">Need this analysed for your institution?</span>
-                <Pill href="/services/research" variant="dark" arrow={false} className="self-start px-[18px] py-[11px] text-[14px]">
+                <span className="text-[13px] leading-[1.45]">Need this analysed for your institution?</span>
+                <Pill href="/services/research" variant="dark" arrow={false} className="self-start px-[18px] py-[11px] text-[12.5px]">
                   Commission research
                   <Arrow size={13} />
                 </Pill>
@@ -355,14 +355,14 @@ export default function InsightPage() {
             <div className={bodyCls} dangerouslySetInnerHTML={{ __html: article.html }} />
 
             <div className="mt-10 flex flex-wrap items-center gap-2">
-              <Chip href="/insights" className="px-3.5 py-[7px] text-[13.5px]">Insights</Chip>
+              <Chip href="/insights" className="px-3.5 py-[7px] text-[12px]">Insights</Chip>
               {insight.category && (
-                <Chip href="/insights" className="px-3.5 py-[7px] text-[13.5px]">{insight.category}</Chip>
+                <Chip href="/insights" className="px-3.5 py-[7px] text-[12px]">{insight.category}</Chip>
               )}
               <button
                 type="button"
                 onClick={handleLike}
-                className="chip ml-auto inline-flex items-center gap-2 rounded-full border border-chip px-3.5 py-[7px] text-[13.5px] font-medium"
+                className="chip ml-auto inline-flex items-center gap-2 rounded-full border border-chip px-3.5 py-[7px] text-[12px] font-medium"
               >
                 <Heart aria-hidden="true" className={cn("size-4", hasLiked && "fill-current text-primary-deep")} />
                 {hasLiked ? 'Unlike' : 'Like'} ({likes})
@@ -370,7 +370,7 @@ export default function InsightPage() {
             </div>
 
             <div className="on-dark mt-12 flex flex-wrap items-center justify-between gap-5 bg-ink p-8 text-white">
-              <p className="m-0 max-w-[380px] text-[24px] leading-[1.25] tracking-[-0.02em]">Discuss what this means for your institution.</p>
+              <p className="m-0 max-w-[380px] text-[21.5px] leading-[1.25] tracking-[-0.02em]">Discuss what this means for your institution.</p>
               <div className="flex flex-wrap gap-2.5">
                 <Pill href="/consult" variant="accent">Book a consultation</Pill>
                 <Pill href="/services/research" variant="outlineAccent">Commission research</Pill>
@@ -378,7 +378,7 @@ export default function InsightPage() {
             </div>
 
             <section aria-labelledby="comments-title" className="mt-16 border-t border-line pt-10">
-              <h2 id="comments-title" className="mb-6 mt-0 text-[28px] font-medium leading-[1.25] tracking-[-0.02em]">
+              <h2 id="comments-title" className="mb-6 mt-0 text-[25px] font-medium leading-[1.25] tracking-[-0.02em]">
                 Comments ({comments.length})
               </h2>
               {comments.length > 0 ? (
@@ -386,19 +386,19 @@ export default function InsightPage() {
                   {comments.map(comment => (
                     <div key={comment.id} className="break-words border-b border-line py-5">
                       <p className="m-0 font-medium">{comment.author}</p>
-                      <p className="mb-2 mt-0 text-[13px] text-mute">
+                      <p className="mb-2 mt-0 text-[11.5px] text-mute">
                         {comment.createdAt ? new Date(comment.createdAt.seconds * 1000).toLocaleString() : ''}
                       </p>
-                      <p className="m-0 text-[16px] text-[#2E2E33]">{comment.text}</p>
+                      <p className="m-0 text-[14.5px] text-[#2E2E33]">{comment.text}</p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="m-0 text-[15.5px] text-body-2">No comments yet. Be the first to comment!</p>
+                <p className="m-0 text-[14px] text-body-2">No comments yet. Be the first to comment!</p>
               )}
 
               <form onSubmit={handleCommentSubmit} className="mt-10 flex flex-col gap-4">
-                <h3 className="m-0 text-[21px] font-medium leading-[1.25] tracking-[-0.01em]">Leave a Comment</h3>
+                <h3 className="m-0 text-[19px] font-medium leading-[1.25] tracking-[-0.01em]">Leave a Comment</h3>
                 <label htmlFor="comment-author" className="sr-only">Your name (optional)</label>
                 <input
                   id="comment-author"
@@ -420,7 +420,7 @@ export default function InsightPage() {
                 />
                 <button
                   type="submit"
-                  className="pill inline-flex items-center gap-2 self-start rounded-full bg-ink px-[22px] py-[13px] text-[14.5px] font-semibold text-white"
+                  className="pill inline-flex items-center gap-2 self-start rounded-full bg-ink px-[22px] py-[13px] text-[13px] font-semibold text-white"
                 >
                   Submit Comment
                   <Arrow />
@@ -436,7 +436,7 @@ export default function InsightPage() {
         <section className="pb-32">
           <div className="wrap">
             <div className="mb-10 flex flex-wrap items-end justify-between gap-5 border-t border-line pt-10">
-              <h2 className="h2 m-0 text-[clamp(30px,3vw,42px)] font-normal leading-[1.1] tracking-[-0.035em]">More insights</h2>
+              <h2 className="h2 m-0 text-[clamp(27px,2.7vw,38px)] font-normal leading-[1.1] tracking-[-0.035em]">More insights</h2>
               <Pill href="/insights" variant="outlineDark" className="px-5 py-[11px] hover:text-primary-deep">
                 All insights
               </Pill>
@@ -450,11 +450,11 @@ export default function InsightPage() {
                       {r.image && <Image src={r.image} alt="" fill sizes="(max-width: 720px) 100vw, 33vw" className="object-cover" />}
                     </div>
                   </div>
-                  <div className="flex items-center gap-2.5 text-[13px] text-mute">
+                  <div className="flex items-center gap-2.5 text-[11.5px] text-mute">
                     {r.category && <span className="font-semibold text-primary-deep">{r.category}</span>}
                     <span>{r.date}</span>
                   </div>
-                  <h3 className="m-0 text-[20px] font-medium leading-[1.3] tracking-[-0.01em] group-hover:text-primary-deep">{r.title}</h3>
+                  <h3 className="m-0 text-[18px] font-medium leading-[1.3] tracking-[-0.01em] group-hover:text-primary-deep">{r.title}</h3>
                 </SmartLink>
               ))}
             </div>
@@ -466,10 +466,10 @@ export default function InsightPage() {
       <section className="on-dark bg-ink py-24 text-white">
         <div className="wrap grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] items-end gap-10">
           <div>
-            <h2 className="h2 mb-3 mt-0 text-[clamp(30px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]">
+            <h2 className="h2 mb-3 mt-0 text-[clamp(27px,2.88vw,41.5px)] font-normal leading-[1.1] tracking-[-0.035em]">
               Subscribe to the Credence insights briefing
             </h2>
-            <p className="m-0 text-[16.5px] text-body-dark">Receive strategic intelligence straight to your inbox.</p>
+            <p className="m-0 text-[15px] text-body-dark">Receive strategic intelligence straight to your inbox.</p>
           </div>
           {/* No newsletter backend yet: method="dialog" runs the browser's email check, then neither reloads nor sends. */}
           <form method="dialog" className="flex flex-wrap items-end gap-4">
@@ -477,7 +477,7 @@ export default function InsightPage() {
             <input id="art-email" type="email" required autoComplete="email" placeholder="Email" className="fld flex-[1_1_240px]" />
             <button
               type="submit"
-              className="pill inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14.5px] font-semibold text-ink"
+              className="pill inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[13px] font-semibold text-ink"
             >
               Subscribe
               <Arrow />

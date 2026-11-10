@@ -35,7 +35,7 @@ export default async function SitemapPage() {
               key={g.label}
               className="grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-start gap-14 border-t border-line py-12 max-[900px]:grid-cols-1 max-[900px]:gap-6"
             >
-              <h2 className="m-0 text-[clamp(26px,2.4vw,34px)] font-normal leading-[1.15] tracking-[-0.03em]">
+              <h2 className="m-0 text-[clamp(23.5px,2.16vw,30.5px)] font-normal leading-[1.15] tracking-[-0.03em]">
                 {g.label} <span className="text-mute">({g.items.length})</span>
               </h2>
               <ul className="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(min(280px,100%),1fr))] gap-x-8 p-0">
@@ -43,7 +43,7 @@ export default async function SitemapPage() {
                   <li key={l.href} className="border-b border-line-soft">
                     <SmartLink
                       href={l.href}
-                      className="flex items-center justify-between gap-4 py-3.5 text-[15.5px] leading-[1.4] text-ink hover:text-primary-deep"
+                      className="flex items-center justify-between gap-4 py-3.5 text-[14px] leading-[1.4] text-ink hover:text-primary-deep"
                     >
                       {l.label}
                       <Arrow size={14} className="shrink-0 text-mute" />

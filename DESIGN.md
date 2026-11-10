@@ -24,48 +24,48 @@ colors:
 typography:
   display:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "clamp(46px, 6.2vw, 90px)"
+    fontSize: "clamp(41.5px, 5.58vw, 81px)"
     fontWeight: 400
     lineHeight: 0.98
     letterSpacing: "-0.045em"
   page-title:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "clamp(44px, 5.6vw, 80px)"
+    fontSize: "clamp(32px, 3.8vw, 54px)"
     fontWeight: 400
-    lineHeight: 0.98
-    letterSpacing: "-0.045em"
+    lineHeight: 1.03
+    letterSpacing: "-0.04em"
   closing:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "clamp(40px, 5vw, 76px)"
+    fontSize: "clamp(36px, 4.5vw, 68.5px)"
     fontWeight: 400
     lineHeight: 1.02
     letterSpacing: "-0.045em"
   statement:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "clamp(30px, 3.4vw, 50px)"
+    fontSize: "clamp(27px, 3.06vw, 45px)"
     fontWeight: 400
     lineHeight: 1.12
     letterSpacing: "-0.035em"
   headline:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "clamp(32px, 3.2vw, 46px)"
+    fontSize: "clamp(29px, 2.88vw, 41.5px)"
     fontWeight: 400
     lineHeight: 1.1
     letterSpacing: "-0.035em"
   title:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "21px"
+    fontSize: "19px"
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: "-0.01em"
   body:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "17px"
+    fontSize: "15.5px"
     fontWeight: 400
     lineHeight: 1.6
   kicker:
     fontFamily: "Outfit, sans-serif"
-    fontSize: "13.5px"
+    fontSize: "12px"
     fontWeight: 400
 rounded:
   none: "0"
@@ -94,7 +94,7 @@ summarises it so new work stays consistent. The code lives in `src/components/si
 
 A photographic, editorial system. Every page opens on one full-bleed photograph (professionals
 on a terrace above the city, set at 72% across) under a shade that darkens the top, bottom and
-left where the text sits, with a translucent header laid over it and a very large, light, tightly tracked
+left where the text sits, with a translucent header laid over it and a large, light, tightly tracked
 title. Below the hero, white sections alternate with ink (#0A0A0A) bands; content sits in
 hairline grids and numbered ledger rows rather than floating cards. A single vermillion
 (#FF4820) marks emphasis: kickers, numbers, tile icons, rules and the primary call to action on
@@ -113,10 +113,10 @@ dark grounds. Pages close on a darkened city photograph with a centred call to a
 
 ## 3. Typography
 
-One family, Outfit. Headings are weight 400 with tight negative tracking (-0.035em sections,
--0.045em heroes and closing bands); h3 is 500 at -0.01em. Body copy is 17px at 1.6. Kickers are
-13.5px with a 6px vermillion square before them (`.eb`). Section headings drop to 32px at phone
-width (`.h2`). Long statements pair a dark lead with a grey (`#8C8C8C`) continuation.
+One family, Outfit, on a 90% body size. Headings are weight 400 with tight negative tracking
+(-0.035em sections, -0.04em interior heroes, -0.045em Home's hero and closing bands); h3 is 500 at -0.01em. Body copy is
+15.5px at 1.6. Kickers are 12px with a 6px vermillion square before them (`.eb`). Section headings
+drop to 29px at phone width (`.h2`). Long statements pair a dark lead with a grey (`#8C8C8C`) continuation.
 
 ## 4. Layout
 
@@ -127,21 +127,22 @@ and bottom, so there is never a gap between cells.
 
 ## 5. Components
 
-- **Pills** (`Pill`): light, dark, accent and outline variants, 14.5px, fully rounded, with the
+- **Pills** (`Pill`): light, dark, accent and outline variants, 13px, fully rounded, with the
   up-right arrow on primary variants. Hover lifts 2px with a soft shadow. Outline pills on a dark
   or photo ground are filled ink so they stay legible (the canvas leaves them transparent; this is
   the user's call); on white they stay transparent.
 - **Chips** (`Chip`): bordered pills for tags and related links; hover darkens the border.
 - **Icon tiles** (`IconTile`): 44px ink squares with a vermillion stroke icon; they lift when
   their card is hovered.
-- **Hero** (`Hero`): photo, gradient, breadcrumb, title, base row with scroll cue, intro,
-  buttons and an optional white feature card or key/value panel. Home departs from the canvas (at
-  the user's request): the intro and buttons sit on the left with the scroll cue under them, the
-  card on the far right, and the gap between the title and the rule stops at 96px (a taller screen
-  adds the extra above the title).
+- **Hero** (`Hero`): photo, gradient, then two rows on interior pages: breadcrumb, title, intro and
+  buttons at the bottom of the first, and a base bar with the scroll cue. Heights follow the screen,
+  capped at 820px (`tall`) or 660px. Home (`size="full"`, 100svh) keeps its earlier layout at the
+  user's request rather than the canvas's November hero: title, a rule, then the description (`sub`
+  and `intro`), buttons and scroll cue on the left and a white feature card on the far right. The
+  gap between the title and the rule stops at 96px (a taller screen adds the extra above the title).
 - **Copy template** (`CopyPageView`, `CopySections`): every content page (home, about, services
   and their product pages, sectors, themes, who we work with) is the hero followed by statement,
-  split, cards, steps, directory, FAQ and closing sections. The events page carries Credence
+  split (optionally with titled `subs` blocks), cards, steps, directory, FAQ and closing sections. The events page carries Credence
   Engage's copy (at the user's request; /services/credence-engage redirects there): its hero and
   statement, then the live event listings, then the rest of its sections. The copy lives in `src/lib/*-content.ts`,
   `audience-pages.ts`, `service-pages.ts` and `copy-pages.ts`, generated from the canvas, with each
@@ -174,17 +175,19 @@ The canvas is drawn at desktop and 390px. These rules adapt it to the sizes betw
 
 - **Gutters:** header, hero and footer use the page's 20px gutter at 720px and below (footer
   cells 24px), so every left edge lines up on a phone.
-- **Hero:** the base row has three columns from 984px. Below that it stacks into one column
-  without the "Scroll down" cue, and the feature card or key/value panel caps at 560px. The
-  canvas's phone title sizes (38/40/42px) scale down below about 400px so long words fit. At
-  720px and below the hero's buttons are full width and `introMore` is hidden, which ends Home's
-  intro after its second sentence.
+- **Hero:** interior pages hide the "Scroll down" cue at 900px and below. Home's base row has two
+  columns from 984px and stacks below that without the cue, with the card capped at 560px. The
+  canvas's phone title sizes (34/36px) scale down below about 400px so long words fit. At 720px and
+  below the hero's buttons are full width and Home's `intro` is hidden, which ends its description
+  at `sub`.
 - **Home's numbered sections:** Advisory, Credence Institute, Credence Engage and Credible
   Perspectives (`compact`) show one paragraph with a Read more button and full-width buttons at
   720px and below.
 - **Header:** at 1180px and below it returns as a near-opaque bar when the reader scrolls up and
   slides away on scroll down; at the top of the page it is the canvas header. The menu panel
   scrolls within the screen. Desktop keeps the canvas behaviour (no pinning).
+- **Form fields:** `.fld` is 14.5px with a fine pointer and 16px on touch, because iOS zooms the
+  page when a focused field's text is smaller.
 - **Touch:** hover effects apply only where hovering exists (`(hover: hover)`; Tailwind's
   `hoverOnlyWhenSupported`); touch gets a press state instead. Small controls carry `.hit`,
   which grows the tap area to 44px on coarse pointers (`::before`) without changing their look; footer link

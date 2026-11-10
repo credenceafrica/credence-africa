@@ -52,7 +52,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-muted/40">
+    <div className="min-h-screen flex flex-col bg-muted/40 text-base">
         <header className="bg-background border-b sticky top-0 z-50">
             <div className="container mx-auto flex h-20 items-center justify-between">
                 <div className="flex items-center gap-6">

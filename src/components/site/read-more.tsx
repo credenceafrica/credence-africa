@@ -13,7 +13,7 @@ export function ReadMore({ children }: { children: ReactNode }) {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="hit hidden items-center gap-1.5 self-start text-[14.5px] font-semibold max-[720px]:inline-flex"
+        className="hit hidden items-center gap-1.5 self-start text-[13px] font-semibold max-[720px]:inline-flex"
       >
         {open ? "Read less" : "Read more"}
         <svg

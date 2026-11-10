@@ -32,14 +32,14 @@ const socials = [
 ];
 
 const cell = "border-b border-r border-line-dark p-8 max-[720px]:p-6";
-const heading = "mb-4 mt-0 text-[15px] font-medium text-primary";
+const heading = "mb-4 mt-0 text-[13.5px] font-medium text-primary";
 const link = "foot-link hit text-[#E5E5E5]";
 // On touch screens the rows open up so each link's 44px tap area clears its neighbours.
 const list = "flex flex-col gap-2 [@media(pointer:coarse)]:gap-5";
 
 export function Footer() {
   return (
-    <footer className="block w-full bg-black pb-8 pt-[72px] text-[15px] leading-[1.6] text-body-dark">
+    <footer className="block w-full bg-black pb-8 pt-[72px] text-[13.5px] leading-[1.6] text-body-dark">
       <div className="mx-auto w-full max-w-[1400px] px-8 max-[720px]:px-5">
         <div className="border border-line-dark">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))]">
@@ -111,7 +111,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap justify-between gap-3 px-8 py-5 text-[14px] max-[720px]:px-6">
+          <div className="flex flex-wrap justify-between gap-3 px-8 py-5 text-[12.5px] max-[720px]:px-6">
             <span>© {new Date().getFullYear()} Credence Africa. All rights reserved.</span>
             <span>Nairobi, Kenya</span>
           </div>
