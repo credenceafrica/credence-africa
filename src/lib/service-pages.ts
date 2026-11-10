@@ -554,7 +554,7 @@ export const servicePages: Record<string, ServicePage> = {
     "description": "Commission market research, sector studies, demand assessment, policy analysis and commercial intelligence for investors, companies and institutions in Kenya.",
     "hero": {
       "title": "Research and market intelligence in Kenya",
-      "intro": "Important institutional decisions need evidence that can be examined and used. Credence Africa provides commissioned research and market intelligence for companies, investors, development organizations and public institutions. We help buyers define the question, gather and test relevant information and connect findings with the decision in front of them.",
+      "intro": "Important institutional decisions need evidence that the people responsible for them are able to examine and use. Credence Intelligence is Credence Africa's research and market intelligence practice. We work with companies, investors, development organisations and public institutions on questions about markets, investment, policy and programme performance.",
       "crumbs": [
         {
           "label": "Services",
@@ -572,65 +572,97 @@ export const servicePages: Record<string, ServicePage> = {
     "sections": [
       {
         "type": "statement",
-        "lead": "Research develops an evidence base for a stated question.",
-        "rest": "Market intelligence provides a structured view of an opportunity, ecosystem or capital landscape. A commission can combine both where the buyer needs detailed analysis and a commercial interpretation. The scope defines Kenya coverage and any additional markets required."
+        "lead": "Research builds an evidence base for a defined question.",
+        "rest": "Market intelligence tracks and interprets the changes that matter to a buyer, investor or programme team. An engagement may combine both. Kenya is our starting market. We agree coverage of other countries, sectors and customer groups in the brief."
       },
       {
         "type": "split",
+        "id": "s01",
         "eb": "01",
-        "h2": "Research built around the institutional decision",
+        "h2": "Research Built Around the Institutional Decision",
         "paras": [
-          "Sector and market studies examine how a market works: participants, value chains, commercial conditions, drivers and constraints. Market sizing and demand assessment examine the scale and nature of an opportunity using an agreed method. The proposal states the sources, assumptions and research depth rather than presenting every estimate as a precise market fact.",
-          "Policy and regulatory analysis can examine current requirements, proposed developments and institutional context. Institutional and ecosystem diagnostics can address capabilities, relationships and gaps. Evidence and decision-support reporting brings findings into a format suitable for the people responsible for the decision."
+          "Sector and market studies examine participants, value chains, commercial conditions and constraints. Market sizing and demand assessments define the opportunity and test its scale against available evidence. We state the sources, assumptions and limits of each estimate. Institutional and ecosystem diagnostics examine how organisations work, where capability sits and which relationships or gaps affect delivery."
         ],
         "img": {
           "src": "/partners-handshake.jpg",
           "alt": "Two professionals shaking hands"
-        }
-      },
-      {
-        "type": "split",
-        "eb": "02",
-        "h2": "Market intelligence for entry, investment and growth",
-        "paras": [
-          "Ecosystem and stakeholder mapping identifies the actors relevant to a commercial or program question. Opportunity and entry scans examine a selected market pathway before the buyer commits to deeper work. Capital intelligence can map funder categories, published mandates and documented financing conditions.",
-          "A recurring intelligence scope can provide scheduled briefs on agreed subjects. The agreement identifies covered markets, sources, update frequency and the intended use. A subscription should explain what the buyer receives and how often, rather than imply a continuous view of every market development."
-        ],
-        "links": [
+        },
+        "subs": [
           {
-            "label": "Market Intelligence",
-            "href": "/services/research/market-intelligence"
+            "h3": "Think Tank and Policy Research",
+            "paras": [
+              "We examine policy choices that affect African and Middle East markets and institutions. A study may compare regulatory options, identify who implements a proposed rule, assess how it affects different groups or document what it would take to put it into practice. Outputs include policy briefs, stakeholder maps, consultation reports and evidence reviews. We agree which findings are suitable for public discussion and which belong in a private commission."
+            ]
+          },
+          {
+            "h3": "Development Strategy and Programme Evaluation",
+            "paras": [
+              "We help public institutions, donors and delivery organisations decide what to fund, where to intervene and whether a programme merits renewal. The work may include a needs assessment, market systems study, baseline, programme design or evaluation. We define who the programme serves, test assumptions about how it should work and specify the evidence needed to judge results. Outputs may include an implementation plan, indicators, an evaluation report or a briefing for the delivery team."
+            ]
           }
         ]
       },
       {
         "type": "split",
+        "id": "s02",
+        "eb": "02",
+        "h2": "Market Intelligence for Entry, Investment and Growth",
+        "paras": [
+          "Ecosystem and stakeholder mapping identifies the organisations that shape an opportunity. Entry scans compare routes into a market before the buyer commits to deeper work. Capital intelligence maps funder categories, published mandates and documented financing conditions. A recurring brief specifies the markets, topics, sources, issue frequency and usage rights."
+        ],
+        "links": [
+          {
+            "label": "Explore Market Intelligence and Research Reports",
+            "href": "/services/research/market-intelligence"
+          }
+        ],
+        "subs": [
+          {
+            "h3": "Technology and Deal Intelligence",
+            "paras": [
+              "We map technology markets and track signals such as product launches, adoption, funding, partnerships and procurement. Investors and strategy teams use the work to identify companies, markets or technologies for closer examination. A brief may include a market map, sourced company profiles, an investment thesis screen or recurring coverage of a defined sector. We date each material signal and identify the evidence behind it. An announcement, an investor mandate match and a financing commitment are recorded separately."
+            ]
+          },
+          {
+            "h3": "Market Entry and Customer Research",
+            "paras": [
+              "We examine who buys, who approves the purchase, which alternatives customers use and what it costs to serve them. Depending on the decision, the work may include customer interviews or surveys, market sizing, competitor and pricing research and assessment of distributors and routes to market. For a cold storage operator choosing between two sites, produce volumes set the context. Exporter interviews help establish when buyers need storage, what they currently pay and which service would justify a switch."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "split",
+        "id": "s03",
         "dark": true,
         "pad": "128px 0",
         "eb": "03",
-        "h2": "A clear method from question to decision",
+        "h2": "A Clear Method From Question to Decision",
         "paras": [
-          "The work begins by framing the decision and the evidence needed to inform it. Research design then sets the method, sources, fieldwork and standards for accepting information. Collection and analysis test findings across appropriate sources and identify where evidence remains limited or conflicting.",
-          "The final output explains findings, confidence, implications and unresolved questions. Depending on the commission, it can include a report, source record, data tables, presentation and management briefing. Review stages allow the buyer to check factual context without replacing independent findings with an unsupported preferred conclusion."
+          "We agree the decision, intended users, geography and deadline first. The research design then specifies the sources, methods, sample or fieldwork, permissions and standards for accepting evidence. Where sources disagree or coverage is limited, we explain the uncertainty and what would resolve it.",
+          "We report the findings, the confidence they warrant and their implications for the decision. The agreed outputs may include a report, source record, data tables, presentation or management briefing. Your team reviews factual context at agreed points. Our researchers remain responsible for the analysis."
         ]
       },
       {
         "type": "split",
+        "id": "s04",
         "pad": "128px 0 0",
         "eb": "04",
-        "h2": "Commissioned, licensed and public material",
+        "h2": "Commissioned, Licensed and Public Material",
         "paras": [
-          "A private study is produced for the purchasing institution under agreed confidentiality and usage terms. A licensed report can be sold to several purchasers where the source rights and publication model permit. The proposal distinguishes exclusivity, internal circulation, publication rights and updates.",
-          "Credible Perspectives is the public research, editorial and media platform. It provides a route to published insights and approved research products. Private client information is not republished without agreement. Commissioned corporate media production has its own brief, editorial approvals and rights, with details on the corporate podcast child page."
+          "A private study is prepared for the commissioning institution under agreed confidentiality and usage terms. A licensed report may serve multiple buyers where the source rights and publication model permit. The agreement sets out exclusivity, circulation, publication rights and any updates. A recurring brief defines the subjects and changes it will track.",
+          "Credible Perspectives publishes approved research, insights and editorial work. Any use of private client information in public material requires agreement and source licences and participant permissions govern what we publish. Corporate podcasts and other commissioned media have their own brief, approvals and usage rights."
         ]
       },
       {
         "type": "split",
+        "id": "s05",
         "eb": "05",
-        "h2": "Institutional programs and practical application",
+        "h2": "Institutional Programmes and Practical Application",
         "paras": [
-          "An NGO or donor-funded implementer can commission baseline, market, ecosystem or program research against a defined question and procurement brief. A company can commission a market assessment or a decision briefing. An investor can purchase sector intelligence or buyer-defined pipeline screening for further assessment.",
-          "Credence Institute can provide relevant research literacy and market-entry learning. Credence Engage can produce a commissioned findings launch, roundtable or sector convening. These are complete outputs with their own scope; the research commission remains accountable for the evidence products agreed with its buyer."
+          "A public institution may commission a policy options paper. A donor or implementer may need a baseline or an evaluation. A company, cooperative or growth-stage enterprise may need customer evidence before choosing a new channel. An investor or capital platform may require a sector screen before deciding which opportunities merit diligence. We work with foreign investors, industry associations, faith-based institutions and startups where the research addresses a defined decision.",
+          "Our work covers financial services, agribusiness and food systems, healthcare and wellness, energy and natural resources, mobility, transport and logistics, technology and the digital economy and the consumer, creative and services economy. The brief identifies the sector and market where evidence is needed.",
+          "Credence Institute provides research literacy and market-entry learning where a team needs to use the findings. Credence Engage produces commissioned report launches, roundtables and sector convenings. Each has a defined brief, outputs and review responsibilities."
         ],
         "chips": [
           {
@@ -653,53 +685,58 @@ export const servicePages: Record<string, ServicePage> = {
       },
       {
         "type": "faq",
-        "h2": "Research and intelligence FAQs",
+        "h2": "Research and Intelligence FAQs",
         "faqs": [
           {
-            "q": "What should a research brief include",
-            "a": "State the decision, questions, geography, sector, intended users and deadline. Identify available information and any required method or reporting format. Credence can then propose coverage, sources, fieldwork, deliverables, review stages and a fee basis matched to the question."
+            "q": "What should a research brief include?",
+            "a": "State the decision, research questions, sector, geography, intended readers and deadline. Include any available records, required methods or reporting formats and a budget range if known. We use this information to propose scope, outputs, review stages and fees."
           },
           {
-            "q": "Can you conduct primary research",
-            "a": "Primary research can be included where the proposal specifies the sample, methods, permissions and resources. It may involve interviews, surveys or fieldwork suited to the question. The scope identifies access dependencies and limitations rather than promising unsupported representativeness."
+            "q": "Do you conduct primary research?",
+            "a": "Yes. The proposal specifies interviews, surveys or fieldwork where they serve the question. We agree who to reach, the sample, access and permissions and how far the findings support conclusions about the wider market."
           },
           {
-            "q": "Can we commission Kenya market sizing",
-            "a": "Yes. The assignment defines the market, segments, method, available sources and assumptions. The output should explain its basis and uncertainty. A market estimate is most useful when the buyer can understand how it was constructed and where further evidence is needed."
+            "q": "Do you offer Kenya market sizing?",
+            "a": "Yes. We define the customer segments and geography, choose a method suited to the evidence and show how we arrived at the estimate. We identify the assumptions that have the greatest effect on the result and the evidence that would narrow the range."
           },
           {
-            "q": "Can the report remain exclusive and confidential",
-            "a": "Yes, under the agreed commission and rights. The contract specifies access, circulation, publication and information handling. Source licensing or participant permissions may impose additional conditions. Public Perspectives content is distinct from a private client study."
+            "q": "How do you handle exclusivity and confidentiality?",
+            "a": "The commission specifies who has access, whether the report is exclusive and what the buyer may circulate or publish. Those terms also take account of source licences and participant permissions."
           },
           {
-            "q": "Can several buyers purchase the same report",
-            "a": "A licensed edition can serve multiple purchasers where the underlying rights allow. The product should state its issue date, coverage, contents, update terms and permitted use. Confidential commissioned material is not converted into a shared product without the necessary agreement."
+            "q": "May several buyers purchase the same report?",
+            "a": "Yes, where we offer a licensed edition. Review its contents, issue date, market coverage and licence before purchase. Commission a separate study if you need a different question, geography or usage rights."
           },
           {
-            "q": "Can investors commission pipeline research",
-            "a": "Yes. The buyer defines criteria and the decision that follows screening. The output can include a documented search, candidate profiles and readiness notes. Explore Deal Origination and Pipeline Screening for the complete buyer-funded search scope and its assessment limits."
+            "q": "What does investor pipeline research cover?",
+            "a": "We agree the investment mandate and screen published opportunities or companies against the criteria. The output explains why each entry merits review, what the sources support and what diligence is still needed."
           },
           {
-            "q": "Can you produce a public report launch or media series",
-            "a": "An agreed event or corporate podcast scope can support publication and communication of findings. The brief sets objectives, audiences, approvals, production and usage rights. Research, event and media deliverables should be explicit in the complete commissioned proposal."
+            "q": "How do I commission a report launch or media series?",
+            "a": "Specify the intended audience, public findings and format when you brief us. Credence Engage scopes the convening. Credible Perspectives scopes the media or editorial production. The agreement addresses permissions, publication and responsibilities."
           },
           {
-            "q": "How is research quality reviewed",
-            "a": "The proposal identifies methods, source standards and review stages. The output distinguishes findings from assumptions and records limitations. Factual review, analytical challenge and a decision briefing can be included so the buyer understands both the evidence and its practical limits."
+            "q": "How do you review research quality?",
+            "a": "We check material findings against the sources, test assumptions and record gaps or conflicts. The client reviews factual context. The final report explains the confidence we place in each material finding and where further evidence is needed."
           }
         ]
       },
       {
         "type": "cta",
         "h2": "Commission a Study or Request a Market Intelligence Brief",
+        "p": "Share the decision, the evidence you already hold and the date you need the work. We will review your brief and propose the approach, outputs and terms.",
         "links": [
           {
-            "label": "Commission a Study or Request a Market Intelligence Brief",
+            "label": "Share Your Research Requirement",
             "href": "/consult?consult=research"
           },
           {
             "label": "Email connect@credence.africa",
             "href": "mailto:connect@credence.africa"
+          },
+          {
+            "label": "+254 719 468 240",
+            "href": "tel:+254719468240"
           }
         ]
       }

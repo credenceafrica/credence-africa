@@ -24,6 +24,8 @@ export type CopySection = {
   /** Closing band text. */
   p?: string;
   paras?: string[];
+  /** Split: titled blocks under the paragraphs. */
+  subs?: { h3: string; paras: string[] }[];
   /** Split, on phones: the first paragraph with the rest behind Read more, and full-width buttons. */
   compact?: boolean;
   links?: CopyLink[];
@@ -56,7 +58,7 @@ export function CopyPageView({ page }: { page: CopyPage }) {
   );
 }
 
-const h2Section = "h2 m-0 text-balance text-[clamp(32px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]";
+const h2Section = "h2 m-0 text-balance text-[clamp(29px,2.88vw,41.5px)] font-normal leading-[1.1] tracking-[-0.035em]";
 
 /** Heading left, copy right; one column under 900px. */
 const split = "grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-start gap-14 max-[900px]:grid-cols-1 max-[900px]:gap-7";
@@ -101,7 +103,7 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
             return (
               <section key={i} className="bg-white text-ink" style={{ padding: `128px 0 ${padB}` }}>
                 <div className="wrap">
-                  <p className="h2 m-0 max-w-[1080px] text-[clamp(30px,3.4vw,50px)] font-normal leading-[1.12] tracking-[-0.035em]">
+                  <p className="h2 m-0 max-w-[1080px] text-[clamp(27px,3.06vw,45px)] font-normal leading-[1.12] tracking-[-0.035em]">
                     {s.lead} <span className="text-mute">{s.rest}</span>
                   </p>
                 </div>
@@ -115,29 +117,43 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                 <div className="wrap">
                   <div className={cn(split, "border-t pt-10", theme.line)}>
                     <div>
-                      {s.eb && <div className="eb mb-[18px] text-[13.5px]">{s.eb}</div>}
+                      {s.eb && <div className="eb mb-[18px] text-[12px]">{s.eb}</div>}
                       <h2 className={h2Section}>{s.h2}</h2>
                     </div>
                     <div className="flex max-w-[720px] flex-col gap-[18px]">
                       {(s.compact ? s.paras?.slice(0, 1) : s.paras)?.map((p) => (
-                        <p key={p} className={cn("m-0 text-[17px]", theme.body)}>
+                        <p key={p} className={cn("m-0 text-[15.5px]", theme.body)}>
                           {p}
                         </p>
                       ))}
                       {s.compact && (
                         <ReadMore>
                           {s.paras?.slice(1).map((p) => (
-                            <p key={p} className={cn("m-0 text-[17px]", theme.body)}>
+                            <p key={p} className={cn("m-0 text-[15.5px]", theme.body)}>
                               {p}
                             </p>
                           ))}
                         </ReadMore>
                       )}
+                      {s.subs?.length ? (
+                        <div className="mt-2 flex flex-col">
+                          {s.subs.map((u) => (
+                            <div key={u.h3} className={cn("mt-4 border-t pt-6", theme.line)}>
+                              <h3 className="mb-3 mt-0 text-[19px] font-medium leading-[1.3] tracking-[-0.015em]">{u.h3}</h3>
+                              {u.paras.map((p) => (
+                                <p key={p} className={cn("mb-3 mt-0 text-[15px]", theme.body)}>
+                                  {p}
+                                </p>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
                       {s.chips?.length ? (
                         <div className="mt-2 flex flex-wrap gap-2.5">
                           {s.chips.map((c) =>
                             dark ? (
-                              <SmartLink key={c.href} href={c.href} className="rounded-full border border-[#3A3A3A] px-4 py-[9px] text-[14px] font-medium hover:text-primary">
+                              <SmartLink key={c.href} href={c.href} className="rounded-full border border-[#3A3A3A] px-4 py-[9px] text-[12.5px] font-medium hover:text-primary">
                                 {c.label}
                               </SmartLink>
                             ) : (
@@ -173,12 +189,12 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                 <div className="wrap">
                   <div className={cn(split, "mb-14")}>
                     <div>
-                      {s.eb && <div className="eb mb-[18px] text-[13.5px]">{s.eb}</div>}
+                      {s.eb && <div className="eb mb-[18px] text-[12px]">{s.eb}</div>}
                       <h2 className={h2Section}>{s.h2}</h2>
                     </div>
                     <div className="flex max-w-[720px] flex-col gap-[18px]">
                       {s.paras?.map((p) => (
-                        <p key={p} className={cn("m-0 text-[17px]", theme.body)}>
+                        <p key={p} className={cn("m-0 text-[15.5px]", theme.body)}>
                           {p}
                         </p>
                       ))}
@@ -195,14 +211,14 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                         )}
                       >
                         <div className="flex items-start justify-between">
-                          <span className={cn("tile flex size-11 items-center justify-center text-[17px] text-primary", dark ? "bg-tile" : "bg-ink")}>
+                          <span className={cn("tile flex size-11 items-center justify-center text-[15.5px] text-primary", dark ? "bg-tile" : "bg-ink")}>
                             {num(j)}
                           </span>
                           <Arrow size={18} className="text-mute" />
                         </div>
-                        <h3 className="mb-0 mt-9 text-[21px] font-medium leading-[1.25] tracking-[-0.01em]">{c.t}</h3>
-                        <p className={cn("m-0 text-[15px]", theme.body)}>{c.b}</p>
-                        <span className="mt-auto inline-flex items-center gap-2 pt-2 text-[14px] font-semibold">
+                        <h3 className="mb-0 mt-9 text-[19px] font-medium leading-[1.25] tracking-[-0.01em]">{c.t}</h3>
+                        <p className={cn("m-0 text-[13.5px]", theme.body)}>{c.b}</p>
+                        <span className="mt-auto inline-flex items-center gap-2 pt-2 text-[12.5px] font-semibold">
                           {c.cta ?? "Explore"}
                           <Arrow />
                         </span>
@@ -229,14 +245,14 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
             return (
               <section key={i} className="on-dark bg-ink py-32 text-white">
                 <div className="wrap">
-                  <h2 className="h2 mb-16 mt-0 max-w-[900px] text-[clamp(34px,3.7vw,54px)] font-normal leading-[1.1] tracking-[-0.035em]">
+                  <h2 className="h2 mb-16 mt-0 max-w-[900px] text-[clamp(30.5px,3.33vw,48.5px)] font-normal leading-[1.1] tracking-[-0.035em]">
                     {s.h2}
                   </h2>
                   <div className="bgrid grid grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] border-l border-t border-line-dark">
                     {s.steps?.map((t, j) => (
                       <div key={t} className="flex min-h-[220px] flex-col bg-panel">
-                        <div className="px-6 py-[22px] text-[44px] font-light leading-none text-[#5A5A5A]">{num(j)}</div>
-                        <div className="mx-6 border-t-[3px] border-primary pb-7 pt-5 text-[16px] leading-[1.55] text-[#E5E5E5]">{t}</div>
+                        <div className="px-6 py-[22px] text-[39.5px] font-light leading-none text-[#5A5A5A]">{num(j)}</div>
+                        <div className="mx-6 border-t-[3px] border-primary pb-7 pt-5 text-[14.5px] leading-[1.55] text-[#E5E5E5]">{t}</div>
                       </div>
                     ))}
                   </div>
@@ -252,7 +268,7 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                     <h2 className={h2Section}>{s.h2}</h2>
                     <div className="flex max-w-[720px] flex-col gap-[18px]">
                       {s.paras?.map((p) => (
-                        <p key={p} className="m-0 text-[17px] text-body">
+                        <p key={p} className="m-0 text-[15.5px] text-body">
                           {p}
                         </p>
                       ))}
@@ -266,13 +282,13 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
                           <IconTile path={a.icon} />
                           <Arrow size={16} className="text-mute" />
                         </div>
-                        <h3 className="mb-0 mt-auto text-[17px] font-medium leading-[1.3] tracking-[-0.01em]">{a.label}</h3>
+                        <h3 className="mb-0 mt-auto text-[15.5px] font-medium leading-[1.3] tracking-[-0.01em]">{a.label}</h3>
                       </SmartLink>
                     ))}
                   </div>
                   {s.chips?.length ? (
                     <div className="flex flex-wrap items-center gap-2.5 border border-t-0 border-line px-6 py-[22px]">
-                      <span className="eb mr-3 text-[13.5px]">{s.chipsLabel}</span>
+                      <span className="eb mr-3 text-[12px]">{s.chipsLabel}</span>
                       {s.chips.map((c) => (
                         <Chip key={c.href} href={c.href} className="px-[15px] py-2">
                           {c.label}
@@ -290,7 +306,7 @@ export function CopySections({ sections }: { sections: CopySection[] }) {
             return (
               <section key={i} className="bg-white py-32 text-ink">
                 <div className="wrap">
-                  <h2 className="h2 mb-12 mt-0 text-[clamp(32px,3.2vw,46px)] font-normal leading-[1.1] tracking-[-0.035em]">{s.h2}</h2>
+                  <h2 className="h2 mb-12 mt-0 text-[clamp(29px,2.88vw,41.5px)] font-normal leading-[1.1] tracking-[-0.035em]">{s.h2}</h2>
                   {/* Questions in two columns; under 900px they stack and the second column drops its top rule. */}
                   <div className="grid grid-cols-2 items-start gap-x-14 max-[900px]:grid-cols-1 max-[900px]:[&>*+*]:border-t-0">
                     <FaqList items={faqs.slice(0, half)} />

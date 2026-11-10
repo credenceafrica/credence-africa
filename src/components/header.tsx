@@ -113,7 +113,7 @@ export function Header({ menus }: { menus: NavMenu[] }) {
           />
         </Link>
 
-        <nav ref={navRef} aria-label="Main" className="flex items-center gap-0.5 whitespace-nowrap text-[14.5px] max-[1180px]:hidden">
+        <nav ref={navRef} aria-label="Main" className="flex items-center gap-0.5 whitespace-nowrap text-[13px] max-[1180px]:hidden">
           <Link href="/about" className="cr-nl px-3 py-2.5 font-medium" style={linkColor("about")}>
             About Us
           </Link>
@@ -152,7 +152,7 @@ export function Header({ menus }: { menus: NavMenu[] }) {
                         href={it.href}
                         className={cn(
                           "cr-di whitespace-normal font-normal",
-                          it.sub ? "cr-sub py-1.5 pl-7 pr-3.5 text-[13px] text-[#A3A3A3]" : "px-3.5 py-2.5 text-[#E5E5E5]",
+                          it.sub ? "cr-sub py-1.5 pl-7 pr-3.5 text-[11.5px] text-[#A3A3A3]" : "px-3.5 py-2.5 text-[#E5E5E5]",
                         )}
                       >
                         {it.label}
@@ -174,7 +174,7 @@ export function Header({ menus }: { menus: NavMenu[] }) {
         <div className="flex items-center gap-2.5">
           <Link
             href="/consult"
-            className="pill inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-3 text-[14.5px] font-semibold text-ink max-[1180px]:hidden"
+            className="pill inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-3 text-[13px] font-semibold text-ink max-[1180px]:hidden"
           >
             Book a Consultation
             <Arrow />
@@ -206,14 +206,14 @@ export function Header({ menus }: { menus: NavMenu[] }) {
             "items" in l ? (
               // The desktop dropdowns as native accordions: the index page first, then its pages.
               <details key={l.key} name="mobile-nav" className="group border-b border-line-dark">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-3.5 text-[18px] text-white [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-3.5 text-[16px] text-white [&::-webkit-details-marker]:hidden">
                   {label}
                   <svg className="transition-transform group-open:rotate-180" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </summary>
                 <div className="flex flex-col pb-2 pl-4">
-                  <SmartLink href={l.href} onClick={() => setMobileOpen(false)} className="flex items-center justify-between py-3 text-[16px] font-semibold text-primary">
+                  <SmartLink href={l.href} onClick={() => setMobileOpen(false)} className="flex items-center justify-between py-3 text-[14.5px] font-semibold text-primary">
                     {l.all}
                     <Arrow />
                   </SmartLink>
@@ -222,7 +222,7 @@ export function Header({ menus }: { menus: NavMenu[] }) {
                       key={it.href}
                       href={it.href}
                       onClick={() => setMobileOpen(false)}
-                      className={it.sub ? "py-3 pl-4 text-[14px] text-[#A3A3A3]" : "py-3 text-[16px] text-[#E5E5E5]"}
+                      className={it.sub ? "py-3 pl-4 text-[12.5px] text-[#A3A3A3]" : "py-3 text-[14.5px] text-[#E5E5E5]"}
                     >
                       {it.label}
                     </SmartLink>
@@ -230,7 +230,7 @@ export function Header({ menus }: { menus: NavMenu[] }) {
                 </div>
               </details>
             ) : (
-              <SmartLink key={l.href} {...l} onClick={() => setMobileOpen(false)} className="border-b border-line-dark py-3.5 text-[18px] text-white">
+              <SmartLink key={l.href} {...l} onClick={() => setMobileOpen(false)} className="border-b border-line-dark py-3.5 text-[16px] text-white">
                 {label}
               </SmartLink>
             ),

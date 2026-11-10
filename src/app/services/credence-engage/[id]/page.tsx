@@ -200,10 +200,10 @@ export default async function EventPage({ params }: Props) {
   };
 
   const ctaPill =
-    "pill flex w-full items-center justify-center gap-2 rounded-full bg-primary px-[22px] py-[15px] text-[15px] font-semibold text-ink";
+    "pill flex w-full items-center justify-center gap-2 rounded-full bg-primary px-[22px] py-[15px] text-[13.5px] font-semibold text-ink";
   const outlinePill =
-    "pill mt-2.5 flex items-center justify-center gap-2 rounded-full border border-white/30 bg-ink px-[22px] py-[13px] text-[14.5px] font-medium text-white hover:text-primary";
-  const h2Sub = "m-0 text-[clamp(28px,2.6vw,36px)] font-normal leading-[1.15] tracking-[-0.035em]";
+    "pill mt-2.5 flex items-center justify-center gap-2 rounded-full border border-white/30 bg-ink px-[22px] py-[13px] text-[13px] font-medium text-white hover:text-primary";
+  const h2Sub = "m-0 text-[clamp(25px,2.34vw,32.5px)] font-normal leading-[1.15] tracking-[-0.035em]";
 
   return (
     <div className="w-full bg-white leading-[1.65] text-ink">
@@ -219,7 +219,7 @@ export default async function EventPage({ params }: Props) {
         crumbs={[{ label: "Events", href: "/events" }, { label: shortTitle(name) }]}
         btn1={past ? { label: "See upcoming events", href: "/events" } : { label: cta, href: "#register" }}
         btn2={{ label: "All events", href: "/events" }}
-        mobileTitle={38}
+        mobileTitle={34}
       />
 
       {/* Key facts */}
@@ -244,8 +244,8 @@ export default async function EventPage({ params }: Props) {
                   </svg>
                 </span>
                 <span className="flex flex-col gap-0.5">
-                  <span className="text-[12px] uppercase tracking-[0.1em] text-mute">{f.k}</span>
-                  <span className="text-[16.5px] font-medium leading-[1.35]">{f.v}</span>
+                  <span className="text-[11px] uppercase tracking-[0.1em] text-mute">{f.k}</span>
+                  <span className="text-[15px] font-medium leading-[1.35]">{f.v}</span>
                 </span>
               </div>
             ))}
@@ -258,12 +258,12 @@ export default async function EventPage({ params }: Props) {
         <div className="wrap grid grid-cols-[minmax(0,1fr)_380px] items-start gap-[72px] max-[1080px]:grid-cols-1 max-[1080px]:gap-12">
           <div className="flex min-w-0 flex-col gap-[72px]">
             <div>
-              <div className="eb mb-[18px] text-[13.5px]">About this event</div>
-              <h2 className="mb-5 mt-0 max-w-[720px] text-[clamp(30px,3vw,42px)] font-normal leading-[1.12] tracking-[-0.035em]">
+              <div className="eb mb-[18px] text-[12px]">About this event</div>
+              <h2 className="mb-5 mt-0 max-w-[720px] text-[clamp(27px,2.7vw,38px)] font-normal leading-[1.12] tracking-[-0.035em]">
                 {summary}
               </h2>
               {about.map((p, i) => (
-                <p key={i} className="mb-4 mt-0 max-w-[720px] text-[17.5px] text-body">
+                <p key={i} className="mb-4 mt-0 max-w-[720px] text-[16px] text-body">
                   {p}
                 </p>
               ))}
@@ -274,7 +274,7 @@ export default async function EventPage({ params }: Props) {
               <div id="tickets" className="scroll-mt-8">
                 <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
                   <h2 className={h2Sub}>Tickets</h2>
-                  <span className="text-[13.5px] text-mute">Choose the ticket type that best fits your engagement</span>
+                  <span className="text-[12px] text-mute">Choose the ticket type that best fits your engagement</span>
                 </div>
                 <div className="border-t border-ink">
                   {tickets.map((t) => {
@@ -284,14 +284,14 @@ export default async function EventPage({ params }: Props) {
                         key={t.id}
                         className="grid grid-cols-[120px_1fr_auto] items-start gap-6 border-b border-line py-[22px] max-[720px]:grid-cols-1 max-[720px]:gap-1.5"
                       >
-                        <span className="text-[15px] font-medium capitalize text-primary-deep">{String(t.category)}</span>
+                        <span className="text-[13.5px] font-medium capitalize text-primary-deep">{String(t.category)}</span>
                         <span className="flex flex-col gap-1">
-                          <span className="text-[18px] font-medium leading-[1.35]">{t.name}</span>
-                          <span className="text-[15px] text-body-3">{t.price > 0 ? kes(t.price) : "Free"}</span>
+                          <span className="text-[16px] font-medium leading-[1.35]">{t.name}</span>
+                          <span className="text-[13.5px] text-body-3">{t.price > 0 ? kes(t.price) : "Free"}</span>
                           {t.features.length > 0 && (
                             <ul className="m-0 mt-1.5 flex list-none flex-col gap-1.5 p-0">
                               {t.features.map((feature, i) => (
-                                <li key={i} className="flex items-start gap-2 text-[14.5px] text-body-3">
+                                <li key={i} className="flex items-start gap-2 text-[13px] text-body-3">
                                   <Check size={14} className="text-primary-deep" />
                                   {feature}
                                 </li>
@@ -300,14 +300,14 @@ export default async function EventPage({ params }: Props) {
                           )}
                         </span>
                         {reason ? (
-                          <span className="justify-self-start whitespace-nowrap rounded-full border border-line px-5 py-3 text-[14px] font-medium text-mute max-[720px]:mt-3">
+                          <span className="justify-self-start whitespace-nowrap rounded-full border border-line px-5 py-3 text-[12.5px] font-medium text-mute max-[720px]:mt-3">
                             {reason}
                           </span>
                         ) : (
                           <EventCheckoutButton
                             event={event}
                             ticket={t}
-                            className="pill inline-flex items-center gap-2 justify-self-start whitespace-nowrap rounded-full bg-ink px-5 py-3 text-[14px] font-semibold text-white max-[720px]:mt-3"
+                            className="pill inline-flex items-center gap-2 justify-self-start whitespace-nowrap rounded-full bg-ink px-5 py-3 text-[12.5px] font-semibold text-white max-[720px]:mt-3"
                           >
                             Get Ticket<span className="sr-only">: {t.name}</span>
                             <Arrow />
@@ -328,19 +328,19 @@ export default async function EventPage({ params }: Props) {
                 <div className="mb-7 flex items-center justify-between gap-4">
                   <span
                     className={cn(
-                      "inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.1em]",
+                      "inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.1em]",
                       past ? "text-mute" : "text-primary",
                     )}
                   >
                     <span aria-hidden="true" className={cn("size-[7px] rounded-full", past ? "bg-mute" : "bg-primary")} />
                     {past ? "Past event" : "Upcoming"}
                   </span>
-                  <span className="text-right text-[13px] text-mute">{format}</span>
+                  <span className="text-right text-[11.5px] text-mute">{format}</span>
                 </div>
                 {start && (
                   <div className="mb-2 flex items-end gap-3.5">
-                    <span className="text-[84px] font-light leading-[0.85] tracking-[-0.04em]">{start.day}</span>
-                    <span className="pb-1.5 text-[15px] tracking-[0.1em]">
+                    <span className="text-[75.5px] font-light leading-[0.85] tracking-[-0.04em]">{start.day}</span>
+                    <span className="pb-1.5 text-[13.5px] tracking-[0.1em]">
                       {start.mon} {start.year}
                       {time && (
                         <>
@@ -351,10 +351,10 @@ export default async function EventPage({ params }: Props) {
                     </span>
                   </div>
                 )}
-                <p className="mb-6 mt-5 border-t border-line-dark pt-5 text-[15px] text-body-dark">{price}</p>
+                <p className="mb-6 mt-5 border-t border-line-dark pt-5 text-[13.5px] text-body-dark">{price}</p>
                 {past ? (
                   <>
-                    <span className="flex items-center justify-center rounded-full bg-tile px-[22px] py-[15px] text-[15px] font-medium text-body-dark">
+                    <span className="flex items-center justify-center rounded-full bg-tile px-[22px] py-[15px] text-[13.5px] font-medium text-body-dark">
                       This event has taken place
                     </span>
                     <SmartLink href="/events" className={outlinePill}>
@@ -381,7 +381,7 @@ export default async function EventPage({ params }: Props) {
                     )}
                   </>
                 )}
-                <p className="mb-0 mt-[18px] text-[13px] text-mute">
+                <p className="mb-0 mt-[18px] text-[11.5px] text-mute">
                   Programme, ticket options and participation terms are confirmed on the{" "}
                   <a href="https://www.credenceengage.com/" className="text-white underline hover:text-primary">
                     event platform
@@ -390,14 +390,14 @@ export default async function EventPage({ params }: Props) {
                 </p>
               </div>
               <div className="border border-line px-[26px] py-6">
-                <div className="mb-1.5 text-[16.5px] font-medium">Sponsor, exhibit or partner</div>
-                <p className="mb-3.5 mt-0 text-[14.5px] text-body-3">
+                <div className="mb-1.5 text-[15px] font-medium">Sponsor, exhibit or partner</div>
+                <p className="mb-3.5 mt-0 text-[13px] text-body-3">
                   Explore sponsorship, exhibition or partnership opportunities where an event offers a relevant audience
                   and a documented package.
                 </p>
                 <SmartLink
                   href={consultHref("engage")}
-                  className="hit inline-flex items-center gap-2 text-[14px] font-semibold hover:text-primary-deep"
+                  className="hit inline-flex items-center gap-2 text-[12.5px] font-semibold hover:text-primary-deep"
                 >
                   Enquire about partnership
                   <Arrow size={13} />
@@ -413,10 +413,10 @@ export default async function EventPage({ params }: Props) {
         <div className="wrap">
           <div className="grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] border border-line max-[860px]:grid-cols-1">
             <div className="flex flex-col gap-3.5 p-10">
-              <div className="eb text-[13.5px]">Venue and access</div>
-              <h2 className="m-0 text-[30px] font-normal leading-[1.15] tracking-[-0.03em]">{where}</h2>
+              <div className="eb text-[12px]">Venue and access</div>
+              <h2 className="m-0 text-[27px] font-normal leading-[1.15] tracking-[-0.03em]">{where}</h2>
               {virtual && (
-                <p className="m-0 text-[16px] text-body-3">
+                <p className="m-0 text-[14.5px] text-body-3">
                   This is a virtual event. Joining details are shared with registered participants.
                 </p>
               )}
@@ -431,10 +431,10 @@ export default async function EventPage({ params }: Props) {
         <section className="pb-32">
           <div className="wrap">
             <div className="mb-2 flex flex-wrap items-end justify-between gap-5 border-t border-line pt-10">
-              <h2 className="m-0 text-[clamp(30px,3vw,42px)] font-normal leading-[1.1] tracking-[-0.035em]">More events</h2>
+              <h2 className="m-0 text-[clamp(27px,2.7vw,38px)] font-normal leading-[1.1] tracking-[-0.035em]">More events</h2>
               <SmartLink
                 href="/events"
-                className="pill inline-flex items-center gap-2 rounded-full border border-ink px-5 py-[11px] text-[14.5px] font-medium hover:text-primary-deep"
+                className="pill inline-flex items-center gap-2 rounded-full border border-ink px-5 py-[11px] text-[13px] font-medium hover:text-primary-deep"
               >
                 All events
               </SmartLink>
@@ -445,11 +445,11 @@ export default async function EventPage({ params }: Props) {
                 href={e.url}
                 className="cell group grid grid-cols-[110px_minmax(0,1fr)_minmax(0,0.5fr)_24px] items-center gap-6 border-b border-line bg-white px-2 py-6 text-ink max-[720px]:grid-cols-[80px_1fr_24px]"
               >
-                <span className="text-[30px] leading-none tracking-[-0.03em]">
-                  {e.day} <span className="text-[13px] tracking-[0.08em] text-mute">{e.month}</span>
+                <span className="text-[27px] leading-none tracking-[-0.03em]">
+                  {e.day} <span className="text-[11.5px] tracking-[0.08em] text-mute">{e.month}</span>
                 </span>
-                <span className="text-[18px] font-medium leading-[1.35] group-hover:text-primary-deep">{e.title}</span>
-                <span className="text-[14px] text-body-3 max-[720px]:hidden">{eventPlace(e.location, e.category)}</span>
+                <span className="text-[16px] font-medium leading-[1.35] group-hover:text-primary-deep">{e.title}</span>
+                <span className="text-[12.5px] text-body-3 max-[720px]:hidden">{eventPlace(e.location, e.category)}</span>
                 <svg
                   width={16}
                   height={16}

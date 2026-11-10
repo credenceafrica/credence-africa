@@ -4,8 +4,8 @@ import type { CopyPage } from "@/components/site/copy-sections";
 export const homePage: CopyPage = {
   "hero": {
     "title": "Enabling the institutions that build Africa",
-    "intro": "Credence Africa supports the people and institutions making decisions about capital, markets, policy and capability. From Nairobi, we connect advisory, professional learning, events and intelligence with the practical work a mandate requires.",
-    "introMore": "Our services are designed for enterprises, investors, cooperatives, nonprofits, development organizations and public institutions working in Kenya and across African markets.",
+    "sub": "Credence Africa supports the people and institutions making decisions about capital, markets, policy and capability. From Nairobi, we connect advisory, professional learning, events and intelligence with the practical work a mandate requires.",
+    "intro": "Our services are designed for enterprises, investors, cooperatives, nonprofits, development organizations and public institutions working in Kenya and across African markets.",
     "btn1": {
       "label": "Explore our services",
       "href": "/services"

@@ -27,7 +27,7 @@ const inputs = [
 ] as const;
 
 const item = "flex flex-col space-y-0";
-const label = "text-[13px] font-normal leading-[1.6] text-body-dark";
+const label = "text-[11.5px] font-normal leading-[1.6] text-body-dark";
 
 /**
  * The consultation request form: underlined fields for a dark ground. The Consult page makes it
@@ -195,7 +195,7 @@ export function ConsultationForm({
             </FormItem>
           )}
         />
-        <label className="col-span-full flex cursor-pointer items-start gap-3 text-[14px] text-body-dark">
+        <label className="col-span-full flex cursor-pointer items-start gap-3 text-[12.5px] text-body-dark">
           <input
             type="checkbox"
             className="mt-0.5 size-[18px] shrink-0 accent-primary"
@@ -205,7 +205,7 @@ export function ConsultationForm({
           response to your enquiry.
         </label>
         <div className="col-span-full mt-2 flex flex-wrap items-center justify-between gap-4">
-          <p className="m-0 text-[13.5px] text-body-dark">
+          <p className="m-0 text-[12px] text-body-dark">
             We use these details to respond to your enquiry. See our{" "}
             <Link href="/privacy-policy" className="text-white underline hover:text-primary">
               Privacy Policy
@@ -215,7 +215,7 @@ export function ConsultationForm({
           <button
             type="submit"
             disabled={loading}
-            className="pill inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14.5px] font-semibold text-ink disabled:pointer-events-none disabled:opacity-50"
+            className="pill inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[13px] font-semibold text-ink disabled:pointer-events-none disabled:opacity-50"
           >
             {loading ? "Sending…" : "Submit Request"}
             {!loading && <Arrow />}

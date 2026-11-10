@@ -42,8 +42,8 @@ const inputs = [
 ] as const;
 
 const item = "flex flex-col space-y-0";
-const label = "text-[13px] font-normal leading-[1.6] text-body-dark";
-const h2 = "h2 mt-0 text-[clamp(34px,3.7vw,54px)] font-normal leading-[1.1] tracking-[-0.035em]";
+const label = "text-[11.5px] font-normal leading-[1.6] text-body-dark";
+const h2 = "h2 mt-0 text-[clamp(30.5px,3.33vw,48.5px)] font-normal leading-[1.1] tracking-[-0.035em]";
 
 export default function CaseStudiesPage() {
     const [loading, setLoading] = useState(false);
@@ -100,18 +100,18 @@ export default function CaseStudiesPage() {
 
       <section className="py-32">
         <div className="wrap">
-          <div className="eb mb-[18px] text-[13.5px]">Case Studies</div>
+          <div className="eb mb-[18px] text-[12px]">Case Studies</div>
           <h2 className={`${h2} mb-14`}>Featured case studies</h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-7">
             {featuredStudies.map((c, i) => (
               <div key={c.t} className="flex flex-col gap-4">
                 <div className="ph relative h-60">
                   <span className="absolute bottom-2.5 left-2.5 flex gap-1">
-                    <span className="bg-white px-2 py-[3px] text-[11.5px] text-ink">{num(i)}</span>
-                    <span className="bg-primary px-2 py-[3px] text-[11.5px] text-ink">{c.tag}</span>
+                    <span className="bg-white px-2 py-[3px] text-[10.5px] text-ink">{num(i)}</span>
+                    <span className="bg-primary px-2 py-[3px] text-[10.5px] text-ink">{c.tag}</span>
                   </span>
                 </div>
-                <h3 className="m-0 text-[19px] font-medium leading-[1.3] tracking-[-0.01em]">{c.t}</h3>
+                <h3 className="m-0 text-[17px] font-medium leading-[1.3] tracking-[-0.01em]">{c.t}</h3>
               </div>
             ))}
           </div>
@@ -121,9 +121,9 @@ export default function CaseStudiesPage() {
       <section className="on-dark bg-ink py-32 text-white">
         <div className="wrap grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] items-start gap-14">
           <div>
-            <div className="eb mb-[18px] text-[13.5px]">Case Studies</div>
+            <div className="eb mb-[18px] text-[12px]">Case Studies</div>
             <h2 className={`${h2} mb-[18px]`}>Access full reports</h2>
-            <p className="m-0 max-w-[460px] text-[16.5px] text-body-dark">
+            <p className="m-0 max-w-[460px] text-[15px] text-body-dark">
               Complete the form to download in-depth case studies and access our full library of reports on strategy and
               execution in African markets.
             </p>
@@ -166,7 +166,7 @@ export default function CaseStudiesPage() {
                 )}
               />
               <div className="col-span-full flex flex-wrap items-center justify-between gap-4">
-                <p className="m-0 text-[13.5px] text-body-dark">
+                <p className="m-0 text-[12px] text-body-dark">
                   By submitting, you agree to our{" "}
                   <Link href="/privacy-policy" className="text-white underline hover:text-primary">
                     Privacy Policy
@@ -176,7 +176,7 @@ export default function CaseStudiesPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="pill inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14.5px] font-semibold text-ink disabled:pointer-events-none disabled:opacity-50"
+                  className="pill inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[13px] font-semibold text-ink disabled:pointer-events-none disabled:opacity-50"
                 >
                   {loading ? "Submitting..." : "Request Access"}
                   {!loading && <Arrow />}
