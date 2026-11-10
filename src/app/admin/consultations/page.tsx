@@ -1,153 +1,94 @@
-
 "use client";
 
-import { useState, useEffect } from 'react';
-import { collection, getDocs, deleteDoc, doc, DocumentData, orderBy, query } from 'firebase/firestore';
-import { firestore } from '@/firebase';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
-import { useToast } from '@/hooks/use-toast';
-import { Button } from '@/components/ui/button';
-import { Trash } from 'lucide-react';
-import { format } from 'date-fns';
+import { deleteDoc, doc, type Timestamp } from "firebase/firestore";
+import { MessagesSquare, Reply, Trash2 } from "lucide-react";
+import { useState } from "react";
+import { Chip, Clamp, ConfirmDialog, Contact, dangerIcon, Empty, Entry, EntryList, iconButton, newestFirst, PageHeader, Records, useRecords } from "@/components/admin/ui";
+import { firestore } from "@/firebase";
+import { useToast } from "@/hooks/use-toast";
+import { consultationInterestLabel } from "@/lib/consultation";
+import { cn } from "@/lib/utils";
 
-export default function ManageConsultationsPage() {
-  const [requests, setRequests] = useState<DocumentData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-  const [requestToDelete, setRequestToDelete] = useState<string | null>(null);
+type Consultation = {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  country?: string;
+  interest?: string;
+  message?: string;
+  newsletter?: boolean;
+  createdAt?: Timestamp;
+};
+
+export default function ConsultationsPage() {
+  const { rows, error, reload, retry } = useRecords(() => newestFirst<Consultation>("consultations"));
+  const [toDelete, setToDelete] = useState<Consultation | null>(null);
   const { toast } = useToast();
 
-  const fetchRequests = async () => {
-    setLoading(true);
-    try {
-        const q = query(collection(firestore, 'consultations'), orderBy('createdAt', 'desc'));
-        const querySnapshot = await getDocs(q);
-        const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setRequests(requestsData);
-    } catch (err: any) {
-        toast({
-            variant: 'destructive',
-            title: 'Error loading requests',
-            description: err.message || 'Could not fetch consultation requests.',
-        });
-    } finally {
-        setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchRequests();
-  }, []);
-
-  const handleDeleteClick = (id: string) => {
-    setRequestToDelete(id);
-    setShowDeleteDialog(true);
-  };
-
-  const handleConfirmDelete = async () => {
-    if (!requestToDelete) return;
-    try {
-      await deleteDoc(doc(firestore, 'consultations', requestToDelete));
-      toast({
-        title: 'Success',
-        description: 'Request deleted successfully.',
-      });
-      fetchRequests(); // Refresh the list
-    } catch (err: any) {
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: err.message,
-      });
-    } finally {
-      setShowDeleteDialog(false);
-      setRequestToDelete(null);
-    }
-  };
-
-  if (loading) {
-    return <p>Loading consultation requests...</p>;
-  }
-
   return (
-    <div>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Consultation Requests</h1>
-      </div>
+    <>
+      <PageHeader title="Consultations" count={rows?.length} description="Requests from the consultation form on the website, newest first." />
 
-      <div className="border rounded-lg">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Date</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Phone</TableHead>
-              <TableHead>Area of Interest</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {requests.length === 0 ? (
-                <TableRow>
-                    <TableCell colSpan={6} className="text-center">No requests found.</TableCell>
-                </TableRow>
-            ) : (
-                requests.map(request => (
-                <TableRow key={request.id}>
-                    <TableCell>
-                        {request.createdAt ? format(request.createdAt.toDate(), 'PPp') : 'N/A'}
-                    </TableCell>
-                    <TableCell className="font-medium">{request.name}</TableCell>
-                    <TableCell>{request.email}</TableCell>
-                    <TableCell>{request.phone}</TableCell>
-                    <TableCell>{request.interest}</TableCell>
-                    <TableCell className="text-right">
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDeleteClick(request.id)}
-                    >
-                        <Trash className="h-4 w-4 text-destructive" />
-                    </Button>
-                    </TableCell>
-                </TableRow>
-                ))
-            )}
-          </TableBody>
-        </Table>
-      </div>
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the request.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirmDelete}>Delete</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </div>
+      <Records
+        rows={rows}
+        error={error}
+        onRetry={retry}
+        what="consultation requests"
+        empty={
+          <Empty icon={MessagesSquare} title="No consultation requests yet">
+            When someone sends the consultation form on the website, their request appears here with their message.
+          </Empty>
+        }
+      >
+        {(list) => (
+          <EntryList label="Consultation requests">
+            {list.map((r) => (
+              <Entry
+                key={r.id}
+                title={r.name}
+                meta={[r.company, r.country].filter(Boolean).join(" · ")}
+                time={r.createdAt}
+                tags={
+                  (r.interest || r.newsletter) && (
+                    <>
+                      {r.interest && <Chip>{consultationInterestLabel(r.interest)}</Chip>}
+                      {r.newsletter && <Chip tone="ok">Wants updates</Chip>}
+                    </>
+                  )
+                }
+                footer={<Contact email={r.email} phone={r.phone} />}
+                actions={
+                  <>
+                    <a href={`mailto:${r.email}?subject=${encodeURIComponent("Your consultation request")}`} aria-label={`Reply to ${r.name} by email`} title="Reply by email" className={iconButton}>
+                      <Reply aria-hidden />
+                    </a>
+                    <button type="button" onClick={() => setToDelete(r)} aria-label={`Delete ${r.name}'s request`} title="Delete" className={cn(iconButton, dangerIcon)}>
+                      <Trash2 aria-hidden />
+                    </button>
+                  </>
+                }
+              >
+                {r.message && <Clamp text={r.message} />}
+              </Entry>
+            ))}
+          </EntryList>
+        )}
+      </Records>
+
+      <ConfirmDialog
+        open={!!toDelete}
+        onClose={() => setToDelete(null)}
+        title="Delete this request?"
+        description={`${toDelete?.name}'s consultation request will be removed from the admin for good.`}
+        confirmLabel="Delete request"
+        onConfirm={async () => {
+          await deleteDoc(doc(firestore!, "consultations", toDelete!.id));
+          toast({ title: "Request deleted" });
+          await reload();
+        }}
+      />
+    </>
   );
 }

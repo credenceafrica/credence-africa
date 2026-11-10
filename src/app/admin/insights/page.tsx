@@ -1,139 +1,104 @@
-
 "use client";
 
-import { useState, useEffect } from 'react';
-import { collection, getDocs, deleteDoc, doc, DocumentData } from 'firebase/firestore';
-import { firestore } from '@/firebase';
-import { Button } from '@/components/ui/button';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
-import Link from 'next/link';
-import { useToast } from '@/hooks/use-toast';
-import { Edit, Trash } from 'lucide-react';
+import { collection, deleteDoc, doc, getDocs, type Timestamp } from "firebase/firestore";
+import { ExternalLink, Newspaper, Pencil, Plus, Trash2 } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { button, ConfirmDialog, dangerIcon, day, Empty, iconButton, PageHeader, RecordTable, Records, useRecords } from "@/components/admin/ui";
+import { firestore } from "@/firebase";
+import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
-export default function ManageInsightsPage() {
-  const [insights, setInsights] = useState<DocumentData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-  const [insightToDelete, setInsightToDelete] = useState<string | null>(null);
+type Insight = { id: string; title: string; slug?: string; category?: string; featuredImage?: string | null; views?: number; createdAt?: Timestamp };
+
+async function loadInsights() {
+  const snapshot = await getDocs(collection(firestore!, "insights"));
+  const insights = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }) as Insight);
+  // Sorted here rather than in the query, so an insight saved without a date still appears (last).
+  return insights.sort((a, b) => (b.createdAt?.toMillis() ?? 0) - (a.createdAt?.toMillis() ?? 0));
+}
+
+export default function InsightsPage() {
+  const { rows, error, reload, retry } = useRecords(loadInsights);
+  const [toDelete, setToDelete] = useState<Insight | null>(null);
   const { toast } = useToast();
-
-  useEffect(() => {
-    fetchInsights();
-  }, []);
-
-  const fetchInsights = async () => {
-    setLoading(true);
-    const querySnapshot = await getDocs(collection(firestore, 'insights'));
-    const insightsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setInsights(insightsData);
-    setLoading(false);
-  };
-
-  const handleDeleteClick = (id: string) => {
-    setInsightToDelete(id);
-    setShowDeleteDialog(true);
-  };
-
-  const handleConfirmDelete = async () => {
-    if (!insightToDelete) return;
-    try {
-      await deleteDoc(doc(firestore, 'insights', insightToDelete));
-      toast({
-        title: 'Success',
-        description: 'Insight deleted successfully.',
-      });
-      fetchInsights(); // Refresh the list
-    } catch (err: any) {
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: err.message,
-      });
-    } finally {
-      setShowDeleteDialog(false);
-      setInsightToDelete(null);
-    }
-  };
-
-  if (loading) {
-    return <p>Loading insights...</p>;
-  }
+  const add = (
+    <Link href="/admin/insights/new" className={button()}>
+      <Plus aria-hidden />
+      New Insight
+    </Link>
+  );
 
   return (
-    <div>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Manage Insights</h1>
-        <Button asChild>
-          <Link href="/admin/insights/new">Add New Insight</Link>
-        </Button>
-      </div>
+    <>
+      <PageHeader title="Insights" count={rows?.length} description="Articles published on the website's Insights pages, newest first." actions={add} />
 
-      <div className="border rounded-lg">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Title</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead>Author</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {insights.map(insight => (
-              <TableRow key={insight.id}>
-                <TableCell className="font-medium">{insight.title}</TableCell>
-                <TableCell>{insight.category}</TableCell>
-                <TableCell>{insight.author}</TableCell>
-                <TableCell className="text-right">
-                  <Button asChild variant="ghost" size="icon">
-                    <Link href={`/admin/insights/edit/${insight.id}`}>
-                      <Edit className="h-4 w-4" />
+      <Records
+        rows={rows}
+        error={error}
+        onRetry={retry}
+        what="insights"
+        empty={
+          <Empty icon={Newspaper} title="No insights yet" action={add}>
+            Write the first one. It appears on the Insights pages as soon as you publish it.
+          </Empty>
+        }
+      >
+        {(list) => (
+          <RecordTable
+            caption="Insights"
+            rows={list}
+            columns={[
+              {
+                label: "Title",
+                cell: (r) => (
+                  <span className="flex items-center gap-3.5">
+                    <span aria-hidden className="hidden h-11 w-16 shrink-0 overflow-hidden bg-line-soft md:block">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {r.featuredImage && <img src={r.featuredImage} alt="" loading="lazy" className="size-full object-cover" />}
+                    </span>
+                    <Link href={`/admin/insights/edit/${r.id}`} className="line-clamp-2 font-medium text-ink transition-colors hover:text-primary-deep">
+                      {r.title || "Untitled"}
                     </Link>
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => handleDeleteClick(insight.id)}
-                  >
-                    <Trash className="h-4 w-4 text-destructive" />
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the insight.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirmDelete}>Delete</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </div>
+                  </span>
+                ),
+                className: "min-w-[280px]",
+              },
+              { label: "Category", cell: (r) => r.category || "–" },
+              { label: "Published", cell: (r) => <span className="whitespace-nowrap tabular-nums text-body-3">{day(r.createdAt)}</span> },
+              { label: "Views", cell: (r) => <span className="tabular-nums">{(r.views ?? 0).toLocaleString("en-GB")}</span> },
+            ]}
+            actions={(r) => (
+              <>
+                {r.slug && (
+                  <a href={`/insights/${r.slug}`} target="_blank" rel="noreferrer" aria-label={`View “${r.title}” on the website`} title="View on the website" className={iconButton}>
+                    <ExternalLink aria-hidden />
+                  </a>
+                )}
+                <Link href={`/admin/insights/edit/${r.id}`} aria-label={`Edit “${r.title}”`} title="Edit" className={iconButton}>
+                  <Pencil aria-hidden />
+                </Link>
+                <button type="button" onClick={() => setToDelete(r)} aria-label={`Delete “${r.title}”`} title="Delete" className={cn(iconButton, dangerIcon)}>
+                  <Trash2 aria-hidden />
+                </button>
+              </>
+            )}
+          />
+        )}
+      </Records>
+
+      <ConfirmDialog
+        open={!!toDelete}
+        onClose={() => setToDelete(null)}
+        title="Delete this insight?"
+        description={`“${toDelete?.title}” will come off the website straight away. This cannot be undone.`}
+        confirmLabel="Delete insight"
+        onConfirm={async () => {
+          await deleteDoc(doc(firestore!, "insights", toDelete!.id));
+          toast({ title: "Insight deleted" });
+          await reload();
+        }}
+      />
+    </>
   );
 }

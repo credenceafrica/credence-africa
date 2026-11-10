@@ -1,202 +1,51 @@
-
 "use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { firestore, auth, storage } from '@/firebase';
-import { ref, uploadString, getDownloadURL } from 'firebase/storage';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
-import Image from 'next/image';
-import { LexicalEditor } from '@/components/lexical-editor';
-
-const insightSchema = z.object({
-  title: z.string().min(1, 'Title is required'),
-  content: z.string().min(1, 'Content is required'),
-  category: z.string().min(1, 'Category is required'),
-  tags: z.string().optional(),
-  featuredImage: z.any().optional(),
-});
-
-type InsightFormValues = z.infer<typeof insightSchema>;
-
-const slugify = (text: string) => {
-  if (!text) return '';
-  return text
-    .toLowerCase()
-    .replace(/ /g, '-')
-    .replace(/[^\w-]+/g, '');
-};
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import { useRouter } from "next/navigation";
+import { InsightForm, slugify, tagList, wordCount, type InsightFormValues } from "@/components/admin/insight-form";
+import { PageHeader } from "@/components/admin/ui";
+import { auth, firestore, storage } from "@/firebase";
+import { useToast } from "@/hooks/use-toast";
 
 export default function NewInsightPage() {
-  const [user] = useAuthState(auth);
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-  const form = useForm<InsightFormValues>({
-    resolver: zodResolver(insightSchema),
-    defaultValues: {
-      title: '',
-      content: '',
-      category: '',
-      tags: '',
-    },
-  });
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-        form.setValue('featuredImage', reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const onSubmit = async (data: InsightFormValues) => {
-    if (!user) {
-      toast({
-        variant: "destructive",
-        title: "Authentication Error",
-        description: "You must be logged in to create an insight.",
-      });
-      return;
-    }
-
-    setLoading(true);
+  const publish = async (data: InsightFormValues) => {
     try {
       let imageUrl: string | null = null;
       if (data.featuredImage) {
-        const imageRef = ref(storage, `insights/${Date.now()}_${data.title.replace(/\s+/g, '_')}`);
-        const snapshot = await uploadString(imageRef, data.featuredImage, 'data_url');
+        const imageRef = ref(storage!, `insights/${Date.now()}_${data.title.replace(/\s+/g, "_")}`);
+        const snapshot = await uploadString(imageRef, data.featuredImage, "data_url");
         imageUrl = await getDownloadURL(snapshot.ref);
       }
-
-      const slug = slugify(data.title);
-      const wordCount = data.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
-      await addDoc(collection(firestore, 'insights'), {
+      await addDoc(collection(firestore!, "insights"), {
         title: data.title,
-        slug: slug,
+        slug: slugify(data.title),
         content: data.content,
         category: data.category,
-        tags: data.tags?.split(',').map(tag => tag.trim()).filter(tag => tag) || [],
+        tags: tagList(data.tags),
         author: "Credence Africa",
-        authorId: user.uid,
+        authorId: auth!.currentUser!.uid,
         createdAt: serverTimestamp(),
         published: true,
         featuredImage: imageUrl,
         views: 0,
         likes: 0,
-        wordCount: wordCount,
+        wordCount: wordCount(data.content),
       });
-      toast({
-        title: "Success",
-        description: "Insight published successfully.",
-      });
-      router.push('/admin/insights');
-    } catch (err: any) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: err.message,
-      });
-    } finally {
-      setLoading(false);
+      toast({ title: "Insight published", description: "It is now live on the Insights pages." });
+      router.push("/admin/insights");
+    } catch (err) {
+      toast({ variant: "destructive", title: "The insight was not published", description: (err as Error).message });
     }
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-8">Create New Insight</h1>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
-            control={form.control}
-            name="title"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Title</FormLabel>
-                <FormControl>
-                  <Input placeholder="Insight Title" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="content"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Content</FormLabel>
-                <FormControl>
-                  <LexicalEditor onChange={field.onChange} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="category"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Category</FormLabel>
-                <FormControl>
-                  <Input placeholder="e.g., Capital and Investment" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="tags"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tags (comma-separated sector names)</FormLabel>
-                <FormControl>
-                  <Input placeholder="e.g., Agriculture and Food, SMEs and Startups" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormItem>
-            <FormLabel>Featured Image</FormLabel>
-            <FormControl>
-              <Input type="file" accept="image/*" onChange={handleImageChange} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-
-          {imagePreview && (
-            <div className="mt-4">
-              <p>Image Preview:</p>
-              <Image src={imagePreview} alt="Image preview" width={200} height={100} className="rounded-lg object-cover" />
-            </div>
-          )}
-
-          <Button type="submit" disabled={loading}>
-            {loading ? 'Publishing...' : 'Publish Insight'}
-          </Button>
-        </form>
-      </Form>
-    </div>
+    <>
+      <PageHeader back={{ href: "/admin/insights", label: "Insights" }} title="New Insight" description="It goes live on the Insights pages as soon as you publish it." />
+      <InsightForm submitLabel="Publish Insight" busyLabel="Publishing…" onSubmit={publish} />
+    </>
   );
 }

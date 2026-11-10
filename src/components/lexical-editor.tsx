@@ -86,7 +86,9 @@ function ToolbarPlugin() {
   }, []);
 
   useEffect(() => {
-    return editor.registerCommand(
+    // Formatting at the caret changes no selection, so listen for updates too or the buttons lag behind.
+    const offUpdate = editor.registerUpdateListener(({ editorState }) => editorState.read(updateToolbar));
+    const offSelection = editor.registerCommand(
       SELECTION_CHANGE_COMMAND,
       () => {
         updateToolbar();
@@ -94,34 +96,35 @@ function ToolbarPlugin() {
       },
       COMMAND_PRIORITY_CRITICAL
     );
+    return () => {
+      offUpdate();
+      offSelection();
+    };
   }, [editor, updateToolbar]);
 
+  const formats = [
+    { format: "bold", label: "Bold", active: isBold, Icon: Bold },
+    { format: "italic", label: "Italic", active: isItalic, Icon: Italic },
+    { format: "underline", label: "Underline", active: isUnderline, Icon: Underline },
+  ] as const;
+
   return (
-    <div className="flex gap-1 p-2 border-b">
-      <Button
-        type="button"
-        size="icon"
-        variant={isBold ? "secondary" : "ghost"}
-        onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold")}
-      >
-        <Bold className="h-4 w-4" />
-      </Button>
-      <Button
-       type="button"
-        size="icon"
-        variant={isItalic ? "secondary" : "ghost"}
-        onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic")}
-      >
-        <Italic className="h-4 w-4" />
-      </Button>
-      <Button
-        type="button"
-        size="icon"
-        variant={isUnderline ? "secondary" : "ghost"}
-        onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline")}
-      >
-        <Underline className="h-4 w-4" />
-      </Button>
+    <div className="flex gap-1 border-b border-line bg-[#FAFAF9] p-1.5">
+      {formats.map(({ format, label, active, Icon }) => (
+        <Button
+          key={format}
+          type="button"
+          size="icon"
+          variant="ghost"
+          aria-label={label}
+          aria-pressed={active}
+          title={label}
+          className={active ? "size-9 rounded-full bg-ink text-white hover:bg-ink hover:text-white" : "size-9 rounded-full text-body-2 hover:bg-[#EFEDEA] hover:text-ink"}
+          onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, format)}
+        >
+          <Icon className="h-4 w-4" />
+        </Button>
+      ))}
     </div>
   );
 }
@@ -150,7 +153,8 @@ function InitialContentPlugin({ initialHtml }: { initialHtml: string | null }) {
               const parser = new DOMParser();
               const dom = parser.parseFromString(initialHtml, 'text/html');
               const nodes = $generateNodesFromDOM(editor, dom);
-              $getRoot().select();
+              // Clear the empty starting paragraph first, or every edit saves a blank line above the content.
+              $getRoot().clear().select();
               $insertNodes(nodes);
           });
       }
@@ -162,9 +166,11 @@ function InitialContentPlugin({ initialHtml }: { initialHtml: string | null }) {
 export function LexicalEditor({
   onChange,
   initialValue,
+  placeholder = "Write your insight content here...",
 }: {
   onChange: (html: string) => void;
   initialValue?: string | null;
+  placeholder?: string;
 }) {
   const initialConfig = {
     namespace: "InsightEditor",
@@ -177,16 +183,16 @@ export function LexicalEditor({
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
-      <div className="border rounded-md">
+      <div className="border border-[#8C8C8C] bg-white transition-[border-color,box-shadow] duration-150 focus-within:border-ink focus-within:ring-[3px] focus-within:ring-[#FF4820]/25 hover:border-ink">
         <ToolbarPlugin />
         <div className="relative">
           <RichTextPlugin
             contentEditable={
-              <ContentEditable className="p-4 min-h-[300px] prose dark:prose-invert prose-sm max-w-none focus:outline-none" />
+              <ContentEditable className="min-h-[320px] px-5 py-4 prose prose-sm max-w-none text-[15px] text-ink focus:outline-none" />
             }
             placeholder={
-              <div className="absolute top-4 left-4 text-muted-foreground pointer-events-none">
-                Write your insight content here...
+              <div className="pointer-events-none absolute left-5 top-4 text-[15px] text-[#6B6B70]">
+                {placeholder}
               </div>
             }
             ErrorBoundary={LexicalErrorBoundary}
