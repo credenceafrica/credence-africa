@@ -1,91 +1,44 @@
-
 "use client";
 
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '@/firebase';
-import { useRouter, usePathname } from 'next/navigation';
-import { useEffect, type ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Home, Newspaper, MessagesSquare, FileText, List } from 'lucide-react';
-import { Logo } from '@/components/logo';
-import { cn } from '@/lib/utils';
-
-const navItems = [
-    { href: '/admin', label: 'Dashboard', icon: <Home className="size-4" /> },
-    { href: '/admin/insights', label: 'Insights', icon: <Newspaper className="size-4" /> },
-    { href: '/admin/comments', label: 'Comments', icon: <List className="size-4" /> },
-    { href: '/admin/consultations', label: 'Consultations', icon: <MessagesSquare className="size-4" /> },
-    { href: '/admin/case-study-requests', label: 'Case Study Requests', icon: <FileText className="size-4" /> },
-];
+import { signOut } from "firebase/auth";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, type ReactNode } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { AdminShell } from "@/components/admin/shell";
+import { auth } from "@/firebase";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
-  const [user, loading] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth!);
   const router = useRouter();
-  const pathname = usePathname();
+  const onLogin = usePathname() === "/admin/login";
 
   useEffect(() => {
-    if (!loading && !user && pathname !== '/admin/login') {
-      router.push('/admin/login');
-    }
-  }, [user, loading, router, pathname]);
+    if (loading) return;
+    if (!user && !onLogin) router.replace("/admin/login");
+    if (user && onLogin) router.replace("/admin");
+  }, [user, loading, onLogin, router]);
 
-  const handleLogout = async () => {
-    await auth.signOut();
-    router.push('/admin/login');
-  };
+  // The sign-in page shows at once; it moves on by itself if the session turns out to be signed in.
+  if (onLogin) return user ? null : <>{children}</>;
 
-  if (loading) {
+  if (loading || !user) {
     return (
-        <div className="flex items-center justify-center min-h-screen">
-            <p>Loading...</p>
-        </div>
+      <div role="status" aria-label="Checking your sign-in" className="grid min-h-dvh place-items-center bg-white">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo.png" alt="" width={902} height={98} className="h-[21px] w-auto animate-pulse" />
+      </div>
     );
   }
 
-  if (!user && pathname !== '/admin/login') {
-    return null;
-  }
-
-  if (pathname === '/admin/login') {
-    return <>{children}</>;
-  }
-
   return (
-    <div className="min-h-screen flex flex-col bg-muted/40 text-base">
-        <header className="bg-background border-b sticky top-0 z-50">
-            <div className="container mx-auto flex h-20 items-center justify-between">
-                <div className="flex items-center gap-6">
-                    <Link href="/admin">
-                        <Logo className="h-8 w-auto" />
-                    </Link>
-                </div>
-                <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-                     {navItems.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={cn(
-                                "flex items-center gap-2 transition-colors hover:text-primary",
-                                (pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))) ? "text-primary font-semibold" : "text-muted-foreground"
-                            )}
-                        >
-                            {item.icon}
-                            <span>{item.label}</span>
-                        </Link>
-                    ))}
-                </nav>
-                <div className="flex items-center gap-4">
-                     <p className="text-sm font-medium text-muted-foreground">Hi, Credence</p>
-                     {user && (
-                        <Button variant="outline" size="sm" onClick={handleLogout}>
-                            Logout
-                        </Button>
-                    )}
-                </div>
-            </div>
-        </header>
-        <main className="flex-grow container mx-auto py-8">{children}</main>
-    </div>
+    <AdminShell
+      email={user.email ?? ""}
+      onSignOut={async () => {
+        await signOut(auth!);
+        router.replace("/admin/login");
+      }}
+    >
+      {children}
+    </AdminShell>
   );
 }

@@ -64,6 +64,8 @@ export default function RootLayout({
 
                 // Lead tracking: phone, email and WhatsApp link clicks anywhere on the site.
                 document.addEventListener('click', function (e) {
+                  // The admin links to enquirers' addresses; those clicks are replies, not leads.
+                  if (location.pathname.indexOf('/admin') === 0) return;
                   var a = e.target.closest && e.target.closest('a[href]');
                   if (!a) return;
                   var h = a.getAttribute('href');

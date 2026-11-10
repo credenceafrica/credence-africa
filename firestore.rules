@@ -39,5 +39,44 @@ service cloud.firestore {
       // Only admins can manage them.
       allow read, write: if request.auth != null;
     }
+
+    // Credence Intelligence briefings. Visitors to the form can only add entries; admins manage them.
+    function isBriefingPerson(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 200
+        && data.email is string && data.email.size() <= 320 && data.email == data.email.lower()
+        && data.email.matches('[^@ ]+@[^@ ]+[.][^@ ]+')
+        && data.phone is string && data.phone.size() <= 32
+        && data.sectors is list && data.sectors.size() > 0
+        && data.sectors.hasOnly(['Banking', 'Payments', 'Operations', 'Research', 'Policy', 'Other'])
+        && data.otherSector is string && data.otherSector.size() <= 200
+        && data.createdAt == request.time;
+    }
+
+    match /briefingLeads/{leadId} {
+      allow create: if isBriefingPerson(request.resource.data)
+        && request.resource.data.subscribed is bool
+        && request.resource.data.keys().hasOnly(['name', 'email', 'phone', 'sectors', 'otherSector', 'subscribed', 'createdAt']);
+      allow read, delete: if request.auth != null;
+    }
+
+    match /briefingSubscribers/{subscriberId} {
+      // The ID must be the hash of the address and visitors can only create, so one address is one entry.
+      allow create: if isBriefingPerson(request.resource.data)
+        && subscriberId == hashing.sha256(request.resource.data.email).toHexString().lower()
+        && request.resource.data.status == 'subscribed'
+        && request.resource.data.token is string && request.resource.data.token.size() >= 32
+        && request.resource.data.subscribedAt == request.time
+        && request.resource.data.keys().hasOnly(['name', 'email', 'phone', 'sectors', 'otherSector', 'status', 'token', 'createdAt', 'subscribedAt']);
+      // Holding the token from an emailed link is the only way to change an entry without signing in.
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'unsubscribedAt', 'proof'])
+        && request.resource.data.status == 'unsubscribed'
+        && request.resource.data.proof == resource.data.token
+        && request.resource.data.unsubscribedAt == request.time;
+      allow read, delete: if request.auth != null;
+    }
+
+    match /briefingSends/{sendId} {
+      allow read, write: if request.auth != null;
+    }
   }
 }

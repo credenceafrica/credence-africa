@@ -553,7 +553,7 @@ export const servicePages: Record<string, ServicePage> = {
     "title": "Market Research and Intelligence Kenya | Credence Africa",
     "description": "Commission market research, sector studies, demand assessment, policy analysis and commercial intelligence for investors, companies and institutions in Kenya.",
     "hero": {
-      "title": "Research and market intelligence in Kenya",
+      "title": "Research and Market Intelligence in Kenya",
       "intro": "Important institutional decisions need evidence that the people responsible for them are able to examine and use. Credence Intelligence is Credence Africa's research and market intelligence practice. We work with companies, investors, development organisations and public institutions on questions about markets, investment, policy and programme performance.",
       "crumbs": [
         {

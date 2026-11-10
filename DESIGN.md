@@ -147,6 +147,8 @@ and bottom, so there is never a gap between cells.
   statement, then the live event listings, then the rest of its sections. The copy lives in `src/lib/*-content.ts`,
   `audience-pages.ts`, `service-pages.ts` and `copy-pages.ts`, generated from the canvas, with each
   page's search title and description.
+- **Briefings band** (`BriefingsBand`): an ink split on the Research page, before the FAQ, whose button
+  opens the Credence Intelligence Briefings form in the same ink dialog as the consultation form.
 - **Header**: absolute over the hero, translucent ink with a 6px blur, dropdown menus on
   `#111111`, a white "Book a Consultation" pill; collapses to a menu button at 1180px. Services
   lists the four trade programmes under Trade and Growth, indented, 13px and `#A3A3A3`, and sends
@@ -204,3 +206,25 @@ The canvas is drawn at desktop and 390px. These rules adapt it to the sizes betw
 - Separate content with hairlines and ink bands, not shadows; the hero card and dropdowns are
   the only shadowed elements.
 - Pages start with the hero (the header is white and sits over it).
+
+## 9. Admin
+
+The admin (`/admin`) is a working tool, so it follows product rules rather than the marketing
+ones: a fixed type scale, no entrance motion and vermillion only for primary actions, the current
+page and things waiting for attention. It keeps the site's identity: Outfit, ink, square frames,
+pill buttons and the kicker square.
+
+- **Shell** (`src/components/admin/shell.tsx`): from 1024px, a 264px ink sidebar grouped into
+  Publishing and Enquiries; the current page is a `#1E1E1E` tile with a vermillion icon and
+  square. Below 1024px an ink top bar opens the same navigation as a drawer from the left.
+- **Pages** open with a 40px title (30px on phones) at -0.035em with its count in grey, then the
+  page's actions as pills: vermillion for the main one, outlined ink for the rest.
+- **Lists:** enquiries and comments are an inbox (`Entry`) because the message is the point.
+  Everything else is a table that becomes labelled records below 768px (`RecordTable`). Lists
+  open on a 1px ink rule; tables sit in a hairline frame with a `#FAFAF9` header row.
+- **States:** skeleton rows while loading, a dashed frame with an ink icon tile when empty and a
+  red-tinted panel with Try again when Firestore refuses. Deleting always asks first and uses a
+  red pill (`#B42318`), never vermillion.
+- **Dates** are British: 10 Nov 2026, 14:32.
+- The shared parts live in `src/components/admin/ui.tsx`. Use them rather than restyling the
+  shadcn components page by page.
