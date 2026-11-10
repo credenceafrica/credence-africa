@@ -66,7 +66,7 @@ export function Pill({
     <SmartLink
       href={href}
       className={cn(
-        "pill inline-flex items-center gap-2 rounded-full px-[22px] text-[14.5px]",
+        "pill inline-flex items-center gap-2 rounded-full px-[22px] text-[13px]",
         pillVariants[variant],
         className,
       )}
@@ -79,7 +79,7 @@ export function Pill({
 
 /** Bordered pill used for tags and related links on a light ground. */
 export function Chip({ href, children, className }: { href?: string; children: ReactNode; className?: string }) {
-  const cls = cn("rounded-full border border-chip px-4 py-[9px] text-[14px] font-medium", className);
+  const cls = cn("rounded-full border border-chip px-4 py-[9px] text-[12.5px] font-medium", className);
   return href ? (
     <SmartLink href={href} className={cn("chip hit", cls)}>
       {children}
@@ -140,14 +140,14 @@ export function FaqList({ items }: { items: { q: string; a: string }[] }) {
       {items.map((f) => (
         <details key={f.q} className="border-b border-line">
           <summary className="flex items-center justify-between gap-4 py-6 font-medium">
-            <h3 className="m-0 text-[17px] font-medium leading-[1.4]">{f.q}</h3>
+            <h3 className="m-0 text-[15.5px] font-medium leading-[1.4]">{f.q}</h3>
             <span className="faq-plus flex size-8 shrink-0 items-center justify-center rounded-full border border-chip">
               <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden="true">
                 <path d="M12 5v14M5 12h14" />
               </svg>
             </span>
           </summary>
-          <p className="mb-6 max-w-[600px] text-[15.5px] text-body-2">{f.a}</p>
+          <p className="mb-6 max-w-[600px] text-[14px] text-body-2">{f.a}</p>
         </details>
       ))}
     </div>
@@ -169,10 +169,10 @@ export function FaqJsonLd({ items }: { items: { q: string; a: string }[] }) {
 }
 
 const ctaHeading = {
-  copy: "text-[clamp(40px,5.2vw,80px)] leading-[1.02]",
-  page: "text-[clamp(40px,5vw,76px)] leading-[1.02]",
-  large: "text-[clamp(44px,6vw,92px)] leading-none",
-  event: "text-[clamp(38px,4.8vw,72px)] leading-[1.04]",
+  copy: "text-[clamp(36px,4.68vw,72px)] leading-[1.02]",
+  page: "text-[clamp(36px,4.5vw,68.5px)] leading-[1.02]",
+  large: "text-[clamp(39.5px,5.4vw,83px)] leading-none",
+  event: "text-[clamp(34px,4.32vw,65px)] leading-[1.04]",
 } as const;
 
 /** Closing band over the city photograph. */
@@ -195,7 +195,7 @@ export function CtaBand({
     <section className={cn("ph-city relative overflow-hidden text-white", padding)}>
       <div className="wrap relative flex max-w-[1000px] flex-col items-center gap-6 text-center">
         <h2 className={cn("h2 m-0 text-balance font-normal tracking-[-0.045em]", ctaHeading[size])}>{heading}</h2>
-        {text && <p className={cn("m-0 text-[17px] text-[#D4D4D4]", textWidth)}>{text}</p>}
+        {text && <p className={cn("m-0 text-[15.5px] text-[#D4D4D4]", textWidth)}>{text}</p>}
         {children}
       </div>
     </section>
